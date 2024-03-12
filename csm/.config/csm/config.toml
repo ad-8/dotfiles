@@ -1,0 +1,23 @@
+[[classes]]
+name = "audio"
+exts = ["mp3", "flac", "m4a", "m4b"]
+
+[[classes]]
+name = "a"
+exts = ["mp3", "flac", "m4a", "m4b"]
+
+[[classes]]
+name = "video"
+exts = ["mp4", "mkv", "webm"]
+
+[[classes]]
+name = "v"
+exts = ["mp4", "mkv", "webm"]
+
+[[classes]]
+name = "text"
+exts = ["txt", "md", "csv", "json"]
+
+[[classes]]
+name = "t"
+exts = ["txt", "md", "csv", "json"]
