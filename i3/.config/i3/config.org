@@ -24,7 +24,7 @@ Find the default config template here:
 - [[#bar][bar]]
 - [[#binding-modes][Binding Modes]]
   - [[#resize][resize]]
-  - [[#launch-w-modo-todo-work-on-this][launch w/ $mod+o (TODO work on this)]]
+  - [[#launch-applications-with-modo][launch applications with $mod+o]]
 - [[#bindsym][bindsym]]
   - [[#basics][basics]]
   - [[#audio][audio]]
@@ -177,19 +177,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 #+end_src
 
-** launch w/ $mod+o (TODO work on this)
-https://i3wm.org/docs/userguide.html#binding_modes
+** launch applications with $mod+o
+Launch (a few select) applications faster than with dmenu.
+About modes: https://i3wm.org/docs/userguide.html#binding_modes
 
 #+begin_src shell
-# Press $mod+o followed by either f, t, Escape or Return to launch firefox,
-# thunderbird or return to the default mode, respectively.
-set $mode_launcher Launch: [f]irefox [t]hunderbird
+set $mode_launcher Launch: [b]lueman [f]irefox
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-    # the , is acting as a separator between the two commands
+    bindsym b exec blueman-manager; mode "default"
     bindsym f exec firefox; mode "default"
-    bindsym t exec thunderbird
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -317,7 +315,6 @@ bindsym $mod+i      exec "~/code/scripts/bb/src/run_script.clj"
 bindsym $mod+g      exec "~/code/scripts/bb/src/search.clj"
 bindsym $mod+Mod1+c exec "~/code/scripts/bb/src/edit_configs.clj"
 bindsym $mod+Mod1+e exec "~/.config/i3/dmenuunicode"
-bindsym $mod+Mod1+k exec "dunstctl close-all"
 bindsym $mod+Mod1+l exec "/usr/local/bin/licht"
 #+end_src
 
@@ -334,6 +331,8 @@ TODO: why isn't "RECOMMENDED USAGE: xss-lock --transfer-sleep-lock -- i3lock --n
 TODO: sleep x minutes after locking screen
 
 #+begin_src shell
+# "kill" notifications
+bindsym $mod+Mod1+k exec "dunstctl close-all"
 
 bindsym $mod+Mod1+x exec i3lock --color 000000 --show-failed-attempts
 bindsym $mod+Shift+x exec i3lock --color 000000 --show-failed-attempts && systemctl suspend
@@ -349,7 +348,6 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
-
 #+end_src
 
 * Colors and UI
