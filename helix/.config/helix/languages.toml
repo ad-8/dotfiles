@@ -1,0 +1,9 @@
+[[language]]
+name = "rust"
+
+[[language]]
+name = "clojure"
+
+
+#[language.config]
+#checkOnSave = { command = "clippy" }

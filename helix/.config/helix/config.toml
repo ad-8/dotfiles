@@ -1,0 +1,26 @@
+theme = "nord"
+
+[editor]
+line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+# https://docs.helix-editor.com/remapping.html
+[keys.normal]
+C-r = ":sh cargo run"
+C-t = ":sh cargo test" 
+C-e = ":sh echo howdy"
+# why only showing last one?
+# "backspace" = { r = ":sh cargo run" }
+# "backspace" = { t = ":sh cargo test" }
+# "backspace" = { x = ":sh echo howdy" }
+# x = { r = ":sh cargo run" }
+# x = { t = ":sh cargo test" }
+# x = { x = ":sh echo howdy" }
