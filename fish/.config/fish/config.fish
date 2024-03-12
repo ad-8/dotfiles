@@ -19,6 +19,7 @@ abbr -a nt 'ntfy-cli -@ "test" -t "NTFY" -m "'
 abbr -a syncmoto "rsync -ahvP --stats '/media/ax/wd2b/0-localsync/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n
 "
 
+
 abbr -a i3t i3timer
 abbr -a ser 'xdg-open ~/Documents/serien2020.ods'
 abbr -a cm chezmoi
@@ -173,10 +174,19 @@ source ~/.local/share/icons-in-terminal/icons.fish
 
 #echo "sourced nnn"
 export TERMINAL='kitty'
-export EDITOR='hx'
+
+#export EDITOR='hx'
+export ALTERNATE_EDITOR=""
+export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
+
 # for nnn 'cd on quit' functionality
 #set --export NNN_TMPFILE ~/.config/nnn/.lastd
 alias nf rnf
+
+# when changing between abbr and alias, remove entry from `fish_variables` accordingly 
+#abbr -a em 'emacsclient -t'
+alias e "emacsclient -t" 
 
 # starship
 source (/home/linuxbrew/.linuxbrew/bin/starship init fish --print-full-init | psub)
