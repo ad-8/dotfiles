@@ -1,0 +1,107 @@
+#  
+#                                                                             
+#     "     mmmm           m             m                                      
+#   mmm    "   "#  mmm   mm#mm   mmm   mm#mm  m   m   mmm           m mm   mmm  
+#     #      mmm" #   "    #    "   #    #    #   #  #   "          #"  " #   " 
+#     #        "#  """m    #    m"""#    #    #   #   """m   """    #      """m 
+#   mm#mm  "mmm#" "mmm"    "mm  "mm"#    "mm  "mm"#  "mmm"          #     "mmm" 
+#                                                                              
+#                                                                               
+# Runtime files from files directory are expected to be installed 
+# in /usr/share/i3status-rust or $XDG_DATA_HOME/i3status-rust.
+# -> /usr/share/i3status-rust must contain the `icons` and `themes` dirs
+#    that can be found in the repo inside `files`
+icons_format = "{icon}"
+
+[theme]
+theme = "native"
+[theme.overrides]
+idle_bg = "#000000"
+idle_fg = "#abcdef"
+critical_bg = "#bf616a" # red
+critical_fg = "#2e3440" # nord0
+
+[icons]
+icons = "awesome4"
+[icons.overrides]
+bat = ["|E|", "|_|", "|=|", "|F|"]
+bat_charging = "|^| "
+
+[[block]]
+block = "custom"
+command = "metal i3"
+interval = 5
+[block.theme_overrides]
+idle_fg = "#D08770"
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "custom"
+command = "~/.config/i3/licht.sh"
+interval = 5
+
+[[block]]
+block = "custom"
+command = "i3weather"
+interval = 300
+[block.theme_overrides]
+idle_fg = "#A3BE8C"
+
+[[block]]
+block = "cpu"
+info_cpu = 20
+warning_cpu = 50
+critical_cpu = 90
+
+[[block]]
+block = "packages"
+package_manager = ["apt"]
+interval = 1800
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 11.0 # how to deactivate? removing this line doesn't do it
+alert = 10.0
+format = " $icon $available.eng(w:2) "
+
+# [[block]]
+# block = "memory"
+# format = " $icon $mem_total_used_percents.eng(w:2) "
+# format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+# [block.theme_overrides]
+
+[[block]]
+block = "custom"
+interval = 1
+command="i3timer"
+[block.theme_overrides]
+idle_fg = "#B48EAD"
+
+[[block]]
+block = "custom"
+interval = 60
+command="LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y'"
+[block.theme_overrides]
+idle_fg = "#ebcb8b"
+
+[[block]]
+block = "time"
+interval = 1
+format = " $timestamp.datetime(f:' %H:%M:%S') "
+[block.theme_overrides]
+idle_fg = "#D08770"
+
+[[block]]
+block = "custom"
+json = true
+command = "i3vpn"
+interval = 10
