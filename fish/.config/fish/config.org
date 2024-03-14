@@ -39,20 +39,14 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 * abbr
 ** cd
 #+begin_src shell
-abbr -a cda 'cd /Volumes/AppleEnc'
 abbr -a cdc 'cd ~/code'
 abbr -a cdo 'cd ~/obsidian-vault'
-abbr -a cdg 'cd ~/code/golang/'
-abbr -a cdi 'cd "/Users/ax/Library/Mobile Documents/com~apple~CloudDocs/"'
 abbr -a cdM 'cd ~/MEGAsync/'
 abbr -a cdm 'cd /media/ax'
 abbr -a cdp 'cd ~/code/python/'
 abbr -a cdr 'cd ~/code/rust'
-abbr -a cdt 'cd /Volumes/TimeMachine/'
-abbr -a cdb 'cd /Volumes/Blackbeard5'
 abbr -a cdj "cd ~/code/clojure"
 
-abbr -a db 'cd ~/Dropbox'
 abbr -a dl 'cd ~/Downloads'
 abbr -a dot 'cd ~/.config'
 abbr -a dt 'cd ~/Desktop/'

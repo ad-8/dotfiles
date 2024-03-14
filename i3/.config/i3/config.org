@@ -120,9 +120,8 @@ Currently using i3status-rs, because i3blocks seems barely maintained anymore.
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
-        #status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        status_command ~/.cargo/bin/i3status-rs ~/.config/i3status-rust/config.toml
         # status_command i3status
+        status_command ~/.cargo/bin/i3status-rs ~/.config/i3status-rust/config.toml
 
         # just to demonstrate how the status bar works, see this little script, the output of which is put into the status bar
         # status_command ~/.config/i3/bar.sh
@@ -182,12 +181,13 @@ Launch (a few select) applications faster than with dmenu.
 About modes: https://i3wm.org/docs/userguide.html#binding_modes
 
 #+begin_src shell
-set $mode_launcher Launch: [b]lueman [f]irefox
+set $mode_launcher Launch: [b]lueman [f]irefox [k]itty 
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym b exec blueman-manager; mode "default"
     bindsym f exec firefox; mode "default"
+    bindsym k exec kitty; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -196,12 +196,23 @@ mode "$mode_launcher" {
 
 * bindsym
 ** basics
+I almost had to hard reboot a new installation because kitty was missing and I thought the keybindings didn't work.
+
+Use ~i3-sensible-terminal~ as default, not a specific terminal. 
+
+It tries to start one of the following (in that order):
+•$TERMINAL (this is a non-standard variable)
+•x-terminal-emulator (only present on Debian and derivatives)
+•mate-terminal
+•gnome-terminal
+•terminator
+•xfce4-terminal
+• and many more, see ~man i3-sensible-terminal~
+
 #+begin_src shell
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec gnome-terminal --hide-menubar
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
