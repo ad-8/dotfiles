@@ -212,7 +212,10 @@ It tries to start one of the following (in that order):
 #+begin_src shell
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# flavor of the month :) 
+bindsym $mod+Return exec alacritty
+# fallback
+bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
