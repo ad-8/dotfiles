@@ -34,7 +34,7 @@ end
 * homebrew
 I think this has to be at/near the top of the actual config file.
 #+begin_src shell
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 #+end_src
 
 * abbr
@@ -210,11 +210,11 @@ export TERMINAL='kitty'
 #+begin_src shell
 
 # TODO still relevant?
-source ~/.local/share/icons-in-terminal/icons.fish
+# source ~/.local/share/icons-in-terminal/icons.fish
 
 source ~/.config/fish/nnn.fish
 ## Stuff that should be at the end
-zoxide init fish | source
+# zoxide init fish | source
 
 #+end_src
 
@@ -222,7 +222,7 @@ zoxide init fish | source
 From the docs:
 Add the following to the end of ~/.config/fish/config.fish:
 #+begin_src shell
-starship init fish | source
+# starship init fish | source
 #+end_src
 
 Why do/did I have this?
