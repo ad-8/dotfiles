@@ -21,6 +21,7 @@
 - [[#export][export]]
   - [[#editor--visual][EDITOR / VISUAL]]
   - [[#terminal][TERMINAL]]
+- [[#greeting][greeting]]
 - [[#stuff-that-should-be-at-the-end][stuff that should be at the end]]
   - [[#starship][starship]]
 
@@ -44,7 +45,7 @@ abbr -a cdc 'cd ~/code'
 abbr -a cdd 'cd ~/dotfiles'
 abbr -a cdj "cd ~/code/clojure"
 abbr -a cdm 'cd /media/ax'
-abbr -a cdM 'cd ~/MEGAsync/'
+abbr -a cdM 'cd ~/MEGA/MEGAsync/'
 abbr -a cdo 'cd ~/obsidian-vault'
 abbr -a cdp 'cd ~/code/python/'
 abbr -a cdr 'cd ~/code/rust'
@@ -82,7 +83,7 @@ abbr -a cgr 'cargo run'
 abbr -a cgt 'cargo test'
 abbr -a ebands "e $HOME/.metal/bands.csv"
 abbr -a el 'eza -l --group-directories-first --icons'
-abbr -a fd fdfind
+#abbr -a fd fdfind
 abbr -a gi 'grep -i'
 abbr -a hg 'history | grep -i'
 abbr -a i3t i3timer
@@ -206,6 +207,15 @@ export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
 export TERMINAL='kitty'
 #+end_src
 
+
+* greeting
+Set to ~""~ to disable the default welcome msg.
+#+begin_src shell
+set -U fish_greeting ""
+set -Ux PAGER less
+#+end_src
+
+
 * stuff that should be at the end
 #+begin_src shell
 
@@ -222,7 +232,7 @@ source ~/.config/fish/nnn.fish
 From the docs:
 Add the following to the end of ~/.config/fish/config.fish:
 #+begin_src shell
-# starship init fish | source
+starship init fish | source
 #+end_src
 
 Why do/did I have this?

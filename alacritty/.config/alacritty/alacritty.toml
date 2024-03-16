@@ -1,0 +1,32 @@
+# General Info and Config Howto:
+# https://wiki.archlinux.org/title/Alacritty
+
+# ---
+
+# https://github.com/alacritty/alacritty-theme 
+import = [
+    "~/.config/alacritty/themes/themes/nord.toml"
+]
+
+# ---
+
+[font]
+size = 10
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+
