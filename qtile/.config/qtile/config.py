@@ -32,21 +32,52 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
+# Allows you to input a name when adding treetab section.
+@lazy.layout.function
+def add_treetab_section(layout):
+    prompt = qtile.widgets_map["prompt"]
+    prompt.start_input("Section name: ", layout.cmd_add_section)
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    
+    # Treetab prompt
+    Key([mod, "shift"], "a", add_treetab_section, desc='Prompt to add new section in treetab'),
+
+
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "h",
+        lazy.layout.shuffle_left(),
+        lazy.layout.move_left().when(layout=["treetab"]),
+        desc="Move window to the left/move tab left in treetab"),
+
+    Key([mod, "shift"], "l",
+        lazy.layout.shuffle_right(),
+        lazy.layout.move_right().when(layout=["treetab"]),
+        desc="Move window to the right/move tab right in treetab"),
+
+    Key([mod, "shift"], "j",
+        lazy.layout.shuffle_down(),
+        lazy.layout.section_down().when(layout=["treetab"]),
+        desc="Move window down/move down a section in treetab"
+    ),
+    Key([mod, "shift"], "k",
+        lazy.layout.shuffle_up(),
+        lazy.layout.section_up().when(layout=["treetab"]),
+        desc="Move window downup/move up a section in treetab"
+    ),
+    
+
+
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
@@ -78,6 +109,12 @@ keys = [
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    
+    # new ones
+    Key([mod], "d", lazy.spawn("i3-dmenu-desktop"), desc="dmenu desktop apps"),
+    Key([mod, "shift"], "d", lazy.spawn("dmenu_run -l 25"), desc="dmenu cmd apps"),
+
+
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -122,8 +159,12 @@ for i in groups:
 
 # order in list = order after reload
 layouts = [
+    layout.TreeTab(),
+    layout.Max(
+        border_focus='',
+        border_normal='',
+        border_width=3),
     layout.MonadTall(ratio=0.6),
-    layout.Max(),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -132,7 +173,6 @@ layouts = [
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
