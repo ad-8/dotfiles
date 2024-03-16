@@ -25,11 +25,12 @@
 # SOFTWARE.
 
 from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
+alt_left = "mod1"
 terminal = guess_terminal()
 
 # Allows you to input a name when adding treetab section.
@@ -45,12 +46,14 @@ keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
 
+
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     
     # Treetab prompt
     Key([mod, "shift"], "a", add_treetab_section, desc='Prompt to add new section in treetab'),
 
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc='toggle fullscreen'),
 
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
@@ -75,10 +78,7 @@ keys = [
         lazy.layout.section_up().when(layout=["treetab"]),
         desc="Move window downup/move up a section in treetab"
     ),
-    
-
-
-    # Grow windows. If current window is on the edge of screen and direction
+    # Grow (resize) windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
@@ -108,13 +108,24 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+
+    Key([mod, alt_left], "x", lazy.spawn('i3lock --color 000000 --show-failed-attempts'), desc="Lock Screen"),
+    Key([mod, "shift"], "x", lazy.spawn('/usr/local/bin/lock-n-sleep.sh', shell=True), desc="Lock Screen & Suspend"),
+
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     
     # new ones
     Key([mod], "d", lazy.spawn("i3-dmenu-desktop"), desc="dmenu desktop apps"),
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run -l 25"), desc="dmenu cmd apps"),
+    Key([mod], 'period', lazy.next_screen(), desc='Next monitor'),
 
-
+    # Emacs programs launched using the key chord CTRL+e followed by 'key'
+    KeyChord([mod],"o", [
+        Key([], "a", lazy.spawn("alacritty"), desc='launch alacritty'),
+        Key([], "b", lazy.spawn("blueman-manager"), desc='launch blueman'),
+        Key([], "e", lazy.spawn("emacs"), desc='launch emacs'),  # TODO launch emacsclient
+        Key([], "f", lazy.spawn("firefox"), desc='launch firefox'),
+    ]),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -131,6 +142,7 @@ for vt in range(1, 8):
     )
 
 
+group_layouts = ["monadtall", "monadtall", "tile", "tile"]
 groups = [Group(i) for i in "1234"]
 
 for i in groups:
@@ -159,13 +171,13 @@ for i in groups:
 
 # order in list = order after reload
 layouts = [
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.TreeTab(),
     layout.Max(
         border_focus='',
         border_normal='',
         border_width=3),
-    layout.MonadTall(ratio=0.6),
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    # layout.MonadTall(ratio=0.6),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -259,7 +271,7 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
-cursor_warp = False
+cursor_warp = True # aaah finally :) move cursor when switching focus
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
