@@ -1,0 +1,5 @@
+venv
+.venv
+qbit
+*.dmg
+**/rust/**/target

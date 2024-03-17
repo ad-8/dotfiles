@@ -65,7 +65,7 @@ interval = 1800
 
 [[block]]
 block = "disk_space"
-path = "/home"
+path = "/"
 info_type = "available"
 alert_unit = "GB"
 interval = 20
@@ -73,6 +73,15 @@ warning = 11.0 # how to deactivate? removing this line doesn't do it
 alert = 10.0
 format = " $icon $available.eng(w:2) "
 
+[[block]]
+block = "disk_space"
+path = "/home"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 11.0 # how to deactivate? removing this line doesn't do it
+alert = 10.0
+format = " $icon $available.eng(w:2) "
 # [[block]]
 # block = "memory"
 # format = " $icon $mem_total_used_percents.eng(w:2) "

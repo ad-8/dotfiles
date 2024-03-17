@@ -4,20 +4,24 @@
 #+STARTUP: showeverything
 #+OPTIONS: toc:2
 #+PROPERTY: header-args:shell :tangle config
+#+PROPERTY: header-args:keks :tangle keks
 
 - If changes to PROPERTY line above, refresh local setup by pressing ~C-c C-c~ with the cursor being on the line with PROPERTY before exporting (tangling) this file
 - ~Ctrl-U + Tab~ to cycle thru heading collaped state
 - Fookeks vs ~Fookeks~
   
 Export, e.g. to html, works when TOC is removed (sth with the links there makes it fail)
-  
+#+begin_src keks
+echo I AM KEKS
+TODO rm this, just shows how to tangle to different files
+#+end_src 
+
 Find the default config template here:
 ~/etc/i3/config.keycodes~
 
 * TABLE OF CONTENTS :toc:
 - [[#todo][TODO]]
 - [[#top-of-file---info][Top of File - Info]]
-- [[#assign][assign]]
 - [[#basic-setup][Basic Setup]]
   - [[#mod-key][Mod Key]]
   - [[#floating-mod-key][Floating Mod Key]]
@@ -31,7 +35,6 @@ Find the default config template here:
   - [[#basics][basics]]
   - [[#audio][audio]]
   - [[#dmenu][dmenu]]
-  - [[#emacs-client][emacs client]]
   - [[#more-custom-ones][more custom ones]]
 - [[#colors-and-ui][Colors and UI]]
   - [[#nord-colors][Nord Colors]]
@@ -48,13 +51,14 @@ Find the default config template here:
   - [[#per-workspace-settings][per workspace settings]]
   - [[#some-very-nice-keybindings-for-i3-gaps][Some very nice keybindings for i3-gaps.]]
 - [[#workspaces][Workspaces]]
+  - [[#assign-to-ws][assign to ws]]
   - [[#define-workspaces][Define workspaces]]
   - [[#switch-to-workspace][Switch to workspace]]
   - [[#move-focused-container-to-workspace][Move focused container to workspace]]
+  - [[#back-and-forth][back and forth]]
   - [[#assign-workspace-to-a-specific-display][Assign workspace to a specific display]]
   - [[#panic-mode][Panic Mode]]
-- [[#stuff-that-was-commented-out][Stuff that was commented out]]
-  - [[#fonts][fonts]]
+- [[#float-certain-windows][FLOAT CERTAIN WINDOWS]]
 
 * TODO
 - look at manjaro i3 config file, especially **autostart** and **window rules**
@@ -72,18 +76,6 @@ Find the default config template here:
 #+end_src
 
 
-* assign
-To find out the class name of an application: `xprop` -> enter -> click app -> under `WM_CLASS(STRING)` it's the last value
-
-#+begin_src shell
-assign [class="firefox"] $ws2
-assign [class="jetbrains-rustrover"] $ws4
-assign [instance="^kitty0$"] $ws1
-assign [instance="^kitty1$"] $ws8
-assign [instance="^kitty2$"] $ws8
-assign [instance="^kitty3$"] $ws8
-assign [instance="^kitty4$"] $ws8
-#+end_src
 
 * Basic Setup
 ** Mod Key
@@ -202,15 +194,18 @@ bindsym $mod+r mode "resize"
 Launch (a few select) applications faster than with dmenu.
 About modes: https://i3wm.org/docs/userguide.html#binding_modes
 
+The reason for using ~emacsclient~, as far as I have learned, is simply speed.
+
 #+begin_src shell
-set $mode_launcher Launch: [b]lueman [e]macs [f]irefox [k]itty 
+set $mode_launcher Launch: [a]ppfinder [b]lueman [e]macs [f]irefox [s]ystem-monitor
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
+    bindsym a exec xfce4-appfinder; mode "default"
     bindsym b exec blueman-manager; mode "default"
     bindsym e exec emacsclient --create-frame --alternate-editor=""; mode "default"
     bindsym f exec firefox; mode "default"
-    bindsym k exec kitty; mode "default"
+    bindsym s exec gnome-system-monitor; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -261,10 +256,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -328,8 +323,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 #
 ## Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 #
 ## Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -353,13 +348,6 @@ bindsym $mod+g      exec "~/code/scripts/bb/src/search.clj"
 bindsym $mod+Mod1+c exec "~/code/scripts/bb/src/edit_configs.clj"
 bindsym $mod+Mod1+e exec "~/.config/i3/dmenuunicode"
 bindsym $mod+Mod1+l exec "/usr/local/bin/licht"
-#+end_src
-
-** emacs client
-The reason for using ~emacsclient~, as far as I have learned, is simply speed.
-
-#+begin_src shell
-bindsym $mod+m exec emacsclient --create-frame --alternate-editor=""
 #+end_src
 
 ** more custom ones
@@ -499,6 +487,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec --no-startup-id megasync
+
+# TODO what does it do?
+# exec --no-startup-id xfsettingsd
+# TODO thought it would help with error msg when mounting enc ext HDD
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #+end_src
 
@@ -510,6 +504,17 @@ e.g. ~WM_CLASS(STRING) = "kitty1", "kitty"~
 
 # TODO locks when playing movie, figure out better solution
 exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
+
+# in ~xfce4-power-manager-settings~ (GUI), enabled ~handle display brightness keys~, 
+# and with exec here, and after restart, those keys *finally* work
+exec_always --no-startup-id xfce4-power-manager
+
+# already running, and not sure what exactly *to exec*
+# exec xfce4-notifyd
+# TODO install and replace above?!
+# exec dunst &
+# picom & 
+
 #+end_src
 
 ** more exec / exec on startup
@@ -520,7 +525,8 @@ exec_always $HOME/.screenlayout/arandr-config-viewsonic.sh
 #exec_always $HOME/.screenlayout/arandr-config-lg-ultrawide.sh
 
 exec_always set_random_wallpaper
-exec "kitty --name kitty0"
+#exec "kitty --name kitty0"
+exec "alacritty --name alacritty0"
 
 #+end_src
 
@@ -549,6 +555,10 @@ exec_always --no-startup-id emacs --daemon
 # workspace $ws3 gaps right 20
 # workspace $ws3 gaps top 10
 # workspace $ws3 gaps bottom 10
+
+workspace $ws2 gaps horizontal 100
+workspace $ws2 gaps vertical   25
+
 workspace $ws3 gaps inner 0
 workspace $ws3 gaps horizontal 100
 workspace $ws3 gaps vertical   25
@@ -688,6 +698,22 @@ mode "$mode_gaps_left" {
 #+end_src
 
 * Workspaces
+
+** assign to ws
+To find out the class name of an application: `xprop` -> enter -> click app -> under `WM_CLASS(STRING)` it's the last value
+
+#+begin_src shell
+assign [class="firefox"] $ws2
+assign [class="jetbrains-rustrover"] $ws4
+assign [class="KeePassXC"] $ws10
+assign [instance="^kitty0$"] $ws1
+assign [instance="^alacritty0$"] $ws1
+assign [instance="^kitty1$"] $ws8
+assign [instance="^kitty2$"] $ws8
+assign [instance="^kitty3$"] $ws8
+assign [instance="^kitty4$"] $ws8
+#+end_src
+
 ** Define workspaces
 Define names for default workspaces for which we configure key bindings later on.
 We use variables to avoid repeating the names in multiple places.
@@ -732,12 +758,24 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 #+end_src
 
+** back and forth
+auto back/forth example:
+For instance: Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 because somebody sent you a message. You don’t need to remember where you came from now, you can just press $mod+2 again to switch back to "1: www".
+
+#+begin_src shell
+workspace_auto_back_and_forth yes
+
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth
+#+end_src
+
 ** Assign workspace to a specific display
 Use ~xrandr --listmonitors~ to get the monitor names.
 
 #+begin_src shell
 workspace $ws1 output eDP-1
 workspace $ws8 output eDP-1
+
 #+end_src
 
 ** Panic Mode
@@ -747,18 +785,31 @@ workspace $ws8 output eDP-1
 # workspace 101 output HDMI-2
 #+end_src
 
-* Stuff that was commented out
-** fonts
-1) download zip file of release for desktop: https://github.com/FortAwesome/Font-Awesome
-   I used the latest v5, because I didnt find an official cheatsheet to copy the icons from for v6
-2) mkdir ~/.fonts
-3) cp the following files into ~/.fonts
-	'Font Awesome 6 Brands-Regular-400.otf'  
-	'Font Awesome 6 Free-Solid-900.otf'
-	'Font Awesome 6 Free-Regular-400.otf
+* FLOAT CERTAIN WINDOWS
+# enable floating mode for all XTerm windows
+for_window [class="XTerm"] floating enable
 
---------------------------------------------
-https://www.youtube.com/watch?v=ARKIwOlazKI
-part 3/3 -> how to "rice" your desktop (fonts, window colors, rofi (which is easier to customize and style) instead of dmenu, status bar: i3block instead of i3status, animations on ws change)
-install compton --> exec compton <-- transparent window backgorund and fade effect, e.g. for rofi
+# Make all urxvts use a 1-pixel border:
+for_window [class="urxvt"] border pixel 1
+
+# A less useful, but rather funny example:
+# makes the window floating as soon as I change
+# directory to ~/work
+for_window [title="x200: ~/work"] floating enable
+
+# Move floating container to the center of all outputs -> not what I wanted :)
+bindsym $mod+c move absolute position center
+# ok
+for_window [class="Blueman-manager"] move position mouse
+
+#+begin_src shell
+for_window [class="Xfce4-appfinder"] floating enable
+#for_window [class="Xfce4-appfinder"] border pixel 5
+for_window [class="Xfce4-appfinder"] resize set 640 480
+for_window [class="Xfce4-appfinder"] move position center
+
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Blueman-manager"] resize set 640 480
+for_window [class="Blueman-manager"] move position center
+#+end_src
 

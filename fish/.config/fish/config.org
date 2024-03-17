@@ -16,7 +16,8 @@
   - [[#medium-ones][medium ones]]
   - [[#rsync][(r)sync]]
   - [[#maybe-remove-those][maybe remove those]]
-  - [[#misc][misc]]
+- [[#add-to-path][add to $PATH]]
+- [[#export-env-vars][export ENV vars]]
 - [[#alias][alias]]
 - [[#export][export]]
   - [[#editor--visual][EDITOR / VISUAL]]
@@ -144,8 +145,8 @@ abbr -a syncmoto "rsync -ahvP --stats '/media/ax/wd2b/0-localsync/mukke/' '/run/
 abbr -a syncmov2 'rclone copy --progress /Volumes/Blackbeard5/media/movies/ sgefoo:movies/ -n'
 abbr -a sync-local-only 'rsync -ahvP --delete --stats /Volumes/Blackbeard5/0-localsync/ /Volumes/AppleEnc/0-localsync/ -n'
 
-abbr -a forget 'restic -r ~/MEGAsync/linux-repo/ forget --keep-weekly 52'
-abbr -a rsn 'restic -r ~/MEGAsync/linux-repo/ snapshots'
+abbr -a restic-forget 'restic -r ~/MEGA/MEGAsync/linux-repo/ forget --keep-weekly 52'
+abbr -a restic-snapshots 'restic -r ~/MEGA/MEGAsync/linux-repo/ snapshots'
 #+end_src
 
 ** maybe remove those
@@ -177,17 +178,19 @@ abbr -a synctv2 'rclone copy --progress /Volumes/Blackbeard5/tv2/ sgefoo:tv2/ -n
 
 #+end_src
 
-** misc
+* add to $PATH
+It is (by default) safe to use fish_add_path in config.fish [...]
+
 #+begin_src shell
+fish_add_path ~/.cargo/bin/
+#+end_src
 
-set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
-# Color scheme for oh-my-fish theme "bobthefish"
-set -g theme_color_scheme "nord"
-
+* export ENV vars
+Dont know the flags, but well..
+#+begin_src shell
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
-
-
+set -g theme_color_scheme "nord"
 #+end_src
 
 * alias
@@ -227,7 +230,7 @@ set -Ux PAGER less
 
 source ~/.config/fish/nnn.fish
 ## Stuff that should be at the end
-# zoxide init fish | source
+zoxide init fish | source
 
 #+end_src
 
