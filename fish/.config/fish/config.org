@@ -93,10 +93,12 @@ abbr -a l "licht"
 abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
-abbr -a nf "clear && neofetch && ncal -w && echo && LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y %H:%M:%S' && echo  && pwd"
+#abbr -a nf "clear && neofetch && ncal -w && echo && LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y %H:%M:%S' && echo  && pwd"
+abbr -a nf "clear && neofetch && cal -w --monday && echo && LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y %H:%M:%S' && echo  && pwd"
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='emacsclient -t' nnn"
 abbr -a o. 'open .'
+abbr -a pn protonvpn-cli
 abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
 abbr -a pwdc 'pwd | xclip -selection clipboard'
 abbr -a rc rclone
@@ -121,6 +123,7 @@ abbr -a ai 'apt info'
 abbr -a ain 'sudo apt install'
 abbr -a upb 'brew update && brew upgrade'
 abbr -a up 'sudo apt update && sudo apt upgrade'
+abbr -a pm 'pacman -S'
 #+end_src
 
 ** medium ones

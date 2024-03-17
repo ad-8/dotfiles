@@ -60,12 +60,12 @@ critical_cpu = 90
 
 [[block]]
 block = "packages"
-package_manager = ["apt"]
+package_manager = ["pacman"]
 interval = 1800
 
 [[block]]
 block = "disk_space"
-path = "/"
+path = "/home"
 info_type = "available"
 alert_unit = "GB"
 interval = 20
