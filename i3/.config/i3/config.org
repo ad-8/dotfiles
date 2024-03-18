@@ -51,8 +51,8 @@ Find the default config template here:
   - [[#per-workspace-settings][per workspace settings]]
   - [[#some-very-nice-keybindings-for-i3-gaps][Some very nice keybindings for i3-gaps.]]
 - [[#workspaces][Workspaces]]
-  - [[#assign-to-ws][assign to ws]]
   - [[#define-workspaces][Define workspaces]]
+  - [[#assign-to-ws][assign to ws]]
   - [[#switch-to-workspace][Switch to workspace]]
   - [[#move-focused-container-to-workspace][Move focused container to workspace]]
   - [[#back-and-forth][back and forth]]
@@ -544,22 +544,22 @@ exec_always --no-startup-id emacs --daemon
 
 * GAPS
 ** per workspace settings
-#+begin_src shell
+BASIC SYNTAX global or per workspace
+~gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>~
+~workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>~
 
-# BASIC SYNTAX global or per workspace
-#
-# gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
-# workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
-#
-# workspace $ws3 gaps left 20
-# workspace $ws3 gaps right 20
-# workspace $ws3 gaps top 10
-# workspace $ws3 gaps bottom 10
+#+begin_src shell
+#set $my-inner 10
+##gaps inner $my-inner
+
+workspace $ws1 gaps horizontal 100
+workspace $ws1 gaps vertical   25 
+workspace $ws1 gaps inner 10
 
 workspace $ws2 gaps horizontal 100
 workspace $ws2 gaps vertical   25
 
-workspace $ws3 gaps inner 0
+workspace $ws3 gaps inner 10
 workspace $ws3 gaps horizontal 100
 workspace $ws3 gaps vertical   25
 #+end_src
@@ -699,21 +699,6 @@ mode "$mode_gaps_left" {
 
 * Workspaces
 
-** assign to ws
-To find out the class name of an application: `xprop` -> enter -> click app -> under `WM_CLASS(STRING)` it's the last value
-
-#+begin_src shell
-assign [class="firefox"] $ws2
-assign [class="jetbrains-rustrover"] $ws4
-assign [class="KeePassXC"] $ws10
-assign [instance="^kitty0$"] $ws1
-assign [instance="^alacritty0$"] $ws1
-assign [instance="^kitty1$"] $ws8
-assign [instance="^kitty2$"] $ws8
-assign [instance="^kitty3$"] $ws8
-assign [instance="^kitty4$"] $ws8
-#+end_src
-
 ** Define workspaces
 Define names for default workspaces for which we configure key bindings later on.
 We use variables to avoid repeating the names in multiple places.
@@ -729,6 +714,22 @@ set $ws8 "8 ♫"
 set $ws9 "9"
 set $ws10 "10"
 #+end_src
+
+** assign to ws
+To find out the class name of an application: `xprop` -> enter -> click app -> under `WM_CLASS(STRING)` it's the last value
+
+#+begin_src shell
+assign [class="firefox"] $ws2
+assign [class="jetbrains-rustrover"] $ws4
+assign [class="KeePassXC"] $ws10
+assign [instance="^kitty0$"] $ws1
+assign [instance="^alacritty0$"] $ws1
+assign [instance="^kitty1$"] $ws8
+assign [instance="^kitty2$"] $ws8
+assign [instance="^kitty3$"] $ws8
+assign [instance="^kitty4$"] $ws8
+#+end_src
+
 
 ** Switch to workspace
 #+begin_src shell
