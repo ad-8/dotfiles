@@ -30,7 +30,7 @@ Find the default config template here:
   - [[#i3status-rust][i3status-rust]]
 - [[#binding-modes][Binding Modes]]
   - [[#resize][resize]]
-  - [[#launch-applications-with-modo][launch applications with $mod+o]]
+  - [[#launch-applications-with-modo][LAUNCH APPLICATIONS with $mod+o]]
 - [[#bindsym][bindsym]]
   - [[#basics][basics]]
   - [[#audio][audio]]
@@ -40,6 +40,7 @@ Find the default config template here:
   - [[#nord-colors][Nord Colors]]
   - [[#changing-colors][Changing Colors]]
   - [[#disable-title-bars][Disable Title Bars]]
+  - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
   - [[#hide-borders-on-ws8][hide borders on $ws8]]
 - [[#exec][exec]]
   - [[#default][default]]
@@ -192,14 +193,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 #+end_src
 
-** launch applications with $mod+o
+** LAUNCH APPLICATIONS with $mod+o
 Launch (a few select) applications faster than with dmenu.
 About modes: https://i3wm.org/docs/userguide.html#binding_modes
 
 The reason for using ~emacsclient~, as far as I have learned, is simply speed.
 
 #+begin_src shell
-set $mode_launcher Launch: [a]ppfinder [b]lueman [e]macs [f]irefox [s]ystem-monitor
+set $mode_launcher Launch: [a]ppfinder [b]lueman [e]macs [f]irefox [s]ystem-monitor [t]hunar
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -208,6 +209,7 @@ mode "$mode_launcher" {
     bindsym e exec emacsclient --create-frame --alternate-editor=""; mode "default"
     bindsym f exec firefox; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
+    bindsym t exec thunar; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -456,9 +458,15 @@ Setting border style to pixel eliminates title bars. See https://i3wm.org/docs/u
 # with picom rounded corners enabled, border pixel 0 looks best 
 for_window [class=".*"] border pixel 2
 
-# remove border for notifications
+#+end_src
+
+** Set ~border pixel 0~ for notifications (and a few apps)
+scratchpad-like-apps via ~super+o~ might look better without border
+
+#+begin_src shell
 for_window [class="Xfce4-notifyd"] border pixel 0
-for_window [class="Xfce4-appfinder"] border pixel 0
+#for_window [class="Xfce4-appfinder"] border pixel 0
+#for_window [class="Blueman-manager"] border pixel 0
 #+end_src
 
 ** hide borders on $ws8
@@ -528,7 +536,7 @@ picom produces some weird artifacts atm on the MBP, so this might be commented o
 **but** picom also gets rid of ugly stuff, e.g. compare RightClick/ContextMenu in FireFox with/without picom enabled (empty ~/.config/picom/picom.conf),
 not the default one, which adds to much stuff
 #+begin_src shell
-exec_always --no-startup-id picom
+exec --no-startup-id picom
 #+end_src
 
 ** Notifications 
@@ -753,6 +761,9 @@ assign [instance="^kitty1$"] $ws8
 assign [instance="^kitty2$"] $ws8
 assign [instance="^kitty3$"] $ws8
 assign [instance="^kitty4$"] $ws8
+
+# TODO mv musik to another ws
+assign [class="Gnome-boxes"] $ws8
 #+end_src
 
 
