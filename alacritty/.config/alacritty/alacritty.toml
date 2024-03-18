@@ -29,4 +29,7 @@ style = "Italic"
 family = "JetBrains Mono"
 style = "Regular"
 
+# ---
 
+[window]
+opacity = 0.95

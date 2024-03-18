@@ -69,8 +69,8 @@ path = "/"
 info_type = "available"
 alert_unit = "GB"
 interval = 20
-warning = 11.0 # how to deactivate? removing this line doesn't do it
-alert = 10.0
+warning = 5.0 # how to deactivate? removing this line doesn't do it
+alert = 2.0
 format = " $icon $available.eng(w:2) "
 
 [[block]]

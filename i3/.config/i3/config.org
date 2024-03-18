@@ -44,6 +44,8 @@ Find the default config template here:
 - [[#exec][exec]]
   - [[#default][default]]
   - [[#more][more]]
+  - [[#compositor][compositor]]
+  - [[#notifications][Notifications]]
   - [[#more-exec--exec-on-startup][more exec / exec on startup]]
   - [[#licht][licht]]
   - [[#emacs-daemon--server][emacs daemon / server]]
@@ -450,8 +452,13 @@ Setting border style to pixel eliminates title bars. See https://i3wm.org/docs/u
 
 # looks like this draws a border around windows like "Gnome System Monitor"
 # that with simply "default_border pixel 2" don't have a border drawn around 'em
-for_window [class=".*"] border pixel 3
 
+# with picom rounded corners enabled, border pixel 0 looks best 
+for_window [class=".*"] border pixel 0
+
+# remove border for notifications
+for_window [class="Xfce4-notifyd"] border pixel 0
+for_window [class="Xfce4-appfinder"] border pixel 0
 #+end_src
 
 ** hide borders on $ws8
@@ -513,9 +520,25 @@ exec_always --no-startup-id xfce4-power-manager
 # exec xfce4-notifyd
 # TODO install and replace above?!
 # exec dunst &
-# picom & 
 
 #+end_src
+
+** compositor
+picom produces some weird artifacts atm on the MBP, so this might be commented out
+#+begin_src shell
+exec_always --no-startup-id picom
+#+end_src
+
+** Notifications 
+To send a notificatin e.g. using ~notify-send~, a notification server/daemon has to be up and running.
+https://wiki.archlinux.org/title/Desktop_notifications#Notification_servers
+
+Currently using ~xfce4-notifyd~, its decent, also currently learning *what even makes a Desktop Enviroment*,
+which looking at all the individual apps/daemons/etc that make XFCE, is a pretty nice learning experience.
+To configure the XFCE one, use ~xfce4-notifyd-config~ (a GUI), which is pretty nice,
+since it can configure stuff on a **per app basis**.
+
+~dunst~ would be another option, supposedly a lightweight one.
 
 ** more exec / exec on startup
 #+begin_src shell
