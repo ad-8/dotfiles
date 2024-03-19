@@ -44,12 +44,11 @@ Find the default config template here:
   - [[#hide-borders-on-ws8][hide borders on $ws8]]
 - [[#exec][exec]]
   - [[#default][default]]
+  - [[#autostart--daemons][autostart / daemons]]
   - [[#more][more]]
-  - [[#compositor][compositor]]
   - [[#notifications][Notifications]]
   - [[#more-exec--exec-on-startup][more exec / exec on startup]]
   - [[#licht][licht]]
-  - [[#emacs-daemon--server][emacs daemon / server]]
 - [[#gaps][GAPS]]
   - [[#per-workspace-settings][per workspace settings]]
   - [[#some-very-nice-keybindings-for-i3-gaps][Some very nice keybindings for i3-gaps.]]
@@ -465,6 +464,7 @@ scratchpad-like-apps via ~super+o~ might look better without border
 
 #+begin_src shell
 for_window [class="Xfce4-notifyd"] border pixel 0
+for_window [class="io.github.celluloid_player.Celluloid"] border pixel 0
 #for_window [class="Xfce4-appfinder"] border pixel 0
 #for_window [class="Blueman-manager"] border pixel 0
 #+end_src
@@ -501,7 +501,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
+# TODO exec --no-startup-id lxsession
+# TODO (check out) exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 
 # TODO what does it do?
@@ -509,6 +512,33 @@ exec --no-startup-id megasync
 # TODO thought it would help with error msg when mounting enc ext HDD
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+
+
+#+end_src
+
+** autostart / daemons
+    With the gnome keyring installed and its daemon running, Thunar mounting the encrypted drive no longer produces the missing keyring message.
+  
+    What else to start? compare eg https://youtu.be/FX26s8INUYo?feature=shared&t=296
+    
+ok the ~gnome-keyring-daemon~ must get started by another thing, if I kill it, it gets tarted again almost instantly
+#+begin_src shell
+# TODO check if this gets started by some other part of the system, w/o here
+# like this, causes i3 config error
+#/usr/bin/gnome-keyring-daemon
+#+end_src
+
+*** emacs daemon / server
+#+begin_src shell
+exec_always --no-startup-id emacs --daemon
+#+end_src
+
+*** compositor
+picom produces some weird artifacts atm on the MBP, so this might be commented out
+**but** picom also gets rid of ugly stuff, e.g. compare RightClick/ContextMenu in FireFox with/without picom enabled (empty ~/.config/picom/picom.conf),
+not the default one, which adds to much stuff
+#+begin_src shell
+exec --no-startup-id picom
 #+end_src
 
 ** more
@@ -531,13 +561,6 @@ exec_always --no-startup-id xfce4-power-manager
 
 #+end_src
 
-** compositor
-picom produces some weird artifacts atm on the MBP, so this might be commented out
-**but** picom also gets rid of ugly stuff, e.g. compare RightClick/ContextMenu in FireFox with/without picom enabled (empty ~/.config/picom/picom.conf),
-not the default one, which adds to much stuff
-#+begin_src shell
-exec --no-startup-id picom
-#+end_src
 
 ** Notifications 
 To send a notificatin e.g. using ~notify-send~, a notification server/daemon has to be up and running.
@@ -570,10 +593,6 @@ Set light to "hi" (high) for both the internal and external screen.
 exec /usr/local/bin/licht hi
 #+end_src
 
-** emacs daemon / server
-#+begin_src shell
-exec_always --no-startup-id emacs --daemon
-#+end_src
 
 * GAPS
 ** per workspace settings
