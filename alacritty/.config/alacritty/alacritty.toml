@@ -14,19 +14,19 @@ import = [
 size = 10
 
 [font.bold]
-family = "JetBrains Mono"
+family = "HackNerdFont"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrains Mono"
+family = "HackNerdFont"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrains Mono"
+family = "HackNerdFont"
 style = "Italic"
 
 [font.normal]
-family = "JetBrains Mono"
+family = "HackNerdFont"
 style = "Regular"
 
 # ---

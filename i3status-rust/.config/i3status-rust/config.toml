@@ -58,10 +58,10 @@ idle_fg = "#A3BE8C"
 # warning_cpu = 50
 # critical_cpu = 90
 
-[[block]]
-block = "packages"
-package_manager = ["pacman"]
-interval = 60
+#[[block]]
+#block = "packages"
+#package_manager = ["pacman"]
+#interval = 60
 
 [[block]]
 block = "disk_space"
