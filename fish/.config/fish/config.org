@@ -96,7 +96,7 @@ abbr -a xc 'xclip -selection clipboard'
 abbr -a lt 'll -t'
 abbr -a nf '~/dotfiles/0-scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
-abbr -a n "VISUAL='emacsclient -t' nnn -H"
+abbr -a n "VISUAL='vim' nnn -H"
 abbr -a o. 'open .'
 abbr -a pn protonvpn-cli
 abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
@@ -123,7 +123,7 @@ abbr -a ai 'apt info'
 abbr -a ain 'sudo apt install'
 abbr -a upb 'brew update && brew upgrade'
 abbr -a up 'sudo apt update && sudo apt upgrade'
-abbr -a p 'pacman -S'
+abbr -a pm 'pacman -S'
 #+end_src
 
 ** medium ones

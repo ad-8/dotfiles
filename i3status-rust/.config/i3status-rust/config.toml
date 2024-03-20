@@ -16,10 +16,10 @@ icons_format = "{icon}"
 [theme]
 theme = "native"
 [theme.overrides]
-idle_bg = "#000000"
+#idle_bg = "#000000"
 idle_fg = "#abcdef"
-critical_bg = "#bf616a" # red
-critical_fg = "#2e3440" # nord0
+#critical_bg = "#bf616a" # red
+#critical_fg = "#2e3440" # nord0
 
 [icons]
 icons = "awesome4"

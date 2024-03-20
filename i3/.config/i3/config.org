@@ -120,22 +120,51 @@ bar {
 
         # just to demonstrate how the status bar works, see this little script, the output of which is put into the status bar
         # status_command ~/.config/i3/bar.sh
-
+#        i3bar_command i3bar --transparency
         position top
+        #background #00000000
+        #statusline #ffffff
+        #separator #666666
 
         # uses font and size defined at the beginning of this config, over overwrites with this line
         #font pango:System San Franciso Display 8
         #separator_symbol "---"
+        # tray_output none
+        #tray_output primary
 
-        #colors {
-		#        background $bg-color
-	    #	    separator #757575
-		#        #                  border             background         text
-		#        focused_workspace  $bg-color          $bg-color          $text-color
-		#        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		#        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	    #}
-}
+        #workspace_buttons no
+#        tray_padding 3
+
+        font pango:HackNerdFont 8.5
+
+
+        colors {
+
+            # some polar night (greyish) color would look nice,
+            # even better if it was a little transparent,
+            # but the *tray icons* have a *black background*
+            # that I dont know how to change :/
+            #
+            # lol now even w/o picom the black background is gone and its just the same color as the bar
+        #background $polar1
+
+        background $polar3
+        #background    #a29fa000
+
+        # statusline #eeeeee
+        separator  $polar4
+
+
+
+        # colorclass           border  backgr. text
+        focused_workspace     $polar1  $yellow    $polar4
+        active_workspace      $polar1  $polar1      $snow1
+        inactive_workspace    $polar1  $polar1   $snow1
+        urgent_workspace      $polar1  $red      $snow1
+        }
+
+    }
+
 
 #+end_src
 
@@ -602,16 +631,16 @@ BASIC SYNTAX global or per workspace
 #set $my-inner 10
 ##gaps inner $my-inner
 
-workspace $ws1 gaps horizontal 100
-workspace $ws1 gaps vertical   25 
-workspace $ws1 gaps inner 10
+# workspace $ws1 gaps horizontal 100
+# workspace $ws1 gaps vertical   25
+# workspace $ws1 gaps inner 10
 
 workspace $ws2 gaps horizontal 100
 workspace $ws2 gaps vertical   25
 
-workspace $ws3 gaps inner 10
-workspace $ws3 gaps horizontal 100
-workspace $ws3 gaps vertical   25
+workspace $ws3 gaps inner 25
+#workspace $ws3 gaps horizontal 25
+#workspace $ws3 gaps vertical   25
 #+end_src
 
 ** Some very nice keybindings for i3-gaps.
