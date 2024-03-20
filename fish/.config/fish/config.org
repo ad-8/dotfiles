@@ -94,8 +94,7 @@ abbr -a l "licht"
 abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
-#abbr -a nf "clear && neofetch && ncal -w && echo && LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y %H:%M:%S' && echo  && pwd"
-abbr -a nf "clear && neofetch && cal -w --monday && echo && LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y %H:%M:%S' && echo"
+abbr -a nf '~/dotfiles/0-scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='emacsclient -t' nnn -H"
 abbr -a o. 'open .'
