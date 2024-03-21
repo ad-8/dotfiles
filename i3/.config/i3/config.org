@@ -226,16 +226,16 @@ About modes: https://i3wm.org/docs/userguide.html#binding_modes
 The reason for using ~emacsclient~, as far as I have learned, is simply speed.
 
 #+begin_src shell
-set $mode_launcher Launch: [a]ppfinder [b]lueman [e]macs [f]irefox [s]ystem-monitor [t]hunar
+set $mode_launcher Launch: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [s]ystem-monitor
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym a exec xfce4-appfinder; mode "default"
     bindsym b exec blueman-manager; mode "default"
-    bindsym e exec emacsclient --create-frame --alternate-editor=""; mode "default"
-    bindsym f exec firefox; mode "default"
+    bindsym shift+b exec firefox; mode "default"
+    bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"
+    bindsym f exec thunar; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
-    bindsym t exec thunar; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
