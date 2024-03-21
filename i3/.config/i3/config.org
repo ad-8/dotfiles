@@ -148,7 +148,7 @@ bar {
             # lol now even w/o picom the black background is gone and its just the same color as the bar
         #background $polar1
 
-        background $polar1
+        background $polar2
         # transpart background:
         # background    #A1000000
         # statusline #eeeeee
@@ -157,16 +157,18 @@ bar {
 
 
         # colorclass           border  backgr. text
-        focused_workspace     $orange  $polar1   $snow1
-        active_workspace      $polar1  $polar4   $snow1
-        inactive_workspace    $polar1  $polar4   $snow1
-        urgent_workspace      $polar1  $red      $snow1
+        focused_workspace     $polar3  $orange   $polar4
+        active_workspace      $polar3  $polar1   $snow1
+        inactive_workspace    $polar3  $polar1   $snow1
+        urgent_workspace      $polar3  $red      $snow1
         }
 
     }
 
 
 #+end_src
+
+#+RESULTS:
 
 #+begin_src shell
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
