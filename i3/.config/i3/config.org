@@ -148,16 +148,16 @@ bar {
             # lol now even w/o picom the black background is gone and its just the same color as the bar
         #background $polar1
 
-        background $polar3
-        #background    #a29fa000
-
+        background $polar1
+        # transpart background:
+        # background    #A1000000
         # statusline #eeeeee
         separator  $polar4
 
 
 
         # colorclass           border  backgr. text
-        focused_workspace     $polar1  $polar1   $snow1
+        focused_workspace     $orange  $polar1   $snow1
         active_workspace      $polar1  $polar4   $snow1
         inactive_workspace    $polar1  $polar4   $snow1
         urgent_workspace      $polar1  $red      $snow1
@@ -640,7 +640,7 @@ BASIC SYNTAX global or per workspace
 workspace $ws2 gaps horizontal 100
 workspace $ws2 gaps vertical   25
 
-workspace $ws3 gaps inner 25
+#workspace $ws3 gaps inner 25
 #workspace $ws3 gaps horizontal 25
 #workspace $ws3 gaps vertical   25
 #+end_src

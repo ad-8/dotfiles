@@ -13,6 +13,7 @@
 #    that can be found in the repo inside `files`
 icons_format = "{icon}"
 
+
 [theme]
 theme = "native"
 [theme.overrides]
@@ -73,8 +74,10 @@ info_type = "available"
 alert_unit = "GB"
 interval = 20
 warning = 5.0 # how to deactivate? removing this line doesn't do it
-alert = 2.0
+alert = 2.5
 format = " $icon $available.eng(w:2) "
+[block.theme_overrides]
+critical_bg = "#bf616a"
 
 [[block]]
 block = "disk_space"
@@ -85,6 +88,8 @@ interval = 20
 warning = 11.0 # how to deactivate? removing this line doesn't do it
 alert = 10.0
 format = " $icon $available.eng(w:2) "
+[block.theme_overrides]
+critical_bg = "#bf616a"
 
 # [[block]]
 # block = "memory"
