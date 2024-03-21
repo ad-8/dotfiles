@@ -157,9 +157,9 @@ bar {
 
 
         # colorclass           border  backgr. text
-        focused_workspace     $polar1  $polar4   $snow1
-        active_workspace      $polar1  $polar1   $snow1
-        inactive_workspace    $polar1  $polar1   $snow1
+        focused_workspace     $polar1  $polar1   $snow1
+        active_workspace      $polar1  $polar4   $snow1
+        inactive_workspace    $polar1  $polar4   $snow1
         urgent_workspace      $polar1  $red      $snow1
         }
 
