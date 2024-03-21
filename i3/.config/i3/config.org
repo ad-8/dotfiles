@@ -557,7 +557,7 @@ ok the ~gnome-keyring-daemon~ must get started by another thing, if I kill it, i
 
 *** emacs daemon / server
 #+begin_src shell
-exec_always --no-startup-id emacs --daemon
+exec --no-startup-id emacs --daemon
 #+end_src
 
 *** compositor
@@ -574,7 +574,7 @@ e.g. ~WM_CLASS(STRING) = "kitty1", "kitty"~
 
 #+begin_src shell
 
-# TODO locks when playing movie, figure out better solution
+# TODO not yet installed on arch / locks when playing movie, figure out better solution
 exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
 
 # in ~xfce4-power-manager-settings~ (GUI), enabled ~handle display brightness keys~, 
