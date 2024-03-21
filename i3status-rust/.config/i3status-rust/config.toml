@@ -44,10 +44,13 @@ cmd = "pavucontrol"
 block = "custom"
 command = "~/.config/i3/licht.sh"
 interval = 5
+hide_when_empty=true
 
 [[block]]
 block = "custom"
-command = "i3weather"
+#command = "i3weather"
+cycle=["i3weather long", "i3weather short"]
+json=true
 interval = 300
 [block.theme_overrides]
 idle_fg = "#A3BE8C"
@@ -93,6 +96,7 @@ format = " $icon $available.eng(w:2) "
 block = "custom"
 interval = 1
 command="i3timer"
+hide_when_empty=true
 [block.theme_overrides]
 idle_fg = "#B48EAD"
 
