@@ -120,7 +120,7 @@ bar {
 
         # just to demonstrate how the status bar works, see this little script, the output of which is put into the status bar
         # status_command ~/.config/i3/bar.sh
-#        i3bar_command i3bar --transparency
+        #i3bar_command i3bar --transparency
         position top
         #background #00000000
         #statusline #ffffff
@@ -157,8 +157,8 @@ bar {
 
 
         # colorclass           border  backgr. text
-        focused_workspace     $polar1  $yellow    $polar4
-        active_workspace      $polar1  $polar1      $snow1
+        focused_workspace     $polar1  $polar4   $snow1
+        active_workspace      $polar1  $polar1   $snow1
         inactive_workspace    $polar1  $polar1   $snow1
         urgent_workspace      $polar1  $red      $snow1
         }
@@ -900,5 +900,11 @@ for_window [class="Blueman-manager"] resize set 640 480
 for_window [class="Blueman-manager"] move position center
 
 for_window [title="About Mozilla Firefox"] floating enable
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] resize set 800 640
+for_window [class="Pavucontrol"] move position center
+#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
+
 #+end_src
 
