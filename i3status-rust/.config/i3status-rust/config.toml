@@ -50,7 +50,7 @@ hide_when_empty=true
 [[block]]
 block = "custom"
 #command = "i3weather"
-cycle=["i3weather long", "i3weather short"]
+cycle=["i3weather short", "i3weather long"]
 json=true
 interval = 300
 [block.theme_overrides]
