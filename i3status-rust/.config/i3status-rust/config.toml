@@ -27,8 +27,6 @@
 
 icons_format = "{icon}"
 
-# warning_mem = 70
-# critical_mem = 90
 
 [theme]
 theme = "native" # native.toml is an empty file
