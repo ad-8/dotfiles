@@ -36,7 +36,7 @@ bar {
         #workspace_buttons no
 #        tray_padding 3
 
-        font pango:HackNerdFont 8.5
+        font pango:HackNerdFont 9.0
 
 
         colors {
@@ -502,16 +502,16 @@ mode "$mode_gaps_left" {
 # end of interactive gaps code
 # **************************************************************************************************
 
-set $ws1 "1"
-set $ws2 "2 WEB "
-set $ws3 "3 EMACS "
-set $ws4 "4 DEV  "
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8 VM"
-set $ws9 "9 A/V"
-set $ws10 "10 DUMP"
+set $ws1 "1 󰆍 "
+set $ws2 "2  "
+set $ws3 "3  "
+set $ws4 "4 󰘧 "
+set $ws5 " 5 "
+set $ws6 " 6 "
+set $ws7 " 7 "
+set $ws8 "8  "
+set $ws9 "9   "
+set $ws10 "10   "
 
 assign [class="firefox"] $ws2
 assign [class="jetbrains-rustrover"] $ws4
@@ -564,6 +564,10 @@ for_window [class="Xfce4-appfinder"] floating enable
 #for_window [class="Xfce4-appfinder"] border pixel 5
 for_window [class="Xfce4-appfinder"] resize set 640 480
 for_window [class="Xfce4-appfinder"] move position center
+
+for_window [class="Xfce4-about"] floating enable
+for_window [class="Xfce4-about"] resize set 640 480
+for_window [class="Xfce4-about"] move position center
 
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Blueman-manager"] resize set 640 480

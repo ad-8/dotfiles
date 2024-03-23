@@ -11,22 +11,36 @@
 # in /usr/share/i3status-rust or $XDG_DATA_HOME/i3status-rust.
 # -> /usr/share/i3status-rust must contain the `icons` and `themes` dirs
 #    that can be found in the repo inside `files`
+
+# NORD COLORS
+# $red    #bf616a
+# $orange #d08770
+# $yellow #ebcb8b
+# $green  #a3be8c
+# $lila   #b48ead
+
+# Nord Frost
+# $frost1 #8fbcbb
+# $frost2 #88c0d0
+# $frost3 #81a1c1
+# $frost4 #5e81ac
+
 icons_format = "{icon}"
 
 
 [theme]
 theme = "native"
 [theme.overrides]
-#idle_bg = "#000000"
-idle_fg = "#abcdef"
-#critical_bg = "#bf616a" # red
-#critical_fg = "#2e3440" # nord0
+idle_fg = "#88c0d0"
+critical_bg = "#bf616a"
+
 
 [icons]
 icons = "awesome4"
 [icons.overrides]
 bat = ["|E|", "|_|", "|=|", "|F|"]
 bat_charging = "|^| "
+
 
 [[block]]
 block = "custom"
@@ -35,17 +49,6 @@ interval = 5
 [block.theme_overrides]
 idle_fg = "#D08770"
 
-[[block]]
-block = "sound"
-[[block.click]]
-button = "left"
-cmd = "pavucontrol"
-
-[[block]]
-block = "custom"
-command = "~/.config/i3/licht.sh"
-interval = 5
-hide_when_empty=true
 
 [[block]]
 block = "custom"
@@ -54,18 +57,24 @@ cycle=["i3weather short", "i3weather long"]
 json=true
 interval = 300
 [block.theme_overrides]
-idle_fg = "#A3BE8C"
+idle_fg = "#a3be8c"
 
-# [[block]]
-# block = "cpu"
-# info_cpu = 20
-# warning_cpu = 50
-# critical_cpu = 90
 
-#[[block]]
-#block = "packages"
-#package_manager = ["pacman"]
-#interval = 60
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+
+[[block]]
+block = "custom"
+command = "~/.config/i3/licht.sh"
+interval = 5
+hide_when_empty=true
+[block.theme_overrides]
+idle_fg = "#708090"
+
 
 [[block]]
 block = "disk_space"
@@ -73,11 +82,12 @@ path = "/"
 info_type = "available"
 alert_unit = "GB"
 interval = 20
-warning = 5.0 # how to deactivate? removing this line doesn't do it
-alert = 2.5
+warning = 0.0 # trying to not use warning
+alert = 2.0
 format = " $icon $available.eng(w:2) "
 [block.theme_overrides]
-critical_bg = "#bf616a"
+idle_fg = "#708090"
+
 
 [[block]]
 block = "disk_space"
@@ -85,17 +95,23 @@ path = "/home"
 info_type = "available"
 alert_unit = "GB"
 interval = 20
-warning = 11.0 # how to deactivate? removing this line doesn't do it
+warning = 0.0 # trying to not use warning
 alert = 10.0
 format = " $icon $available.eng(w:2) "
 [block.theme_overrides]
-critical_bg = "#bf616a"
+idle_fg = "#708090"
 
-# [[block]]
-# block = "memory"
-# format = " $icon $mem_total_used_percents.eng(w:2) "
-# format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
-# [block.theme_overrides]
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents.eng(w:1) "
+format_alt = " $icon_swap $swap_free.eng(w:3,u:B,p:Mi)/$swap_total.eng(w:3,u:B,p:Mi)($swap_used_percents.eng(w:2)) "
+interval = 30
+warning_mem = 70
+critical_mem = 90
+[block.theme_overrides]
+idle_fg = "#708090"
+
 
 [[block]]
 block = "custom"
@@ -105,22 +121,36 @@ hide_when_empty=true
 [block.theme_overrides]
 idle_fg = "#B48EAD"
 
-[[block]]
-block = "custom"
-interval = 60
-command="LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y'"
-[block.theme_overrides]
-idle_fg = "#ebcb8b"
-
-[[block]]
-block = "time"
-interval = 1
-format = " $timestamp.datetime(f:' %H:%M:%S') "
-[block.theme_overrides]
-idle_fg = "#D08770"
 
 [[block]]
 block = "custom"
 json = true
 command = "i3vpn"
 interval = 10
+[block.theme_overrides]
+idle_fg = "#708090"
+
+
+[[block]]
+block = "time"
+interval = 60
+#command="LC_TIME=de_DE.UTF-8 date '+%a %d.%m.%Y'"
+#format = " $timestamp.datetime(f:'  %a %d.%m.%Y') "
+format = " $timestamp.datetime(f:'  %a %d.%m.') "
+[block.theme_overrides]
+#idle_fg = "#d08770"
+#idle_fg = "#b48ead"
+
+
+[[block]]
+block = "time"
+interval = 1
+format = " $timestamp.datetime(f:' %H:%M:%S') "
+[block.theme_overrides]
+#idle_fg = "#d08770"
+
+
+# $frost1 #8fbcbb
+# $frost2 #88c0d0
+# $frost3 #81a1c1
+# $frost4 #5e81ac
