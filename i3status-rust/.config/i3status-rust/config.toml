@@ -27,11 +27,15 @@
 
 icons_format = "{icon}"
 
+# warning_mem = 70
+# critical_mem = 90
 
 [theme]
-theme = "native"
+theme = "native" # native.toml is an empty file
 [theme.overrides]
 idle_fg = "#88c0d0"
+warning_bg = "#ebcb8b"
+warning_fg = "#3B4252"
 critical_bg = "#bf616a"
 
 
@@ -107,8 +111,8 @@ block = "memory"
 format = " $icon $mem_used_percents.eng(w:1) "
 format_alt = " $icon_swap $swap_free.eng(w:3,u:B,p:Mi)/$swap_total.eng(w:3,u:B,p:Mi)($swap_used_percents.eng(w:2)) "
 interval = 30
-warning_mem = 70
-critical_mem = 90
+warning_mem = 80
+critical_mem = 92
 [block.theme_overrides]
 idle_fg = "#708090"
 

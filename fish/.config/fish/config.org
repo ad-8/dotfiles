@@ -91,6 +91,8 @@ abbr -a i3t i3timer
 abbr -a lg 'll | grep -i'
 abbr -a l "licht"
 
+abbr -a et 'emacsclient -t'
+
 abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
