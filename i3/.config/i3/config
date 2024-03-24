@@ -372,8 +372,8 @@ exec /usr/local/bin/licht hi
 # workspace $ws1 gaps vertical   25
 # workspace $ws1 gaps inner 10
 
-workspace $ws2 gaps horizontal 100
-workspace $ws2 gaps vertical   25
+#workspace $ws2 gaps horizontal 100
+#workspace $ws2 gaps vertical   25
 
 #workspace $ws3 gaps inner 25
 #workspace $ws3 gaps horizontal 25
