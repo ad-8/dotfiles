@@ -116,6 +116,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
+ # TODO testing mod+q
+bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher) OR rofi
@@ -337,6 +339,8 @@ exec --no-startup-id megasync
 exec --no-startup-id emacs --daemon
 
 exec --no-startup-id picom
+
+exec --no-startup-id /usr/bin/syncthing
 
 # TODO not yet installed on arch / locks when playing movie, figure out better solution
 exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
