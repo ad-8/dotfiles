@@ -529,6 +529,8 @@ assign [instance="^kitty4$"] $ws8
 
 # TODO mv musik to another ws
 assign [class="Gnome-boxes"] $ws8
+# just changed its class name .. why?!
+assign [class="Org.gnome.Boxes"] $ws8
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
