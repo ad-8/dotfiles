@@ -142,8 +142,25 @@ for vt in range(1, 8):
     )
 
 
-group_layouts = ["monadtall", "monadtall", "tile", "tile"]
-groups = [Group(i) for i in "1234"]
+groups = []
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
+
+group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
+#group_labels = ["DEV", "WWW", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX",]
+#group_labels = ["", "", "", "", "", "", "", "", "",]
+
+#group_layouts = ["monadtall", "monadtall", "tile", "tile", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
+
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+#            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        ))
+
+
+
 
 for i in groups:
     keys.extend(
@@ -169,22 +186,62 @@ for i in groups:
         ]
     )
 
+
+# Nord Polar Night
+#set $polar1 #2e3440
+#set $polar2 #3b4252
+#set $polar3 #434c5e
+#set $polar4 #4c566a
+
+# Nord Snow Storm
+#set $snow1 #d8dee9
+#set $snow2 #e5e9f0
+#set $snow3 #eceff4
+
+# Nord Frost
+#set $frost1 #8fbcbb
+#set $frost2 #88c0d0
+#set $frost3 #81a1c1
+#set $frost4 #5e81ac
+
+# Nord Aurora
+#set $red    #bf616a
+#set $orange #d08770
+#set $yellow #ebcb8b
+#set $green  #a3be8c
+#set $lila   #b48ead
+
+
+layout_theme = {"border_width": 2,
+                "margin": 8,
+                "border_focus": "#d08770",
+                "border_normal": "#4c566a",
+                }
+
+layout_theme_2 = {"border_width": 10,
+                "margin": 20,
+                "border_focus": "#d08770",
+                "border_normal": "#4c566a",
+                }
+
+
 # order in list = order after reload
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.TreeTab(),
+    #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.MonadTall(ratio=0.5, **layout_theme),
+#    layout.MonadTall(ratio=0.5, **layout_theme_2),
     layout.Max(
         border_focus='',
         border_normal='',
         border_width=3),
-    # layout.MonadTall(ratio=0.6),
+    layout.TreeTab(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    # layout.Tile(),
+    #layout.Tile(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -214,7 +271,7 @@ screens = [
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
+                #widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
             ],
@@ -228,7 +285,7 @@ screens = [
         # x11_drag_polling_rate = 60,
     ),
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
@@ -243,10 +300,11 @@ screens = [
                 widget.TextBox("SCREEN 2 default config", name="default"),
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Systray(),
+                #widget.StatusNotifier(),
+
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
+                widget.Systray(background="#b48ead"),
             ],
             34,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
