@@ -24,10 +24,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
+# imports
+import os
+import subprocess
+# qtile
+from libqtile import bar, extension, hook, layout, qtile, widget
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+
+
 
 mod = "mod4"
 alt_left = "mod1"
@@ -109,6 +116,7 @@ keys = [
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
+    Key([mod, alt_left], "l", lazy.spawn('licht'), desc="Let there be light"),
     Key([mod, alt_left], "x", lazy.spawn('i3lock --color 000000 --show-failed-attempts'), desc="Lock Screen"),
     Key([mod, "shift"], "x", lazy.spawn('/usr/local/bin/lock-n-sleep.sh', shell=True), desc="Lock Screen & Suspend"),
 
@@ -121,7 +129,7 @@ keys = [
 
     # Emacs programs launched using the key chord CTRL+e followed by 'key'
     KeyChord([mod],"o", [
-        Key([], "a", lazy.spawn("alacritty"), desc='launch alacritty'),
+        Key([], "a", lazy.spawn("xfce4-appfinder"), desc='launch alacritty'),
         Key([], "b", lazy.spawn("blueman-manager"), desc='launch blueman'),
         Key([], "e", lazy.spawn("emacs"), desc='launch emacs'),  # TODO launch emacsclient
         Key([], "f", lazy.spawn("firefox"), desc='launch firefox'),
@@ -145,7 +153,22 @@ for vt in range(1, 8):
 groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
-group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
+
+group_labels = [
+    "1 󰆍 ",
+    "2  ",
+    "3  ",
+    "4 󰘧 ",
+    " 5 ",
+    " 6 ",
+    " 7 ",
+    "8  ",
+    "9   ",
+    "10   ",
+]
+
+
+#group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 #group_labels = ["DEV", "WWW", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX",]
 #group_labels = ["", "", "", "", "", "", "", "", "",]
 
@@ -169,7 +192,7 @@ for i in groups:
             Key(
                 [mod],
                 i.name,
-                lazy.group[i.name].toscreen(),
+                lazy.group[i.name].toscreen(toggle=True),
                 desc="Switch to group {}".format(i.name),
             ),
             # mod1 + shift + group number = switch to & move focused window to group
@@ -253,12 +276,37 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
+
+#set $yellow #ebcb8b
+#set $red    #bf616a
+#
+# this_current_screen_border for the group that's active on the current screen,
+# other_screen_border for the group that's active on another (unfocused) screen.
+#
+# To theme the widget on all other unfocused screens:
+# this_screen_border for the group that is active on the screen where the widget is located,
+# other_current_screen_border for all other groups that are active anywhere.
+foo = dict(
+    highlight_method='line',
+    #highlight_color = ['#000000', '#d08770'],
+    highlight_color = ['#d08770'],
+
+    this_current_screen_border = '#bf616a',
+    this_screen_border = '#bf616a',
+
+    other_screen_border = '#ebcb8b',
+    other_current_screen_border = '#ebcb8b',
+)
+
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(
+                    **foo
+                ),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
@@ -271,9 +319,9 @@ screens = [
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                #widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
+                widget.Systray(background="#2e3440"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -288,23 +336,30 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(
+                    **foo
+                ),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
                 widget.TextBox("SCREEN 2 default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.GenPollCommand(
+                    background="282A36",
+                    cmd="cat /tmp/licht-ed16d5b5",
+                    fmt="LICHT: {}",
+                    shell=True,
+                    update_interval=5,
+                ),
+                #TextBox(text="foo.sh", mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /tmp/foo.sh")}),
+                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 #widget.StatusNotifier(),
 
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%a %d.%m.%Y %H:%M:%S"),
                 widget.QuickExit(),
-                widget.Systray(background="#b48ead"),
+                widget.Spacer(length = 8),
+                #widget.Systray(background="#2e3440"),
+                widget.Spacer(length = 8),
+
             ],
             34,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -340,6 +395,8 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="xfce4-appfinder"),
+
     ]
 )
 auto_fullscreen = True
@@ -352,6 +409,16 @@ auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
+
+
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
+
+
+
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
