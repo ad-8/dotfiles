@@ -1,2 +1,3 @@
 alacritty/.config/alacritty/themes/
 fish/.config/fish/fish_variables
+qtile/.config/qtile/__pycache__/
