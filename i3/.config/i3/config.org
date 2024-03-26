@@ -400,6 +400,10 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+# toggles moving a workspace to the upper/lower monitor
+# move workspace to output left|right|down|up|current|primary|nonprimary|next|<output1> [output2]…
+bindsym $mod+m move workspace to output down
 #+end_src
 
 * Colors and UI

@@ -234,6 +234,10 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+# toggles moving a workspace to the upper/lower monitor
+# move workspace to output left|right|down|up|current|primary|nonprimary|next|<output1> [output2]…
+bindsym $mod+m move workspace to output down
+
 # Nord Polar Night
 set $polar1 #2e3440
 set $polar2 #3b4252
@@ -330,6 +334,7 @@ exec --no-startup-id megasync
 # TODO exec --no-startup-id lxsession
 
 # Running an XSETTINGS daemon is necessary for some applications to use the selected GTK theme, cursor, font, and other settings.
+# -- but it messes with themes / icons previously set in lxappearance (without - after a first quick look - improving anything or finally theming KeepassXC)
 #exec --no-startup-id xfsettingsd
 # can be Authentication agent than the gnome one (see arch wiki), but w/o one, e.g. GParted won't start using dmenu (only via sudo gparted from terminal)
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
