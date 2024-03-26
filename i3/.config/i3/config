@@ -263,7 +263,7 @@ set $green  #a3be8c
 set $lila   #b48ead
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $polar1 $orange $polar4 $red      $orange
+client.focused          $polar1 $orange $polar4 $orange   $orange
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
