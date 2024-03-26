@@ -104,7 +104,8 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "n", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "p", lazy.prev_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
@@ -131,8 +132,10 @@ keys = [
     KeyChord([mod],"o", [
         Key([], "a", lazy.spawn("xfce4-appfinder"), desc='launch alacritty'),
         Key([], "b", lazy.spawn("blueman-manager"), desc='launch blueman'),
-        Key([], "e", lazy.spawn("emacs"), desc='launch emacs'),  # TODO launch emacsclient
-        Key([], "f", lazy.spawn("firefox"), desc='launch firefox'),
+        Key(["shift"], "b", lazy.spawn("firefox"), desc='launch browser'),
+        Key([], "e", lazy.spawn('emacsclient --create-frame --alternate-editor="vim"'), desc='launch emacs'),  # TODO launch emacsclient
+        Key([], "f", lazy.spawn("thunar"), desc='launch file manager'),
+        Key([], "s", lazy.spawn("gnome-system-monitor"), desc='launch system monitor'),
     ]),
 ]
 
@@ -151,9 +154,7 @@ for vt in range(1, 8):
 
 
 groups = []
-group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
-
-
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 group_labels = [
     "1 󰆍 ",
     "2  ",
@@ -164,13 +165,8 @@ group_labels = [
     " 7 ",
     "8  ",
     "9   ",
-    "10   ",
+    "0   ",
 ]
-
-
-#group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
-#group_labels = ["DEV", "WWW", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX",]
-#group_labels = ["", "", "", "", "", "", "", "", "",]
 
 #group_layouts = ["monadtall", "monadtall", "tile", "tile", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
 
@@ -181,9 +177,6 @@ for i in range(len(group_names)):
 #            layout=group_layouts[i].lower(),
             label=group_labels[i],
         ))
-
-
-
 
 for i in groups:
     keys.extend(
@@ -210,29 +203,25 @@ for i in groups:
     )
 
 
-# Nord Polar Night
-#set $polar1 #2e3440
-#set $polar2 #3b4252
-#set $polar3 #434c5e
-#set $polar4 #4c566a
+nord = {
+    "polar1": "#2e3440",
+    "polar2": "#3b4252",
+    "polar3": "#434c5e",
+    "polar4": "#4c566a",
+    "snow1": "#d8dee9",
+    "snow2": "#e5e9f0",
+    "snow3": "#eceff4",
+    "frost1": "#8fbcbb",
+    "frost2": "#88c0d0",
+    "frost3": "#81a1c1",
+    "frost4": "#5e81ac",
+    "red": "#bf616a",
+    "orange": "#d08770",
+    "yellow": "#ebcb8b",
+    "green": "#a3be8c",
+    "lila": "#b48ead"
+}
 
-# Nord Snow Storm
-#set $snow1 #d8dee9
-#set $snow2 #e5e9f0
-#set $snow3 #eceff4
-
-# Nord Frost
-#set $frost1 #8fbcbb
-#set $frost2 #88c0d0
-#set $frost3 #81a1c1
-#set $frost4 #5e81ac
-
-# Nord Aurora
-#set $red    #bf616a
-#set $orange #d08770
-#set $yellow #ebcb8b
-#set $green  #a3be8c
-#set $lila   #b48ead
 
 
 layout_theme = {"border_width": 2,
@@ -251,7 +240,7 @@ layout_theme_2 = {"border_width": 10,
 # order in list = order after reload
 layouts = [
     #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.MonadTall(ratio=0.5, **layout_theme),
+    layout.MonadTall(ratio=0.6, **layout_theme),
 #    layout.MonadTall(ratio=0.5, **layout_theme_2),
     layout.Max(
         border_focus='',
@@ -290,13 +279,15 @@ extension_defaults = widget_defaults.copy()
 foo = dict(
     highlight_method='line',
     #highlight_color = ['#000000', '#d08770'],
-    highlight_color = ['#d08770'],
+    highlight_color = nord['orange'],
+    active = nord['snow1'],
+    inactive = nord['polar4'],
 
-    this_current_screen_border = '#bf616a',
-    this_screen_border = '#bf616a',
+    this_screen_border = nord['red'],
+    this_current_screen_border = nord['red'],
 
-    other_screen_border = '#ebcb8b',
-    other_current_screen_border = '#ebcb8b',
+    other_screen_border = nord['yellow'],
+    other_current_screen_border = nord['yellow'],
 )
 
 screens = [
@@ -324,6 +315,7 @@ screens = [
                 widget.Systray(background="#2e3440"),
             ],
             24,
+            background="#2e3440",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -343,6 +335,20 @@ screens = [
                 widget.WindowName(),
                 widget.TextBox("SCREEN 2 default config", name="default"),
                 widget.GenPollCommand(
+                    #background="282A36",
+                    cmd="i3weather short",
+                    fmt="{}",
+                    shell=True,
+                    update_interval=5,
+                ),
+                widget.GenPollCommand(
+                    #background="282A36",
+                    cmd="i3vpn",
+                    fmt="{}",
+                    shell=True,
+                    update_interval=5,
+                ),
+                widget.GenPollCommand(
                     background="282A36",
                     cmd="cat /tmp/licht-ed16d5b5",
                     fmt="LICHT: {}",
@@ -361,7 +367,8 @@ screens = [
                 widget.Spacer(length = 8),
 
             ],
-            34,
+            28,
+            background="#2e3440",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
