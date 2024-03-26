@@ -333,6 +333,7 @@ screens = [
                 ),
                 widget.Prompt(),
                 widget.WindowName(),
+                widget.Volume(fmt='Vol: {}', emoji=True),
                 widget.TextBox("SCREEN 2 default config", name="default"),
                 widget.GenPollCommand(
                     #background="282A36",
@@ -359,7 +360,6 @@ screens = [
                 #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 #widget.StatusNotifier(),
-
                 widget.Clock(format="%a %d.%m.%Y %H:%M:%S"),
                 widget.QuickExit(),
                 widget.Spacer(length = 8),

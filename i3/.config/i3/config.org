@@ -536,7 +536,8 @@ exec --no-startup-id megasync
 # TODO exec --no-startup-id lxsession
 
 # Running an XSETTINGS daemon is necessary for some applications to use the selected GTK theme, cursor, font, and other settings.
-exec --no-startup-id xfsettingsd
+# -- but it messes with themes / icons previously set in lxappearance (without - after a first quick look - improving anything or finally theming KeepassXC)
+#exec --no-startup-id xfsettingsd
 # can be Authentication agent than the gnome one (see arch wiki), but w/o one, e.g. GParted won't start using dmenu (only via sudo gparted from terminal)
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #+end_src
