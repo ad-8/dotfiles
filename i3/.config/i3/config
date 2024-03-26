@@ -321,20 +321,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-# TODO exec --no-startup-id lxsession
-# TODO (check out) exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 
-# TODO what does it do?
-# exec --no-startup-id xfsettingsd
-# TODO thought it would help with error msg when mounting enc ext HDD
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# TODO exec --no-startup-id lxsession
 
-# TODO check if this gets started by some other part of the system, w/o here
-# like this, causes i3 config error
-#/usr/bin/gnome-keyring-daemon
+# Running an XSETTINGS daemon is necessary for some applications to use the selected GTK theme, cursor, font, and other settings.
+exec --no-startup-id xfsettingsd
+# can be Authentication agent than the gnome one (see arch wiki), but w/o one, e.g. GParted won't start using dmenu (only via sudo gparted from terminal)
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec --no-startup-id emacs --daemon
 
@@ -349,10 +345,9 @@ exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
 # and with exec here, and after restart, those keys *finally* work
 exec_always --no-startup-id xfce4-power-manager
 
-# already running, and not sure what exactly *to exec*
-# exec xfce4-notifyd
-# TODO install and replace above?!
-# exec dunst &
+# TODO check if this gets started by some other part of the system, w/o here
+# like this, causes i3 config error
+#/usr/bin/gnome-keyring-daemon
 
 # TODO set via dmenu script
 #arandr-config-macbook-screen-only.sh
