@@ -276,7 +276,7 @@ extension_defaults = widget_defaults.copy()
 # To theme the widget on all other unfocused screens:
 # this_screen_border for the group that is active on the screen where the widget is located,
 # other_current_screen_border for all other groups that are active anywhere.
-foo = dict(
+groupbox_settings = dict(
     highlight_method='line',
     #highlight_color = ['#000000', '#d08770'],
     highlight_color = nord['orange'],
@@ -296,7 +296,7 @@ screens = [
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(
-                    **foo
+                    **groupbox_settings
                 ),
                 widget.Prompt(),
                 widget.WindowName(),
@@ -329,25 +329,24 @@ screens = [
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(
-                    **foo
+                    **groupbox_settings
                 ),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Volume(fmt='Vol: {}', emoji=True),
-                widget.TextBox("SCREEN 2 default config", name="default"),
                 widget.GenPollCommand(
                     #background="282A36",
                     cmd="i3weather short",
                     fmt="{}",
                     shell=True,
-                    update_interval=5,
+                    update_interval=300,
                 ),
                 widget.GenPollCommand(
                     #background="282A36",
                     cmd="i3vpn",
                     fmt="{}",
                     shell=True,
-                    update_interval=5,
+                    update_interval=10,
                 ),
                 widget.GenPollCommand(
                     background="282A36",

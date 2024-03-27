@@ -10,10 +10,11 @@ set_random_wallpaper
 sleep 1
 #picom --daemon &
 /usr/bin/emacs --daemon &
+
 nm-applet &
 blueman-applet &
 megasync &
-
+xfce4-power-manager &
 #"$HOME"/.screenlayout/layout.sh &
 #sleep 1
 #conky -c "$HOME"/.config/conky/qtile/01/"$COLORSCHEME".conf || echo "Couldn't start conky."

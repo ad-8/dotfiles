@@ -45,6 +45,7 @@ Find the default config template here:
   - [[#more-exec--exec-on-startup][more exec / exec on startup]]
   - [[#licht][licht]]
 - [[#gaps][GAPS]]
+  - [[#global][global]]
   - [[#per-workspace-settings][per workspace settings]]
   - [[#some-very-nice-keybindings-for-i3-gaps][Some very nice keybindings for i3-gaps.]]
 - [[#workspaces][Workspaces]]
@@ -634,14 +635,18 @@ exec /usr/local/bin/licht hi
 
 
 * GAPS
+** global
+#+begin_src shell
+set $my-inner 10
+gaps inner $my-inner
+#+end_src
+
 ** per workspace settings
 BASIC SYNTAX global or per workspace
 ~gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>~
 ~workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>~
 
 #+begin_src shell
-#set $my-inner 10
-##gaps inner $my-inner
 
 # workspace $ws1 gaps horizontal 100
 # workspace $ws1 gaps vertical   25

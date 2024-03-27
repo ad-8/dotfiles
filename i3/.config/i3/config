@@ -367,8 +367,8 @@ exec "alacritty --name alacritty0"
 
 exec /usr/local/bin/licht hi
 
-#set $my-inner 10
-##gaps inner $my-inner
+set $my-inner 10
+gaps inner $my-inner
 
 # workspace $ws1 gaps horizontal 100
 # workspace $ws1 gaps vertical   25
