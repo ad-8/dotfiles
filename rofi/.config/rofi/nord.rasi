@@ -4,6 +4,8 @@
  *
  * Nord Color palette imported from https://www.nordtheme.com/
  *
+ * --> man rofi-theme <--
+ * has a visual explanation of all the elements used in this file
  */
 
 
@@ -49,6 +51,8 @@ window {
     spacing: 0;
     children:  [mainbox];
     orientation: horizontal;
+
+    width: 45%; /* 50 looks like the default */
 }
 
 mainbox {
