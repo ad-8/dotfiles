@@ -216,7 +216,7 @@ The reason for using ~emacsclient~, as far as I have learned, is simply speed.
 
 #+begin_src shell
 set $mode_launcher Launch: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [s]ystem-monitor
-bindsym $mod+o mode "$mode_launcher"
+bindsym $mod+shift+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym a exec xfce4-appfinder; mode "default"
@@ -249,20 +249,23 @@ It tries to start one of the following (in that order):
 #+begin_src shell
 
 # start a terminal
-# flavor of the month :) 
+# flavor of the month :)
 bindsym $mod+Return exec alacritty
 # fallback
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
  # TODO testing mod+q
-bindsym $mod+q kill
+#bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher) OR rofi
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop 
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+shift+d exec --no-startup-id dmenu_run -l 25
-bindsym $mod+Tab exec --no-startup-id rofi -show combi
+# rofi as window switcher
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+# `rofi -show run` shows all runnable stuff in path (like mod+shift+d)
+bindsym $mod+o exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
