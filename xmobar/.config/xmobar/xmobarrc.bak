@@ -1,5 +1,5 @@
 Config { overrideRedirect = False
-       , font     = "pango:HackNerdFont 12"
+       , font     = "xft:iosevka-11"
        , bgColor  = "#5f5f5f"
        , fgColor  = "#f8f8f2"
        , position = TopW L 90
@@ -30,6 +30,6 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %date% "
+       , template = "%XMonadLog% }{ %alsa:default:Master% | %cpu% | %memory% * %swap% | %EDDM% | %date% "
        }
 
