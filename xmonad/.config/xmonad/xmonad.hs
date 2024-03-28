@@ -18,6 +18,7 @@ import XMonad.Util.Loggers
 import System.Exit
 import XMonad.StackSet as W
 import XMonad.Util.SpawnOnce (spawnOnce)
+import XMonad.Actions.UpdatePointer
 
 -- a basic configuration — which is the same as the default config
 -- default config: https://github.com/xmonad/xmonad/blob/master/src/XMonad/Config.hs
@@ -93,6 +94,7 @@ myConfig = def
     , layoutHook = myLayout  -- Use custom layouts
     , terminal   = "alacritty"
     , startupHook = myStartupHook
+    , logHook = updatePointer (Relative 0.5 0.5)
     }
   `additionalKeysP`
     [ ("M-S-z"    	, spawn "xscreensaver-command -lock")
