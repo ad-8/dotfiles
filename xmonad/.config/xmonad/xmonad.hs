@@ -3,6 +3,8 @@ import XMonad
 import XMonad.Util.EZConfig
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Magnifier
+import XMonad.Hooks.EwmhDesktops
+
 
 -- a basic configuration — which is the same as the default config
 -- default config: https://github.com/xmonad/xmonad/blob/master/src/XMonad/Config.hs
@@ -19,7 +21,9 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
 
 
 main :: IO ()
-main = xmonad $ def
+main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
+
+myConfig = def
     { modMask    = mod4Mask  -- Rebind Mod to the Super key
     , layoutHook = myLayout  -- Use custom layouts
     }
