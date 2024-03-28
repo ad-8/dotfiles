@@ -14,6 +14,8 @@ import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 --------------------------------
 import XMonad.Util.Loggers
+--------------------------------
+import System.Exit
 
 -- a basic configuration — which is the same as the default config
 -- default config: https://github.com/xmonad/xmonad/blob/master/src/XMonad/Config.hs
@@ -69,11 +71,18 @@ main = xmonad
 myConfig = def
     { modMask    = mod4Mask  -- Rebind Mod to the Super key
     , layoutHook = myLayout  -- Use custom layouts
+    , terminal   = "alacritty"
     }
   `additionalKeysP`
-    [ ("M-S-z", spawn "xscreensaver-command -lock")
-    , ("M-C-s", unGrab *> spawn "scrot -s"        )
-    , ("M-f"  , spawn "firefox"                   )
+    [ ("M-S-z"    	, spawn "xscreensaver-command -lock")
+    , ("M-C-s"  	, unGrab *> spawn "scrot -s"        )
+    , ("M-f"      	, spawn "firefox"                   )
+    , ("M-o"      	, spawn "rofi -show drun"           )
+    , ("M-<Tab>"  	, spawn "rofi -show window"           )
+    , ("M-S-q"    	, kill           )
+    , ("M-S-e"         	, io (exitWith ExitSuccess)           )
+    -- TODO get sth generic to work like spawn $ Xmonad.terminal 
+    , ("M-<Return>"     , spawn "alacritty"       )
     ]
 
 
