@@ -1,9 +1,18 @@
 import XMonad
 
+-- imports tutorial, part up until Xmobar setup
+-- tutorial: https://xmonad.org/TUTORIAL.html
 import XMonad.Util.EZConfig
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Magnifier
 import XMonad.Hooks.EwmhDesktops
+--------------------------------
+
+-- imports to set up Xmobar
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
+--------------------------------
 
 
 -- a basic configuration — which is the same as the default config
@@ -21,7 +30,8 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
 
 
 main :: IO ()
-main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
+main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ myConfig
+
 
 myConfig = def
     { modMask    = mod4Mask  -- Rebind Mod to the Super key
