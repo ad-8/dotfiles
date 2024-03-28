@@ -17,6 +17,7 @@ import XMonad.Util.Loggers
 --------------------------------
 import System.Exit
 import XMonad.StackSet as W
+import XMonad.Util.SpawnOnce (spawnOnce)
 
 -- a basic configuration — which is the same as the default config
 -- default config: https://github.com/xmonad/xmonad/blob/master/src/XMonad/Config.hs
@@ -69,10 +70,29 @@ main = xmonad
      $ myConfig
 
 
+myStartupHook :: X ()
+myStartupHook = do
+  spawnOnce ".screenlayout/arandr-config-viewsonic.sh"
+  spawnOnce "nm-applet"
+  spawnOnce "blueman-applet"
+  spawnOnce "megasync"
+  -- TODO spawn polkit see i3
+  spawnOnce "emacs --daemon"
+  spawnOnce "/usr/bin/syncthing"
+  spawnOnce "xfce4-power-manager"
+  spawnOnce "picom"
+  spawnOnce "trayer --edge top --align right --SetDockType true \
+            \--SetPartialStrut true --expand true --width 10 \
+            \--transparent true --tint 0x5f5f5f --height 18 --monitor \"primary\""
+  spawnOnce "feh --bg-fill --randomize ~/Pictures/wallpapers"
+
+
+
 myConfig = def
     { modMask    = mod4Mask  -- Rebind Mod to the Super key
     , layoutHook = myLayout  -- Use custom layouts
     , terminal   = "alacritty"
+    , startupHook = myStartupHook
     }
   `additionalKeysP`
     [ ("M-S-z"    	, spawn "xscreensaver-command -lock")
