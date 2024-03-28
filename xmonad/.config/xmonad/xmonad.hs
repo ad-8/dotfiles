@@ -36,9 +36,9 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppSep             = magenta " • "
+    { ppSep             = yellow " • "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
+    , ppCurrent         = wrap " " "" . xmobarBorder "Full" "#d08770" 2
     , ppHidden          = white . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
@@ -46,23 +46,29 @@ myXmobarPP = def
     , ppExtras          = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused   = wrap (white    "[") (white    "]") . magenta . ppWindow
-    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
+    formatFocused   = wrap (white    "[") (white    "]") . orange . ppWindow
+    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . yellow . ppWindow
 
     -- | Windows should have *some* title, which should not not exceed a
     -- sane length.
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
 
-    blue, lowWhite, magenta, red, white, yellow :: String -> String
+    --blue, lowWhite, magenta, red, white, yellow :: String -> String
     magenta  = xmobarColor "#ff79c6" ""
     blue     = xmobarColor "#bd93f9" ""
     white    = xmobarColor "#f8f8f2" ""
-    yellow   = xmobarColor "#f1fa8c" ""
-    red      = xmobarColor "#ff5555" ""
+    --yellow   = xmobarColor "#f1fa8c" ""
+    --red      = xmobarColor "#ff5555" ""
     lowWhite = xmobarColor "#bbbbbb" ""
+    
+    red    = xmobarColor "#bf616a" ""
+    orange = xmobarColor "#d08770" ""
+    yellow = xmobarColor "#ebcb8b" ""
+    green  = xmobarColor "#a3be8c" ""
+    lila   = xmobarColor "#b48ead" ""
 
-
+    
 main :: IO ()
 main = xmonad
      . ewmhFullscreen
@@ -94,7 +100,8 @@ myConfig = def
     , layoutHook = myLayout  -- Use custom layouts
     , terminal   = "alacritty"
     , startupHook = myStartupHook
-    , logHook = updatePointer (Relative 0.5 0.5)
+   -- , logHook = updatePointer (Relative 0.5 0.5)
+    , logHook = updatePointer (0.5, 0.5) (0, 0)
     }
   `additionalKeysP`
     [ ("M-S-z"    	, spawn "xscreensaver-command -lock")
