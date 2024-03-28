@@ -16,6 +16,7 @@ import XMonad.Hooks.StatusBar.PP
 import XMonad.Util.Loggers
 --------------------------------
 import System.Exit
+import XMonad.StackSet as W
 
 -- a basic configuration — which is the same as the default config
 -- default config: https://github.com/xmonad/xmonad/blob/master/src/XMonad/Config.hs
@@ -79,10 +80,13 @@ myConfig = def
     , ("M-f"      	, spawn "firefox"                   )
     , ("M-o"      	, spawn "rofi -show drun"           )
     , ("M-<Tab>"  	, spawn "rofi -show window"           )
+    , ("M-q"    	, kill           )
     , ("M-S-q"    	, kill           )
     , ("M-S-e"         	, io (exitWith ExitSuccess)           )
     -- TODO get sth generic to work like spawn $ Xmonad.terminal 
     , ("M-<Return>"     , spawn "alacritty"       )
+    , ("M-S-<Return>"   , windows W.swapMaster       )
+    , ("M-S-r"          , spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad            )
     ]
 
 
