@@ -30,7 +30,11 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
 
 
 main :: IO ()
-main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ myConfig
+main = xmonad
+     . ewmhFullscreen
+     . ewmh
+     . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure def)) defToggleStrutsKey
+     $ myConfig
 
 
 myConfig = def
