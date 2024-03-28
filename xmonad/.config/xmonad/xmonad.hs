@@ -2,6 +2,7 @@ import XMonad
 
 import XMonad.Util.EZConfig
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Magnifier
 
 -- a basic configuration — which is the same as the default config
 -- default config: https://github.com/xmonad/xmonad/blob/master/src/XMonad/Config.hs
@@ -10,7 +11,7 @@ import XMonad.Layout.ThreeColumns
 
 myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
   where
-    threeCol = ThreeColMid nmaster delta ratio
+    threeCol = magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
     tiled    = Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
