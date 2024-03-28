@@ -1,3 +1,5 @@
+/* list all config options -> `rofi -dump-config` */
+
 configuration {
 
 show-icons: true;

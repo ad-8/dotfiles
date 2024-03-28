@@ -125,7 +125,7 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+shift+d exec --no-startup-id dmenu_run -l 25
 # rofi as window switcher
 bindsym $mod+Tab exec --no-startup-id rofi -show window
-# TODO test as fancy app launcher (instead of dmenu)
+# `rofi -show run` shows all runnable stuff in path (like mod+shift+d)
 bindsym $mod+o exec --no-startup-id rofi -show drun
 
 # change focus
@@ -198,10 +198,10 @@ bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
 
-bindsym $mod+a      exec "~/code/scripts/bb/src/search.clj --select-provider"
-bindsym $mod+i      exec "~/code/scripts/bb/src/run_script.clj"
-bindsym $mod+g      exec "~/code/scripts/bb/src/search.clj"
-bindsym $mod+Mod1+c exec "~/code/scripts/bb/src/edit_configs.clj"
+bindsym $mod+a      exec "~/scripts/bb/search.clj --select-provider"
+bindsym $mod+i      exec "~/scripts/bb/run_script.clj"
+bindsym $mod+g      exec "~/scripts/bb/search.clj"
+bindsym $mod+Mod1+c exec "~/scripts/bb/edit_configs.clj"
 bindsym $mod+Mod1+e exec "~/.config/i3/dmenuunicode"
 bindsym $mod+Mod1+l exec "/usr/local/bin/licht"
 

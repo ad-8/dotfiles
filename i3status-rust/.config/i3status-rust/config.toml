@@ -71,9 +71,10 @@ cmd = "pavucontrol"
 
 [[block]]
 block = "custom"
-command = "~/.config/i3/licht.sh"
-interval = 5
-hide_when_empty=true
+command = "~/scripts/i3status-licht.sh"
+#interval = 5
+watch_files = ["/tmp/licht-ed16d5b5"]
+#hide_when_empty=true
 [block.theme_overrides]
 idle_fg = "#708090"
 
@@ -107,7 +108,7 @@ idle_fg = "#708090"
 [[block]]
 block = "memory"
 format = " $icon $mem_used_percents.eng(w:1) "
-format_alt = " $icon_swap $swap_free.eng(w:3,u:B,p:Mi)/$swap_total.eng(w:3,u:B,p:Mi)($swap_used_percents.eng(w:2)) "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
 interval = 30
 warning_mem = 80
 critical_mem = 92
