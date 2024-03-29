@@ -280,7 +280,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
+bindsym $mod+t focus mode_toggle
 
 # focus the parent container
 bindsym $mod+p focus parent
@@ -328,18 +329,26 @@ bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 
 *** Interactive mode: scripts using dmenu for user interaction
 #+begin_src shell
-set $mode_interactive Interactive Mode: [a]ll-search [e]moji [l]icht [r]un-script [s]earch
-bindsym $mod+i mode "$mode_interactive"
+set $mode_space SPC: [a]ll-search [e]moji [g]search [r]un-script [s]ettings
+set $mode_settings SETTINGS: [l]icht [s]creen-config
+bindsym $mod+space mode "$mode_space"
 
-mode "$mode_interactive" {
+mode "$mode_space" {
     bindsym a exec "~/scripts/bb/search.clj --select-provider"; mode "default"
     bindsym e exec "~/.config/i3/dmenuunicode"; mode "default"
-    bindsym l exec "/usr/local/bin/licht"; mode "default"
+    bindsym g exec "~/scripts/bb/search.clj"; mode "default"
     bindsym r exec "~/scripts/bb/run_script.clj"; mode "default"
-    bindsym s exec "~/scripts/bb/search.clj"; mode "default"
+
+    bindsym s mode "$mode_settings"
 
     bindsym Escape mode "default"
-    bindsym Return mode "default"
+}
+
+mode "$mode_settings" {
+    bindsym l exec "/usr/local/bin/licht"; mode "default"
+    bindsym s exec "screen_config"; mode "default"
+
+    bindsym Escape mode "default"
 }
 #+end_src
 
