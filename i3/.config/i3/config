@@ -94,7 +94,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $mode_launcher Launch: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [o]pen [s]ystem-monitor
+set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [o]pen [s]ystem-monitor
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -110,24 +110,14 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
-# start a terminal
-# flavor of the month :)
+# start a terminal (current favorite and fallback)
 bindsym $mod+Return exec alacritty
-# fallback
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # kill focused window
- # TODO testing mod+q
-#bindsym $mod+q kill
+# TODO testing mod+q
+bindsym $mod+q kill
 bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher) OR rofi
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+shift+d exec --no-startup-id dmenu_run -l 25
-# rofi as window switcher
-bindsym $mod+Tab exec --no-startup-id rofi -show window
-# `rofi -show run` shows all runnable stuff in path (like mod+shift+d)
-bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
@@ -199,12 +189,25 @@ bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
 
-bindsym $mod+a      exec "~/scripts/bb/search.clj --select-provider"
-bindsym $mod+i      exec "~/scripts/bb/run_script.clj"
-bindsym $mod+g      exec "~/scripts/bb/search.clj"
-bindsym $mod+Mod1+c exec "~/scripts/bb/edit_configs.clj"
-bindsym $mod+Mod1+e exec "~/.config/i3/dmenuunicode"
-bindsym $mod+Mod1+l exec "/usr/local/bin/licht"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+shift+d exec --no-startup-id dmenu_run -l 25
+
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+shift+o exec --no-startup-id rofi -show drun
+
+set $mode_interactive Interactive Mode: [a]ll-search [e]moji [i]run-script [l]icht [s]earch
+bindsym $mod+i mode "$mode_interactive"
+
+mode "$mode_interactive" {
+    bindsym a exec "~/scripts/bb/search.clj --select-provider"; mode "default"
+    bindsym e exec "~/.config/i3/dmenuunicode"; mode "default"
+    bindsym i exec "~/scripts/bb/run_script.clj"; mode "default"
+    bindsym l exec "/usr/local/bin/licht"; mode "default"
+    bindsym s exec "~/scripts/bb/search.clj"; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 
 # "kill" notifications
 bindsym $mod+Mod1+k exec "dunstctl close-all"
