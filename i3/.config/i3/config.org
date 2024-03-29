@@ -315,7 +315,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioPrev exec playerctl previous
 #+end_src
 
-** dmenu 
+** dmenu
+TODO a script that parses all programs that are are bound via bindysm and checks if that program is installed on the system (bonus check if bound scripts exist/work)
 *** dmenu / rofi keybindings
 #+begin_src shell
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
