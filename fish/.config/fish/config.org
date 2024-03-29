@@ -96,7 +96,7 @@ abbr -a et 'emacsclient -t'
 abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
-abbr -a nf '~/dotfiles/0-scripts/nf.sh'
+abbr -a nf '~/scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='vim' nnn -H"
 abbr -a o. 'open .'
