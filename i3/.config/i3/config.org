@@ -32,6 +32,7 @@ with the cursor being on the line with PROPERTY before exporting (tangling) this
   - [[#disable-title-bars][Disable Title Bars]]
   - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
   - [[#hide-borders-on-ws8][hide borders on $ws8]]
+  - [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
 - [[#exec][EXEC]]
   - [[#default][default]]
   - [[#autostart--daemons][autostart / daemons]]
@@ -51,7 +52,6 @@ with the cursor being on the line with PROPERTY before exporting (tangling) this
   - [[#back-and-forth][back and forth]]
   - [[#assign-workspace-to-a-specific-display][Assign workspace to a specific display]]
   - [[#panic-mode][Panic Mode]]
-- [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
 
 * Top of File - Info 
 #+begin_src shell
@@ -485,6 +485,48 @@ for_window [instance="kitty4"] border pixel 1
 for_window [instance="kittyX"] border pixel 1
 #+end_src
 
+** FLOAT / RESIZE etc. CERTAIN WINDOWS
+# enable floating mode for all XTerm windows
+for_window [class="XTerm"] floating enable
+
+# Make all urxvts use a 1-pixel border:
+for_window [class="urxvt"] border pixel 1
+
+# A less useful, but rather funny example:
+# makes the window floating as soon as I change
+# directory to ~/work
+for_window [title="x200: ~/work"] floating enable
+
+# Move floating container to the center of all outputs -> not what I wanted :)
+bindsym $mod+c move absolute position center
+# ok
+for_window [class="Blueman-manager"] move position mouse
+
+# EXAMPLE how to combine stuff
+#for_window [title="Error" class="Lxpolkit"] kill; floating enable; border none
+
+#+begin_src shell
+for_window [class="Xfce4-appfinder"] floating enable
+#for_window [class="Xfce4-appfinder"] border pixel 5
+for_window [class="Xfce4-appfinder"] resize set 640 480
+for_window [class="Xfce4-appfinder"] move position center
+
+for_window [class="Xfce4-about"] floating enable
+for_window [class="Xfce4-about"] resize set 640 480
+for_window [class="Xfce4-about"] move position center
+
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Blueman-manager"] resize set 640 480
+for_window [class="Blueman-manager"] move position center
+
+for_window [title="About Mozilla Firefox"] floating enable
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] resize set 800 640
+for_window [class="Pavucontrol"] move position center
+#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
+#+end_src
+
 * EXEC
 ~exec~ executes on login
 ~exec_always~ also executes on reload
@@ -841,48 +883,5 @@ workspace $ws1 output eDP-1
 # panic mode step 1: assign a never-in-use workspace for each display
 # workspace 100 output eDP-1
 # workspace 101 output HDMI-2
-#+end_src
-
-* FLOAT / RESIZE etc. CERTAIN WINDOWS
-# enable floating mode for all XTerm windows
-for_window [class="XTerm"] floating enable
-
-# Make all urxvts use a 1-pixel border:
-for_window [class="urxvt"] border pixel 1
-
-# A less useful, but rather funny example:
-# makes the window floating as soon as I change
-# directory to ~/work
-for_window [title="x200: ~/work"] floating enable
-
-# Move floating container to the center of all outputs -> not what I wanted :)
-bindsym $mod+c move absolute position center
-# ok
-for_window [class="Blueman-manager"] move position mouse
-
-# EXAMPLE how to combine stuff
-#for_window [title="Error" class="Lxpolkit"] kill; floating enable; border none 
-
-#+begin_src shell
-for_window [class="Xfce4-appfinder"] floating enable
-#for_window [class="Xfce4-appfinder"] border pixel 5
-for_window [class="Xfce4-appfinder"] resize set 640 480
-for_window [class="Xfce4-appfinder"] move position center
-
-for_window [class="Xfce4-about"] floating enable
-for_window [class="Xfce4-about"] resize set 640 480
-for_window [class="Xfce4-about"] move position center
-
-for_window [class="Blueman-manager"] floating enable
-for_window [class="Blueman-manager"] resize set 640 480
-for_window [class="Blueman-manager"] move position center
-
-for_window [title="About Mozilla Firefox"] floating enable
-
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Pavucontrol"] resize set 800 640
-for_window [class="Pavucontrol"] move position center
-#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
-
 #+end_src
 

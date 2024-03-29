@@ -315,6 +315,26 @@ for_window [instance="kitty3"] border pixel 1
 for_window [instance="kitty4"] border pixel 1
 for_window [instance="kittyX"] border pixel 1
 
+for_window [class="Xfce4-appfinder"] floating enable
+#for_window [class="Xfce4-appfinder"] border pixel 5
+for_window [class="Xfce4-appfinder"] resize set 640 480
+for_window [class="Xfce4-appfinder"] move position center
+
+for_window [class="Xfce4-about"] floating enable
+for_window [class="Xfce4-about"] resize set 640 480
+for_window [class="Xfce4-about"] move position center
+
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Blueman-manager"] resize set 640 480
+for_window [class="Blueman-manager"] move position center
+
+for_window [title="About Mozilla Firefox"] floating enable
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] resize set 800 640
+for_window [class="Pavucontrol"] move position center
+#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 # TODO not installed by default on arch
@@ -560,23 +580,3 @@ workspace $ws1 output eDP-1
 # panic mode step 1: assign a never-in-use workspace for each display
 # workspace 100 output eDP-1
 # workspace 101 output HDMI-2
-
-for_window [class="Xfce4-appfinder"] floating enable
-#for_window [class="Xfce4-appfinder"] border pixel 5
-for_window [class="Xfce4-appfinder"] resize set 640 480
-for_window [class="Xfce4-appfinder"] move position center
-
-for_window [class="Xfce4-about"] floating enable
-for_window [class="Xfce4-about"] resize set 640 480
-for_window [class="Xfce4-about"] move position center
-
-for_window [class="Blueman-manager"] floating enable
-for_window [class="Blueman-manager"] resize set 640 480
-for_window [class="Blueman-manager"] move position center
-
-for_window [title="About Mozilla Firefox"] floating enable
-
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Pavucontrol"] resize set 800 640
-for_window [class="Pavucontrol"] move position center
-#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
