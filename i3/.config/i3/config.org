@@ -17,41 +17,41 @@ with the cursor being on the line with PROPERTY before exporting (tangling) this
   - [[#font][Font]]
 - [[#bar][BAR]]
   - [[#i3status-rust][i3status-rust]]
-- [[#binding-modes][Binding Modes]]
+- [[#binding-modes][BINDING MODES]]
   - [[#resize][Resize]]
   - [[#launch-applications-with-modo][Launch applications with $mod+o]]
-- [[#bindsym][bindsym]]
+- [[#bindsym][BINDSYM]]
   - [[#i3-basics][i3 basics]]
   - [[#audio][audio]]
-  - [[#dmenu][dmenu]]
+  - [[#dmenu--rofi][dmenu / rofi]]
+  - [[#interactive-mode-scripts-using-dmenu-for-user-interaction][Interactive mode: scripts using dmenu for user interaction]]
   - [[#more-custom-ones][more custom ones]]
-- [[#colors-and-ui][Colors and UI]]
+- [[#colors-and-ui][COLORS AND UI]]
   - [[#nord-colors][Nord Colors]]
   - [[#changing-colors][Changing Colors]]
   - [[#disable-title-bars][Disable Title Bars]]
   - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
   - [[#hide-borders-on-ws8][hide borders on $ws8]]
-- [[#exec][exec]]
+- [[#exec][EXEC]]
   - [[#default][default]]
   - [[#autostart--daemons][autostart / daemons]]
   - [[#more][more]]
   - [[#who-autostarts-those][who autostarts those?]]
-  - [[#notifications][Notifications]]
   - [[#more-exec--exec-on-startup][more exec / exec on startup]]
   - [[#licht][licht]]
 - [[#gaps][GAPS]]
   - [[#global][global]]
-  - [[#per-workspace-settings][per workspace settings]]
-  - [[#some-very-nice-keybindings-for-i3-gaps][Some very nice keybindings for i3-gaps.]]
-- [[#workspaces][Workspaces]]
+  - [[#per-workspace][per workspace]]
+  - [[#manipulate-gaps-at-runtime][manipulate gaps at runtime]]
+- [[#workspaces][WORKSPACES]]
   - [[#define-workspaces][Define workspaces]]
-  - [[#assign-to-ws][assign to ws]]
   - [[#switch-to-workspace][Switch to workspace]]
   - [[#move-focused-container-to-workspace][Move focused container to workspace]]
+  - [[#open-apps-on-specific-workspace][Open apps on specific workspace]]
   - [[#back-and-forth][back and forth]]
   - [[#assign-workspace-to-a-specific-display][Assign workspace to a specific display]]
   - [[#panic-mode][Panic Mode]]
-- [[#float-certain-windows][FLOAT CERTAIN WINDOWS]]
+- [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
 
 * Top of File - Info 
 #+begin_src shell
@@ -175,7 +175,7 @@ Optional dependencies for i3status-rust
     ttf-font-awesome: for the awesome icons
     upower: for the battery block [installed]
 
-* Binding Modes
+* BINDING MODES
 https://i3wm.org/docs/userguide.html#binding_modes
 
 ** Resize
@@ -226,7 +226,7 @@ mode "$mode_launcher" {
 }
 #+end_src
 
-* bindsym
+* BINDSYM
 ** i3 basics
 #+begin_src shell
 # start a terminal (current favorite and fallback)
@@ -316,9 +316,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioPrev exec playerctl previous
 #+end_src
 
-** dmenu
+** dmenu / rofi
 TODO a script that parses all programs that are are bound via bindysm and checks if that program is installed on the system (bonus check if bound scripts exist/work)
-*** dmenu / rofi keybindings
 #+begin_src shell
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+shift+d exec --no-startup-id dmenu_run -l 25
@@ -327,7 +326,7 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 #+end_src
 
-*** Interactive mode: scripts using dmenu for user interaction
+** Interactive mode: scripts using dmenu for user interaction
 #+begin_src shell
 set $mode_space SPC: [a]ll-search [e]moji [g]search [r]un-script [s]ettings
 set $mode_settings SETTINGS: [l]icht [s]creen-config
@@ -368,6 +367,7 @@ bindsym $mod+Shift+x exec i3lock --color 000000 --show-failed-attempts && system
 # bindsym $mod+Shift+h exec "i3-msg workspace 100 && i3-msg workspace 101"
 
 # Launch "music workspace" $ws8
+# TODO fix
 bindsym $mod+Shift+m exec "~/.config/i3/make-ws8.sh"
 
 # Make the currently focused window a scratchpad
@@ -381,7 +381,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+m move workspace to output down
 #+end_src
 
-* Colors and UI
+* COLORS AND UI
 ** Nord Colors
 https://www.nordtheme.com/docs/colors-and-palettes
 
@@ -485,10 +485,9 @@ for_window [instance="kitty4"] border pixel 1
 for_window [instance="kittyX"] border pixel 1
 #+end_src
 
-* exec
+* EXEC
 ~exec~ executes on login
 ~exec_always~ also executes on reload
-
 
 ** default
 #+begin_src shell
@@ -523,7 +522,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #+end_src
 
 ** autostart / daemons
-
 *** emacs daemon / server
 #+begin_src shell
 exec --no-startup-id emacs --daemon
@@ -533,6 +531,7 @@ exec --no-startup-id emacs --daemon
 picom produces some weird artifacts atm on the MBP, so this might be commented out
 **but** picom also gets rid of ugly stuff, e.g. compare RightClick/ContextMenu in FireFox with/without picom enabled (empty ~/.config/picom/picom.conf),
 not the default one, which adds to much stuff
+
 #+begin_src shell
 exec --no-startup-id picom
 #+end_src
@@ -554,8 +553,6 @@ exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
 # in ~xfce4-power-manager-settings~ (GUI), enabled ~handle display brightness keys~, 
 # and with exec here, and after restart, those keys *finally* work
 exec_always --no-startup-id xfce4-power-manager
-
-
 #+end_src
 
 ** who autostarts those?
@@ -576,8 +573,7 @@ ok the ~gnome-keyring-daemon~ must get started by another thing, if I kill it, i
 
 #+end_src
 
-
-** Notifications 
+*** About Notifications
 To send a notificatin e.g. using ~notify-send~, a notification server/daemon has to be up and running.
 https://wiki.archlinux.org/title/Desktop_notifications#Notification_servers
 
@@ -590,15 +586,10 @@ since it can configure stuff on a **per app basis**.
 
 ** more exec / exec on startup
 #+begin_src shell
-# TODO set via dmenu script
-#arandr-config-macbook-screen-only.sh
-exec_always $HOME/.screenlayout/arandr-config-viewsonic.sh
+exec $HOME/.screenlayout/arandr-config-viewsonic.sh
 #exec_always $HOME/.screenlayout/arandr-config-lg-ultrawide.sh
 
 exec_always set_random_wallpaper
-#exec "kitty --name kitty0"
-exec "alacritty --name alacritty0"
-
 #+end_src
 
 ** licht
@@ -608,7 +599,6 @@ Set light to "hi" (high) for both the internal and external screen.
 exec /usr/local/bin/licht hi
 #+end_src
 
-
 * GAPS
 ** global
 #+begin_src shell
@@ -616,13 +606,12 @@ exec /usr/local/bin/licht hi
 #gaps inner $my-inner
 #+end_src
 
-** per workspace settings
+** per workspace
 BASIC SYNTAX global or per workspace
 ~gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>~
 ~workspace <ws> gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>~
 
 #+begin_src shell
-
 # workspace $ws1 gaps horizontal 100
 # workspace $ws1 gaps vertical   25
 # workspace $ws1 gaps inner 10
@@ -635,7 +624,7 @@ BASIC SYNTAX global or per workspace
 #workspace $ws3 gaps vertical   25
 #+end_src
 
-** Some very nice keybindings for i3-gaps.
+** manipulate gaps at runtime
 Taken from the official i3-gaps repo: https://github.com/Airblader/i3/wiki/Example-Configuration
 
 #+begin_src shell
@@ -761,8 +750,7 @@ mode "$mode_gaps_left" {
 }
 #+end_src
 
-* Workspaces
-
+* WORKSPACES
 ** Define workspaces
 Define names for default workspaces for which we configure key bindings later on.
 We use variables to avoid repeating the names in multiple places.
@@ -781,27 +769,6 @@ set $ws8 "8  "
 set $ws9 "9   "
 set $ws10 "10   "
 #+end_src
-
-** assign to ws
-To find out the class name of an application: `xprop` -> enter -> click app -> under `WM_CLASS(STRING)` it's the last value
-
-#+begin_src shell
-assign [class="firefox"] $ws2
-assign [class="jetbrains-rustrover"] $ws4
-assign [class="KeePassXC"] $ws10
-assign [instance="^kitty0$"] $ws1
-assign [instance="^alacritty0$"] $ws1
-assign [instance="^kitty1$"] $ws8
-assign [instance="^kitty2$"] $ws8
-assign [instance="^kitty3$"] $ws8
-assign [instance="^kitty4$"] $ws8
-
-# TODO mv musik to another ws
-assign [class="Gnome-boxes"] $ws8
-# just changed its class name .. why?!
-assign [class="Org.gnome.Boxes"] $ws8
-#+end_src
-
 
 ** Switch to workspace
 #+begin_src shell
@@ -831,6 +798,25 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 #+end_src
 
+** Open apps on specific workspace
+To find out the class name of an application: =`xprop` -> enter -> click app -> under `WM_CLASS(STRING)`= it's the last value
+
+#+begin_src shell
+assign [class="firefox"] $ws2
+assign [class="Brave-browser"] $ws9
+assign [class="jetbrains-rustrover"] $ws4
+assign [class="KeePassXC"] $ws10
+assign [instance="^kitty1$"] $ws8
+assign [instance="^kitty2$"] $ws8
+assign [instance="^kitty3$"] $ws8
+assign [instance="^kitty4$"] $ws8
+
+# TODO mv musik to another ws
+assign [class="Gnome-boxes"] $ws8
+# just changed its class name .. why?!
+assign [class="Org.gnome.Boxes"] $ws8
+#+end_src
+
 ** back and forth
 auto back/forth example:
 For instance: Assume you are on workspace "1: www" and switch to "2: IM" using mod+2 because somebody sent you a message. You don’t need to remember where you came from now, you can just press $mod+2 again to switch back to "1: www".
@@ -848,7 +834,6 @@ Use ~xrandr --listmonitors~ to get the monitor names.
 #+begin_src shell
 workspace $ws1 output eDP-1
 #workspace $ws8 output eDP-1
-
 #+end_src
 
 ** Panic Mode
@@ -858,7 +843,7 @@ workspace $ws1 output eDP-1
 # workspace 101 output HDMI-2
 #+end_src
 
-* FLOAT CERTAIN WINDOWS
+* FLOAT / RESIZE etc. CERTAIN WINDOWS
 # enable floating mode for all XTerm windows
 for_window [class="XTerm"] floating enable
 
@@ -877,7 +862,6 @@ for_window [class="Blueman-manager"] move position mouse
 
 # EXAMPLE how to combine stuff
 #for_window [title="Error" class="Lxpolkit"] kill; floating enable; border none 
-
 
 #+begin_src shell
 for_window [class="Xfce4-appfinder"] floating enable

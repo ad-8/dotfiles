@@ -228,6 +228,7 @@ bindsym $mod+Shift+x exec i3lock --color 000000 --show-failed-attempts && system
 # bindsym $mod+Shift+h exec "i3-msg workspace 100 && i3-msg workspace 101"
 
 # Launch "music workspace" $ws8
+# TODO fix
 bindsym $mod+Shift+m exec "~/.config/i3/make-ws8.sh"
 
 # Make the currently focused window a scratchpad
@@ -359,14 +360,10 @@ exec_always --no-startup-id xfce4-power-manager
 # like this, causes i3 config error
 #/usr/bin/gnome-keyring-daemon
 
-# TODO set via dmenu script
-#arandr-config-macbook-screen-only.sh
-exec_always $HOME/.screenlayout/arandr-config-viewsonic.sh
+exec $HOME/.screenlayout/arandr-config-viewsonic.sh
 #exec_always $HOME/.screenlayout/arandr-config-lg-ultrawide.sh
 
 exec_always set_random_wallpaper
-#exec "kitty --name kitty0"
-exec "alacritty --name alacritty0"
 
 exec /usr/local/bin/licht hi
 
@@ -516,21 +513,6 @@ set $ws8 "8  "
 set $ws9 "9   "
 set $ws10 "10   "
 
-assign [class="firefox"] $ws2
-assign [class="jetbrains-rustrover"] $ws4
-assign [class="KeePassXC"] $ws10
-assign [instance="^kitty0$"] $ws1
-assign [instance="^alacritty0$"] $ws1
-assign [instance="^kitty1$"] $ws8
-assign [instance="^kitty2$"] $ws8
-assign [instance="^kitty3$"] $ws8
-assign [instance="^kitty4$"] $ws8
-
-# TODO mv musik to another ws
-assign [class="Gnome-boxes"] $ws8
-# just changed its class name .. why?!
-assign [class="Org.gnome.Boxes"] $ws8
-
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -552,6 +534,20 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+assign [class="firefox"] $ws2
+assign [class="Brave-browser"] $ws9
+assign [class="jetbrains-rustrover"] $ws4
+assign [class="KeePassXC"] $ws10
+assign [instance="^kitty1$"] $ws8
+assign [instance="^kitty2$"] $ws8
+assign [instance="^kitty3$"] $ws8
+assign [instance="^kitty4$"] $ws8
+
+# TODO mv musik to another ws
+assign [class="Gnome-boxes"] $ws8
+# just changed its class name .. why?!
+assign [class="Org.gnome.Boxes"] $ws8
 
 workspace_auto_back_and_forth yes
 
