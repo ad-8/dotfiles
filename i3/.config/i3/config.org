@@ -215,8 +215,8 @@ About modes: https://i3wm.org/docs/userguide.html#binding_modes
 The reason for using ~emacsclient~, as far as I have learned, is simply speed.
 
 #+begin_src shell
-set $mode_launcher Launch: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [s]ystem-monitor
-bindsym $mod+shift+o mode "$mode_launcher"
+set $mode_launcher Launch: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [o]pen [s]ystem-monitor
+bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym a exec xfce4-appfinder; mode "default"
@@ -224,6 +224,7 @@ mode "$mode_launcher" {
     bindsym shift+b exec firefox; mode "default"
     bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"
     bindsym f exec thunar; mode "default"
+    bindsym o exec rofi -show drun; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
 
     bindsym Escape mode "default"
@@ -265,7 +266,7 @@ bindsym $mod+shift+d exec --no-startup-id dmenu_run -l 25
 # rofi as window switcher
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 # `rofi -show run` shows all runnable stuff in path (like mod+shift+d)
-bindsym $mod+o exec --no-startup-id rofi -show drun
+bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
