@@ -209,7 +209,7 @@ bindsym $mod+r mode "resize"
 
 ** Launch applications with $mod+o
 #+begin_src shell
-set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [o]pen [s]ystem-monitor
+set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [o]pen [s]ystem-monitor [q]utebrowser
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -220,6 +220,7 @@ mode "$mode_launcher" {
     bindsym f exec thunar; mode "default"
     bindsym o exec rofi -show drun; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
+    bindsym q exec qutebrowser; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -329,7 +330,7 @@ bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 ** Interactive mode: scripts using dmenu for user interaction
 #+begin_src shell
 set $mode_space SPC: [a]ll-search [e]moji [g]search [r]un-script [s]ettings
-set $mode_settings SETTINGS: [l]icht [s]creen-config
+set $mode_settings SETTINGS: [b]luetooth [l]icht [s]creen-config
 bindsym $mod+space mode "$mode_space"
 
 mode "$mode_space" {
@@ -344,6 +345,7 @@ mode "$mode_space" {
 }
 
 mode "$mode_settings" {
+    bindsym b exec blueman-manager; mode "default"
     bindsym l exec "/usr/local/bin/licht"; mode "default"
     bindsym s exec "screen_config"; mode "default"
 
@@ -575,6 +577,8 @@ picom produces some weird artifacts atm on the MBP, so this might be commented o
 not the default one, which adds to much stuff
 
 #+begin_src shell
+# TODO check if this works
+exec --no-startup-id killall picom && sleep 1
 exec --no-startup-id picom
 #+end_src
 
@@ -845,7 +849,7 @@ To find out the class name of an application: =`xprop` -> enter -> click app -> 
 
 #+begin_src shell
 assign [class="firefox"] $ws2
-assign [class="Brave-browser"] $ws9
+#assign [class="Brave-browser"] $ws9
 assign [class="jetbrains-rustrover"] $ws4
 assign [class="KeePassXC"] $ws10
 assign [instance="^kitty1$"] $ws8
