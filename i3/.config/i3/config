@@ -376,7 +376,7 @@ exec --no-startup-id emacs --daemon
 exec --no-startup-id killall picom && sleep 1
 exec --no-startup-id picom
 
-exec --no-startup-id /usr/bin/syncthing
+exec --no-startup-id syncthing -no-browser
 
 # TODO not yet installed on arch / locks when playing movie, figure out better solution
 exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
