@@ -12,6 +12,8 @@
 # -> /usr/share/i3status-rust must contain the `icons` and `themes` dirs
 #    that can be found in the repo inside `files`
 
+# HOW TO - CUSTOM BLOCK - https://greshake.github.io/i3status-rust/i3status_rs/blocks/custom/index.html
+
 # NORD COLORS
 # $red    #bf616a
 # $orange #d08770
@@ -46,8 +48,11 @@ bat_charging = "|^| "
 
 [[block]]
 block = "custom"
-command = "metal i3"
+#command = "metal i3"
+cycle=["metal i3 fmt_short", "metal i3 fmt_long"]
+json=true
 interval = 5
+hide_when_empty=true
 [block.theme_overrides]
 idle_fg = "#D08770"
 
