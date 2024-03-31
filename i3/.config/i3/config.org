@@ -187,10 +187,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -209,18 +209,22 @@ bindsym $mod+r mode "resize"
 
 ** Launch applications with $mod+o
 #+begin_src shell
-set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [e]macs [f]ile-manager [o]pen [s]ystem-monitor [q]utebrowser
+set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [c]alc [e]macs [f]ile-manager [k]eepass [o]pen [s]ystem-monitor [q]utebrowser bra[v]e firefo[x]
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym a exec xfce4-appfinder; mode "default"
     bindsym b exec blueman-manager; mode "default"
-    bindsym shift+b exec firefox; mode "default"
+    bindsym c exec rofi -show calc -modi calc -no-show-match -no-sort; mode "default"
     bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"
     bindsym f exec thunar; mode "default"
+    bindsym k exec keepassxc; mode "default"
     bindsym o exec rofi -show drun; mode "default"
-    bindsym s exec gnome-system-monitor; mode "default"
     bindsym q exec qutebrowser; mode "default"
+    bindsym s exec gnome-system-monitor; mode "default"
+    bindsym shift+b exec firefox; mode "default"
+    bindsym v exec brave; mode "default"
+    bindsym x exec firefox; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -330,7 +334,7 @@ bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 ** Interactive mode: scripts using dmenu for user interaction
 #+begin_src shell
 set $mode_space SPC: [a]ll-search [e]moji [g]search [r]un-script [s]ettings
-set $mode_settings SETTINGS: [b]luetooth [l]icht [s]creen-config
+set $mode_settings SETTINGS: [b]luetooth [l]icht [s]creen-config rand-[w]allpaper
 bindsym $mod+space mode "$mode_space"
 
 mode "$mode_space" {
@@ -346,8 +350,9 @@ mode "$mode_space" {
 
 mode "$mode_settings" {
     bindsym b exec blueman-manager; mode "default"
-    bindsym l exec "/usr/local/bin/licht"; mode "default"
-    bindsym s exec "screen_config"; mode "default"
+    bindsym l exec /usr/local/bin/licht; mode "default"
+    bindsym s exec screen_config; mode "default"
+    bindsym w exec set_random_wallpaper; mode "default"
 
     bindsym Escape mode "default"
 }
@@ -553,7 +558,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
 exec --no-startup-id megasync
 
 # TODO exec --no-startup-id lxsession
@@ -598,7 +603,7 @@ exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
 
 # in ~xfce4-power-manager-settings~ (GUI), enabled ~handle display brightness keys~, 
 # and with exec here, and after restart, those keys *finally* work
-exec_always --no-startup-id xfce4-power-manager
+#exec_always --no-startup-id xfce4-power-manager
 #+end_src
 
 ** who autostarts those?
@@ -635,7 +640,7 @@ since it can configure stuff on a **per app basis**.
 exec $HOME/.screenlayout/arandr-config-viewsonic.sh
 #exec_always $HOME/.screenlayout/arandr-config-lg-ultrawide.sh
 
-exec_always set_random_wallpaper
+exec set_random_wallpaper
 #+end_src
 
 ** licht
