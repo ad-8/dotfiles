@@ -1,0 +1,23 @@
+# grouping is nice for readability in this rc file
+# but missing the "mode" display like in i3
+#
+# open <apps>
+# f = file-manager
+super + o ; {a,f,q,v,x}
+      {xfce4-appfinder,thunar,qutebrowser,brave,firefox}
+
+# open <system / settings stuff>
+super + o ; {b,k,s}
+      {blueman-manager,keepassxc,gnome-system-monitor}
+
+super + o; {e}
+      {emacsclient --create-frame --alternate-editor="vim"}
+
+super + shift + o
+      rofi -show drun
+
+super + shift + w
+      rofi -show window
+
+super + o ; c
+      rofi -show calc -modi calc -no-show-match -no-sort
