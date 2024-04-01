@@ -29,3 +29,11 @@ super + shift + {o, w}
 # should be easier to manage and find
 ctrl + space ; s ; {l, s, w}
      {licht, screen_config, set_random_wallpaper}
+
+# search
+ctrl + space ; s ; {a,g}
+     {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
+
+# other
+ctrl + space ; s ; {e,r}
+     {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}
