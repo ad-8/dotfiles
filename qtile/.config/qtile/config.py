@@ -1,50 +1,23 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
-# imports
 import os
 import subprocess
 # qtile
 from libqtile import bar, extension, hook, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
-
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-
 
 
 mod = "mod4"
 alt_left = "mod1"
 terminal = guess_terminal()
 
+
 # Allows you to input a name when adding treetab section.
 @lazy.layout.function
 def add_treetab_section(layout):
     prompt = qtile.widgets_map["prompt"]
     prompt.start_input("Section name: ", layout.cmd_add_section)
+
 
 # NOT ALL KEYS work with ALL LAYOUTS..., e.g. grow-left/right etc dont work with Monad, e.g. grow-left/right etc dont work with Monad
 keys = [
@@ -53,7 +26,6 @@ keys = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-
 
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
@@ -101,7 +73,6 @@ keys = [
     # Split
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
 
-
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "n", lazy.next_layout(), desc="Toggle between layouts"),
@@ -117,16 +88,9 @@ keys = [
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
-    Key([mod, alt_left], "l", lazy.spawn('licht'), desc="Let there be light"),
-    Key([mod, alt_left], "x", lazy.spawn('i3lock --color 000000 --show-failed-attempts'), desc="Lock Screen"),
-    Key([mod, "shift"], "x", lazy.spawn('/usr/local/bin/lock-n-sleep.sh', shell=True), desc="Lock Screen & Suspend"),
-    
-
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     
     # new ones
-    Key([mod], "d", lazy.spawn("i3-dmenu-desktop"), desc="dmenu desktop apps"),
-    Key([mod, "shift"], "d", lazy.spawn("dmenu_run -l 25"), desc="dmenu cmd apps"),
     Key([mod], 'period', lazy.next_screen(), desc='Next monitor'),
 ]
 
@@ -250,11 +214,6 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-
-
-#set $yellow #ebcb8b
-#set $red    #bf616a
-#
 # this_current_screen_border for the group that's active on the current screen,
 # other_screen_border for the group that's active on another (unfocused) screen.
 #
