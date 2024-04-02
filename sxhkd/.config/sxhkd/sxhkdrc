@@ -27,13 +27,13 @@ super + shift + {o, w}
 # lulz nice, this just works
 # TODO use prefix for all my wm scripts
 # should be easier to manage and find
-ctrl + space ; s ; {l, s, w}
+shift + space ; s ; {l, s, w}
      {licht, screen_config, set_random_wallpaper}
 
 # search
-ctrl + space ; s ; {a,g}
+shift + space ; s ; {a,g}
      {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
 
 # other
-ctrl + space ; s ; {e,r}
+shift + space ; s ; {e,r}
      {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}
