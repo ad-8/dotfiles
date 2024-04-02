@@ -6,10 +6,11 @@
 ### AUTOSTART PROGRAMS ###
 #lxsession &
 "$HOME"/.screenlayout/arandr-config-viewsonic.sh &
-set_random_wallpaper
 sleep 1
+set_random_wallpaper
 #picom --daemon &
 /usr/bin/emacs --daemon &
+sxhkd &
 
 nm-applet &
 blueman-applet &

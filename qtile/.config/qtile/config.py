@@ -134,16 +134,6 @@ keys = [
     Key([mod], "d", lazy.spawn("i3-dmenu-desktop"), desc="dmenu desktop apps"),
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run -l 25"), desc="dmenu cmd apps"),
     Key([mod], 'period', lazy.next_screen(), desc='Next monitor'),
-
-    # Emacs programs launched using the key chord CTRL+e followed by 'key'
-    KeyChord([mod],"o", [
-        Key([], "a", lazy.spawn("xfce4-appfinder"), desc='launch alacritty'),
-        Key([], "b", lazy.spawn("blueman-manager"), desc='launch blueman'),
-        Key(["shift"], "b", lazy.spawn("firefox"), desc='launch browser'),
-        Key([], "e", lazy.spawn('emacsclient --create-frame --alternate-editor="vim"'), desc='launch emacs'),  # TODO launch emacsclient
-        Key([], "f", lazy.spawn("thunar"), desc='launch file manager'),
-        Key([], "s", lazy.spawn("gnome-system-monitor"), desc='launch system monitor'),
-    ]),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -337,9 +327,46 @@ my_widgets = [
     widget.Spacer(length = 8),
 ]
 
-more_widgets = [widget.Systray(background="#2e3440")]
-my_widgets2  = my_widgets + more_widgets
-my_widgets2[0] = widget.CurrentLayout() # needs its own instance
+my_widgets2 = [
+    widget.CurrentLayout(),
+    widget.GroupBox(
+        **groupbox_settings
+    ),
+    widget.Prompt(),
+    widget.WindowName(),
+    widget.Volume(fmt='Vol: {}', emoji=True),
+    widget.GenPollCommand(
+        #background="282A36",
+        cmd="i3weather short",
+        fmt="{}",
+        shell=True,
+        update_interval=300,
+    ),
+    widget.GenPollCommand(
+        #background="282A36",
+        cmd="i3vpn",
+        fmt="{}",
+        shell=True,
+        update_interval=10,
+    ),
+    widget.GenPollCommand(
+        background="282A36",
+        cmd="cat /tmp/licht-ed16d5b5",
+        fmt="LICHT: {}",
+        shell=True,
+        update_interval=5,
+    ),
+    #TextBox(text="foo.sh", mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /tmp/foo.sh")}),
+    #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+    #widget.StatusNotifier(),
+    widget.Clock(format="%a %d.%m.%Y %H:%M:%S"),
+    widget.QuickExit(),
+    widget.Spacer(length = 8),
+    widget.Systray(background="#2e3440"),
+    widget.Spacer(length = 8),
+]
+
 
 screens = [
     Screen(
