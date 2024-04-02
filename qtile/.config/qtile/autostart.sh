@@ -8,7 +8,8 @@
 "$HOME"/.screenlayout/arandr-config-viewsonic.sh &
 sleep 1
 set_random_wallpaper
-#picom --daemon &
+sleep 1
+picom --daemon &
 /usr/bin/emacs --daemon &
 sxhkd &
 
