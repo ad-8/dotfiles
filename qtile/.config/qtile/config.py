@@ -92,6 +92,12 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+
+
+    Key([mod, "control"], "Down", lazy.layout.shrink(), desc="Grow window to the left"),
+    Key([mod, "control"], "Up", lazy.layout.grow(), desc="Grow window to the right"),
+
+
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -120,6 +126,7 @@ keys = [
     Key([mod, alt_left], "l", lazy.spawn('licht'), desc="Let there be light"),
     Key([mod, alt_left], "x", lazy.spawn('i3lock --color 000000 --show-failed-attempts'), desc="Lock Screen"),
     Key([mod, "shift"], "x", lazy.spawn('/usr/local/bin/lock-n-sleep.sh', shell=True), desc="Lock Screen & Suspend"),
+    
 
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     
@@ -240,7 +247,7 @@ layout_theme_2 = {"border_width": 10,
 # order in list = order after reload
 layouts = [
     #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.MonadTall(ratio=0.6, **layout_theme),
+    layout.MonadTall(ratio=0.6, new_client_position='before_current', **layout_theme),
 #    layout.MonadTall(ratio=0.5, **layout_theme_2),
     layout.Max(
         border_focus='',
@@ -290,30 +297,54 @@ groupbox_settings = dict(
     other_current_screen_border = nord['yellow'],
 )
 
+my_widgets = [
+    widget.CurrentLayout(),
+    widget.GroupBox(
+        **groupbox_settings
+    ),
+    widget.Prompt(),
+    widget.WindowName(),
+    widget.Volume(fmt='Vol: {}', emoji=True),
+    widget.GenPollCommand(
+        #background="282A36",
+        cmd="i3weather short",
+        fmt="{}",
+        shell=True,
+        update_interval=300,
+    ),
+    widget.GenPollCommand(
+        #background="282A36",
+        cmd="i3vpn",
+        fmt="{}",
+        shell=True,
+        update_interval=10,
+    ),
+    widget.GenPollCommand(
+        background="282A36",
+        cmd="cat /tmp/licht-ed16d5b5",
+        fmt="LICHT: {}",
+        shell=True,
+        update_interval=5,
+    ),
+    #TextBox(text="foo.sh", mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /tmp/foo.sh")}),
+    #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+    #widget.StatusNotifier(),
+    widget.Clock(format="%a %d.%m.%Y %H:%M:%S"),
+    widget.QuickExit(),
+    widget.Spacer(length = 8),
+    #widget.Systray(background="#2e3440"),
+    widget.Spacer(length = 8),
+]
+
+more_widgets = [widget.Systray(background="#2e3440")]
+my_widgets2  = my_widgets + more_widgets
+my_widgets2[0] = widget.CurrentLayout() # needs its own instance
+
 screens = [
     Screen(
         top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(
-                    **groupbox_settings
-                ),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-                widget.Systray(background="#2e3440"),
-            ],
+            my_widgets,
             24,
             background="#2e3440",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -326,46 +357,7 @@ screens = [
     ),
     Screen(
         top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(
-                    **groupbox_settings
-                ),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Volume(fmt='Vol: {}', emoji=True),
-                widget.GenPollCommand(
-                    #background="282A36",
-                    cmd="i3weather short",
-                    fmt="{}",
-                    shell=True,
-                    update_interval=300,
-                ),
-                widget.GenPollCommand(
-                    #background="282A36",
-                    cmd="i3vpn",
-                    fmt="{}",
-                    shell=True,
-                    update_interval=10,
-                ),
-                widget.GenPollCommand(
-                    background="282A36",
-                    cmd="cat /tmp/licht-ed16d5b5",
-                    fmt="LICHT: {}",
-                    shell=True,
-                    update_interval=5,
-                ),
-                #TextBox(text="foo.sh", mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /tmp/foo.sh")}),
-                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                #widget.StatusNotifier(),
-                widget.Clock(format="%a %d.%m.%Y %H:%M:%S"),
-                widget.QuickExit(),
-                widget.Spacer(length = 8),
-                #widget.Systray(background="#2e3440"),
-                widget.Spacer(length = 8),
-
-            ],
+            my_widgets2,
             28,
             background="#2e3440",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
