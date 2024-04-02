@@ -46,6 +46,7 @@ def add_treetab_section(layout):
     prompt = qtile.widgets_map["prompt"]
     prompt.start_input("Section name: ", layout.cmd_add_section)
 
+# NOT ALL KEYS work with ALL LAYOUTS..., e.g. grow-left/right etc dont work with Monad, e.g. grow-left/right etc dont work with Monad
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -85,29 +86,22 @@ keys = [
         lazy.layout.section_up().when(layout=["treetab"]),
         desc="Move window downup/move up a section in treetab"
     ),
-    # Grow (resize) windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
-
-    Key([mod, "control"], "Down", lazy.layout.shrink(), desc="Grow window to the left"),
-    Key([mod, "control"], "Up", lazy.layout.grow(), desc="Grow window to the right"),
+    Key([mod], "Up", lazy.layout.grow()),
+    Key([mod], "Down", lazy.layout.shrink()),
+    Key([mod], "n", lazy.layout.normalize()),
+    Key([mod], "o", lazy.layout.maximize()),
+    Key([mod, "shift"], "space", lazy.layout.flip()),
 
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    # Split
+    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+
+
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "n", lazy.next_layout(), desc="Toggle between layouts"),
