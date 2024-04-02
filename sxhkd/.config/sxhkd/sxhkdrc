@@ -24,16 +24,19 @@ super + shift + {o, w}
       {rofi -show drun, rofi -show window}
 
 
+# --------------------------------------------------------------
+#                       MODE CHANGE
 # lulz nice, this just works
 # TODO use prefix for all my wm scripts
 # should be easier to manage and find
-shift + space ; s ; {l, s, w}
+ctrl + space ; c ; {l, s, w}
      {licht, screen_config, set_random_wallpaper}
+# --------------------------------------------------------------
 
 # search
-shift + space ; s ; {a,g}
+ctrl + space ; s ; {a,g}
      {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
 
 # other
-shift + space ; s ; {e,r}
+ctrl + space ; s ; {e,r}
      {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}

@@ -18,24 +18,30 @@ def add_treetab_section(layout):
     prompt = qtile.widgets_map["prompt"]
     prompt.start_input("Section name: ", layout.cmd_add_section)
 
+# A function for hide/show all the windows in a group
+@lazy.function
+def minimize_all(qtile):
+    for win in qtile.current_group.windows:
+        if hasattr(win, "toggle_minimize"):
+            win.toggle_minimize()
 
 # NOT ALL KEYS work with ALL LAYOUTS..., e.g. grow-left/right etc dont work with Monad, e.g. grow-left/right etc dont work with Monad
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
+
+    # Absolute Basics
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
+
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     
-    # Treetab prompt
-    Key([mod, "shift"], "a", add_treetab_section, desc='Prompt to add new section in treetab'),
-
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc='toggle fullscreen'),
-
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h",
@@ -59,39 +65,29 @@ keys = [
         desc="Move window downup/move up a section in treetab"
     ),
 
+
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
+    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+
     Key([mod], "Up", lazy.layout.grow()),
     Key([mod], "Down", lazy.layout.shrink()),
-    Key([mod], "n", lazy.layout.normalize()),
-    Key([mod], "o", lazy.layout.maximize()),
+    #Key([mod], "n", lazy.layout.normalize()),
+    #Key([mod], "o", lazy.layout.maximize()),
     Key([mod, "shift"], "space", lazy.layout.flip()),
 
-
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    # Split
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
-
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
+    # TODO impl recommended keys for Monad-layout
     Key([mod], "n", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "p", lazy.prev_layout(), desc="Toggle between layouts"),
-    Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [mod],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
-    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     
     # new ones
     Key([mod], 'period', lazy.next_screen(), desc='Next monitor'),
+    Key([mod, "shift"], "m", minimize_all(), desc="Toggle hide/show all windows on current group"),
+    # Treetab prompt
+    Key([mod, "shift"], "a", add_treetab_section, desc='Prompt to add new section in treetab'),
+
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -189,20 +185,19 @@ layout_theme = {"border_width": 3,
 
 # order in list = order after reload
 layouts = [
-    #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.MonadTall(ratio=0.6, new_client_position='before_current', **layout_theme),
     layout.Max(
         border_focus='',
         border_normal='',
         border_width=3),
-    layout.TreeTab(),
-    # Try more layouts by unleashing below layouts.
+    layout.TreeTab(sections=["foo", "bar", "baz"]),
+    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    #layout.Tile(),
+    # layout.Tile(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
