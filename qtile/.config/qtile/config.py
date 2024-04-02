@@ -221,24 +221,18 @@ nord = {
 
 
 
-layout_theme = {"border_width": 2,
-                "margin": 8,
-                "border_focus": "#d08770",
-                "border_normal": "#4c566a",
+layout_theme = {"border_width": 3,
+                "margin": 8, # = gap
+                "border_focus": nord["orange"],
+                "border_normal": nord["polar4"],
                 }
 
-layout_theme_2 = {"border_width": 10,
-                "margin": 20,
-                "border_focus": "#d08770",
-                "border_normal": "#4c566a",
-                }
 
 
 # order in list = order after reload
 layouts = [
     #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.MonadTall(ratio=0.6, new_client_position='before_current', **layout_theme),
-#    layout.MonadTall(ratio=0.5, **layout_theme_2),
     layout.Max(
         border_focus='',
         border_normal='',
