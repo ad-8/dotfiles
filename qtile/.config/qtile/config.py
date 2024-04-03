@@ -6,6 +6,9 @@ from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+# my config stuff 
+from colors import nord
+from foo import my_widgets, my_widgets2
 
 mod = "mod4"
 alt_left = "mod1"
@@ -154,24 +157,6 @@ for i in groups:
     )
 
 
-nord = {
-    "polar1": "#2e3440",
-    "polar2": "#3b4252",
-    "polar3": "#434c5e",
-    "polar4": "#4c566a",
-    "snow1": "#d8dee9",
-    "snow2": "#e5e9f0",
-    "snow3": "#eceff4",
-    "frost1": "#8fbcbb",
-    "frost2": "#88c0d0",
-    "frost3": "#81a1c1",
-    "frost4": "#5e81ac",
-    "red": "#bf616a",
-    "orange": "#d08770",
-    "yellow": "#ebcb8b",
-    "green": "#a3be8c",
-    "lila": "#b48ead"
-}
 
 
 
@@ -209,105 +194,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-# this_current_screen_border for the group that's active on the current screen,
-# other_screen_border for the group that's active on another (unfocused) screen.
-#
-# To theme the widget on all other unfocused screens:
-# this_screen_border for the group that is active on the screen where the widget is located,
-# other_current_screen_border for all other groups that are active anywhere.
-groupbox_settings = dict(
-    highlight_method='line',
-    #highlight_color = ['#000000', '#d08770'],
-    highlight_color = nord['orange'],
-    active = nord['snow1'],
-    inactive = nord['polar4'],
 
-    this_screen_border = nord['red'],
-    this_current_screen_border = nord['red'],
-
-    other_screen_border = nord['yellow'],
-    other_current_screen_border = nord['yellow'],
-)
-
-my_widgets = [
-    widget.CurrentLayout(),
-    widget.GroupBox(
-        **groupbox_settings
-    ),
-    widget.Prompt(),
-    widget.WindowName(),
-    widget.Volume(fmt='Vol: {}', emoji=True),
-    widget.GenPollCommand(
-        #background="282A36",
-        cmd="i3weather short",
-        fmt="{}",
-        shell=True,
-        update_interval=300,
-    ),
-    widget.GenPollCommand(
-        #background="282A36",
-        cmd="i3vpn",
-        fmt="{}",
-        shell=True,
-        update_interval=10,
-    ),
-    widget.GenPollCommand(
-        background="282A36",
-        cmd="cat /tmp/licht-ed16d5b5",
-        fmt="LICHT: {}",
-        shell=True,
-        update_interval=5,
-    ),
-    #TextBox(text="foo.sh", mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /tmp/foo.sh")}),
-    #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-    #widget.StatusNotifier(),
-    widget.Clock(format="%a %d.%m.%Y %H:%M:%S"),
-    widget.QuickExit(),
-    widget.Spacer(length = 8),
-    #widget.Systray(background="#2e3440"),
-    widget.Spacer(length = 8),
-]
-
-my_widgets2 = [
-    widget.CurrentLayout(),
-    widget.GroupBox(
-        **groupbox_settings
-    ),
-    widget.Prompt(),
-    widget.WindowName(),
-    widget.Volume(fmt='Vol: {}', emoji=True),
-    widget.GenPollCommand(
-        #background="282A36",
-        cmd="i3weather short",
-        fmt="{}",
-        shell=True,
-        update_interval=300,
-    ),
-    widget.GenPollCommand(
-        #background="282A36",
-        cmd="i3vpn",
-        fmt="{}",
-        shell=True,
-        update_interval=10,
-    ),
-    widget.GenPollCommand(
-        background="282A36",
-        cmd="cat /tmp/licht-ed16d5b5",
-        fmt="LICHT: {}",
-        shell=True,
-        update_interval=5,
-    ),
-    #TextBox(text="foo.sh", mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("sh /tmp/foo.sh")}),
-    #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-    # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-    #widget.StatusNotifier(),
-    widget.Clock(format="%a %d.%m.%Y %H:%M:%S"),
-    widget.QuickExit(),
-    widget.Spacer(length = 8),
-    widget.Systray(background="#2e3440"),
-    widget.Spacer(length = 8),
-]
 
 
 screens = [
