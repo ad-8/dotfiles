@@ -383,7 +383,8 @@ exec_always xautolock -time 20 -locker '~/.config/i3/block.sh' &
 
 # in ~xfce4-power-manager-settings~ (GUI), enabled ~handle display brightness keys~, 
 # and with exec here, and after restart, those keys *finally* work
-#exec_always --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id blueman-applet
 
 # TODO check if this gets started by some other part of the system, w/o here
 # like this, causes i3 config error
