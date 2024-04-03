@@ -335,7 +335,7 @@ bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 #+begin_src shell
 set $mode_space SPC: [a]ll-search [e]moji [g]search [r]un-script [s]ettings
 set $mode_settings SETTINGS: [b]luetooth [l]icht [s]creen-config rand-[w]allpaper
-bindsym $mod+space mode "$mode_space"
+bindsym Control+space mode "$mode_space"
 
 mode "$mode_space" {
     bindsym a exec "~/scripts/bb/search.clj --select-provider"; mode "default"
