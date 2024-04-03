@@ -8,11 +8,21 @@ alt_left = "mod1"
 terminal = guess_terminal()
 
 
+# Allows you to input a name when adding treetab section.
+@lazy.layout.function
+def add_treetab_section(layout):
+    prompt = qtile.widgets_map["prompt"]
+    prompt.start_input("Section name: ", layout.cmd_add_section)
+# A function for hide/show all the windows in a group
+@lazy.function
+def minimize_all(qtile):
+    for win in qtile.current_group.windows:
+        if hasattr(win, "toggle_minimize"):
+            win.toggle_minimize()
+
+
 # NOT ALL KEYS work with ALL LAYOUTS..., e.g. grow-left/right etc dont work with Monad, e.g. grow-left/right etc dont work with Monad
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
 
     # Absolute Basics
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
@@ -20,11 +30,15 @@ keys = [
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
 
+    # A list of available commands that can be bound to keys can be found
+    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+    # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    
+    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h",
@@ -70,5 +84,10 @@ keys = [
     Key([mod, "shift"], "m", minimize_all(), desc="Toggle hide/show all windows on current group"),
     # Treetab prompt
     Key([mod, "shift"], "a", add_treetab_section, desc='Prompt to add new section in treetab'),
+
+
+    # scratchpads
+    Key([], 'F11', lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([], 'F12', lazy.group['scratchpad'].dropdown_toggle('qtile shell')), 
 
 ]

@@ -2,28 +2,13 @@ import os
 import subprocess
 # qtile
 from libqtile import bar, extension, hook, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, DropDown, ScratchPad
 from libqtile.lazy import lazy
 
 # my config stuff 
 from ax_colors import nord
-from ax_keys import keys
+from ax_keys import keys, mod
 from ax_widgets import widgets_internal, widgets_external
-
-
-
-# Allows you to input a name when adding treetab section.
-@lazy.layout.function
-def add_treetab_section(layout):
-    prompt = qtile.widgets_map["prompt"]
-    prompt.start_input("Section name: ", layout.cmd_add_section)
-
-# A function for hide/show all the windows in a group
-@lazy.function
-def minimize_all(qtile):
-    for win in qtile.current_group.windows:
-        if hasattr(win, "toggle_minimize"):
-            win.toggle_minimize()
 
 
 # Add key bindings to switch VTs in Wayland.
@@ -89,9 +74,19 @@ for i in groups:
         ]
     )
 
+groups.append(ScratchPad("scratchpad", [
+        # define a drop down terminal.
+        # it is placed in the upper third of screen by default.
+        DropDown("term", "alacritty", x=0.25, heigth=0.4, width=0.5, opacity=0.95),
+
+        # define another terminal exclusively for ``qtile shell` at different position
+        DropDown("qtile shell", "urxvt -hold -e 'qtile shell'",
+                 x=0.05, y=0.4, width=0.9, height=0.6, opacity=0.9,
+                 on_focus_lost_hide=True) ]), )
 
 
-
+# check running `python config.py`
+#print(groups)
 
 layout_theme = {"border_width": 3,
                 "margin": 8, # = gap
