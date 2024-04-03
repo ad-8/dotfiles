@@ -875,7 +875,7 @@ For instance: Assume you are on workspace "1: www" and switch to "2: IM" using m
 #+begin_src shell
 workspace_auto_back_and_forth yes
 
-bindsym $mod+b workspace back_and_forth
+bindsym $mod+period workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth
 #+end_src
 
