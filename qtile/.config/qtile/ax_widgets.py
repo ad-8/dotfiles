@@ -1,5 +1,5 @@
 from libqtile import bar, extension, hook, layout, qtile, widget
-from colors import nord
+from ax_colors import nord
 # this_current_screen_border for the group that's active on the current screen,
 # other_screen_border for the group that's active on another (unfocused) screen.
 #
@@ -22,7 +22,7 @@ groupbox_settings = dict(
 
 # DUPLICATION of widgets lists, but some (all?) widgets need their own instance
 # on each bar to function properly
-my_widgets = [
+widgets_internal = [
     widget.CurrentLayout(),
     widget.GroupBox(
         **groupbox_settings
@@ -62,7 +62,7 @@ my_widgets = [
     widget.Spacer(length = 8),
 ]
 
-my_widgets2 = [
+widgets_external = [
     widget.CurrentLayout(),
     widget.GroupBox(
         **groupbox_settings
