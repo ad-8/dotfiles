@@ -170,10 +170,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+t focus mode_toggle
 
 # focus the parent container
-bindsym $mod+p focus parent
+bindsym $mod+Mod1+p focus parent
 
 # focus the child container
-bindsym $mod+c focus child
+bindsym $mod+Mod1+c focus child
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -201,8 +201,8 @@ bindsym $mod+shift+d exec --no-startup-id dmenu_run -l 25
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym $mod+shift+o exec --no-startup-id rofi -show drun
 
-set $mode_space SPC: [a]ll-search [e]moji [g]search [r]un-script [s]ettings
-set $mode_settings SETTINGS: [b]luetooth [l]icht [s]creen-config rand-[w]allpaper
+set $mode_space SPC: [a]ll-search [c]hange-settings [e]moji [g]search [r]un-script
+set $mode_settings CHANGE SETTINGS: [b]luetooth [l]icht [s]creen-config rand-[w]allpaper
 bindsym Control+space mode "$mode_space"
 
 mode "$mode_space" {
@@ -211,7 +211,7 @@ mode "$mode_space" {
     bindsym g exec "~/scripts/bb/search.clj"; mode "default"
     bindsym r exec "~/scripts/bb/run_script.clj"; mode "default"
 
-    bindsym s mode "$mode_settings"
+    bindsym c mode "$mode_settings"
 
     bindsym Escape mode "default"
 }
@@ -238,15 +238,26 @@ bindsym $mod+Shift+x exec i3lock --color 000000 --show-failed-attempts && system
 # TODO fix
 bindsym $mod+Shift+m exec "~/.config/i3/make-ws8.sh"
 
+
+# toggles moving a workspace to the upper/lower monitor
+# move workspace to output left|right|down|up|current|primary|nonprimary|next|<output1> [output2]…
+bindsym $mod+m move workspace to output down
+
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# toggles moving a workspace to the upper/lower monitor
-# move workspace to output left|right|down|up|current|primary|nonprimary|next|<output1> [output2]…
-bindsym $mod+m move workspace to output down
+bindsym $mod+u [class="scratchpad0"] scratchpad show; move position center
+bindsym $mod+i [class="scratchpad1"] scratchpad show; move position center
+bindsym $mod+p [class="scratchpad2"] scratchpad show; move position center
+
+exec --no-startup-id alacritty --class scratchpad0,scratchpad0
+exec --no-startup-id alacritty --class scratchpad1,scratchpad1 -e htop
+exec --no-startup-id alacritty --class scratchpad2,scratchpad2
+
+for_window [class="scratchpad0|scratchpad1|scratchpad2"] floating enable, resize set 1000 800, move scratchpad, border pixel 0
 
 # Nord Polar Night
 set $polar1 #2e3440
