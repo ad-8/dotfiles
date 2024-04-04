@@ -52,3 +52,13 @@ ctrl + space ; s ; {a,g}
 # other
 ctrl + space ; s ; {e,r}
      {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}
+
+# vol up
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +5%
+# vol down
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -5%
+# vol mute
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
