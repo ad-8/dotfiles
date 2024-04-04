@@ -78,6 +78,8 @@ abbr -a upb 'brew update && brew upgrade'
 abbr -a up 'sudo apt update && sudo apt upgrade'
 abbr -a pm 'pacman -S'
 
+abbr -a cu checkupdates
+
 # official example:                     ffmpeg                 -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3
 abbr -a flac2mp3 'fdfind -e flac --exec ffmpeg -loglevel error -i {} -codec:a libmp3lame -qscale:a 1 {.}.mp3'
 

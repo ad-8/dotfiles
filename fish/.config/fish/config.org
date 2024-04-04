@@ -126,6 +126,8 @@ abbr -a ain 'sudo apt install'
 abbr -a upb 'brew update && brew upgrade'
 abbr -a up 'sudo apt update && sudo apt upgrade'
 abbr -a pm 'pacman -S'
+
+abbr -a cu checkupdates
 #+end_src
 
 ** medium ones
@@ -176,6 +178,7 @@ abbr -a syncmov 'rclone copy --progress /Volumes/Blackbeard5/media/movies-glacie
 abbr -a syncmusicb2e 'rclone copy --progress /Volumes/Blackbeard5/0-localsync/music2k/ b2e:music2k/ -n'
 abbr -a synctv 'rclone copy --progress /Volumes/Blackbeard5/media/tvshows-glacier-sync/ sge3000:tv -n'
 abbr -a synctv2 'rclone copy --progress /Volumes/Blackbeard5/tv2/ sgefoo:tv2/ -n'
+
 
 #+end_src
 

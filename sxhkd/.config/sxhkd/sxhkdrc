@@ -45,11 +45,11 @@ ctrl + space ; c ; {l, s, w}
      {licht, screen_config, set_random_wallpaper}
 # --------------------------------------------------------------
 
-# search
+# SEARCH all, ddg
 ctrl + space ; s ; {a,g}
      {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
 
-# other
+# emoji, run_script
 ctrl + space ; s ; {e,r}
      {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}
 
@@ -62,3 +62,6 @@ XF86AudioLowerVolume
 # vol mute
 XF86AudioMute
     pactl set-sink-mute 0 toggle
+# play/pause
+XF86AudioPlay
+    playerctl play-pause
