@@ -1,29 +1,63 @@
+#+TITLE: My sway config
+#+AUTHOR: Arthur Fleck
+#+DESCRIPTION: AF's personal sway config.
+#+STARTUP: showeverything
+#+OPTIONS: toc:2
+#+PROPERTY: header-args:shell :tangle config
+
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
 
-### Variables
+* ToC :toc:
+- [[#variables][Variables]]
+- [[#output-configuration][Output configuration]]
+- [[#idle-configuration][Idle configuration]]
+- [[#input-configuration][Input configuration]]
+- [[#key-bindings][Key bindings]]
+  - [[#basics][Basics:]]
+  - [[#moving-around][Moving around:]]
+  - [[#workspaces][Workspaces:]]
+  - [[#layout-stuff][Layout stuff:]]
+  - [[#scratchpad][Scratchpad:]]
+  - [[#resizing-containers][Resizing containers:]]
+  - [[#status-bar][Status Bar:]]
+- [[#include][include]]
+
+* Variables
 #
 # Logo key. Use Mod1 for Alt.
+
+#+begin_src shell
 set $mod Mod4
+#+end_src
+
 # Home row direction keys, like vim
+#+begin_src shell
 set $left h
 set $down j
 set $up k
 set $right l
+#+end_src
 # Your preferred terminal emulator
+#+begin_src shell
 set $term foot
+#+end_src
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
+#+begin_src shell
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
+#+end_src
 
-### Output configuration
+* Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#+begin_src shell
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#+end_src
 #
 # Example configuration:
 #
@@ -31,7 +65,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
+* Idle configuration
 #
 # Example configuration:
 #
@@ -44,7 +78,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
+* Input configuration
 #
 # Example configuration:
 #
@@ -58,10 +92,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-### Key bindings
-#
-# Basics:
-#
+* Key bindings
+** Basics:
+#+begin_src shell
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -83,9 +116,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
+#+end_src
+
+** Moving around:
+#+begin_src shell
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -107,9 +141,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
+#+end_src
+
+** Workspaces:
+#+begin_src shell
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -134,9 +169,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
+#+end_src
+
+** Layout stuff:
+#+begin_src shell
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -159,9 +195,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
+#+end_src
+
+** Scratchpad:
+#+begin_src shell
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -171,9 +208,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
+#+end_src
+
+** Resizing containers:
+#+begin_src shell
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -195,11 +233,11 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+#+end_src
 
-#
-# Status Bar:
-#
+** Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
+#+begin_src shell
 bar {
     position top
 
@@ -213,5 +251,9 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+#+end_src
 
+* include
+#+begin_src shell
 include /etc/sway/config.d/*
+#+end_src
