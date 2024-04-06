@@ -12,7 +12,7 @@ super + o ; {a,f}
 super + o ; {q,v,x}
       {qutebrowser,brave,firefox}
 
-# system / settings stuff
+# blueman, keepass, system-monitor
 super + o ; {b,k,s}
       {blueman-manager,keepassxc,gnome-system-monitor}
 
@@ -26,7 +26,7 @@ super + o; e
 
 # --------------------------------------------------------------
 
-# rofi window switcher
+# rofi-open, rofi-windows
 super + shift + {o, w}
       {rofi -show drun, rofi -show window}
 
