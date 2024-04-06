@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 10x50
+    offset = 20x40
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -73,26 +73,26 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 20
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 2
+    separator_height = 1
 
     # Padding between text and separator.
-    padding = 8
+    padding = 16
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 16
 
     # Padding between text and icon.
     text_icon_padding = 0
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
     frame_color = "#aaaaaa"
@@ -128,7 +128,7 @@
 
     ### Text ###
 
-    font = Monospace 8
+    font = Hack Nerd Font 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -206,7 +206,7 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    icon_theme = Papirus
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
@@ -322,7 +322,7 @@
     foreground = "#888888"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    default_icon = bell
 
 [urgency_normal]
     background = "#285577"
@@ -331,6 +331,10 @@
     override_pause_level = 30
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
+    #
+    # Icons installed on arch-ax: /usr/share/icons/
+    # Icon name should match a name from the icon_theme chosen above
+    default_icon = bell
 
 [urgency_critical]
     background = "#900000"
@@ -339,7 +343,7 @@
     timeout = 0
     override_pause_level = 60
     # Icon for notifications with critical urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    default_icon = bell
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -429,15 +433,18 @@
 #    summary = "*script*"
 #    script = dunst_test.sh
 
-#[ignore]
-#    # This notification will not be displayed
-#    summary = "foobar"
-#    skip_display = true
+[ignore]
+    # This notification will not be displayed
+    summary = "foobar"
+    skip_display = true
 
-#[history-ignore]
-#    # This notification will not be saved in history
-#    summary = "foobar"
-#    history_ignore = yes
+[history-ignore]
+    # This notification will not be saved in history
+    #
+    # to find out the exact appname, use the format option above;
+    # or, look what is set with the -a flag in the script that crates the notif
+    appname = "Volume"
+    history_ignore = yes
 
 #[skip-display]
 #    # This notification will not be displayed, but will be included in the history

@@ -55,13 +55,13 @@ ctrl + space ; s ; {e,r}
 
 # vol up
 XF86AudioRaiseVolume
-    pactl set-sink-volume 0 +5%
+    /usr/local/bin/volume up
 # vol down
 XF86AudioLowerVolume
-    pactl set-sink-volume 0 -5%
+    /usr/local/bin/volume down
 # vol mute
 XF86AudioMute
-    pactl set-sink-mute 0 toggle
+    /usr/local/bin/volume mute
 # play/pause
 XF86AudioPlay
     playerctl play-pause
@@ -69,3 +69,6 @@ XF86AudioPlay
 # kill all notifications
 super + mod1 + k
       dunstctl close-all
+
+super + mod1 + h
+      dunstctl history-pop
