@@ -13,6 +13,12 @@
 
 * ToC :toc:
 - [[#variables][Variables]]
+  - [[#nord-colors][Nord Colors]]
+- [[#colors-and-ui][COLORS AND UI]]
+  - [[#changing-colors][Changing Colors]]
+  - [[#disable-title-bars][Disable Title Bars]]
+  - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
+  - [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
 - [[#output-configuration][Output configuration]]
 - [[#idle-configuration][Idle configuration]]
 - [[#input-configuration][Input configuration]]
@@ -51,6 +57,129 @@ Note: pass the final command to swaymsg so that the resulting window can be open
 on the original workspace that the command was run on.
 #+begin_src shell
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
+#+end_src
+
+** Nord Colors
+https://www.nordtheme.com/docs/colors-and-palettes
+
+#+begin_src shell
+# Nord Polar Night
+set $polar1 #2e3440
+set $polar2 #3b4252
+set $polar3 #434c5e
+set $polar4 #4c566a
+
+# Nord Snow Storm
+set $snow1 #d8dee9
+set $snow2 #e5e9f0
+set $snow3 #eceff4
+
+# Nord Frost
+set $frost1 #8fbcbb
+set $frost2 #88c0d0
+set $frost3 #81a1c1
+set $frost4 #5e81ac
+
+# Nord Aurora
+set $red    #bf616a
+set $orange #d08770
+set $yellow #ebcb8b
+set $green  #a3be8c
+set $lila   #b48ead
+#+end_src
+
+* COLORS AND UI
+** Changing Colors
+Other than ~client.focused~, all values are the default ones.
+
+#+begin_src shell
+
+# class                 border  backgr. text    indicator child_border
+client.focused          $polar1 $orange $polar4 $orange   $orange
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+
+# default colors for reference
+# ----------------------------
+
+# # class                 border  backgr. text    indicator child_border
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#
+# client.background       #ffffff
+
+#+end_src
+
+** Disable Title Bars
+Setting border style to pixel eliminates title bars. See https://i3wm.org/docs/userguide.html#default_border
+
+#+begin_src shell
+
+# hide title bar for all windows
+for_window [class="^.*"] border pixel 2
+
+#+end_src
+
+** Set ~border pixel 0~ for notifications (and a few apps)
+scratchpad-like-apps via ~super+o~ might look better without border
+
+#+begin_src shell
+for_window [class="Xfce4-notifyd"] border pixel 0
+for_window [class="io.github.celluloid_player.Celluloid"] border pixel 0
+#for_window [class="Xfce4-appfinder"] border pixel 0
+#for_window [class="Blueman-manager"] border pixel 0
+#+end_src
+
+** FLOAT / RESIZE etc. CERTAIN WINDOWS
+TODO doesnt seem to float blueman manager etc
+
+# enable floating mode for all XTerm windows
+for_window [class="XTerm"] floating enable
+
+# Make all urxvts use a 1-pixel border:
+for_window [class="urxvt"] border pixel 1
+
+# A less useful, but rather funny example:
+# makes the window floating as soon as I change
+# directory to ~/work
+for_window [title="x200: ~/work"] floating enable
+
+# Move floating container to the center of all outputs -> not what I wanted :)
+bindsym $mod+c move absolute position center
+# ok
+for_window [class="Blueman-manager"] move position mouse
+
+# EXAMPLE how to combine stuff
+#for_window [title="Error" class="Lxpolkit"] kill; floating enable; border none
+
+#+begin_src shell
+for_window [class="Xfce4-appfinder"] floating enable
+#for_window [class="Xfce4-appfinder"] border pixel 5
+for_window [class="Xfce4-appfinder"] resize set 640 480
+for_window [class="Xfce4-appfinder"] move position center
+
+for_window [class="Xfce4-about"] floating enable
+for_window [class="Xfce4-about"] resize set 640 480
+for_window [class="Xfce4-about"] move position center
+
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Blueman-manager"] resize set 640 480
+for_window [class="Blueman-manager"] move position center
+
+for_window [title="About Mozilla Firefox"] floating enable
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] resize set 800 640
+for_window [class="Pavucontrol"] move position center
+#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
 #+end_src
 
 * Output configuration
