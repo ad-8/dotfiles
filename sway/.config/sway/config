@@ -5,11 +5,15 @@ set $down j
 set $up k
 set $right l
 
-set $term foot
+set $term alacritty
 
 set $menu dmenu_path | wmenu | xargs swaymsg exec --
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+input * {
+    xkb_layout "de"
+}
 
     # Start a terminal
     bindsym $mod+Return exec $term

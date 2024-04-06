@@ -43,7 +43,7 @@ set $right l
 #+end_src
 # Your preferred terminal emulator
 #+begin_src shell
-set $term foot
+set $term alacritty
 #+end_src
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -91,6 +91,12 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+
+#+begin_src shell
+input * {
+    xkb_layout "de"
+}
+#+end_src
 
 * Key bindings
 ** Basics:
