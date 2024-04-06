@@ -609,6 +609,11 @@ exec --no-startup-id killall picom && sleep 1
 exec --no-startup-id picom
 #+end_src
 
+*** notifications
+#+begin_src shell
+exec --no-startup-id dunst
+#+end_src
+
 *** syncthing
 #+begin_src shell
 exec --no-startup-id syncthing -no-browser
@@ -641,6 +646,8 @@ ok the ~gnome-keyring-daemon~ must get started by another thing, if I kill it, i
 #/usr/bin/gnome-keyring-daemon
 #+end_src
 
+Forums says that xfce4-notifyd is required by xfce4-power-manager
+However, after installing =dunst=, it gets started and used instead
 #+begin_src shell :tangle no
 # already running, and not sure what exactly *to exec*
 # exec xfce4-notifyd
