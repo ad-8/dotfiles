@@ -70,5 +70,10 @@ XF86AudioPlay
 super + mod1 + k
       dunstctl close-all
 
+# pop last notif from history
 super + mod1 + h
       dunstctl history-pop
+
+# get weather info (test)
+super + mod1 + w
+      ~/scripts/weather.sh
