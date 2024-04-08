@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
+# foo
 #
 # why nm doesnt work when started here
 #nm-applet &
-#blueman-applet &
+blueman-applet &
 
 dunst &
 .screenlayout/arandr-config-viewsonic.sh &
