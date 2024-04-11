@@ -90,24 +90,24 @@ path = "/"
 info_type = "available"
 alert_unit = "GB"
 interval = 20
-warning = 0.0 # trying to not use warning
-alert = 2.0
+warning = 10.0 # trying to not use warning
+alert = 5.0
 format = " $icon $available.eng(w:2) "
 [block.theme_overrides]
 idle_fg = "#708090"
 
 
-[[block]]
-block = "disk_space"
-path = "/home"
-info_type = "available"
-alert_unit = "GB"
-interval = 20
-warning = 0.0 # trying to not use warning
-alert = 10.0
-format = " $icon $available.eng(w:2) "
-[block.theme_overrides]
-idle_fg = "#708090"
+#[[block]]
+#block = "disk_space"
+#path = "/home"
+#info_type = "available"
+#alert_unit = "GB"
+#interval = 20
+#warning = 0.0 # trying to not use warning
+#alert = 10.0
+#format = " $icon $available.eng(w:2) "
+#[block.theme_overrides]
+#idle_fg = "#708090"
 
 
 [[block]]

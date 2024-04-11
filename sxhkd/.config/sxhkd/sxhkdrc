@@ -53,6 +53,8 @@ ctrl + space ; s ; {a,g}
 ctrl + space ; s ; {e,r}
      {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}
 
+# --------------------------------------------------------------
+#                       VOLUME
 # vol up
 XF86AudioRaiseVolume
     /usr/local/bin/volume up
@@ -65,7 +67,10 @@ XF86AudioMute
 # play/pause
 XF86AudioPlay
     playerctl play-pause
+# --------------------------------------------------------------
 
+# --------------------------------------------------------------
+#                       NOTIFICATIONS
 # kill all notifications
 super + mod1 + k
       dunstctl close-all
@@ -77,3 +82,4 @@ super + mod1 + h
 # get weather info (test)
 super + mod1 + w
       ~/scripts/weather.sh
+# --------------------------------------------------------------

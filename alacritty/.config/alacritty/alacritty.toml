@@ -11,7 +11,7 @@ import = [
 # ---
 
 [font]
-size = 10
+size = 9
 
 [font.bold]
 family = "HackNerdFont"
