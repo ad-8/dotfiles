@@ -147,7 +147,7 @@ for_window [class="io.github.celluloid_player.Celluloid"] border pixel 0
 #+end_src
 
 ** FLOAT / RESIZE etc. CERTAIN WINDOWS
-TODO doesnt seem to float blueman manager etc
+TODO are the classnames different in Wayland? About Firefox works, others here don't
 
 # enable floating mode for all XTerm windows
 for_window [class="XTerm"] floating enable
@@ -273,7 +273,7 @@ bindsym $mod+d exec $menu
 floating_modifier $mod normal
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -416,6 +416,17 @@ bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioPrev exec playerctl previous
 #+end_src
 
+*** Workspace
+#+begin_src shell
+workspace_auto_back_and_forth yes
+
+bindsym $mod+period workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth
+
+
+bindsym $mod+m move workspace to output down
+#+end_src
+
 *** Interactive mode: scripts using dmenu for user interaction
 TODO lots of them don't work, because of their dmenu dependency
 
@@ -445,15 +456,28 @@ mode "$mode_settings" {
 }
 #+end_src
 
-*** Workspace
+*** Launch applications with $mod+o
 #+begin_src shell
-workspace_auto_back_and_forth yes
+set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [c]alc [e]macs [f]ile-manager [k]eepass [o]pen [s]ystem-monitor [q]utebrowser bra[v]e firefo[x]
+bindsym $mod+o mode "$mode_launcher"
 
-bindsym $mod+period workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth
+mode "$mode_launcher" {
+    bindsym a exec xfce4-appfinder; mode "default"
+    bindsym b exec blueman-manager; mode "default"
+    bindsym c exec rofi -show calc -modi calc -no-show-match -no-sort; mode "default"
+    bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"
+    bindsym f exec thunar; mode "default"
+    bindsym k exec keepassxc; mode "default"
+    bindsym o exec rofi -show drun; mode "default"
+    bindsym q exec qutebrowser; mode "default"
+    bindsym s exec gnome-system-monitor; mode "default"
+    bindsym shift+b exec firefox; mode "default"
+    bindsym v exec brave; mode "default"
+    bindsym x exec firefox; mode "default"
 
-
-bindsym $mod+m move workspace to output down
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 #+end_src
 
 * Status Bar:
