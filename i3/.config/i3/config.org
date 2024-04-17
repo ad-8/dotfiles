@@ -69,7 +69,7 @@ with the cursor being on the line with PROPERTY before exporting (tangling) this
 
 * DEFAULT CONFIG LOCATION
 Find the default config template here:
-=/etc/i3/config.keycodes=
+=/etc/i3/config=
 
 * BASIC SETUP
 ** Mod Key

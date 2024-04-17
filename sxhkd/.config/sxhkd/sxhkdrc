@@ -83,3 +83,6 @@ super + mod1 + h
 super + mod1 + w
       ~/scripts/weather.sh
 # --------------------------------------------------------------
+
+super + mod1 + l
+     i3lock --color 000000 --show-failed-attempts
