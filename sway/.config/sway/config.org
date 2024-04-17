@@ -15,6 +15,7 @@
 - [[#variables][Variables]]
   - [[#nord-colors][Nord Colors]]
 - [[#colors-and-ui][COLORS AND UI]]
+  - [[#font][Font]]
   - [[#changing-colors][Changing Colors]]
   - [[#disable-title-bars][Disable Title Bars]]
   - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
@@ -91,6 +92,11 @@ set $lila   #b48ead
 #+end_src
 
 * COLORS AND UI
+** Font
+#+begin_src shell
+font pango:HackNerdFont 9.0
+#+end_src
+
 ** Changing Colors
 Other than ~client.focused~, all values are the default ones.
 
@@ -196,6 +202,23 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+[[https://fedoramagazine.org/how-to-setup-multiple-monitors-in-sway/][link explaining the "math"]] or simply =man sway-output=
+ x --->
+y
+.
+.
+.
+start at the origin and you move 100 pixels to the right and 80 pixels down,
+your coordinates will be (100, 80)
+
+get display names and available resolutions: =swaymsg -t get_outputs=
+also checkin =wdisplays= gui app to test/get position and scale values easily,
+sadly doesnt allow to save the settings like =arandr=
+#+begin_src shell
+output HDMI-A-2 position 0 0 resolution 1920x1080
+output eDP-1 position 120 1080 resolution 2560x1600 scale 1.5
+#+end_src
 
 * Idle configuration
 #
