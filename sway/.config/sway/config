@@ -33,6 +33,16 @@ set $yellow #ebcb8b
 set $green  #a3be8c
 set $lila   #b48ead
 
+exec --no-startup-id blueman-applet
+exec --no-startup-id emacs --daemon
+exec --no-startup-id dunst
+exec --no-startup-id megasync
+exec --no-startup-id nm-applet
+exec --no-startup-id syncthing -no-browser
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/local/bin/licht hi
+
 font pango:HackNerdFont 9.0
 
 # class                 border  backgr. text    indicator child_border

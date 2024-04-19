@@ -14,6 +14,7 @@
 * ToC :toc:
 - [[#variables][Variables]]
   - [[#nord-colors][Nord Colors]]
+- [[#autostart][Autostart]]
 - [[#colors-and-ui][COLORS AND UI]]
   - [[#font][Font]]
   - [[#changing-colors][Changing Colors]]
@@ -89,6 +90,23 @@ set $orange #d08770
 set $yellow #ebcb8b
 set $green  #a3be8c
 set $lila   #b48ead
+#+end_src
+
+* Autostart
+TODO fix dunst, should work on wayland OR use mako
+TODO alternative to xfce4-power-manager
+TODO make set random wallpaper (bb script doesn't work on wayland)
+TODO check out =dex= and =xss-lock= (see i3 config)
+#+begin_src shell
+exec --no-startup-id blueman-applet
+exec --no-startup-id emacs --daemon
+exec --no-startup-id dunst
+exec --no-startup-id megasync
+exec --no-startup-id nm-applet
+exec --no-startup-id syncthing -no-browser
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/local/bin/licht hi
 #+end_src
 
 * COLORS AND UI
