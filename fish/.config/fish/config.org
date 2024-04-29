@@ -109,7 +109,7 @@ abbr -a rl 'RUST_LOG=debug'
 abbr -a ssa 'shasum --algorithm 256'
 abbr -a ssc 'shasum --check'
 abbr -a s "strava-rs"
-abbr -a str "cat ~/backup/streams.md"
+abbr -a str "cat ~/archive/streams.md"
 abbr -a st "strava-rs tui"
 abbr -a tl 'tree -L'
 abbr -a todo 'rg -i todo --stats'
@@ -187,6 +187,7 @@ It is (by default) safe to use fish_add_path in config.fish [...]
 
 #+begin_src shell
 fish_add_path ~/.cargo/bin/
+fish_add_path ~/.config/emacs/bin/
 #+end_src
 
 * export ENV vars
@@ -215,7 +216,7 @@ export VISUAL="emacsclient -t"
 
 ** TERMINAL
 #+begin_src shell
-export TERMINAL='kitty'
+export TERMINAL='alacritty'
 #+end_src
 
 
@@ -229,9 +230,6 @@ set -Ux PAGER less
 
 * stuff that should be at the end
 #+begin_src shell
-
-# TODO still relevant?
-# source ~/.local/share/icons-in-terminal/icons.fish
 
 source ~/.config/fish/nnn.fish
 ## Stuff that should be at the end

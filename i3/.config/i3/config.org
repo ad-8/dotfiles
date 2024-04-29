@@ -640,6 +640,8 @@ With the gnome keyring installed and its daemon running, Thunar mounting the enc
 What else to start? compare eg https://youtu.be/FX26s8INUYo?feature=shared&t=296
 
 ok the ~gnome-keyring-daemon~ must get started by another thing, if I kill it, it gets tarted again almost instantly
+
+as usual, the arch wiki has the answer: *The gnome-keyring-daemon is automatically started via a systemd user service upon logging in.*
 #+begin_src shell
 # TODO check if this gets started by some other part of the system, w/o here
 # like this, causes i3 config error

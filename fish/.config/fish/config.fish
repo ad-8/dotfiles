@@ -63,7 +63,7 @@ abbr -a rl 'RUST_LOG=debug'
 abbr -a ssa 'shasum --algorithm 256'
 abbr -a ssc 'shasum --check'
 abbr -a s "strava-rs"
-abbr -a str "cat ~/backup/streams.md"
+abbr -a str "cat ~/archive/streams.md"
 abbr -a st "strava-rs tui"
 abbr -a tl 'tree -L'
 abbr -a todo 'rg -i todo --stats'
@@ -120,6 +120,7 @@ abbr -a synctv 'rclone copy --progress /Volumes/Blackbeard5/media/tvshows-glacie
 abbr -a synctv2 'rclone copy --progress /Volumes/Blackbeard5/tv2/ sgefoo:tv2/ -n'
 
 fish_add_path ~/.cargo/bin/
+fish_add_path ~/.config/emacs/bin/
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
@@ -134,13 +135,10 @@ export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
 # export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
 export VISUAL="emacsclient -t"
 
-export TERMINAL='kitty'
+export TERMINAL='alacritty'
 
 set -U fish_greeting ""
 set -Ux PAGER less
-
-# TODO still relevant?
-# source ~/.local/share/icons-in-terminal/icons.fish
 
 source ~/.config/fish/nnn.fish
 ## Stuff that should be at the end

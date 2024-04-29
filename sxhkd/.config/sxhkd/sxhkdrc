@@ -84,5 +84,10 @@ super + mod1 + w
       ~/scripts/weather.sh
 # --------------------------------------------------------------
 
+# lock screen
 super + mod1 + l
      i3lock --color 000000 --show-failed-attempts
+
+# restart sxhkd
+super + Escape
+      pkill --exact sxhkd && notify-send "sxhkd" "restarting sxhkd" && sleep 1 && sxhkd &
