@@ -15,6 +15,7 @@
   - [[#package-managers][package managers]]
   - [[#medium-ones][medium ones]]
   - [[#rsync][(r)sync]]
+  - [[#manual-backup][manual backup]]
   - [[#maybe-remove-those][maybe remove those]]
 - [[#add-to-path][add to $PATH]]
 - [[#export-env-vars][export ENV vars]]
@@ -150,6 +151,11 @@ abbr -a sync-local-only 'rsync -ahvP --delete --stats /Volumes/Blackbeard5/0-loc
 
 abbr -a restic-forget 'restic -r ~/MEGA/MEGAsync/linux-repo/ forget --keep-weekly 52'
 abbr -a restic-snapshots 'restic -r ~/MEGA/MEGAsync/linux-repo/ snapshots'
+#+end_src
+
+** manual backup
+#+begin_src shell
+abbr -a backup-home "tar -cvzf $(date +'%Y-%m-%d_%H-%M-%S')_home.tar.gz ~/.metal/ ~/.strava-cli/ ~/Documents/ ~/Pictures/ ~/archive/ ~/code/ ~/dotfiles/ ~/notes/ ~/scripts/"
 #+end_src
 
 ** maybe remove those
