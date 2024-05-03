@@ -23,4 +23,4 @@ syncthing -no-browser &
 #sleep 1
 #protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest &
 
-#megasync &
+megasync &

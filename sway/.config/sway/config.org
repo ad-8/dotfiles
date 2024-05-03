@@ -254,8 +254,8 @@ get display names and available resolutions: =swaymsg -t get_outputs=
 also checkin =wdisplays= gui app to test/get position and scale values easily,
 sadly doesnt allow to save the settings like =arandr=
 #+begin_src shell
-output HDMI-A-2 position 0 0 resolution 1920x1080
-output eDP-1 position 120 1080 resolution 2560x1600 scale 1.5
+output HDMI-A-2 position 0 0 resolution 2560x1080
+output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 #+end_src
 
 * Idle configuration
