@@ -76,7 +76,7 @@ cmd = "pavucontrol"
 
 [[block]]
 block = "custom"
-command = "~/scripts/i3status-licht.sh"
+command = "~/scripts/dwm-licht.sh"
 #interval = 5
 watch_files = ["/tmp/licht-ed16d5b5"]
 #hide_when_empty=true
