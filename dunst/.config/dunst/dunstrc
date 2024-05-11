@@ -318,14 +318,16 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
+    #background = "#222222"
+    background = "#3b4252"
     foreground = "#888888"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     default_icon = bell
 
 [urgency_normal]
-    background = "#285577"
+    #background = "#285577"
+    background = "#5e81ac"
     foreground = "#ffffff"
     timeout = 10
     override_pause_level = 30
@@ -337,7 +339,8 @@
     default_icon = bell
 
 [urgency_critical]
-    background = "#900000"
+    #background = "#900000"
+    background = "#bf616a"
     foreground = "#ffffff"
     frame_color = "#ff0000"
     timeout = 0

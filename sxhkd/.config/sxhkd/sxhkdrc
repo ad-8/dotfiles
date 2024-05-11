@@ -49,8 +49,8 @@ ctrl + space ; c ; {l, s, w}
 ctrl + space ; s ; {a,g}
      {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
 
-# emoji, run_script
-ctrl + space ; s ; {e,r}
+# RUN emoji, run_script
+ctrl + space ; r ; {e,r}
      {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}
 
 # --------------------------------------------------------------
