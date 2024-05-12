@@ -97,3 +97,13 @@ super + mod1 + l
 # restart sxhkd
 super + Escape
       pkill --exact sxhkd && notify-send "sxhkd" "restarting sxhkd" && sleep 1 && sxhkd &
+
+# --------------------------------------------------------------
+#                       SCREENSHOTS
+
+# screenshot - select window
+ctrl + space; s; w
+     scrot --select --file '/home/ax/Pictures/screens/%Y-%m-%d_%H%M%S_$wx$h.png'
+# screenshot - everything
+ctrl + space; s; e
+     scrot --file '/home/ax/Pictures/screens/%Y-%m-%d_%H%M%S_$wx$h.png'

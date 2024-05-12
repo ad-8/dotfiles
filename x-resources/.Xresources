@@ -1,0 +1,9 @@
+! https://wiki.archlinux.org/title/x_resources
+!
+! After a change to this file, run `xrdb -load ~/.Xresources`
+
+Nsxiv.window.background: #2e3440
+! Also selection color in thumbnail mode
+Nsxiv.window.foreground: #b48ead
+Nsxiv.bar.font: Hack Nerd Font:size=9
+Nsxiv.bar.foreground: #b48ead
