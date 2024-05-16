@@ -11,6 +11,10 @@ dunst &
 licht hi &
 #nm-applet &
 dwmblocks &
+
+# TODO check if it works on Mac Keyboard = ignores it
+setxkbmap -option altwin:swap_lalt_lwin
+
 sleep 2
 xfce4-power-manager &
 feh --bg-fill --randomize ~/Pictures/nord-background &
