@@ -68,6 +68,7 @@ abbr -a st "strava-rs tui"
 abbr -a tl 'tree -L'
 abbr -a todo 'rg -i todo --stats'
 abbr -a wt wttr
+abbr -a zy zypper
 
 abbr -a bi 'brew info'
 abbr -a bin 'brew install'

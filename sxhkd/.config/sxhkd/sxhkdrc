@@ -10,7 +10,7 @@ super + o ; {a,f}
 
 # apps: [q]utebrowser, bra[v]e, firefo[x]
 super + o ; {q,v,x}
-      {qutebrowser,brave,firefox}
+      {qutebrowser,~/scripts/brave.sh,firefox}
 
 # blueman, keepass, pavuctl, system-monitor
 super + o ; {b,k,p,s}
