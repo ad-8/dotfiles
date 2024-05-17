@@ -7,7 +7,7 @@ end
 abbr -a cdc 'cd ~/code'
 abbr -a cdd 'cd ~/dotfiles'
 abbr -a cdj "cd ~/code/clojure"
-abbr -a cdm 'cd /media/ax'
+abbr -a cdm 'cd /run/media/ax'
 abbr -a cdM 'cd ~/MEGA/MEGAsync/'
 abbr -a cdo 'cd ~/obsidian-vault'
 abbr -a cdp 'cd ~/code/python/'
@@ -96,7 +96,7 @@ abbr -a sync-local-only 'rsync -ahvP --delete --stats /Volumes/Blackbeard5/0-loc
 abbr -a restic-forget 'restic -r ~/MEGA/MEGAsync/linux-repo/ forget --keep-weekly 52'
 abbr -a restic-snapshots 'restic -r ~/MEGA/MEGAsync/linux-repo/ snapshots'
 
-abbr -a backup-home "tar -cvzf $(date +'%Y-%m-%d_%H-%M-%S')_home.tar.gz ~/.config/ ~/.metal/ ~/.strava-cli/ ~/Documents/ ~/Pictures/ ~/archive/ ~/code/ ~/dotfiles/ ~/notes/ ~/scripts/"
+abbr -a backup-home "tar -cvzf $(date +'%Y-%m-%d_%H-%M-%S')_home.tar.gz ~/.config/ ~/.metal/ ~/.ssh/ ~/.strava-cli/ ~/Documents/ ~/Pictures/ ~/archive/ ~/code/ ~/dotfiles/ ~/notes/ ~/scripts/"
 
 abbr -a fconf "hx ~/.config/fish/config.fish"
 abbr -a es "exercism submit"

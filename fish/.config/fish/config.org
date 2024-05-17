@@ -46,7 +46,7 @@ I think this has to be at/near the top of the actual config file.
 abbr -a cdc 'cd ~/code'
 abbr -a cdd 'cd ~/dotfiles'
 abbr -a cdj "cd ~/code/clojure"
-abbr -a cdm 'cd /media/ax'
+abbr -a cdm 'cd /run/media/ax'
 abbr -a cdM 'cd ~/MEGA/MEGAsync/'
 abbr -a cdo 'cd ~/obsidian-vault'
 abbr -a cdp 'cd ~/code/python/'
@@ -157,7 +157,7 @@ abbr -a restic-snapshots 'restic -r ~/MEGA/MEGAsync/linux-repo/ snapshots'
 
 ** manual backup
 #+begin_src shell
-abbr -a backup-home "tar -cvzf $(date +'%Y-%m-%d_%H-%M-%S')_home.tar.gz ~/.config/ ~/.metal/ ~/.strava-cli/ ~/Documents/ ~/Pictures/ ~/archive/ ~/code/ ~/dotfiles/ ~/notes/ ~/scripts/"
+abbr -a backup-home "tar -cvzf $(date +'%Y-%m-%d_%H-%M-%S')_home.tar.gz ~/.config/ ~/.metal/ ~/.ssh/ ~/.strava-cli/ ~/Documents/ ~/Pictures/ ~/archive/ ~/code/ ~/dotfiles/ ~/notes/ ~/scripts/"
 #+end_src
 
 ** maybe remove those
