@@ -61,18 +61,31 @@ ctrl + space; t; n
 
 # --------------------------------------------------------------
 #                       VOLUME
-# vol up
+# volume up
 XF86AudioRaiseVolume
     /usr/local/bin/volume up
-# vol down
+# volume down
 XF86AudioLowerVolume
     /usr/local/bin/volume down
-# vol mute
+# volume mute
 XF86AudioMute
     /usr/local/bin/volume mute
-# play/pause
+# toggle play/pause
 XF86AudioPlay
     playerctl play-pause
+
+# volume up
+super + mod1 + Up
+     ~/scripts/volume up
+# volume down
+super + mod1 + Down
+     ~/scripts/volume down
+# volume toggle mute
+super + mod1 + Left
+     ~/scripts/volume mute
+# toggle play/pause
+super + mod1 + Right
+    playerctl play-pause && notify-send "play/pause"
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
