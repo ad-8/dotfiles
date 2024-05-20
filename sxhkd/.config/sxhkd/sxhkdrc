@@ -111,6 +111,10 @@ super + mod1 + l
 super + Escape
       pkill --exact sxhkd && notify-send "sxhkd" "restarting sxhkd" && sleep 1 && sxhkd &
 
+# powermenu
+ctrl + space; p
+      ~/scripts/bb/powermenu.clj
+
 # --------------------------------------------------------------
 #                       SCREENSHOTS
 

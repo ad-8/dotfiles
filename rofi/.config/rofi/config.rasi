@@ -10,6 +10,7 @@ window-format: " {c}  {w}  {t}";
 display-window: "Windows";
 display-drun: "Applications";
 
+font: "HackNerdFont 14";
 
 /*	modi: "window,run,ssh";*/
 /*	font: "mono 12";*/

@@ -46,6 +46,7 @@ abbr -a lg 'll | grep -i'
 abbr -a l "licht"
 
 abbr -a et 'emacsclient -t'
+abbr -a hx helix
 
 abbr -a xc 'xclip -selection clipboard'
 
