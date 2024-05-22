@@ -147,7 +147,7 @@ abbr -a vd vimdiff
 #+begin_src shell
 abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
 abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/Sync/Moto/' -n"
-abbr -a syncmoto-2fa "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/backup-aegis-2fa' '$HOME/Sync/Moto/' -n"
+abbr -a syncmoto-backup "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/backups' '$HOME/Sync/Moto/' -n"
 
 abbr -a syncmov2 'rclone copy --progress /Volumes/Blackbeard5/media/movies/ sgefoo:movies/ -n'
 abbr -a sync-local-only 'rsync -ahvP --delete --stats /Volumes/Blackbeard5/0-localsync/ /Volumes/AppleEnc/0-localsync/ -n'
