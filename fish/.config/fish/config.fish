@@ -97,8 +97,6 @@ abbr -a sync-local-only 'rsync -ahvP --delete --stats /Volumes/Blackbeard5/0-loc
 abbr -a restic-forget 'restic -r ~/MEGA/MEGAsync/linux-repo/ forget --keep-weekly 52'
 abbr -a restic-snapshots 'restic -r ~/MEGA/MEGAsync/linux-repo/ snapshots'
 
-abbr -a backup-home "tar -cvzf $(date +'%Y-%m-%d_%H-%M-%S')_home.tar.gz ~/.config/ ~/.metal/ ~/.ssh/ ~/.strava-cli/ ~/Documents/ ~/Pictures/ ~/archive/ ~/code/ ~/dotfiles/ ~/notes/ ~/scripts/"
-
 abbr -a fconf "hx ~/.config/fish/config.fish"
 abbr -a es "exercism submit"
 abbr -a sync-backup "rclone copy --progress /Volumes/Blackbeard5/0-localsync/backup/ b2e:backup/ -n"

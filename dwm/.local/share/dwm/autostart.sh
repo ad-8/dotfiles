@@ -9,8 +9,11 @@ dunst &
 licht hi &
 dwmblocks &
 
+# Disable annoying beep from computer (I think on keypresses when an action is not available)
+xset b off
+
 # TODO enable only if *not* on macbook
-# setxkbmap -option altwin:swap_lalt_lwin
+setxkbmap -option altwin:swap_lalt_lwin
 
 sleep 2
 xfce4-power-manager &
