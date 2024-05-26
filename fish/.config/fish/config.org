@@ -93,6 +93,7 @@ abbr -a l "licht"
 
 abbr -a et 'emacsclient -t'
 abbr -a hx helix
+abbr -a t. thunar .
 
 abbr -a xc 'xclip -selection clipboard'
 
@@ -126,7 +127,8 @@ abbr -a bs 'brew search'
 abbr -a ai 'apt info'
 abbr -a ain 'sudo apt install'
 abbr -a upb 'brew update && brew upgrade'
-abbr -a up 'sudo apt update && sudo apt upgrade'
+#abbr -a up 'sudo apt update && sudo apt upgrade'
+abbr -a up 'sudo zypper ref && sudo zypper dup'
 abbr -a pm 'pacman -S'
 
 abbr -a cu checkupdates
