@@ -86,25 +86,28 @@ for_window [class="io.github.celluloid_player.Celluloid"] border pixel 0
 #for_window [class="Xfce4-appfinder"] border pixel 0
 #for_window [class="Blueman-manager"] border pixel 0
 
-for_window [class="Xfce4-appfinder"] floating enable
-#for_window [class="Xfce4-appfinder"] border pixel 5
-for_window [class="Xfce4-appfinder"] resize set 640 480
-for_window [class="Xfce4-appfinder"] move position center
+for_window [app_id="xfce4-appfinder"] floating enable
+#for_window [app_id="xfce4-appfinder"] border pixel 5
+for_window [app_id="xfce4-appfinder"] resize set 800 600
+for_window [app_id="xfce4-appfinder"] move position center
 
-for_window [class="Xfce4-about"] floating enable
-for_window [class="Xfce4-about"] resize set 640 480
-for_window [class="Xfce4-about"] move position center
+for_window [app_id="xfce4-about"] floating enable
+for_window [app_id="xfce4-about"] resize set 800 600
+for_window [app_id="xfce4-about"] move position center
 
-for_window [class="Blueman-manager"] floating enable
-for_window [class="Blueman-manager"] resize set 640 480
-for_window [class="Blueman-manager"] move position center
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="blueman-manager"] resize set 640 480
+for_window [app_id="blueman-manager"] move position center
 
 for_window [title="About Mozilla Firefox"] floating enable
 
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Pavucontrol"] resize set 800 640
-for_window [class="Pavucontrol"] move position center
-#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [app_id="org.pulseaudio.pavucontrol"] resize set 800 600
+for_window [app_id="org.pulseaudio.pavucontrol"] move position center
+
+for_window [app_id="wdisplays"] floating enable
+for_window [app_id="wdisplays"] resize set 1024 768
+for_window [app_id="wdisplays"] move position center
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
@@ -120,6 +123,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term
 
 # Kill focused window
+bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # Start your launcher

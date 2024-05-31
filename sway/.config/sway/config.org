@@ -189,7 +189,8 @@ for_window [class="io.github.celluloid_player.Celluloid"] border pixel 0
 #+end_src
 
 ** FLOAT / RESIZE etc. CERTAIN WINDOWS
-TODO are the classnames different in Wayland? About Firefox works, others here don't
+are the classnames different in Wayland? About Firefox works, others here don't
+--> use =wlprop | jq -r '.app_id'=
 
 # enable floating mode for all XTerm windows
 for_window [class="XTerm"] floating enable
@@ -211,25 +212,28 @@ for_window [class="Blueman-manager"] move position mouse
 #for_window [title="Error" class="Lxpolkit"] kill; floating enable; border none
 
 #+begin_src shell
-for_window [class="Xfce4-appfinder"] floating enable
-#for_window [class="Xfce4-appfinder"] border pixel 5
-for_window [class="Xfce4-appfinder"] resize set 640 480
-for_window [class="Xfce4-appfinder"] move position center
+for_window [app_id="xfce4-appfinder"] floating enable
+#for_window [app_id="xfce4-appfinder"] border pixel 5
+for_window [app_id="xfce4-appfinder"] resize set 800 600
+for_window [app_id="xfce4-appfinder"] move position center
 
-for_window [class="Xfce4-about"] floating enable
-for_window [class="Xfce4-about"] resize set 640 480
-for_window [class="Xfce4-about"] move position center
+for_window [app_id="xfce4-about"] floating enable
+for_window [app_id="xfce4-about"] resize set 800 600
+for_window [app_id="xfce4-about"] move position center
 
-for_window [class="Blueman-manager"] floating enable
-for_window [class="Blueman-manager"] resize set 640 480
-for_window [class="Blueman-manager"] move position center
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="blueman-manager"] resize set 640 480
+for_window [app_id="blueman-manager"] move position center
 
 for_window [title="About Mozilla Firefox"] floating enable
 
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Pavucontrol"] resize set 800 640
-for_window [class="Pavucontrol"] move position center
-#WM_CLASS(STRING) = "pavucontrol", "Pavucontrol"
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [app_id="org.pulseaudio.pavucontrol"] resize set 800 600
+for_window [app_id="org.pulseaudio.pavucontrol"] move position center
+
+for_window [app_id="wdisplays"] floating enable
+for_window [app_id="wdisplays"] resize set 1024 768
+for_window [app_id="wdisplays"] move position center
 #+end_src
 
 * Output configuration
@@ -303,6 +307,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term
 
 # Kill focused window
+bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # Start your launcher
