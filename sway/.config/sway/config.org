@@ -23,6 +23,7 @@
   - [[#disable-title-bars][Disable Title Bars]]
   - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
   - [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
+  - [[#open-apps-on-specific-workspace][Open apps on specific workspace]]
 - [[#output-configuration][Output configuration]]
 - [[#idle-configuration][Idle configuration]]
 - [[#input-configuration][Input configuration]]
@@ -234,6 +235,17 @@ for_window [app_id="org.pulseaudio.pavucontrol"] move position center
 for_window [app_id="wdisplays"] floating enable
 for_window [app_id="wdisplays"] resize set 1024 768
 for_window [app_id="wdisplays"] move position center
+#+end_src
+
+** Open apps on specific workspace
+This is a bit of a mess on =Wayland=, because some apps don't have the class,
+others are missing the app_id etc.
+
+#+begin_src shell
+assign [app_id="firefox"] $ws2
+assign [class="Brave-browser"] $ws8
+assign [class="KeePassXC"] $ws9
+assign [app_id="org.gnome.SystemMonitor"] $ws9
 #+end_src
 
 * Output configuration
@@ -505,7 +517,7 @@ mode "$mode_settings" {
 
 *** Launch applications with $mod+o
 #+begin_src shell
-set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [c]alc [e]macs [f]ile-manager [k]eepass [o]pen [s]ystem-monitor [q]utebrowser bra[v]e firefo[x]
+set $mode_launcher Open: [a]ppfinder [b]luetooth [B]rowser [c]alc [e]macs [f]ile-manager [k]eepass [o]pen [p]avucontrol [s]ystem-monitor [q]utebrowser bra[v]e firefo[x]
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -516,6 +528,7 @@ mode "$mode_launcher" {
     bindsym f exec thunar; mode "default"
     bindsym k exec keepassxc; mode "default"
     bindsym o exec rofi -show drun; mode "default"
+    bindsym p exec pavucontrol; mode "default"
     bindsym q exec qutebrowser; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
     bindsym shift+b exec firefox; mode "default"
