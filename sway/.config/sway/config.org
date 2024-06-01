@@ -68,7 +68,8 @@ Your preferred application launcher
 Note: pass the final command to swaymsg so that the resulting window can be opened
 on the original workspace that the command was run on.
 #+begin_src shell
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu dmenu_path | wmenu -i -f "HackNerdFont 12" -N "#3b4252" -n "#d8dee9" -S "#d08770" -s "#000000" | xargs swaymsg exec --
+set $menu2 i3-dmenu-desktop --dmenu='dmenu -i -fn "HackNerdFont 12" -nb "#3b4252" -nf "#d8dee9" -sb "#d08770" -sf "#000000"'
 #+end_src
 
 ** Nord Colors
@@ -323,8 +324,8 @@ bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # Start your launcher
-bindsym $mod+d exec $menu
-bindsym $mod+p exec $menu
+bindsym $mod+p exec $menu2
+bindsym $mod+Shift+p exec $menu
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
