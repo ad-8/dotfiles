@@ -79,10 +79,28 @@ abbr -a ai 'apt info'
 abbr -a ain 'sudo apt install'
 abbr -a upb 'brew update && brew upgrade'
 #abbr -a up 'sudo apt update && sudo apt upgrade'
+
 abbr -a up 'sudo zypper ref && sudo zypper dup'
+
+if test -f /etc/debian_version
+    abbr -a up 'sudo apt update && sudo apt upgrade'
+else if test -f /etc/arch-release
+    abbr -a up 'sudo pacman -Syu'
+else if test -f /etc/SuSE-release
+    abbr -a up 'sudo zypper ref && sudo zypper dup'
+else if test -f /etc/void-release
+    abbr -a up 'sudo xbps-install -Su'
+else
+    abbr -a up 'Unknown distribution. Cannot install htop.'
+end
+
 abbr -a pm 'pacman -S'
 
-abbr -a cu checkupdates
+if test -f /etc/arch-release
+   abbr -a cu checkupdates
+else
+    abbr -a cu "probably not on Arch :)"
+end
 
 # official example:                     ffmpeg                 -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3
 abbr -a flac2mp3 'fdfind -e flac --exec ffmpeg -loglevel error -i {} -codec:a libmp3lame -qscale:a 1 {.}.mp3'
@@ -137,6 +155,8 @@ export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
 export VISUAL="emacsclient -t"
 
 export TERMINAL='alacritty'
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 set -U fish_greeting ""
 set -Ux PAGER less

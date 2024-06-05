@@ -22,6 +22,7 @@
 - [[#export][export]]
   - [[#editor--visual][EDITOR / VISUAL]]
   - [[#terminal][TERMINAL]]
+  - [[#other][OTHER]]
 - [[#greeting][greeting]]
 - [[#stuff-that-should-be-at-the-end][stuff that should be at the end]]
   - [[#starship][starship]]
@@ -128,10 +129,29 @@ abbr -a ai 'apt info'
 abbr -a ain 'sudo apt install'
 abbr -a upb 'brew update && brew upgrade'
 #abbr -a up 'sudo apt update && sudo apt upgrade'
+
 abbr -a up 'sudo zypper ref && sudo zypper dup'
+
+if test -f /etc/debian_version
+    abbr -a up 'sudo apt update && sudo apt upgrade'
+else if test -f /etc/arch-release
+    abbr -a up 'sudo pacman -Syu'
+#else if test -f /etc/SuSE-release
+else if grep -q 'openSUSE Tumbleweed' /etc/os-release
+    abbr -a up 'sudo zypper ref && sudo zypper dup'
+else if test -f /etc/void-release
+    abbr -a up 'sudo xbps-install -Su'
+else
+    abbr -a up 'Unknown distribution. Cannot install htop.'
+end
+
 abbr -a pm 'pacman -S'
 
-abbr -a cu checkupdates
+if test -f /etc/arch-release
+   abbr -a cu checkupdates
+else
+    abbr -a cu "probably not on Arch :)"
+end
 #+end_src
 
 ** medium ones
@@ -218,6 +238,11 @@ export VISUAL="emacsclient -t"
 ** TERMINAL
 #+begin_src shell
 export TERMINAL='alacritty'
+#+end_src
+
+** OTHER
+#+begin_src shell
+export QT_QPA_PLATFORMTHEME="qt5ct"
 #+end_src
 
 

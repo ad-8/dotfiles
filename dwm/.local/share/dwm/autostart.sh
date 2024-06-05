@@ -15,6 +15,8 @@ xset b off
 # TODO enable only if *not* on macbook
 setxkbmap -option altwin:swap_lalt_lwin
 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 sleep 2
 xfce4-power-manager &
 feh --bg-scale --randomize ~/Pictures/wallpapers-ax-fav &
