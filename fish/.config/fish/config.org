@@ -122,15 +122,11 @@ abbr -a zy zypper
 
 ** package managers
 #+begin_src shell
-abbr -a bi 'brew info'
-abbr -a bin 'brew install'
-abbr -a bs 'brew search'
-abbr -a ai 'apt info'
-abbr -a ain 'sudo apt install'
-abbr -a upb 'brew update && brew upgrade'
-#abbr -a up 'sudo apt update && sudo apt upgrade'
+abbr -a fp flatpak
+abbr -a fpl flatpak list
+abbr -a fpu flatpak update
 
-abbr -a up 'sudo zypper ref && sudo zypper dup'
+abbr -a pm 'pacman -S'
 
 if test -f /etc/debian_version
     abbr -a up 'sudo apt update && sudo apt upgrade'
@@ -145,12 +141,11 @@ else
     abbr -a up 'Unknown distribution. Cannot install htop.'
 end
 
-abbr -a pm 'pacman -S'
 
 if test -f /etc/arch-release
    abbr -a cu checkupdates
 else
-    abbr -a cu "probably not on Arch :)"
+    abbr -a cu "(checkupdate) This system is probably not Arch"
 end
 #+end_src
 

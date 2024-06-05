@@ -72,21 +72,18 @@ abbr -a todo 'rg -i todo --stats'
 abbr -a wt wttr
 abbr -a zy zypper
 
-abbr -a bi 'brew info'
-abbr -a bin 'brew install'
-abbr -a bs 'brew search'
-abbr -a ai 'apt info'
-abbr -a ain 'sudo apt install'
-abbr -a upb 'brew update && brew upgrade'
-#abbr -a up 'sudo apt update && sudo apt upgrade'
+abbr -a fp flatpak
+abbr -a fpl flatpak list
+abbr -a fpu flatpak update
 
-abbr -a up 'sudo zypper ref && sudo zypper dup'
+abbr -a pm 'pacman -S'
 
 if test -f /etc/debian_version
     abbr -a up 'sudo apt update && sudo apt upgrade'
 else if test -f /etc/arch-release
     abbr -a up 'sudo pacman -Syu'
-else if test -f /etc/SuSE-release
+#else if test -f /etc/SuSE-release
+else if grep -q 'openSUSE Tumbleweed' /etc/os-release
     abbr -a up 'sudo zypper ref && sudo zypper dup'
 else if test -f /etc/void-release
     abbr -a up 'sudo xbps-install -Su'
@@ -94,12 +91,11 @@ else
     abbr -a up 'Unknown distribution. Cannot install htop.'
 end
 
-abbr -a pm 'pacman -S'
 
 if test -f /etc/arch-release
    abbr -a cu checkupdates
 else
-    abbr -a cu "probably not on Arch :)"
+    abbr -a cu "(checkupdate) This system is probably not Arch"
 end
 
 # official example:                     ffmpeg                 -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3
