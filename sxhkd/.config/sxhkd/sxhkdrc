@@ -8,9 +8,9 @@
 super + o ; {a,f}
       {xfce4-appfinder,thunar}
 
-# apps: [q]utebrowser, bra[v]e, firefo[x]
-super + o ; {q,v,x}
-      {qbittorrent,~/scripts/brave.sh,firefox}
+# apps: [q]utebrowser, bra[v]e, libre[w]olf, firefo[x]
+super + o ; {q,v,w,x}
+      {qbittorrent,~/scripts/brave.sh,flatpak run io.gitlab.librewolf-community,firefox}
 
 # blueman, keepass, pavuctl, system-monitor
 super + o ; {b,k,p,s}
