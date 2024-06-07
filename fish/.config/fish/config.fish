@@ -151,6 +151,7 @@ export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
 export VISUAL="emacsclient -t"
 
 export TERMINAL='alacritty'
+export MAN_POSIXLY_CORRECT 1
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 

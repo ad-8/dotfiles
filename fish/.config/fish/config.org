@@ -135,7 +135,7 @@ else if test -f /etc/arch-release
 #else if test -f /etc/SuSE-release
 else if grep -q 'openSUSE Tumbleweed' /etc/os-release
     abbr -a up 'sudo zypper ref && sudo zypper dup'
-else if test -f /etc/void-release
+else if grep -q 'Void' /etc/os-release
     abbr -a up 'sudo xbps-install -Su'
 else
     abbr -a up 'Unknown distribution. Cannot install htop.'
@@ -231,8 +231,14 @@ export VISUAL="emacsclient -t"
 #+end_src
 
 ** TERMINAL
+For man pages, Tumbleweed set MAN_POSIXLY_CORRECT to avoid choosing which man page to display each time
+- tee(1): User Commands
+- tee(2): System Calls Manual
+- ...
+
 #+begin_src shell
 export TERMINAL='alacritty'
+export MAN_POSIXLY_CORRECT 1
 #+end_src
 
 ** OTHER
