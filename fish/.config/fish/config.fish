@@ -78,14 +78,17 @@ abbr -a fpu flatpak update
 
 abbr -a pm 'pacman -S'
 
-if test -f /etc/debian_version
+if grep -q 'Debian GNU/Linux' /etc/os-release
     abbr -a up 'sudo apt update && sudo apt upgrade'
-else if test -f /etc/arch-release
+    # TODO move to another block
+    alias bat batcat
+    alias fd fdfind
+else if grep -q 'Arch Linux' /etc/os-release
     abbr -a up 'sudo pacman -Syu'
 #else if test -f /etc/SuSE-release
 else if grep -q 'openSUSE Tumbleweed' /etc/os-release
     abbr -a up 'sudo zypper ref && sudo zypper dup'
-else if test -f /etc/void-release
+else if grep -q 'Void' /etc/os-release
     abbr -a up 'sudo xbps-install -Su'
 else
     abbr -a up 'Unknown distribution. Cannot install htop.'
