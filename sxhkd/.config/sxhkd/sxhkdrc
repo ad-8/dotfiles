@@ -86,6 +86,8 @@ super + mod1 + Left
 # toggle play/pause
 super + mod1 + Right
     playerctl play-pause && notify-send "play/pause"
+super + mod1 + space
+    playerctl play-pause && notify-send "play/pause"
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
