@@ -25,7 +25,6 @@
   - [[#other][OTHER]]
 - [[#greeting][greeting]]
 - [[#stuff-that-should-be-at-the-end][stuff that should be at the end]]
-  - [[#starship][starship]]
 
 * interactive
 #+begin_src shell
@@ -43,17 +42,14 @@ I think this has to be at/near the top of the actual config file.
 * abbr
 ** cd
 #+begin_src shell
-abbr -a cdc 'cd ~/code'
-abbr -a cdd 'cd ~/dotfiles'
-abbr -a cdj "cd ~/code/clojure"
+abbr -a cdc 'cd ~/my/code'
+abbr -a cdd 'cd ~/my/dotfiles'
+abbr -a cdj "cd ~/my/code/clojure"
 abbr -a cdm 'cd /run/media/ax'
 abbr -a cdM 'cd ~/MEGA/MEGAsync/'
-abbr -a cdo 'cd ~/obsidian-vault'
-abbr -a cdp 'cd ~/code/python/'
-abbr -a cdr 'cd ~/code/rust'
+abbr -a cdr 'cd ~/my/code/rust'
 abbr -a dl 'cd ~/Downloads'
 abbr -a dot 'cd ~/.config'
-abbr -a dt 'cd ~/Desktop/'
 #+end_src
 
 ** git 
@@ -77,6 +73,8 @@ abbr -a gs 'git status'
 abbrs that I use very often
 
 #+begin_src shell
+abbr -a sc systemctl
+
 abbr -a cgb 'cargo build'
 abbr -a cg cargo
 abbr -a cgc cargo check
@@ -99,7 +97,7 @@ abbr -a t. thunar .
 abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
-abbr -a nf '~/scripts/nf.sh'
+abbr -a nf '~/my/scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='vim' nnn -H"
 abbr -a o. 'open .'
@@ -262,18 +260,10 @@ set -Ux PAGER less
 #+begin_src shell
 
 source ~/.config/fish/nnn.fish
+
 ## Stuff that should be at the end
+starship init fish | source
 zoxide init fish | source
 
 #+end_src
-
-** starship
-From the docs:
-Add the following to the end of ~/.config/fish/config.fish:
-#+begin_src shell
-starship init fish | source
-#+end_src
-
-Why do/did I have this?
-# source (/home/linuxbrew/.linuxbrew/bin/starship init fish --print-full-init | psub)
 

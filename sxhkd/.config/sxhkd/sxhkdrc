@@ -10,7 +10,7 @@ super + o ; {a,f}
 
 # apps: [q]utebrowser, bra[v]e, libre[w]olf, firefo[x]
 super + o ; {q,v,w,x}
-      {qbittorrent,~/scripts/brave.sh,flatpak run io.gitlab.librewolf-community,firefox}
+      {qbittorrent,~/my/scripts/brave.sh,flatpak run io.gitlab.librewolf-community,firefox}
 
 # blueman, keepass, pavuctl, system-monitor
 super + o ; {b,k,p,s}
@@ -32,7 +32,7 @@ super + shift + {o, w}
 
 # show THIS help menu
 ctrl + space ; h
-     ~/scripts/sxhkd-show-help.sh
+     ~/my/scripts/sxhkd-show-help.sh
 
 # --------------------------------------------------------------
 #                       MODE CHANGE
@@ -42,16 +42,16 @@ ctrl + space ; h
 
 # CHANGE [l]icht, [s]creen, [w]allpaper
 ctrl + space ; c ; {l, s, w}
-     {licht, screen_config, set_random_wallpaper}
+     {licht, screen_config, feh --recursive --bg-scale --randomize ~/my/wallpapers/dt}
 # --------------------------------------------------------------
 
 # SEARCH all, ddg
 ctrl + space ; s ; {a,g}
-     {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
+     {~/my/scripts/bb/search.clj --select-provider,~/my/scripts/bb/search.clj}
 
 # RUN emoji, run_script
 ctrl + space ; r ; {e,r}
-     {~/.config/i3/dmenuunicode,~/scripts/bb/run_script.clj}
+     {~/.config/i3/dmenuunicode,~/my/scripts/bb/run_script.clj}
 
 # --------------------------------------------------------------
 #                       TOGGLE
@@ -76,13 +76,13 @@ XF86AudioPlay
 
 # volume up
 super + mod1 + Up
-     ~/scripts/volume up
+     ~/my/scripts/volume up
 # volume down
 super + mod1 + Down
-     ~/scripts/volume down
+     ~/my/scripts/volume down
 # volume toggle mute
 super + mod1 + Left
-     ~/scripts/volume mute
+     ~/my/scripts/volume mute
 # toggle play/pause
 super + mod1 + Right
     playerctl play-pause && notify-send "play/pause"
@@ -102,7 +102,7 @@ super + mod1 + h
 
 # get weather info (test)
 super + mod1 + w
-      ~/scripts/weather.sh
+      ~/my/scripts/weather.sh
 # --------------------------------------------------------------
 
 # lock screen
@@ -115,7 +115,7 @@ super + Escape
 
 # powermenu
 ctrl + space; p
-      ~/scripts/bb/powermenu.clj
+      ~/my/scripts/bb/powermenu.clj
 
 # --------------------------------------------------------------
 #                       SCREENSHOTS

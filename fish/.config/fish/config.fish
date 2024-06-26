@@ -4,17 +4,14 @@ end
 
 # eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-abbr -a cdc 'cd ~/code'
-abbr -a cdd 'cd ~/dotfiles'
-abbr -a cdj "cd ~/code/clojure"
+abbr -a cdc 'cd ~/my/code'
+abbr -a cdd 'cd ~/my/dotfiles'
+abbr -a cdj "cd ~/my/code/clojure"
 abbr -a cdm 'cd /run/media/ax'
 abbr -a cdM 'cd ~/MEGA/MEGAsync/'
-abbr -a cdo 'cd ~/obsidian-vault'
-abbr -a cdp 'cd ~/code/python/'
-abbr -a cdr 'cd ~/code/rust'
+abbr -a cdr 'cd ~/my/code/rust'
 abbr -a dl 'cd ~/Downloads'
 abbr -a dot 'cd ~/.config'
-abbr -a dt 'cd ~/Desktop/'
 
 abbr -a ga 'git add'
 abbr -a gb 'git branch'
@@ -29,6 +26,8 @@ abbr -a gl 'git log --oneline'
 abbr -a gms 'git merge --squash'
 abbr -a gr 'git restore'
 abbr -a gs 'git status'
+
+abbr -a sc systemctl
 
 abbr -a cgb 'cargo build'
 abbr -a cg cargo
@@ -52,7 +51,7 @@ abbr -a t. thunar .
 abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
-abbr -a nf '~/scripts/nf.sh'
+abbr -a nf '~/my/scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='vim' nnn -H"
 abbr -a o. 'open .'
@@ -162,7 +161,7 @@ set -U fish_greeting ""
 set -Ux PAGER less
 
 source ~/.config/fish/nnn.fish
-## Stuff that should be at the end
-zoxide init fish | source
 
+## Stuff that should be at the end
 starship init fish | source
+zoxide init fish | source
