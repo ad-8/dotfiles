@@ -72,7 +72,7 @@ XF86AudioMute
     /usr/local/bin/volume mute
 # toggle play/pause
 XF86AudioPlay
-    playerctl play-pause
+    ~/my/scripts/bb/play_pause.clj
 
 # volume up
 super + mod1 + Up
@@ -85,9 +85,9 @@ super + mod1 + Left
      ~/my/scripts/volume mute
 # toggle play/pause
 super + mod1 + Right
-    playerctl play-pause && notify-send "play/pause"
+    ~/my/scripts/bb/play_pause.clj
 super + mod1 + space
-    playerctl play-pause && notify-send "play/pause"
+    ~/my/scripts/bb/play_pause.clj
 # --------------------------------------------------------------
 
 # --------------------------------------------------------------
