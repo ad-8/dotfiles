@@ -19,7 +19,7 @@ setxkbmap -option altwin:swap_lalt_lwin
 
 sleep 2
 xfce4-power-manager &
-feh --bg-scale --randomize ~/Pictures/wallpapers-ax-fav &
+feh --bg-scale --randomize ~/Sync/wallpapers/wallpapers-ax-fav &
 emacs --daemon &
 sxhkd -t 3 &
 #picom &
