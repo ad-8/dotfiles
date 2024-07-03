@@ -75,7 +75,7 @@ abbr -a fp flatpak
 abbr -a fpl flatpak list
 abbr -a fpu flatpak update
 
-abbr -a pm 'pacman -S'
+abbr -a pm 'pacman -'
 
 if grep -q 'Debian GNU/Linux' /etc/os-release
     abbr -a up 'sudo apt update && sudo apt upgrade'
@@ -109,32 +109,14 @@ abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/
 abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/Sync/Moto/' -n"
 abbr -a syncmoto-backup "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/backups' '$HOME/Sync/Moto/' -n"
 
-abbr -a syncmov2 'rclone copy --progress /Volumes/Blackbeard5/media/movies/ sgefoo:movies/ -n'
-abbr -a sync-local-only 'rsync -ahvP --delete --stats /Volumes/Blackbeard5/0-localsync/ /Volumes/AppleEnc/0-localsync/ -n'
-
 abbr -a restic-forget 'restic -r ~/MEGA/MEGAsync/linux-repo/ forget --keep-weekly 52'
 abbr -a restic-snapshots 'restic -r ~/MEGA/MEGAsync/linux-repo/ snapshots'
 
-abbr -a fconf "hx ~/.config/fish/config.fish"
-abbr -a es "exercism submit"
-abbr -a sync-backup "rclone copy --progress /Volumes/Blackbeard5/0-localsync/backup/ b2e:backup/ -n"
-abbr -a nt 'ntfy-cli -@ "test" -t "NTFY" -m "'
-
-abbr -a xo "xdg-open"
 abbr -a rgi 'rg -iN "'
 abbr -a sup "strava-rs update"
 
-abbr -a bt 'rclone tree b2e:'
-abbr -a ce 'crontab -e'
-
 abbr -a rcp 'rclone copy --progress'
 abbr -a rct 'rclone tree --level 2'
-
-abbr -a sync-music-before 'rsync -ahv --delete --progress --stats /Volumes/AppleEnc/music2k/0music-before-import/Music/ /Users/ax/Music/Music/ -n'
-abbr -a syncmov 'rclone copy --progress /Volumes/Blackbeard5/media/movies-glacier-sync/ sge:mov -n'
-abbr -a syncmusicb2e 'rclone copy --progress /Volumes/Blackbeard5/0-localsync/music2k/ b2e:music2k/ -n'
-abbr -a synctv 'rclone copy --progress /Volumes/Blackbeard5/media/tvshows-glacier-sync/ sge3000:tv -n'
-abbr -a synctv2 'rclone copy --progress /Volumes/Blackbeard5/tv2/ sgefoo:tv2/ -n'
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
@@ -157,11 +139,10 @@ export MAN_POSIXLY_CORRECT 1
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-set -U fish_greeting ""
+set -Ux fish_greeting "" # disable default welcome message
 set -Ux PAGER less
 
 source ~/.config/fish/nnn.fish
 
-## Stuff that should be at the end
 starship init fish | source
 zoxide init fish | source
