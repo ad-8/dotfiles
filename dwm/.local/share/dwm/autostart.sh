@@ -5,7 +5,7 @@
 blueman-applet &
 
 dunst &
-.screenlayout/lg-ultrawide.sh &
+.screenlayout/maconly-higher.sh &
 licht hi &
 dwmblocks &
 
@@ -13,7 +13,7 @@ dwmblocks &
 xset b off
 
 # TODO enable only if *not* on macbook
-setxkbmap -option altwin:swap_lalt_lwin
+#setxkbmap -option altwin:swap_lalt_lwin
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
