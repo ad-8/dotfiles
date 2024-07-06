@@ -97,7 +97,8 @@ abbr -a t. thunar .
 abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
-abbr -a nf '~/my/scripts/nf.sh'
+#abbr -a nf '~/my/scripts/nf.sh'
+abbr -a nf "clear && fastfetch"
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='vim' nnn -H"
 abbr -a o. 'open .'

@@ -38,18 +38,18 @@
         },
         {
             "type": "swap",
-            "key": "│ ├s",
+            "key": "│ ├",
             "keyColor": "green"
         },
         {
             "type": "disk",
-            "key": "└ └/",
+            "key": "└ └󰋊",
             "keyColor": "green"
         },
         "break",
         {
             "type": "display",
-            "key": "└ └d",
+            "key": "   󰍹",
             "keyColor": "blue"
         },
         {
@@ -72,40 +72,34 @@
             "keyColor": "yellow"
         },
         {
-            "type": "bios",
-            "key": "│ ├",
-            "keyColor": "yellow"
-        },
-        {
             "type": "packages",
             "key": "│ ├󰏖",
             "keyColor": "yellow"
         },
         {
             "type": "shell",
-            "key": "└ └",
+            "key": "│ ├",
             "keyColor": "yellow"
         },
-        "break",
         {
             "type": "de",
             "key": " DE",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "wm",
             "key": "│ ├",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "wmtheme",
             "key": "│ ├󰉼",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "terminal",
             "key": "└ └",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "custom",
@@ -118,19 +112,18 @@
         },
         {
             "type": "command",
-            "key": "  OS Age ",
+            "key": "   OS Age ",
             "keyColor": "magenta",
             "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
         },
         {
             "type": "uptime",
-            "key": "  Uptime ",
+            "key": "   Uptime ",
             "keyColor": "magenta"
         },
         {
             "type": "custom",
             "format": "\u001b[90m└────────────────────────────────────────────────────┘"
         },
-        "break",
     ]
 }
