@@ -19,7 +19,7 @@ xset b off
 
 sleep 2
 xfce4-power-manager &
-feh --bg-scale --randomize ~/Sync/wallpapers/wallpapers-ax-fav &
+feh --bg-scale --randomize ~/sync/wallpapers/wallpapers-ax-fav &
 emacs --daemon &
 sxhkd -t 3 &
 #picom &
