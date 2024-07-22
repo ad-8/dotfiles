@@ -67,7 +67,7 @@
         },
         {
             "type": "os",
-            "key": " OS",
+            "key": " OS",
             "keyColor": "green"
         },
         {
@@ -86,28 +86,13 @@
             "keyColor": "green"
         },
         {
-            "type": "lm",
-            "key": "  ├󰧨",
-            "keyColor": "green"
-        },
-        {
             "type": "de",
             "key": " DE",
             "keyColor": "green"
         },
         {
             "type": "wm",
-            "key": "  ├",
-            "keyColor": "green"
-        },
-        {
-            "type": "wmtheme",
-            "key": "  ├󰉼",
-            "keyColor": "green"
-        },
-        {
-            "type": "terminal",
-            "key": "  └",
+            "key": "  └",
             "keyColor": "green"
         },
         {
