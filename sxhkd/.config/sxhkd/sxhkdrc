@@ -61,34 +61,25 @@ ctrl + space; t; n
 
 # --------------------------------------------------------------
 #                       VOLUME
-# volume up
 XF86AudioRaiseVolume
-    /usr/local/bin/volume up
-# volume down
+     ~/my/scripts/volume up
 XF86AudioLowerVolume
-    /usr/local/bin/volume down
-# volume mute
+     ~/my/scripts/volume down
 XF86AudioMute
-    /usr/local/bin/volume mute
-# toggle play/pause
+     ~/my/scripts/volume mute
 XF86AudioPlay
     ~/my/scripts/bb/play_pause.clj
 
-# volume up
 super + mod1 + Up
      ~/my/scripts/volume up
-# volume down
 super + mod1 + Down
      ~/my/scripts/volume down
-# volume toggle mute
 super + mod1 + Left
      ~/my/scripts/volume mute
-# toggle play/pause
 super + mod1 + Right
     ~/my/scripts/bb/play_pause.clj
 super + mod1 + space
     ~/my/scripts/bb/play_pause.clj
-# --------------------------------------------------------------
 
 # --------------------------------------------------------------
 #                       NOTIFICATIONS
@@ -107,7 +98,7 @@ super + mod1 + w
 
 # lock screen
 super + mod1 + l
-     i3lock --color 000000 --show-failed-attempts
+     ~/my/scripts/lockscreen.sh
 
 # restart sxhkd
 super + Escape
@@ -132,17 +123,14 @@ ctrl + space; s; s
 # screenshot - select (window or rectangle) + copy to clipboard
 ctrl + space; s; S
      ax-screenshot --clipboard --select
-# --------------------------------------------------------------
 
 # --------------------------------------------------------------
 #                       MacBook Light Keys
-# --------------------------------------------------------------
 XF86MonBrightnessUp
-    /usr/bin/light -A 5
+    ~/my/scripts/brightness screen inc
 XF86MonBrightnessDown
-    /usr/bin/light -U 5
-XF86XK_KbdBrightnessUp
-    light -s sysfs/leds/smc::kbd_backlight -A 5
-XF86XK_KbdBrightnessDown
-    light -s sysfs/leds/smc::kbd_backlight -U 5
-
+    ~/my/scripts/brightness screen dec
+XF86KbdBrightnessUp
+    ~/my/scripts/brightness keyboard inc
+XF86KbdBrightnessDown
+    ~/my/scripts/brightness keyboard dec
