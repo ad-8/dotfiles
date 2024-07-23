@@ -451,12 +451,8 @@
     appname = "Volume"
     history_ignore = yes
 
-[history-ignore-2]
-    appname = "play-pause"
-    history_ignore = yes
-
-[history-ignore-3]
-    appname = "Brightness"
+[history-ignore-dwm-scripts]
+    appname = "dwm-*"
     history_ignore = yes
 
 #[skip-display]

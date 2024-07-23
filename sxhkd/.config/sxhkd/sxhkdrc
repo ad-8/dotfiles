@@ -57,7 +57,7 @@ ctrl + space ; r ; {e,r}
 #                       TOGGLE
 # toggle notifications on/off
 ctrl + space; t; n
-     dunstctl set-paused toggle
+     ~/my/scripts/dwm_toggle_notifications.clj
 
 # --------------------------------------------------------------
 #                       VOLUME
