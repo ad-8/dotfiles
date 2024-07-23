@@ -65,7 +65,7 @@ abbr -a rl 'RUST_LOG=debug'
 abbr -a ssa 'shasum --algorithm 256'
 abbr -a ssc 'shasum --check'
 abbr -a s "strava-rs"
-abbr -a str "cat ~/archive/streams.md"
+abbr -a str "cat ~/my/archive/streams.md"
 abbr -a st "strava-rs tui"
 abbr -a tl 'tree -L'
 abbr -a todo 'rg -i todo --stats'

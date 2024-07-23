@@ -42,7 +42,7 @@ ctrl + space ; h
 
 # CHANGE [l]icht, [s]creen, [w]allpaper
 ctrl + space ; c ; {l, s, w}
-     {licht, screen_config, feh --recursive --bg-fill --randomize ~/sync/wallpapers/dt}
+     {licht, screen_config, feh --recursive --bg-fill --randomize ~/sync/wallpapers/wallpapers-ax-fav}
 # --------------------------------------------------------------
 
 # SEARCH all, ddg
