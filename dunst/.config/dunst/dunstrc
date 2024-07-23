@@ -455,6 +455,10 @@
     appname = "play-pause"
     history_ignore = yes
 
+[history-ignore-3]
+    appname = "Brightness"
+    history_ignore = yes
+
 #[skip-display]
 #    # This notification will not be displayed, but will be included in the history
 #    summary = "foobar"

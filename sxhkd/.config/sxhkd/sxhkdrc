@@ -51,7 +51,7 @@ ctrl + space ; s ; {a,g}
 
 # RUN emoji, run_script
 ctrl + space ; r ; {e,r}
-     {~/.config/i3/dmenuunicode,~/my/scripts/bb/run_script.clj}
+     {~/my/scripts/dmenuunicode,~/my/scripts/bb/run_script.clj}
 
 # --------------------------------------------------------------
 #                       TOGGLE
@@ -134,3 +134,15 @@ XF86KbdBrightnessUp
     ~/my/scripts/brightness keyboard inc
 XF86KbdBrightnessDown
     ~/my/scripts/brightness keyboard dec
+
+# --------------------------------------------------------------
+#                       MacBook / Media keys
+XF86LaunchA
+    rofi -show window
+XF86LaunchB
+    xfce4-appfinder
+
+XF86AudioPrev
+    playerctl previous
+XF86AudioNext
+    playerctl next
