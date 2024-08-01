@@ -122,7 +122,7 @@ abbr -a zy zypper
 ** package managers
 #+begin_src shell
 abbr -a fp flatpak
-abbr -a fpl flatpak list
+abbr -a fpl flatpak list --app
 abbr -a fpu flatpak update
 
 abbr -a pm 'pacman -'

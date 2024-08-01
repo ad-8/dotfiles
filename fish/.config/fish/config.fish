@@ -73,7 +73,7 @@ abbr -a wt wttr
 abbr -a zy zypper
 
 abbr -a fp flatpak
-abbr -a fpl flatpak list
+abbr -a fpl flatpak list --app
 abbr -a fpu flatpak update
 
 abbr -a pm 'pacman -'
