@@ -94,6 +94,10 @@ super + mod1 + h
 # get weather info (test)
 super + mod1 + w
       ~/my/scripts/bb/weather.clj dunst
+
+# display departures
+super + mod1 + t
+      ~/my/code/scripts/mvg.clj
 # --------------------------------------------------------------
 
 # lock screen
