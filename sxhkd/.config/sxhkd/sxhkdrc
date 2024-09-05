@@ -10,7 +10,7 @@ super + o ; {a,f}
 
 # apps: [q]utebrowser, bra[v]e, libre[w]olf, firefo[x]
 super + o ; {q,v,w,x}
-      {qbittorrent,~/my/scripts/brave.sh,flatpak run io.gitlab.librewolf-community,firefox}
+      {qbittorrent,~/scripts/brave.sh,flatpak run io.gitlab.librewolf-community,firefox}
 
 # blueman, keepass, pavuctl, system-monitor
 super + o ; {b,k,p,s}
@@ -32,7 +32,7 @@ super + shift + {o, w}
 
 # show THIS help menu
 ctrl + space ; h
-     ~/my/scripts/sxhkd-show-help.sh
+     ~/scripts/sxhkd-show-help.sh
 
 # --------------------------------------------------------------
 #                       MODE CHANGE
@@ -47,39 +47,39 @@ ctrl + space ; c ; {l, s, w}
 
 # SEARCH all, ddg
 ctrl + space ; s ; {a,g}
-     {~/my/scripts/bb/search.clj --select-provider,~/my/scripts/bb/search.clj}
+     {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
 
 # RUN emoji, run_script
 ctrl + space ; r ; {e,r}
-     {~/my/scripts/dmenuunicode,~/my/scripts/bb/run_script.clj}
+     {~/scripts/dmenuunicode,~/scripts/bb/run_script.clj}
 
 # --------------------------------------------------------------
 #                       TOGGLE
 # toggle notifications on/off
 ctrl + space; t; n
-     ~/my/scripts/dwm_toggle_notifications.clj
+     ~/scripts/dwm_toggle_notifications.clj
 
 # --------------------------------------------------------------
 #                       VOLUME
 XF86AudioRaiseVolume
-     ~/my/scripts/volume up
+     ~/scripts/volume up
 XF86AudioLowerVolume
-     ~/my/scripts/volume down
+     ~/scripts/volume down
 XF86AudioMute
-     ~/my/scripts/volume mute
+     ~/scripts/volume mute
 XF86AudioPlay
-    ~/my/scripts/bb/play_pause.clj
+    ~/scripts/bb/play_pause.clj
 
 super + mod1 + Up
-     ~/my/scripts/volume up
+     ~/scripts/volume up
 super + mod1 + Down
-     ~/my/scripts/volume down
+     ~/scripts/volume down
 super + mod1 + Left
-     ~/my/scripts/volume mute
+     ~/scripts/volume mute
 super + mod1 + Right
-    ~/my/scripts/bb/play_pause.clj
+    ~/scripts/bb/play_pause.clj
 super + mod1 + space
-    ~/my/scripts/bb/play_pause.clj
+    ~/scripts/bb/play_pause.clj
 
 # --------------------------------------------------------------
 #                       NOTIFICATIONS
@@ -93,7 +93,7 @@ super + mod1 + h
 
 # get weather info (test)
 super + mod1 + w
-      ~/my/scripts/bb/weather.clj dunst
+      ~/scripts/bb/weather.clj dunst
 
 # display departures
 super + mod1 + t
@@ -102,7 +102,7 @@ super + mod1 + t
 
 # lock screen
 super + mod1 + l
-     ~/my/scripts/lockscreen.sh
+     ~/scripts/lockscreen.sh
 
 # restart sxhkd
 super + Escape
@@ -110,7 +110,7 @@ super + Escape
 
 # powermenu
 ctrl + space; p
-      ~/my/scripts/bb/powermenu.clj
+      ~/scripts/bb/powermenu.clj
 
 # --------------------------------------------------------------
 #                       SCREENSHOTS
@@ -131,13 +131,13 @@ ctrl + space; s; S
 # --------------------------------------------------------------
 #                       MacBook Light Keys
 XF86MonBrightnessUp
-    ~/my/scripts/brightness screen inc
+    ~/scripts/brightness screen inc
 XF86MonBrightnessDown
-    ~/my/scripts/brightness screen dec
+    ~/scripts/brightness screen dec
 XF86KbdBrightnessUp
-    ~/my/scripts/brightness keyboard inc
+    ~/scripts/brightness keyboard inc
 XF86KbdBrightnessDown
-    ~/my/scripts/brightness keyboard dec
+    ~/scripts/brightness keyboard dec
 
 # --------------------------------------------------------------
 #                       MacBook / Media keys
