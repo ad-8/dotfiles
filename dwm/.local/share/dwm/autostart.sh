@@ -6,7 +6,7 @@ blueman-applet &
 
 dunst &
 .screenlayout/maconly-higher.sh &
-licht hi &
+~/scripts/bb/licht.clj hi &
 dwmblocks &
 
 # Disable annoying beep from computer (I think on keypresses when an action is not available)
