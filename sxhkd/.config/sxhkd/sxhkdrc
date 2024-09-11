@@ -31,7 +31,7 @@ super + shift + {o, w}
       {rofi -show drun, rofi -show window}
 
 # show THIS help menu
-ctrl + space ; h
+alt + space ; h
      ~/scripts/sxhkd-show-help.sh
 
 # --------------------------------------------------------------
@@ -41,22 +41,22 @@ ctrl + space ; h
 # should be easier to manage and find
 
 # CHANGE [l]icht, [s]creen, [w]allpaper
-ctrl + space ; c ; {l, s, w}
+alt + space ; c ; {l, s, w}
      {~/scripts/bb/licht.clj, ~/scripts/bb/screen_config.clj, feh --recursive --bg-fill --randomize ~/sync/wallpapers/wallpapers-ax-fav}
 # --------------------------------------------------------------
 
 # SEARCH all, ddg
-ctrl + space ; s ; {a,g}
+alt + space ; s ; {a,g}
      {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
 
 # RUN emoji, run_script
-ctrl + space ; r ; {e,r}
+alt + space ; r ; {e,r}
      {~/scripts/dmenuunicode,~/scripts/bb/run_script.clj}
 
 # --------------------------------------------------------------
 #                       TOGGLE
 # toggle notifications on/off
-ctrl + space; t; n
+alt + space; t; n
      ~/scripts/dwm_toggle_notifications.clj
 
 # --------------------------------------------------------------
@@ -109,23 +109,23 @@ super + Escape
       pkill --exact sxhkd && notify-send "sxhkd" "restarting sxhkd" && sleep 1 && sxhkd &
 
 # powermenu
-ctrl + space; p
+alt + space; p
       ~/scripts/bb/powermenu.clj
 
 # --------------------------------------------------------------
 #                       SCREENSHOTS
 
 # screenshot - everything (on all monitors)
-ctrl + space; s; e
+alt + space; s; e
      ax-screenshot
 # screenshot - everything (on all monitors) + copy to clipboard
-ctrl + space; s; E
+alt + space; s; E
      ax-screenshot --clipboard
 # screenshot - select (window or rectangle)
-ctrl + space; s; s
+alt + space; s; s
      ax-screenshot --select
 # screenshot - select (window or rectangle) + copy to clipboard
-ctrl + space; s; S
+alt + space; s; S
      ax-screenshot --clipboard --select
 
 # --------------------------------------------------------------
