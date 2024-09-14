@@ -3,4 +3,9 @@ venv
 qbit
 *.dmg
 **/rust/**/target
-**/.clj-kondo
+**/clojure/**/.clj-kondo
+**/clojure/**/.shadow-cljs
+**/clojure/**/.lsp
+**/clojure/**/node_modules
+**/clojure/**/resources/public/js
+
