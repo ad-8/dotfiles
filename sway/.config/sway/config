@@ -53,7 +53,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id syncthing -no-browser
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /usr/local/bin/licht hi
+exec --no-startup-id "~/scripts/bb/licht.clj hi"
 
 font pango:HackNerdFont 9.0
 
@@ -270,7 +270,7 @@ bindsym $mod+m move workspace to output down
 
 set $mode_space SPC: [a]ll-search [c]hange-settings [e]moji [g]search [r]un-script
 set $mode_settings CHANGE SETTINGS: [b]luetooth [l]icht [s]creen-config rand-[w]allpaper
-bindsym Control+space mode "$mode_space"
+bindsym Mod1+space mode "$mode_space"
 
 mode "$mode_space" {
     bindsym a exec "~/scripts/bb/search.clj --select-provider"; mode "default"
@@ -285,7 +285,7 @@ mode "$mode_space" {
 
 mode "$mode_settings" {
     bindsym b exec blueman-manager; mode "default"
-    bindsym l exec /usr/local/bin/licht; mode "default"
+    bindsym l exec "~/scripts/bb/licht.clj"; mode "default"
     bindsym s exec screen_config; mode "default"
     bindsym w exec set_random_wallpaper; mode "default"
 
@@ -501,4 +501,4 @@ mode "$mode_gaps_left" {
         bindsym Escape mode "default"
 }
 
-include /etc/sway/config.d/*
+#include /etc/sway/config.d/*
