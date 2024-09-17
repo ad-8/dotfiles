@@ -59,9 +59,9 @@ idle_fg = "#D08770"
 
 [[block]]
 block = "custom"
-#command = "i3weather"
-cycle=["i3weather short", "i3weather long"]
-json=true
+command = "~/scripts/bb/weather.clj dwm"
+#cycle=["i3weather short", "i3weather long"]
+json=false
 interval = 300
 [block.theme_overrides]
 idle_fg = "#a3be8c"
@@ -78,7 +78,7 @@ cmd = "pavucontrol"
 block = "custom"
 command = "~/scripts/dwm-licht.sh"
 #interval = 5
-watch_files = ["/tmp/licht-ed16d5b5"]
+watch_files = ["/tmp/licht-curr-val"]
 #hide_when_empty=true
 [block.theme_overrides]
 idle_fg = "#708090"
@@ -133,7 +133,7 @@ idle_fg = "#B48EAD"
 [[block]]
 block = "custom"
 json = true
-command = "i3vpn"
+command = "~/scripts/bb/i3vpn.clj"
 interval = 10
 [block.theme_overrides]
 idle_fg = "#708090"
