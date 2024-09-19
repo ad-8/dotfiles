@@ -189,6 +189,7 @@ It is (by default) safe to use fish_add_path in config.fish [...]
 #+begin_src shell
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
+fish_add_path ~/go/bin
 #+end_src
 
 * export ENV vars

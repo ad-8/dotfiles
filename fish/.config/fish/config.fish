@@ -124,6 +124,7 @@ abbr -a rct 'rclone tree --level 2'
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
+fish_add_path ~/go/bin
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
