@@ -46,15 +46,15 @@ bat = ["|E|", "|_|", "|=|", "|F|"]
 bat_charging = "|^| "
 
 
-[[block]]
-block = "custom"
-#command = "metal i3"
-cycle=["metal i3 fmt_short", "metal i3 fmt_long"]
-json=true
-interval = 5
-hide_when_empty=true
-[block.theme_overrides]
-idle_fg = "#D08770"
+# [[block]]
+# block = "custom"
+# #command = "metal i3"
+# cycle=["metal i3 fmt_short", "metal i3 fmt_long"]
+# json=true
+# interval = 5
+# hide_when_empty=true
+# [block.theme_overrides]
+# idle_fg = "#D08770"
 
 
 [[block]]

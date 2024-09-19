@@ -28,6 +28,9 @@ abbr -a gr 'git restore'
 abbr -a gs 'git status'
 
 abbr -a sc systemctl
+abbr -a t tlbx
+abbr -a tb tlbx
+abbr -a tx tlbx
 
 abbr -a cgb 'cargo build'
 abbr -a cg cargo
