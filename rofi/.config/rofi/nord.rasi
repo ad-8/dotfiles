@@ -52,7 +52,7 @@ window {
     children:  [mainbox];
     orientation: horizontal;
 
-    width: 45%; /* 50 looks like the default */
+    width: 33%; /* 50 looks like the default */
 }
 
 mainbox {
