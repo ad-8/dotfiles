@@ -79,7 +79,7 @@ abbr -a fp flatpak
 abbr -a fpl flatpak list --app
 abbr -a fpu flatpak update
 
-abbr -a pm 'pacman -'
+abbr -a pm 'pacman -S'
 
 if grep -q 'Debian GNU/Linux' /etc/os-release
     abbr -a up 'sudo apt update && sudo apt upgrade'
