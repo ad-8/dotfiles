@@ -4,7 +4,7 @@
 # ---
 
 # https://github.com/alacritty/alacritty-theme 
-import = [
+general.import = [
     "~/.config/alacritty/themes/themes/nord.toml"
 ]
 
