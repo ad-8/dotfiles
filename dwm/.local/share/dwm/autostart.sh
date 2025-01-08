@@ -13,7 +13,7 @@ dwmblocks &
 xset b off
 
 # TODO enable only if *not* on macbook
-setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
+#setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 

@@ -57,7 +57,7 @@ abbr -a lt 'll -t'
 #abbr -a nf '~/my/scripts/nf.sh'
 abbr -a nf "clear && fastfetch"
 # by default, when in nnn, `e` opens a file with $VISUAL
-abbr -a n "VISUAL='vim' nnn -H"
+abbr -a n "VISUAL='vim' nnn"
 abbr -a o. 'open .'
 abbr -a pn protonvpn-cli
 abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
@@ -125,10 +125,14 @@ abbr -a rct 'rclone tree --level 2'
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/go/bin
+fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
 set -g theme_color_scheme "nord"
+# for "rails new" command:
+# https://stackoverflow.com/questions/75391111/how-to-solve-bundlerpermissionerror-there-was-an-error-while-trying-to-write-t
+set -Ux GEM_HOME $HOME/.gem
 
 # when changing between abbr and alias, remove entry from `fish_variables` accordingly 
 #abbr -a em 'emacsclient -t'
