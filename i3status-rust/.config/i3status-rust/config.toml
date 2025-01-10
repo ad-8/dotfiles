@@ -120,6 +120,13 @@ critical_mem = 92
 [block.theme_overrides]
 idle_fg = "#708090"
 
+[[block]]
+block = "custom"
+interval = 60
+command="checkupdates | wc -l"
+hide_when_empty=true
+[block.theme_overrides]
+idle_fg = "#708090"
 
 [[block]]
 block = "custom"
@@ -130,13 +137,20 @@ hide_when_empty=true
 idle_fg = "#B48EAD"
 
 
+# [[block]]
+# block = "custom"
+# json = true
+# command = "~/scripts/bb/i3vpn.clj"
+# interval = 10
+# [block.theme_overrides]
+# idle_fg = "#708090"
 [[block]]
 block = "custom"
-json = true
-command = "~/scripts/bb/i3vpn.clj"
-interval = 10
+interval = 30
+command="~/scripts/bb/vpn2.clj"
+hide_when_empty=true
 [block.theme_overrides]
-idle_fg = "#708090"
+idle_fg = "#B48EAD"
 
 
 [[block]]
