@@ -108,7 +108,7 @@ mode "$mode_launcher" {
     bindsym q exec qutebrowser; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
     bindsym shift+b exec firefox; mode "default"
-    bindsym v exec brave; mode "default"
+    bindsym v exec $HOME/scripts/brave.sh; mode "default"
     bindsym x exec firefox; mode "default"
 
     bindsym Escape mode "default"

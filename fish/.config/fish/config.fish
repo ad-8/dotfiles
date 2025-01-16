@@ -57,7 +57,7 @@ abbr -a lt 'll -t'
 #abbr -a nf '~/my/scripts/nf.sh'
 abbr -a nf "clear && fastfetch"
 # by default, when in nnn, `e` opens a file with $VISUAL
-abbr -a n "VISUAL='vim' nnn"
+abbr -a n "VISUAL='emacsclient -t' nnn"
 abbr -a o. 'open .'
 abbr -a pn protonvpn-cli
 abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
@@ -99,7 +99,7 @@ end
 
 
 if test -f /etc/arch-release
-   abbr -a cu checkupdates
+   abbr -a cu "checkupdates | sed 's/->//g' | column -t"
 else
     abbr -a cu "(checkupdate) This system is probably not Arch"
 end
@@ -108,6 +108,7 @@ end
 abbr -a flac2mp3 'fdfind -e flac --exec ffmpeg -loglevel error -i {} -codec:a libmp3lame -qscale:a 1 {.}.mp3'
 
 abbr -a vd vimdiff
+abbr -a br bin/rails
 
 abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
 abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/sync/Moto/' -n"
