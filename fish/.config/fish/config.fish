@@ -25,12 +25,13 @@ abbr -a gitinfo 'git config --get user.name && git config --get user.email'
 abbr -a gl 'git log --oneline'
 abbr -a gms 'git merge --squash'
 abbr -a gr 'git restore'
-abbr -a gs 'git status'
+abbr -a gs 'git show'
 
 abbr -a sc systemctl
 abbr -a t tlbx
 abbr -a tb tlbx
 abbr -a tx tlbx
+abbr -a c. 'code .'
 
 abbr -a cgb 'cargo build'
 abbr -a cg cargo
@@ -109,6 +110,7 @@ abbr -a flac2mp3 'fdfind -e flac --exec ffmpeg -loglevel error -i {} -codec:a li
 
 abbr -a vd vimdiff
 abbr -a br bin/rails
+abbr -a bk bin/kamal
 
 abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
 abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/sync/Moto/' -n"
@@ -123,10 +125,13 @@ abbr -a sup "strava-rs update"
 abbr -a rcp 'rclone copy --progress'
 abbr -a rct 'rclone tree --level 2'
 
+abbr -a dcc '$HOME/scripts/bb/dict.cc.clj'
+
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/go/bin
 fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
+fish_add_path ~/.gem/ruby/3.3.0/bin
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"

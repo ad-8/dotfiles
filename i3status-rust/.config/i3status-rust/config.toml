@@ -128,13 +128,13 @@ hide_when_empty=true
 [block.theme_overrides]
 idle_fg = "#708090"
 
-[[block]]
-block = "custom"
-interval = 1
-command="i3timer"
-hide_when_empty=true
-[block.theme_overrides]
-idle_fg = "#B48EAD"
+# [[block]]
+# block = "custom"
+# interval = 1
+# command="i3timer"
+# hide_when_empty=true
+# [block.theme_overrides]
+# idle_fg = "#B48EAD"
 
 
 # [[block]]

@@ -66,7 +66,7 @@ abbr -a gitinfo 'git config --get user.name && git config --get user.email'
 abbr -a gl 'git log --oneline'
 abbr -a gms 'git merge --squash'
 abbr -a gr 'git restore'
-abbr -a gs 'git status'
+abbr -a gs 'git show'
 #+end_src
 
 ** heavy hitters
@@ -77,6 +77,7 @@ abbr -a sc systemctl
 abbr -a t tlbx
 abbr -a tb tlbx
 abbr -a tx tlbx
+abbr -a c. 'code .'
 
 abbr -a cgb 'cargo build'
 abbr -a cg cargo
@@ -163,6 +164,7 @@ abbr -a flac2mp3 'fdfind -e flac --exec ffmpeg -loglevel error -i {} -codec:a li
 
 abbr -a vd vimdiff
 abbr -a br bin/rails
+abbr -a bk bin/kamal
 #+end_src
 
 ** (r)sync
@@ -182,6 +184,8 @@ abbr -a sup "strava-rs update"
 
 abbr -a rcp 'rclone copy --progress'
 abbr -a rct 'rclone tree --level 2'
+
+abbr -a dcc '$HOME/scripts/bb/dict.cc.clj'
 #+end_src
 
 * add to $PATH
@@ -192,6 +196,7 @@ fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/go/bin
 fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
+fish_add_path ~/.gem/ruby/3.3.0/bin
 #+end_src
 
 * export ENV vars
