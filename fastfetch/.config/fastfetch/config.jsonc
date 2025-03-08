@@ -70,6 +70,12 @@
             "key": " OS",
             "keyColor": "green"
         },
+	{
+	   "type": "command",
+	   "key":  "  ├",
+           "text": "grep '^VERSION_ID=' /etc/os-release | sed -E 's/^VERSION_ID=\"([0-9]{8})\".*/\\1/'"
+
+  	},
         {
             "type": "kernel",
             "key": "  ├",
