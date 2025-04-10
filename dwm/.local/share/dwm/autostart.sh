@@ -14,8 +14,8 @@ xset b off
 xset s off
 xset -dpms
 
-# TODO enable only if *not* on macbook
-#setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
+# TODO disable on macbook
+setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
