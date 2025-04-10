@@ -11,6 +11,8 @@ dwmblocks &
 
 # Disable annoying beep from computer (I think on keypresses when an action is not available)
 xset b off
+xset s off
+xset -dpms
 
 # TODO enable only if *not* on macbook
 #setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
