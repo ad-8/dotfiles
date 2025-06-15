@@ -33,6 +33,7 @@
   - [[#workspaces-1][Workspaces:]]
   - [[#layout-stuff][Layout stuff:]]
   - [[#scratchpad][Scratchpad:]]
+  - [[#other-2025-new][Other (2025 new):]]
   - [[#resizing-containers][Resizing containers:]]
   - [[#from-i3][from i3]]
 - [[#status-bar][Status Bar:]]
@@ -245,7 +246,7 @@ others are missing the app_id etc.
 #+begin_src shell
 assign [app_id="firefox"] $ws2
 assign [class="Brave-browser"] $ws8
-assign [class="KeePassXC"] $ws9
+assign [app_id="KeePassXC"] $ws9
 assign [app_id="org.gnome.SystemMonitor"] $ws9
 #+end_src
 
@@ -429,6 +430,12 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
+bindsym $mod+u scratchpad show
+#+end_src
+
+** Other (2025 new):
+#+begin_src shell
+bindsym $mod+Shift+o exec rofi -show drun
 #+end_src
 
 ** Resizing containers:
@@ -624,8 +631,8 @@ bar {
 * GAPS
 ** global
 #+begin_src shell
-#set $my-inner 10
-#gaps inner $my-inner
+set $my-inner 10
+gaps inner $my-inner
 #+end_src
 
 ** per workspace
@@ -638,8 +645,8 @@ BASIC SYNTAX global or per workspace
 # workspace $ws1 gaps vertical   25
 # workspace $ws1 gaps inner 10
 
-#workspace $ws2 gaps horizontal 100
-#workspace $ws2 gaps vertical   25
+workspace $ws2 gaps horizontal 250
+workspace $ws2 gaps vertical   10
 
 #workspace $ws3 gaps inner 25
 #workspace $ws3 gaps horizontal 25

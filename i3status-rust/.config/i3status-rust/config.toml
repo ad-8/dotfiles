@@ -147,7 +147,7 @@ idle_fg = "#708090"
 [[block]]
 block = "custom"
 interval = 30
-command="~/scripts/bb/vpn2.clj"
+command="~/scripts/bb/i3vpn.clj"
 hide_when_empty=true
 [block.theme_overrides]
 idle_fg = "#B48EAD"
