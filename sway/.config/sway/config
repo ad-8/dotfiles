@@ -308,7 +308,7 @@ mode "$mode_settings" {
     bindsym b exec blueman-manager; mode "default"
     bindsym l exec "~/scripts/bb/licht.clj"; mode "default"
     bindsym s exec screen_config; mode "default"
-    bindsym w exec set_random_wallpaper; mode "default"
+    bindsym w exec "$HOME/scripts/bb/set_random_wallpaper.clj"; mode "default"
 
     bindsym Escape mode "default"
 }
