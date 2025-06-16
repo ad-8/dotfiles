@@ -143,6 +143,8 @@ else if grep -q 'Arch Linux' /etc/os-release
 #else if test -f /etc/SuSE-release
 else if grep -q 'openSUSE Tumbleweed' /etc/os-release
     abbr -a up 'sudo zypper ref && sudo zypper dup'
+else if grep -q 'Fedora' /etc/os-release
+    abbr -a up 'sudo dnf upgrade --refresh'
 else if grep -q 'Void' /etc/os-release
     abbr -a up 'sudo xbps-install -Su'
 else
