@@ -84,29 +84,33 @@ abbr -a fpu flatpak update
 
 abbr -a pm 'pacman -S'
 
-if grep -q 'Debian GNU/Linux' /etc/os-release
-    abbr -a up 'sudo apt update && sudo apt upgrade'
-    # TODO move to another block
-    alias bat batcat
-    alias fd fdfind
-else if grep -q 'Arch Linux' /etc/os-release
-    abbr -a up 'sudo pacman -Syu'
-#else if test -f /etc/SuSE-release
-else if grep -q 'openSUSE Tumbleweed' /etc/os-release
-    abbr -a up 'sudo zypper ref && sudo zypper dup'
-else if grep -q 'Fedora' /etc/os-release
-    abbr -a up 'sudo dnf upgrade --refresh'
-else if grep -q 'Void' /etc/os-release
-    abbr -a up 'sudo xbps-install -Su'
-else
-    abbr -a up 'Unknown distribution. Cannot install htop.'
+# Extract the distro ID from /etc/os-release, removing any quotes
+set distro (grep -oP '^ID=\K.*' /etc/os-release | tr -d '"')
+
+switch $distro
+    case debian ubuntu linuxmint
+        abbr -a up 'sudo apt update && sudo apt upgrade'
+        alias bat='batcat'
+        alias fd='fdfind'
+    case arch
+        abbr -a up 'sudo pacman -Syu'
+    case opensuse-tumbleweed
+        abbr -a up 'sudo zypper ref && sudo zypper dup'
+    case void
+        abbr -a up 'sudo xbps-install -Su'
+    case fedora
+        abbr -a up 'sudo dnf upgrade --refresh'
+    case '*'
+        abbr -a up 'Unknown distribution. KEKW'
 end
 
-
-if test -f /etc/arch-release
-   abbr -a cu "checkupdates | sed 's/->//g' | column -t"
-else
-    abbr -a cu "(checkupdate) This system is probably not Arch"
+switch $distro
+    case arch
+         abbr -a cu "checkupdates | sed 's/->//g' | column -t"
+    case fedora
+         abbr -a cu "dnf check-update --refresh | wc -l"
+    case '*'
+         abbr -a cu "(checkupdate) Don't know how to on $distro"
 end
 
 # official example:                     ffmpeg                 -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3
