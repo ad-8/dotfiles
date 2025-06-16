@@ -227,10 +227,24 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-bindsym $mod+u scratchpad show
 
-# bindsym $mod+Shift+o [app_id="..."] scratchpad show, resize set 960 780, move position center
-bindsym $mod+x scratchpad show, resize set 1000 750, move position center
+# the main scratchpad like on dwm; so i don't have to manually move it first and then cycle through the stack if multiple pads
+for_window [title="dwm-scratchpad"] floating enable, move to scratchpad
+exec_always alacritty --title "dwm-scratchpad"
+# Show only that specific scratchpad terminal
+bindsym $mod+u [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
+bindsym $mod+F9 [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
+
+for_window [title="htop-scratchpad"] floating enable, move to scratchpad
+exec_always alacritty --title "htop-scratchpad" -e htop
+bindsym $mod+F10 [title="htop-scratchpad"] scratchpad show, resize set 800 600, move position top-left
+
+# Move Emacs with title "emacs-scratchpad" to scratchpad automatically
+#for_window [title="emacs-scratchpad"] floating enable, move to scratchpad
+# Launch Emacs with the special title
+#exec_always emacsclient -c --title "emacs-scratchpad"
+#bindsym $mod+i [title="emacs-scratchpad"] scratchpad show, resize set 1000 800, move positon center
+#bindsym $mod+F10 [title="emacs-scratchpad"] scratchpad show, resize set 1000 800, move positon center
 
 bindsym $mod+Shift+o exec rofi -show drun
 
@@ -314,7 +328,7 @@ mode "$mode_launcher" {
     bindsym q exec qutebrowser; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
     bindsym shift+b exec firefox; mode "default"
-    bindsym v exec brave; mode "default"
+    bindsym v exec $HOME/scripts/brave.sh; mode "default"
     bindsym x exec firefox; mode "default"
 
     bindsym Escape mode "default"
