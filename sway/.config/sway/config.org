@@ -431,6 +431,9 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 bindsym $mod+u scratchpad show
+
+# bindsym $mod+Shift+o [app_id="..."] scratchpad show, resize set 960 780, move position center
+bindsym $mod+x scratchpad show, resize set 1000 750, move position center
 #+end_src
 
 ** Other (2025 new):
