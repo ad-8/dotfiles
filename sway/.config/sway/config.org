@@ -307,9 +307,11 @@ output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+instead of =input *=, example for using different input types https://github.com/Crandel/home/blob/master/.config/sway/config#L394
 #+begin_src shell
-input * {
+input type:keyboard {
     xkb_layout "de"
+    xkb_numlock enabled
 }
 #+end_src
 
@@ -649,7 +651,7 @@ BASIC SYNTAX global or per workspace
 # workspace $ws1 gaps inner 10
 
 workspace $ws2 gaps horizontal 250
-workspace $ws2 gaps vertical   10
+#workspace $ws2 gaps vertical   10
 
 #workspace $ws3 gaps inner 25
 #workspace $ws3 gaps horizontal 25

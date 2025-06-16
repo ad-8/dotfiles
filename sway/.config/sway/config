@@ -120,8 +120,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output HDMI-A-2 position 0 0 resolution 2560x1080
 output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 
-input * {
+input type:keyboard {
     xkb_layout "de"
+    xkb_numlock enabled
 }
 
 # Start a terminal
@@ -380,7 +381,7 @@ gaps inner $my-inner
 # workspace $ws1 gaps inner 10
 
 workspace $ws2 gaps horizontal 250
-workspace $ws2 gaps vertical   10
+#workspace $ws2 gaps vertical   10
 
 #workspace $ws3 gaps inner 25
 #workspace $ws3 gaps horizontal 25
