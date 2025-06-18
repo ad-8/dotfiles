@@ -49,8 +49,11 @@
 * Variables
 ** Basics
 Logo key. Use Mod1 for Alt.
+
+(left_win and left_alt are swapped via =keyd=)
 #+begin_src shell
 set $mod Mod4
+set $alt Mod1
 #+end_src
 
 Home row direction keys, like vim
@@ -121,16 +124,14 @@ set $ws10 "10"
 #+end_src
 
 * Autostart
-TODO fix dunst, should work on wayland OR use mako
 TODO alternative to xfce4-power-manager
-TODO make set random wallpaper (bb script doesn't work on wayland)
-TODO check out =dex= and =xss-lock= (see i3 config)
 #+begin_src shell
 exec --no-startup-id blueman-applet
 exec --no-startup-id emacs --daemon
 exec --no-startup-id dunst
 exec --no-startup-id megasync
 exec --no-startup-id nm-applet
+exec --no-startup-id firewall-applet
 exec --no-startup-id syncthing -no-browser
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -405,7 +406,7 @@ bindsym $mod+z splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+bindsym $mod+d layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -447,6 +448,7 @@ gpt says resize and move position only work when floating is enabled
 for_window [title="dwm-scratchpad"] floating enable, move to scratchpad
 exec_always alacritty --title "dwm-scratchpad"
 # Show only that specific scratchpad terminal
+bindsym $mod+s [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 bindsym $mod+u [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 bindsym $mod+F9 [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 #+end_src
@@ -471,6 +473,8 @@ bindsym $mod+F10 [title="htop-scratchpad"] scratchpad show, resize set 800 600, 
 ** Other (2025 new):
 #+begin_src shell
 bindsym $mod+Shift+o exec rofi -show drun
+
+bindsym $mod+$alt+l exec swaylock --color 000000
 #+end_src
 
 ** Resizing containers:

@@ -1,4 +1,5 @@
 set $mod Mod4
+set $alt Mod1
 
 set $left h
 set $down j
@@ -50,6 +51,7 @@ exec --no-startup-id emacs --daemon
 exec --no-startup-id dunst
 exec --no-startup-id megasync
 exec --no-startup-id nm-applet
+exec --no-startup-id firewall-applet
 exec --no-startup-id syncthing -no-browser
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -202,7 +204,7 @@ bindsym $mod+z splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+bindsym $mod+d layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -232,6 +234,7 @@ bindsym $mod+minus scratchpad show
 for_window [title="dwm-scratchpad"] floating enable, move to scratchpad
 exec_always alacritty --title "dwm-scratchpad"
 # Show only that specific scratchpad terminal
+bindsym $mod+s [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 bindsym $mod+u [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 bindsym $mod+F9 [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 
@@ -247,6 +250,8 @@ bindsym $mod+F10 [title="htop-scratchpad"] scratchpad show, resize set 800 600, 
 #bindsym $mod+F10 [title="emacs-scratchpad"] scratchpad show, resize set 1000 800, move positon center
 
 bindsym $mod+Shift+o exec rofi -show drun
+
+bindsym $mod+$alt+l exec swaylock --color 000000
 
 mode "resize" {
     # left will shrink the containers width
