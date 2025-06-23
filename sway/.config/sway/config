@@ -113,6 +113,7 @@ for_window [app_id="wdisplays"] resize set 1024 768
 for_window [app_id="wdisplays"] move position center
 
 assign [app_id="firefox"] $ws2
+assign [app_id="qbittorrent"] $ws7
 assign [class="Brave-browser"] $ws8
 assign [app_id="KeePassXC"] $ws9
 assign [app_id="org.gnome.SystemMonitor"] $ws9
@@ -330,7 +331,7 @@ mode "$mode_launcher" {
     bindsym k exec keepassxc; mode "default"
     bindsym o exec rofi -show drun; mode "default"
     bindsym p exec pavucontrol; mode "default"
-    bindsym q exec qutebrowser; mode "default"
+    bindsym q exec qbittorrent; mode "default"
     bindsym s exec gnome-system-monitor; mode "default"
     bindsym shift+b exec firefox; mode "default"
     bindsym v exec $HOME/scripts/brave.sh; mode "default"
