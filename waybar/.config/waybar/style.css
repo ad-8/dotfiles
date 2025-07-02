@@ -41,9 +41,9 @@ tooltip label {
     border-bottom: 3px solid white;
 }
 
-#clock {
-    background-color: #64727D;
-}
+/* #clock { */
+/*     background-color: #64727D; */
+/* } */
 
 #battery {
     background-color: #ffffff;
