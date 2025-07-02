@@ -32,6 +32,12 @@ tooltip label {
     border-bottom: 3px solid white;
 }
 
+#workspaces button.active {
+    background-color: #5e81ac;
+    color: white;
+    border-radius: 3px;
+}
+
 #mode, #clock, #battery {
     padding: 0 10px;
 }
