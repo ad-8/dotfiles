@@ -32,7 +32,11 @@ style = "Regular"
 # ---
 
 [window]
-opacity = 0.85
+opacity = 0.80
+
+[window.padding]
+x = 10
+y = 10
 
 [window.dimensions]
 columns = 125
