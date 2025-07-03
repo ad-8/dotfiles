@@ -32,7 +32,7 @@ style = "Regular"
 # ---
 
 [window]
-opacity = 0.80
+opacity = 0.85
 
 [window.padding]
 x = 10
