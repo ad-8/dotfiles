@@ -21,6 +21,7 @@
 //        "mpd",
 //        "idle_inhibitor",
         "pulseaudio",
+        "custom/licht",
 //        "network",
 //        "power-profiles-daemon",
 //        "cpu",
@@ -181,7 +182,8 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        //"format": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -229,6 +231,13 @@
         "format": "{}",
         "return-type": "json",
         "exec": "$HOME/scripts/bb/i3vpn.clj"
+    },
+    "custom/licht": {
+        "interval": 10,
+        "tooltip": false,
+        "format": "{}",
+        "return-type": "text",
+        "exec": "$HOME/scripts/dwm-licht.sh"
     },
 "custom/sep1": {
     "format": " | ",
