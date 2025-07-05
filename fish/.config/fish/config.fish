@@ -56,7 +56,6 @@ abbr -a xc 'xclip -selection clipboard'
 
 abbr -a lt 'll -t'
 #abbr -a nf '~/my/scripts/nf.sh'
-abbr -a nf "clear && fastfetch"
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='emacsclient -t' nnn"
 abbr -a o. 'open .'
@@ -92,16 +91,22 @@ switch $distro
         abbr -a up 'sudo apt update && sudo apt upgrade'
         alias bat='batcat'
         alias fd='fdfind'
+        abbr -a nf "clear && fastfetch"
     case arch
         abbr -a up 'sudo pacman -Syu'
+        abbr -a nf "clear && fastfetch"
     case opensuse-tumbleweed
         abbr -a up 'sudo zypper ref && sudo zypper dup'
+        abbr -a nf "clear && fastfetch --logo opensuse-tumbleweed_old"
     case void
         abbr -a up 'sudo xbps-install -Su'
+        abbr -a nf "clear && fastfetch"
     case fedora
         abbr -a up 'sudo dnf upgrade --refresh'
+        abbr -a nf "clear && fastfetch"
     case '*'
         abbr -a up 'Unknown distribution. KEKW'
+        abbr -a nf "clear && fastfetch"
 end
 
 switch $distro
