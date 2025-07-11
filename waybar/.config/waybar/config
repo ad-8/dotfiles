@@ -271,8 +271,8 @@
         "interval": 10,
         "tooltip": false,
         "format": "{}",
-        "return-type": "text",
-        "exec": "$HOME/scripts/bb/dwm_disk_space.clj"
+        "return-type": "json",
+        "exec": "$HOME/scripts/bb/dwm_disk_space.clj json"
     },
     "custom/sep1": {
         "format": " | ",
