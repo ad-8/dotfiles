@@ -21,7 +21,9 @@
         //        "mpd",
         //        "idle_inhibitor",
         "pulseaudio",
+        "custom/sep2",
         "custom/licht",
+        "custom/sep2",
         "custom/disk",
         //        "network",
         //        "power-profiles-daemon",
@@ -279,7 +281,7 @@
         "tooltip": false
     },
     "custom/sep2": {
-        "format": " • ",
+        "format": "•",
         "tooltip": false
     }
 }
