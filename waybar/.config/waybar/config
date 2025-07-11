@@ -22,6 +22,7 @@
 //        "idle_inhibitor",
         "pulseaudio",
         "custom/licht",
+        "custom/disk",
 //        "network",
 //        "power-profiles-daemon",
 //        "cpu",
@@ -238,6 +239,13 @@
         "format": "{}",
         "return-type": "text",
         "exec": "$HOME/scripts/dwm-licht.sh"
+    },
+    "custom/disk": {
+        "interval": 10,
+        "tooltip": false,
+        "format": "{}",
+        "return-type": "text",
+        "exec": "$HOME/scripts/bb/dwm_disk_space.clj"
     },
 "custom/sep1": {
     "format": " | ",
