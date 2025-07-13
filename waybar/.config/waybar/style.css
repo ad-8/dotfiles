@@ -96,3 +96,7 @@ tooltip label {
 #custom-weather {
     color: #a3be8c;
 }
+
+#window {
+    margin-left: 8px;
+}
