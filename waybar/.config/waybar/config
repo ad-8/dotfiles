@@ -20,6 +20,8 @@
     "modules-right": [
         //        "mpd",
         //        "idle_inhibitor",
+        "custom/weather",
+        "custom/sep2",
         "pulseaudio",
         "custom/sep2",
         "custom/licht",
@@ -275,6 +277,13 @@
         "format": "{}",
         "return-type": "json",
         "exec": "$HOME/scripts/bb/dwm_disk_space.clj json"
+    },
+    "custom/weather": {
+        "interval": 600,
+        "tooltip": false,
+        "format": "{}",
+        "return-type": "text",
+        "exec": "$HOME/scripts/bb/weather.clj dwm"
     },
     "custom/sep1": {
         "format": " | ",
