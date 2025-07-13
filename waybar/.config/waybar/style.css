@@ -52,8 +52,7 @@ tooltip label {
 /* } */
 
 #battery {
-    background-color: #ffffff;
-    color: black;
+    color: white;
 }
 
 #battery.charging {
