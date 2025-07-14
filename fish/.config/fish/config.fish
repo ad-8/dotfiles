@@ -51,6 +51,7 @@ abbr -a l "licht"
 abbr -a et 'emacsclient -t'
 abbr -a hx helix
 abbr -a t. thunar .
+abbr -a cm chezmoi
 
 abbr -a xc 'xclip -selection clipboard'
 
