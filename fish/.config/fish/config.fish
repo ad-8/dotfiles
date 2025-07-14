@@ -155,6 +155,7 @@ fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/go/bin
 fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
 fish_add_path ~/.gem/ruby/3.3.0/bin
+fish_add_path ~/.local/bin
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
