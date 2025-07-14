@@ -52,6 +52,7 @@ abbr -a et 'emacsclient -t'
 abbr -a hx helix
 abbr -a t. thunar .
 abbr -a cm chezmoi
+abbr -a db distrobox
 
 abbr -a xc 'xclip -selection clipboard'
 
