@@ -32,6 +32,7 @@ abbr -a t tlbx
 abbr -a tb tlbx
 abbr -a tx tlbx
 abbr -a c. 'code .'
+abbr -a rg 'rg -i'
 
 abbr -a cgb 'cargo build'
 abbr -a cg cargo
@@ -84,6 +85,7 @@ abbr -a fpl flatpak list --app
 abbr -a fpu flatpak update
 
 abbr -a pm 'pacman -S'
+abbr -a pmq 'pacman -Q'
 
 # Extract the distro ID from /etc/os-release, removing any quotes
 set distro (grep -oP '^ID=\K.*' /etc/os-release | tr -d '"')
