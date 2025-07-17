@@ -150,7 +150,7 @@ switch $distro
         abbr -a nf "clear && fastfetch"
     case opensuse-tumbleweed
         abbr -a up 'sudo zypper ref && sudo zypper dup'
-        abbr -a nf "clear && fastfetch --logo opensuse-tumbleweed_old"
+        abbr -a nf "clear && fastfetch --logo opensuse"
     case void
         abbr -a up 'sudo xbps-install -Su'
         abbr -a nf "clear && fastfetch"
