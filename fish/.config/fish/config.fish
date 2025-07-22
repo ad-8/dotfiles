@@ -171,9 +171,9 @@ set -Ux GEM_HOME $HOME/.gem
 alias e "emacsclient -t"
 
 export ALTERNATE_EDITOR=""
-export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+export EDITOR="vim"                               # $EDITOR opens in terminal
 # export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
-export VISUAL="emacsclient -t"
+export VISUAL="vim"
 
 export TERMINAL='alacritty'
 export MAN_POSIXLY_CORRECT 1
