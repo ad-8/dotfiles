@@ -25,6 +25,7 @@
   - [[#other][OTHER]]
 - [[#greeting][greeting]]
 - [[#stuff-that-should-be-at-the-end][stuff that should be at the end]]
+- [[#test-timestamp-and-keybinding][test timestamp and keybinding]]
 
 * interactive
 #+begin_src shell
@@ -286,4 +287,16 @@ source ~/.config/fish/nnn.fish
 
 starship init fish | source
 zoxide init fish | source
+#+end_src
+
+* test timestamp and keybinding
+https://fishshell.com/docs/current/cmds/function.html
+https://fishshell.com/docs/current/cmds/commandline.html
+
+#+begin_src shell
+function insert_timestamp --description 'Insert literal date command'
+    commandline -i '$(date +%Y%m%d-%H%M%S)'
+end
+
+bind ctrl-t insert_timestamp
 #+end_src

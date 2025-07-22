@@ -187,3 +187,9 @@ source ~/.config/fish/nnn.fish
 
 starship init fish | source
 zoxide init fish | source
+
+function insert_timestamp --description 'Insert literal date command'
+    commandline -i '$(date +%Y%m%d-%H%M%S)'
+end
+
+bind ctrl-t insert_timestamp
