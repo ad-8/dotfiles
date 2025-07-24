@@ -2,8 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
 abbr -a cdc 'cd ~/my/code'
 abbr -a cdd 'cd ~/my/dotfiles'
 abbr -a cdj "cd ~/my/code/clojure"
@@ -25,7 +23,8 @@ abbr -a gitinfo 'git config --get user.name && git config --get user.email'
 abbr -a gl 'git log --oneline'
 abbr -a gms 'git merge --squash'
 abbr -a gr 'git restore'
-abbr -a gs 'git show'
+abbr -a gs 'git status'
+abbr -a gsw 'git show'
 
 abbr -a sc systemctl
 abbr -a t tlbx
@@ -34,12 +33,6 @@ abbr -a tx tlbx
 abbr -a c. 'code .'
 abbr -a rg 'rg -i'
 
-abbr -a cgb 'cargo build'
-abbr -a cg cargo
-abbr -a cgc cargo check
-abbr -a cgi 'cargo install --path .'
-abbr -a cgr 'cargo run'
-abbr -a cgt 'cargo test'
 abbr -a ebands "e $HOME/.metal/bands.csv"
 abbr -a el 'eza -l --group-directories-first --icons'
 #abbr -a fd fdfind
@@ -64,7 +57,6 @@ abbr -a n "VISUAL='vim' nnn"
 abbr -a o. 'open .'
 abbr -a pn protonvpn-cli
 abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
-abbr -a pwdc 'pwd | xclip -selection clipboard'
 abbr -a rc rclone
 abbr -a rd 'rm -rf'
 abbr -a rl 'RUST_LOG=debug'
@@ -77,8 +69,13 @@ abbr -a tl 'tree -L'
 abbr -a todo 'rg -i todo --stats'
 abbr -a wt wttr
 abbr -a zy zypper
+abbr -a vd vimdiff
 
-abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
+if test "$XDG_SESSION_TYPE" = "wayland"
+    abbr -a pwdc 'pwd | wl-copy'
+else
+    abbr -a pwdc 'pwd | xclip -selection clipboard'
+end
 
 abbr -a fp flatpak
 abbr -a fpl flatpak list --app
@@ -126,9 +123,18 @@ end
 # official example:                     ffmpeg                 -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3
 abbr -a flac2mp3 'fdfind -e flac --exec ffmpeg -loglevel error -i {} -codec:a libmp3lame -qscale:a 1 {.}.mp3'
 
-abbr -a vd vimdiff
+abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
+
+abbr -a v vim
 abbr -a br bin/rails
 abbr -a bk bin/kamal
+
+abbr -a cgb 'cargo build'
+abbr -a cg cargo
+abbr -a cgc cargo check
+abbr -a cgi 'cargo install --path .'
+abbr -a cgr 'cargo run'
+abbr -a cgt 'cargo test'
 
 abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
 abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/sync/Moto/' -n"
@@ -140,11 +146,6 @@ abbr -a sync-pixel-backup "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:h
 
 abbr -a sync-pixel-pics "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/DCIM' '/nas/data/backup/pixel6a' -n"
 
-
-abbr -a restic-forget 'restic -r ~/MEGA/MEGAsync/linux-repo/ forget --keep-weekly 52'
-abbr -a restic-snapshots 'restic -r ~/MEGA/MEGAsync/linux-repo/ snapshots'
-
-abbr -a rgi 'rg -iN "'
 abbr -a sup "strava-rs update"
 
 abbr -a rcp 'rclone copy --progress'
@@ -154,10 +155,10 @@ abbr -a dcc '$HOME/scripts/bb/dict.cc.clj'
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
-fish_add_path ~/go/bin
-fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
 fish_add_path ~/.gem/ruby/3.3.0/bin
 fish_add_path ~/.local/bin
+fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
+fish_add_path ~/go/bin
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
@@ -183,13 +184,13 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 set -Ux fish_greeting "" # disable default welcome message
 set -Ux PAGER less
 
-source ~/.config/fish/nnn.fish
-
-starship init fish | source
-zoxide init fish | source
-
 function insert_timestamp --description 'Insert literal date command'
     commandline -i '$(date +%Y%m%d-%H%M%S)'
 end
 
 bind ctrl-t insert_timestamp
+
+source ~/.config/fish/nnn.fish
+
+starship init fish | source
+zoxide init fish | source
