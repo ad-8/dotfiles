@@ -121,6 +121,12 @@
             "keyColor": "green"
         },
         {
+            "type": "command",
+            "key": "   loadavg",
+            "keyColor": "green",
+            "text": "awk '{print $1,$2,$3}' /proc/loadavg"
+        },
+        {
             "type": "custom",
             "format": "\u001b[90m└────────────────────────────────────────────────────┘"
         },
