@@ -25,3 +25,8 @@ exts = ["txt", "md", "csv", "json"]
 [[classes]]
 name = "pic"
 exts = ["png", "jpg", "jpeg", "gif", "webp", "heic", "tif", "tiff", "bmp"]
+
+[[classes]]
+name = "media"
+exts = ["png", "jpg", "jpeg", "gif", "webp", "heic", "tif", "tiff", "bmp",
+        "mov", "xmp", "aae"]
