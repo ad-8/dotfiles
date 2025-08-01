@@ -21,3 +21,7 @@ exts = ["txt", "md", "csv", "json"]
 [[classes]]
 name = "t"
 exts = ["txt", "md", "csv", "json"]
+
+[[classes]]
+name = "pic"
+exts = ["png", "jpg", "jpeg", "gif", "webp", "heic", "tif", "tiff", "bmp"]
