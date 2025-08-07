@@ -200,3 +200,5 @@ source ~/.config/fish/nnn.fish
 
 starship init fish | source
 zoxide init fish | source
+
+status --is-interactive; and rbenv init - --no-rehash fish | source
