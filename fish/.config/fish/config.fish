@@ -169,8 +169,12 @@ set -g theme_color_scheme "nord"
 
 # before
 #set -Ux GEM_HOME $HOME/.gem
+#
 # 2025-08
-set -x GEM_HOME (rbenv prefix)/lib/ruby/gems/3.4.0
+#
+# use gems only from the current rbenv Ruby version to avoid permission issues with system gems
+set ruby_prefix (rbenv prefix)
+set -x GEM_HOME $ruby_prefix/lib/ruby/gems/3.4.0
 set -x GEM_PATH $GEM_HOME
 
 # when changing between abbr and alias, remove entry from `fish_variables` accordingly 
