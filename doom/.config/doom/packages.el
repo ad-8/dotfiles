@@ -52,3 +52,4 @@
 (package! fzf)
 (package! ox-twbs)
 (package! tldr)
+(package! lsp-treemacs)
