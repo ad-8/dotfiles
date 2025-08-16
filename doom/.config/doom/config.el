@@ -123,6 +123,15 @@
         :desc "hello world" "h" #'my-hello-message
         :desc "print date" "d" #'my-run-date)))
 
+(map! :leader
+      :prefix "w"
+      :desc "Horizontal split" "z" #'evil-window-split)
+
+;; Prevent Doom from forcing vterm into a bottom popup window.
+;; This lets vterm open in the current or split window like any normal buffer.
+(after! vterm
+  (set-popup-rule! "^\\*vterm\\*" :ignore t))
+
 
 (defun my-run-date ()
   (interactive)
