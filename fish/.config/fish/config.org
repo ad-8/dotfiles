@@ -106,8 +106,8 @@ abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn
 abbr -a rc rclone
 abbr -a rd 'rm -rf'
 abbr -a rl 'RUST_LOG=debug'
-abbr -a ssa 'shasum --algorithm 256'
-abbr -a ssc 'shasum --check'
+abbr -a ssa 'sha256sum'
+abbr -a ssc 'sha256sum --check'
 abbr -a s "strava-rs"
 abbr -a str "cat ~/my/archive/streams.md"
 abbr -a st "strava-rs tui"
