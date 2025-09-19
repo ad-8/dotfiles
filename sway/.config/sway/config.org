@@ -126,13 +126,17 @@ set $ws10 "10"
 * Autostart
 TODO alternative to xfce4-power-manager
 #+begin_src shell
+exec --no-startup-id waybar
 exec --no-startup-id blueman-applet
 exec --no-startup-id emacs --daemon
 exec --no-startup-id dunst
 exec --no-startup-id megasync
 exec --no-startup-id nm-applet
 exec --no-startup-id firewall-applet
+# syncthing 1.x
 exec --no-startup-id syncthing -no-browser
+# syncthing 2.x
+exec --no-startup-id syncthing --no-browser
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id "~/scripts/bb/licht.clj hi"
@@ -283,7 +287,7 @@ output HDMI-A-2 position 0 0 resolution 2560x1080
 output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 #+end_src
 
-* Idle configuration
+* TODO Idle configuration
 #
 # Example configuration:
 #
@@ -610,7 +614,7 @@ bar {
 ** i3status-rs
 Currently using i3status-rs, because i3blocks seems barely maintained anymore.
 
-#+begin_src shell
+#+begin_src shell :tangle no
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
