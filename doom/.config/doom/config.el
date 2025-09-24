@@ -114,6 +114,15 @@
   (interactive)
   (message "Hello World from Doom!"))
 
+(defun ax-open-trixie ()
+  "Open trixie.org in dired"
+  (interactive)
+  (dired "~/sync/0-from-MEGAsync/debian-trixie.org"))
+
+(defun ax-open-trixie-x ()
+  "Open trixie.org in editor"
+  (interactive)
+  (find-file "~/sync/0-from-MEGAsync/debian-trixie.org"))
 
 (map! :leader
       (:prefix-map ("j" . "ax custom binds")
@@ -127,6 +136,9 @@
       :prefix "w"
       :desc "Horizontal split" "z" #'evil-window-split)
 
+(map! :leader
+      :desc "(Un)comment line" "-" #'comment-line)
+
 ;; Prevent Doom from forcing vterm into a bottom popup window.
 ;; This lets vterm open in the current or split window like any normal buffer.
 (after! vterm
@@ -139,3 +151,7 @@
 
 (after! org
   (require 'ox-twbs))
+
+(setq image-dired-thumb-size 128)
+
+(setq image-dired-external-viewer "nsxiv")
