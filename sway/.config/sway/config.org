@@ -259,7 +259,7 @@ assign [app_id="org.gnome.SystemMonitor"] $ws9
 
 * Output configuration
 Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#+begin_src shell
+#+begin_src shell :tangle no
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #+end_src
 
@@ -527,15 +527,27 @@ https://askubuntu.com/questions/794403/media-keys-on-macbook-pro-and-i3
 
 #+begin_src shell
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioPause exec playerctl pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
+
+# sxhkd VOLUME keybindings
+bindsym XF86AudioRaiseVolume exec ~/scripts/volume up
+bindsym XF86AudioLowerVolume exec ~/scripts/volume down
+bindsym XF86AudioMute exec ~/scripts/volume mute
+bindsym XF86AudioPlay exec ~/scripts/bb/play_pause.clj
+
+bindsym $mod+$alt+up exec ~/scripts/volume up
+bindsym $mod+$alt+down exec ~/scripts/volume down
+bindsym $mod+$alt+left exec ~/scripts/volume mute
+bindsym $mod+$alt+right exec ~/scripts/bb/play_pause.clj
+bindsym $mod+$alt+space exec ~/scripts/bb/play_pause.clj
 #+end_src
 
 *** Workspace
@@ -835,6 +847,7 @@ mode "$mode_gaps_left" {
 #+end_src
 
 * include
+On debian: =systemctl --user status xdg-desktop-portal= must be running and this must be included, else =waybar= won't start
 #+begin_src shell
-#include /etc/sway/config.d/*
+include /etc/sway/config.d/*
 #+end_src
