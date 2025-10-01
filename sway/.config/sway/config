@@ -257,7 +257,7 @@ bindsym $mod+F10 [title="htop-scratchpad"] scratchpad show, resize set 800 600, 
 bindsym $mod+Shift+o exec rofi -show drun
 
 # TODO evaluate this script
-bindsym $mod+Shift+w exec ~/sway-window-switcher2.sh
+bindsym $mod+Shift+w exec ~/scripts/sway-window-switcher.sh
 # custom script better this shows too much
 bindsym $mod+x exec rofi -terminal '$term' -modes window -show window
 
