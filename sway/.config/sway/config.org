@@ -128,9 +128,10 @@ TODO alternative to xfce4-power-manager
 #+begin_src shell
 exec --no-startup-id waybar
 exec --no-startup-id blueman-applet
-exec --no-startup-id emacs --daemon
 exec --no-startup-id dunst
-exec --no-startup-id megasync
+exec --no-startup-id "~/scripts/sway-exec-emacs.sh"
+exec --no-startup-id firefox
+#exec --no-startup-id megasync
 exec --no-startup-id nm-applet
 exec --no-startup-id firewall-applet
 # syncthing 1.x
@@ -455,24 +456,31 @@ exec_always alacritty --title "dwm-scratchpad"
 # Show only that specific scratchpad terminal
 bindsym $mod+s [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 bindsym $mod+u [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
-bindsym $mod+F9 [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 #+end_src
 *** htop
 #+begin_src shell
 for_window [title="htop-scratchpad"] floating enable, move to scratchpad
 exec_always alacritty --title "htop-scratchpad" -e htop
-bindsym $mod+F10 [title="htop-scratchpad"] scratchpad show, resize set 800 600, move position top-left
+bindsym $mod+F12 [title="htop-scratchpad"] scratchpad show, resize set 800 600, move position top-left
 #+end_src
-*** more?
+*** emacs
+launched via custom script, same as =emacs --daemon=, because via sway =exec=
+the client/server order seems to be fucked up
 #+begin_src shell
-
 # Move Emacs with title "emacs-scratchpad" to scratchpad automatically
-#for_window [title="emacs-scratchpad"] floating enable, move to scratchpad
+for_window [title="emacs-scratchpad-todo"] floating enable, move to scratchpad
 # Launch Emacs with the special title
-#exec_always emacsclient -c --title "emacs-scratchpad"
-#bindsym $mod+i [title="emacs-scratchpad"] scratchpad show, resize set 1000 800, move positon center
-#bindsym $mod+F10 [title="emacs-scratchpad"] scratchpad show, resize set 1000 800, move positon center
+#exec_always emacs --title "emacs-scratchpad-todo" --file ~/sync/TODO.org
+#exec_always emacsclient -c -F '((title . "emacs-scratchpad-todo"))'
 
+bindsym $mod+F8 [title="emacs-scratchpad-todo"] scratchpad show, resize set 1000 800, move position center
+
+# title for other emacs scratchpads should *not* start with emacs-scratchpad like above,
+# else windows will end up kind of like stacked
+for_window [title="scratchmacs"] floating enable, move to scratchpad
+#exec_always emacs --title "scratchmacs"
+bindsym $mod+i [title="scratchmacs"] scratchpad show, resize set 1000 800, move position center
+bindsym $mod+F9 [title="scratchmacs"] scratchpad show, resize set 1000 800, move position center
 #+end_src
 
 ** Other (2025 new):
