@@ -23,7 +23,7 @@
   - [[#disable-title-bars][Disable Title Bars]]
   - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
   - [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
-  - [[#open-apps-on-specific-workspace][Open apps on specific workspace]]
+  - [[#window-rules-open-apps-on-specific-workspace][Window Rules: Open apps on specific workspace]]
 - [[#output-configuration][Output configuration]]
 - [[#idle-configuration][Idle configuration]]
 - [[#input-configuration][Input configuration]]
@@ -245,15 +245,18 @@ for_window [app_id="wdisplays"] resize set 1024 768
 for_window [app_id="wdisplays"] move position center
 #+end_src
 
-** Open apps on specific workspace
+** Window Rules: Open apps on specific workspace
 This is a bit of a mess on =Wayland=, because some apps don't have the class,
-others are missing the app_id etc.
+others are missing the app_id etc. Also names change between distros?!
 
 #+begin_src shell
 assign [app_id="firefox"] $ws2
 assign [app_id="qbittorrent"] $ws7
+assign [app_id="brave-browser"] $ws8
 assign [class="Brave-browser"] $ws8
 assign [app_id="KeePassXC"] $ws9
+assign [class="KeePassXC"] $ws9
+assign [app_id="protonvpn-app"] $ws9
 assign [app_id="org.gnome.SystemMonitor"] $ws9
 #+end_src
 
@@ -483,9 +486,11 @@ bindsym $mod+F9 [title="scratchmacs"] scratchpad show, resize set 1000 800, move
 ** Other (2025 new):
 #+begin_src shell
 bindsym $mod+Shift+o exec rofi -show drun
-
-# TODO evaluate this script
+bindsym $mod+Shift+f exec rofi -show recursivebrowser
+# TODO choose one
+bindsym $mod+Shift+s exec rofi -show window
 bindsym $mod+Shift+w exec ~/scripts/sway-window-switcher.sh
+
 # custom script better this shows too much
 bindsym $mod+x exec rofi -terminal '$term' -modes window -show window
 
