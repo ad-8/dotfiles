@@ -9,8 +9,11 @@ window-format: " {c}  {w}  {t}";
 
 display-window: "Windows";
 display-drun: "Applications";
+display-recursivebrowser: "Files";
 
 font: "HackNerdFont 14";
+modi: "window,run,drun,recursivebrowser";
+combi-modi: "drun,recursivebrowser";
 
 /*	modi: "window,run,ssh";*/
 /*	font: "mono 12";*/
