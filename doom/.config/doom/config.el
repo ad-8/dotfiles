@@ -139,6 +139,14 @@
 (map! :leader
       :desc "(Un)comment line" "-" #'comment-line)
 
+(defun ax/git-count-commits ()
+  "Count the number of commits in the current Git repository
+   using \='git log --oneline | wc -l\='."
+  (interactive)
+  (message "Number of commits: %s"
+           (string-trim (shell-command-to-string "git log --oneline | wc -l"))))
+
+
 ;; Prevent Doom from forcing vterm into a bottom popup window.
 ;; This lets vterm open in the current or split window like any normal buffer.
 (after! vterm
