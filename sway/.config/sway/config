@@ -133,6 +133,11 @@ input type:keyboard {
     xkb_numlock enabled
 }
 
+set $cursor_theme 'Numix-Cursor'
+set $cursor_size 26
+seat * xcursor_theme $cursor_theme $cursor_size
+#seat seat0 xcursor_theme my_cursor_theme my_cursor_size
+
 # Start a terminal
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term

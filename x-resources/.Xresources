@@ -7,3 +7,7 @@ Nsxiv.window.background: #2e3440
 Nsxiv.window.foreground: #b48ead
 Nsxiv.bar.font: Hack Nerd Font:size=9
 Nsxiv.bar.foreground: #b48ead
+
+Xcursor.theme: Numix-Cursor
+Xcursor.size: 26
+

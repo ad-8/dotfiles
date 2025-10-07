@@ -323,6 +323,11 @@ input type:keyboard {
     xkb_layout "de"
     xkb_numlock enabled
 }
+
+set $cursor_theme 'Numix-Cursor'
+set $cursor_size 26
+seat * xcursor_theme $cursor_theme $cursor_size
+#seat seat0 xcursor_theme my_cursor_theme my_cursor_size
 #+end_src
 
 * Key bindings
