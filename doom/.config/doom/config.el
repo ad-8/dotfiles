@@ -129,9 +129,19 @@
       (:prefix-map ("j" . "ax custom binds")
        (:prefix ("f" . "fzf")
         :desc "Starts fzf session in dir" "f" #'fzf-directory)
+       ;; this is nested under spc-j-p-p
+       ;; (:prefix ("p" . "dired-preview")
+       ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
        (:prefix ("t" . "testing stuff")
         :desc "hello world" "h" #'my-hello-message
         :desc "print date" "d" #'my-run-date)))
+
+
+(map! :leader
+      :prefix "j"                    ;; "SPC j" prefix
+      :desc "Toggle Dired Preview"  ;; description shown in which-key
+      "p" #'dired-preview-mode)     ;; "SPC j p"
+
 
 (map! :leader
       :prefix "w"

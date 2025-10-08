@@ -50,6 +50,8 @@
 ;; (unpin! t)
 
 (package! fzf)
-(package! ox-twbs)
+(package! ox-twbs) ;; export your Org files to Bootstrap-styled HTML
 (package! tldr)
 (package! lsp-treemacs)
+(package! dired-preview)
+
