@@ -499,7 +499,7 @@ bindsym $mod+Shift+w exec ~/scripts/sway-window-switcher.sh
 
 bindsym $mod+$alt+l exec swaylock --color 000000
 
-bindsym $mod+b exec killall waybar || waybar
+bindsym $mod+b exec ~/scripts/toggle-waybar
 
 bindsym $mod+$alt+h exec dunstctl history-pop
 bindsym $mod+$alt+k exec dunstctl close-all
