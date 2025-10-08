@@ -206,3 +206,18 @@
 ;; Disable rubocop-ls
 ;;(after! lsp-mode
 ;;  (setq lsp-disabled-clients '(rubocop-ls)))
+
+;; https://protesilaos.com/emacs/dired-preview
+(setq dired-preview-delay 0.1) ;; default 0.7
+(setq dired-preview-max-size (expt 2 20))
+(setq dired-preview-ignored-extensions-regexp
+        (concat "\\."
+                "\\(gz\\|"
+                "zst\\|"
+                "tar\\|"
+                "xz\\|"
+                "rar\\|"
+                "zip\\|"
+                "iso\\|"
+                "epub"
+                "\\)"))
