@@ -41,6 +41,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+;; TODO
 (setq org-directory "~/org/")
 
 
@@ -157,9 +158,41 @@
   (interactive)
   (message "Date is: %s" (string-trim (shell-command-to-string "date +%F_%T"))))
 
+
+;; TODO doesn't work for nested list items, if those have a second line
+(defun org-fold-all-list-items ()
+  "Fold all multi-line list items in the current Org buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward org-list-full-item-re nil t)
+      (when (org-at-item-p)
+        (org-cycle)))))
+
+
 (after! org
   (require 'ox-twbs))
 
 (setq image-dired-thumb-size 128)
 
 (setq image-dired-external-viewer "nsxiv")
+
+
+;; org-mode: set different heading sizes
+;(custom-theme-set-faces!
+;'doom-one
+;'(org-level-8 :inherit outline-3 :height 1.0)
+;'(org-level-7 :inherit outline-3 :height 1.0)
+;'(org-level-6 :inherit outline-3 :height 1.1)
+;'(org-level-5 :inherit outline-3 :height 1.2)
+;'(org-level-4 :inherit outline-3 :height 1.3)
+;'(org-level-3 :inherit outline-3 :height 1.4)
+;'(org-level-2 :inherit outline-2 :height 1.5)
+;'(org-level-1 :inherit outline-1 :height 1.6)
+;'(org-document-title  :height 1.8 :bold t :underline nil))
+
+;; TOOD find a better solution
+;; ever since rubocop installed via gem, ruby-lsp is gone =lsp-describe-session=
+;; Disable rubocop-ls
+;;(after! lsp-mode
+;;  (setq lsp-disabled-clients '(rubocop-ls)))
