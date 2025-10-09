@@ -138,9 +138,9 @@
 
 
 (map! :leader
-      :prefix "j"                    ;; "SPC j" prefix
-      :desc "Toggle Dired Preview"  ;; description shown in which-key
-      "p" #'dired-preview-mode)     ;; "SPC j p"
+      :prefix "j"
+      :desc "Toggle Dired Preview (global)"
+      "p" #'dired-preview-global-mode)
 
 
 (map! :leader
