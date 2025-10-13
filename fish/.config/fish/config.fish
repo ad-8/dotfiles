@@ -134,6 +134,7 @@ abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
 abbr -a v vim
 abbr -a br bin/rails
 abbr -a bk bin/kamal
+abbr -a ff rfv
 
 abbr -a cgb 'cargo build'
 abbr -a cg cargo
