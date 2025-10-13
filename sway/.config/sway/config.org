@@ -109,7 +109,6 @@ set $lila   #b48ead
 ** Workspaces
 [[https://www.nerdfonts.com/cheat-sheet][Icons Cheat Sheet]]
 
-TODO workspace like " 1 " that starts with space does NOT work - why?
 #+begin_src shell
 set $ws1 "1"
 set $ws2 "2"
@@ -489,12 +488,9 @@ bindsym $mod+F9 [title="scratchmacs"] scratchpad show, resize set 1000 800, move
 #+begin_src shell
 bindsym $mod+Shift+o exec rofi -show drun
 bindsym $mod+Shift+f exec rofi -show recursivebrowser
-# TODO choose one
 bindsym $mod+w exec rofi -show window
-bindsym $mod+Shift+w exec ~/scripts/sway-window-switcher.sh
 
-
-bindsym $mod+$alt+l exec swaylock --color 000000
+bindsym $mod+$alt+l exec swaylock --color 000000 --show-failed-attempts
 
 bindsym $mod+b exec ~/scripts/toggle-waybar
 
