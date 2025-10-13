@@ -272,12 +272,9 @@ bindsym $mod+F9 [title="scratchmacs"] scratchpad show, resize set 1000 800, move
 
 bindsym $mod+Shift+o exec rofi -show drun
 bindsym $mod+Shift+f exec rofi -show recursivebrowser
-# TODO choose one
 bindsym $mod+w exec rofi -show window
-bindsym $mod+Shift+w exec ~/scripts/sway-window-switcher.sh
 
-
-bindsym $mod+$alt+l exec swaylock --color 000000
+bindsym $mod+$alt+l exec swaylock --color 000000 --show-failed-attempts
 
 bindsym $mod+b exec ~/scripts/toggle-waybar
 
