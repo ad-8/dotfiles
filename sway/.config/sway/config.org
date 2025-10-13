@@ -127,11 +127,6 @@ exec --no-startup-id firefox
 #exec --no-startup-id megasync
 exec --no-startup-id nm-applet
 exec --no-startup-id firewall-applet
-# syncthing 1.x
-exec --no-startup-id syncthing -no-browser
-# syncthing 2.x
-exec --no-startup-id syncthing --no-browser
-
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id "~/scripts/bb/licht.clj hi"
 #+end_src
