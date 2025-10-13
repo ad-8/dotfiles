@@ -25,7 +25,7 @@
   - [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
   - [[#window-rules-open-apps-on-specific-workspace][Window Rules: Open apps on specific workspace]]
 - [[#output-configuration][Output configuration]]
-- [[#idle-configuration][Idle configuration]]
+- [[#swayidle][swayidle]]
 - [[#input-configuration][Input configuration]]
 - [[#key-bindings][Key bindings]]
   - [[#basics-1][Basics:]]
@@ -290,18 +290,15 @@ output HDMI-A-2 position 0 0 resolution 2560x1080
 output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 #+end_src
 
-* TODO Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+* swayidle
+Based on the example in =man swayidle=.
+
+#+begin_src shell
+exec swayidle -w \
+         timeout 3600 'swaylock -f -c 000000 -F' \
+         timeout 3700 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000 -F'
+#+end_src
 
 * TODO Input configuration
 #

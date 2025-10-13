@@ -128,6 +128,11 @@ assign [app_id="org.gnome.SystemMonitor"] $ws9
 output HDMI-A-2 position 0 0 resolution 2560x1080
 output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 
+exec swayidle -w \
+         timeout 3600 'swaylock -f -c 000000 -F' \
+         timeout 3700 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000 -F'
+
 input type:keyboard {
     xkb_layout "de"
     xkb_numlock enabled
