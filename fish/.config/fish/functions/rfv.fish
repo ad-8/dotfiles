@@ -2,9 +2,9 @@ function rfv --description 'ripgrep → fzf → vim: fuzzy search + open files o
     set RELOAD 'reload:rg --column --color=always --smart-case {q} || :'
 
     set OPENER 'if test $FZF_SELECT_COUNT -eq 0
-        vim {1} +{2}  # No selection. Open the current line in Vim.
+        emacsclient -t {1} +{2}  # No selection. Open the current line in Vim.
     else
-        vim +cw -q {+f}  # Build quickfix list for the selected items.
+        emacsclient -t +cw -q {+f}  # Build quickfix list for the selected items.
     end'
 
     fzf --disabled --ansi --multi \
