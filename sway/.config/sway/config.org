@@ -5,10 +5,6 @@
 #+OPTIONS: toc:2
 #+PROPERTY: header-args:shell :tangle config
 
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 * ToC :toc:
@@ -28,16 +24,16 @@
 - [[#swayidle][swayidle]]
 - [[#input-configuration][Input configuration]]
 - [[#key-bindings][Key bindings]]
-  - [[#basics-1][Basics:]]
-  - [[#moving-around][Moving around:]]
-  - [[#workspaces-1][Workspaces:]]
-  - [[#layout-stuff][Layout stuff:]]
-  - [[#scratchpad][Scratchpad:]]
-  - [[#scratchpad-custom][Scratchpad custom:]]
-  - [[#other-2025-new][Other (2025 new):]]
-  - [[#resizing-containers][Resizing containers:]]
+  - [[#basics-1][Basics]]
+  - [[#moving-around][Moving around]]
+  - [[#workspaces-1][Workspaces]]
+  - [[#layout-stuff][Layout stuff]]
+  - [[#scratchpad][Scratchpad]]
+  - [[#scratchpad-custom][Scratchpad custom]]
+  - [[#other-2025-new][Other (2025 new)]]
+  - [[#resizing-containers][Resizing containers]]
   - [[#from-i3][from i3]]
-- [[#status-bar][Status Bar:]]
+- [[#status-bar][Status Bar]]
   - [[#sway-default][sway default]]
 - [[#gaps][GAPS]]
   - [[#global][global]]
@@ -326,7 +322,7 @@ seat * xcursor_theme $cursor_theme $cursor_size
 #+end_src
 
 * Key bindings
-** Basics:
+** Basics
 #+begin_src shell
 # Start a terminal
 bindsym $mod+Return exec $term
@@ -354,7 +350,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #+end_src
 
-** Moving around:
+** Moving around
 #+begin_src shell
 # Move your focus around
 bindsym $mod+$left focus left
@@ -379,7 +375,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 #+end_src
 
-** Workspaces:
+** Workspaces
 #+begin_src shell
 # Switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -403,7 +399,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 #+end_src
 
-** Layout stuff:
+** Layout stuff
 #+begin_src shell
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
@@ -429,7 +425,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Mod1+p focus parent
 #+end_src
 
-** Scratchpad:
+** Scratchpad
 #+begin_src shell
 # Sway has a "scratchpad", which is a bag of holding for windows.
 # You can send windows there and get them back later.
@@ -442,7 +438,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 #+end_src
 
-** Scratchpad custom:
+** Scratchpad custom
 =exec= instead of =exec_always= should prolly used for all here - else multiple scratchpad after a cfg reload
 
 also apparently wayland does *not* have window titles - only X11 - so not sure how filtering by it works here
@@ -483,7 +479,7 @@ bindsym $mod+i [title="scratchmacs"] scratchpad show, resize set 1000 800, move 
 bindsym $mod+F9 [title="scratchmacs"] scratchpad show, resize set 1000 800, move position center
 #+end_src
 
-** Other (2025 new):
+** Other (2025 new)
 #+begin_src shell
 bindsym $mod+Shift+o exec rofi -show drun
 bindsym $mod+Shift+f exec rofi -show recursivebrowser
@@ -498,7 +494,7 @@ bindsym $mod+$alt+k exec dunstctl close-all
 bindsym $mod+$alt+w exec ~/scripts/bb/weather.clj dunst
 #+end_src
 
-** Resizing containers:
+** Resizing containers
 #+begin_src shell
 mode "resize" {
     # left will shrink the containers width
@@ -573,7 +569,7 @@ bindsym $mod+Shift+b move container to workspace back_and_forth
 bindsym $mod+period move workspace to output down
 #+end_src
 
-*** Interactive mode: scripts using dmenu for user interaction
+*** TODO Interactive mode: scripts using dmenu for user interaction
 TODO lots of them don't work, because of their dmenu dependency
 
 #+begin_src shell
@@ -628,7 +624,7 @@ mode "$mode_launcher" {
 }
 #+end_src
 
-* Status Bar:
+* Status Bar
 ** sway default
 # Read `man 5 sway-bar` for more information about this section.
 #+begin_src shell :tangle no
