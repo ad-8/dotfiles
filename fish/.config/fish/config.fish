@@ -135,6 +135,7 @@ abbr -a v vim
 abbr -a br bin/rails
 abbr -a bk bin/kamal
 abbr -a ff rfv
+abbr -a ffa rfvuuu
 
 abbr -a cgb 'cargo build'
 abbr -a cg cargo

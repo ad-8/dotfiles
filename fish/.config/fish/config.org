@@ -192,6 +192,7 @@ abbr -a v vim
 abbr -a br bin/rails
 abbr -a bk bin/kamal
 abbr -a ff rfv
+abbr -a ffa rfvuuu
 #+end_src
 
 *** Cargo / Rust
