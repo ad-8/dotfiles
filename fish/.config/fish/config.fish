@@ -40,7 +40,6 @@ abbr -a el 'eza -l --group-directories-first --icons'
 abbr -a gi 'grep -i'
 abbr -a hg 'history | grep -i'
 abbr -a i3t i3timer
-abbr -a lg 'll | grep -i'
 abbr -a l "licht"
 
 abbr -a et 'emacsclient -t'
@@ -100,6 +99,9 @@ switch $distro
     case opensuse-tumbleweed
         abbr -a up 'sudo zypper ref && sudo zypper dup'
         abbr -a nf "clear && fastfetch --logo opensuse"
+    case nixos
+         abbr -a up "sudo nixos-rebuild switch --flake ~/dotfiles-nixos#$hostname"
+         abbr -a nf "clear && fastfetch"
     case void
         abbr -a up 'sudo xbps-install -Su'
         abbr -a nf "clear && fastfetch"
@@ -117,6 +119,9 @@ switch $distro
          abbr -a cu $HOME/scripts/bb/checkupdates.clj
     case fedora
          abbr -a cu "dnf check-update --refresh | wc -l"
+    case nixos
+         abbr -a cu "cd ~/dotfiles-nixos/ && nix flake update && git status && printf '\n----------\n\n' && nixos-rebuild dry-run --flake ~/dotfiles-nixos#$hostname"
+         abbr -a lg 'nixos-rebuild list-generations | head'
     case '*'
          abbr -a cu "(checkupdate) Don't know how to on $distro"
 end
