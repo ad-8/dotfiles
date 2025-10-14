@@ -143,7 +143,7 @@ Other than ~client.focused~, all values are the default ones.
 #+begin_src shell
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $polar1 $orange $polar4 $orange   $orange
+client.focused          $polar1 $lila   $polar4 $lila     $lila
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -172,7 +172,7 @@ Setting border style to pixel eliminates title bars. See https://i3wm.org/docs/u
 #+begin_src shell
 
 # hide title bar for all windows
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 #+end_src
 
