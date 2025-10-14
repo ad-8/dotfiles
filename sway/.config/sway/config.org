@@ -12,6 +12,7 @@
   - [[#basics][Basics]]
   - [[#nord-colors][Nord Colors]]
   - [[#workspaces][Workspaces]]
+  - [[#default-layout][Default Layout]]
 - [[#autostart][Autostart]]
 - [[#colors-and-ui][COLORS AND UI]]
   - [[#font][Font]]
@@ -114,6 +115,13 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+#+end_src
+
+** Default Layout
+Specifies the initial layout for new containers in an empty workspace.
+=default|stacking|tabbed=
+#+begin_src shell
+workspace_layout stacking
 #+end_src
 
 * Autostart
