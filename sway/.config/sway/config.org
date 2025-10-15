@@ -250,6 +250,7 @@ others are missing the app_id etc. Also names change between distros?!
 assign [app_id="firefox"] $ws2
 assign [app_id="qbittorrent"] $ws7
 assign [app_id="brave-browser"] $ws8
+assign [app_id="org.strawberrymusicplayer.strawberry"] $ws8
 assign [class="Brave-browser"] $ws8
 assign [app_id="KeePassXC"] $ws9
 assign [class="KeePassXC"] $ws9
@@ -603,7 +604,7 @@ mode "$mode_settings" {
 
 *** TODO (waybar should use whole width while in a mode to display the help) Launch applications with $mod+o
 #+begin_src shell
-set $mode_launcher Open:\n\n[a]ppfinder [b]luetooth [B]rowser [c]alc [e]macs\n\n[f]ile-manager [k]eepass [o]pen [p]avucontrol [s]ystem-monitor\n\n[q]bittorrent bra[v]e firefo[x]
+set $mode_launcher Open:\n\n[a]ppfinder [b]luetooth [B]rowser [c]alc [e]macs [f]ile-manager\n\n[k]eepass [m]usic-player [o]pen [p]avucontrol [s]ystem-monitor\n\n[q]bittorrent bra[v]e firefo[x]
 
 bindsym $mod+o exec notify-send -t 30000 -u low -i keyboard "$mode_launcher"; mode "$mode_launcher"
 
@@ -614,6 +615,7 @@ mode "$mode_launcher" {
     bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"; exec dunstctl close
     bindsym f exec thunar; mode "default"; exec dunstctl close
     bindsym k exec keepassxc; mode "default"; exec dunstctl close
+    bindsym m exec strawberry; mode "default"; exec dunstctl close
     bindsym o exec rofi -show drun; mode "default"; exec dunstctl close
     bindsym p exec pavucontrol; mode "default"; exec dunstctl close
     bindsym q exec qbittorrent; mode "default"; exec dunstctl close
