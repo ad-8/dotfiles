@@ -30,6 +30,7 @@ abbr -a sc systemctl
 abbr -a t tlbx
 abbr -a tb tlbx
 abbr -a tx tlbx
+abbr -a r tlbx command-runner
 
 if type -q code
    abbr -a c. 'code .'
