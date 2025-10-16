@@ -75,7 +75,13 @@ abbr -a sc systemctl
 abbr -a t tlbx
 abbr -a tb tlbx
 abbr -a tx tlbx
-abbr -a c. 'code .'
+
+if type -q code
+   abbr -a c. 'code .'
+else
+   abbr -a c. 'codium .'
+end
+
 abbr -a rg 'rg -i'
 abbr -a rb ruby
 
