@@ -343,7 +343,7 @@ bindsym Mod1+space mode "$mode_space"
 
 mode "$mode_space" {
     bindsym a exec "~/scripts/bb/search.clj --select-provider"; mode "default"
-    bindsym e exec "~/.config/i3/dmenuunicode"; mode "default"
+    bindsym e exec "~/scripts/dmenuunicode"; mode "default"
     bindsym g exec "~/scripts/bb/search.clj"; mode "default"
     bindsym r exec "~/scripts/bb/run_script.clj"; mode "default"
 
