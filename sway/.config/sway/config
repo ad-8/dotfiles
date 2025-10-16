@@ -45,7 +45,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
-workspace_layout stacking
+workspace_layout default
 
 exec --no-startup-id waybar
 exec --no-startup-id blueman-applet

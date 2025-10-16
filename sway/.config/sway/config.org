@@ -121,7 +121,7 @@ set $ws9 "9"
 Specifies the initial layout for new containers in an empty workspace.
 =default|stacking|tabbed=
 #+begin_src shell
-workspace_layout stacking
+workspace_layout default
 #+end_src
 
 * Autostart
