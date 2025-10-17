@@ -274,7 +274,7 @@ bindsym $mod+w exec rofi -show window
 
 bindsym $mod+$alt+l exec swaylock --color 000000 --show-failed-attempts
 
-bindsym $mod+b exec ~/scripts/toggle-waybar
+bindsym $mod+b exec ~/.cargo/bin/tlbx waybar toggle
 
 bindsym $mod+$alt+h exec dunstctl history-pop
 bindsym $mod+$alt+k exec dunstctl close-all
@@ -315,14 +315,14 @@ bindsym $mod+r mode "resize"
 
 # sxhkd VOLUME keybindings
 # TODO not sure why sway on nixos doesn't see ~/.cargo/bin in $PATH
-bindsym XF86AudioRaiseVolume exec ~/.cargo/bin/tlbx waybar volume up
-bindsym XF86AudioLowerVolume exec ~/.cargo/bin/tlbx waybar volume down
-bindsym XF86AudioMute exec ~/.cargo/bin/tlbx waybar volume mute
+bindsym XF86AudioRaiseVolume exec ~/.cargo/bin/tlbx wayland volume up
+bindsym XF86AudioLowerVolume exec ~/.cargo/bin/tlbx wayland volume down
+bindsym XF86AudioMute exec ~/.cargo/bin/tlbx wayland volume mute
 bindsym XF86AudioPlay exec ~/scripts/bb/play_pause.clj
 
-bindsym $mod+$alt+up exec ~/.cargo/bin/tlbx waybar volume up
-bindsym $mod+$alt+down exec ~/.cargo/bin/tlbx waybar volume down
-bindsym $mod+$alt+left exec ~/.cargo/bin/tlbx waybar volume mute
+bindsym $mod+$alt+up exec ~/.cargo/bin/tlbx wayland volume up
+bindsym $mod+$alt+down exec ~/.cargo/bin/tlbx wayland volume down
+bindsym $mod+$alt+left exec ~/.cargo/bin/tlbx wayland volume mute
 bindsym $mod+$alt+right exec ~/scripts/bb/play_pause.clj
 bindsym $mod+$alt+space exec ~/scripts/bb/play_pause.clj
 
