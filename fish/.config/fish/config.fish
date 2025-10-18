@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 abbr -a cdc 'cd ~/my/code'
-abbr -a cdd 'cd ~/my/dotfiles'
+abbr -a cdd 'cd ~/dotfiles'
 abbr -a cdj "cd ~/my/code/clojure"
 abbr -a cdm 'cd /run/media/ax'
 abbr -a cdM 'cd ~/MEGA/MEGAsync/'
