@@ -240,6 +240,8 @@ for_window [app_id="org.pulseaudio.pavucontrol"] move position center
 for_window [app_id="wdisplays"] floating enable
 for_window [app_id="wdisplays"] resize set 1024 768
 for_window [app_id="wdisplays"] move position center
+
+for_window [title="^About This System"] floating enable, move position center
 #+end_src
 
 ** Window Rules: Open apps on specific workspace

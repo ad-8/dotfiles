@@ -113,6 +113,8 @@ for_window [app_id="wdisplays"] floating enable
 for_window [app_id="wdisplays"] resize set 1024 768
 for_window [app_id="wdisplays"] move position center
 
+for_window [title="^About This System"] floating enable, move position center
+
 assign [app_id="firefox"] $ws2
 assign [app_id="qbittorrent"] $ws7
 assign [app_id="brave-browser"] $ws8
