@@ -547,14 +547,14 @@ https://askubuntu.com/questions/794403/media-keys-on-macbook-pro-and-i3
 
 # sxhkd VOLUME keybindings
 # TODO not sure why sway on nixos doesn't see ~/.cargo/bin in $PATH
-bindsym XF86AudioRaiseVolume exec ~/scripts/volume up
-bindsym XF86AudioLowerVolume exec ~/scripts/volume down
-bindsym XF86AudioMute exec ~/scripts/volume mute
+bindsym XF86AudioRaiseVolume exec ~/scripts/wayland.clj volume-up
+bindsym XF86AudioLowerVolume exec ~/scripts/wayland.clj volume-down
+bindsym XF86AudioMute exec ~/scripts/wayland.clj volume-mute
 bindsym XF86AudioPlay exec ~/scripts/bb/play_pause.clj
 
-bindsym $mod+$alt+up exec ~/scripts/volume up
-bindsym $mod+$alt+down exec ~/scripts/volume down
-bindsym $mod+$alt+left exec ~/scripts/volume mute
+bindsym $mod+$alt+up exec ~/scripts/wayland.clj volume-up
+bindsym $mod+$alt+down exec ~/scripts/wayland.clj volume-down
+bindsym $mod+$alt+left exec ~/scripts/wayland.clj volume-mute
 bindsym $mod+$alt+right exec ~/scripts/bb/play_pause.clj
 bindsym $mod+$alt+space exec ~/scripts/bb/play_pause.clj
 #+end_src
