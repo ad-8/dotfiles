@@ -493,8 +493,8 @@ bindsym $mod+w exec rofi -show window
 
 bindsym $mod+$alt+l exec swaylock --color 000000 --show-failed-attempts
 
-bindsym $mod+b exec ~/.cargo/bin/tlbx waybar toggle
-bindsym $mod+shift+b exec ~/.cargo/bin/tlbx waybar toggle --minimal
+bindsym $mod+b exec ~/scripts/waybar.clj toggle
+bindsym $mod+shift+b exec ~/scripts/waybar.clj toggle-min
 
 bindsym $mod+$alt+h exec dunstctl history-pop
 bindsym $mod+$alt+k exec dunstctl close-all
