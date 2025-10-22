@@ -318,14 +318,14 @@ bindsym $mod+r mode "resize"
 
 # sxhkd VOLUME keybindings
 # TODO not sure why sway on nixos doesn't see ~/.cargo/bin in $PATH
-bindsym XF86AudioRaiseVolume exec ~/.cargo/bin/tlbx wayland volume up
-bindsym XF86AudioLowerVolume exec ~/.cargo/bin/tlbx wayland volume down
-bindsym XF86AudioMute exec ~/.cargo/bin/tlbx wayland volume mute
+bindsym XF86AudioRaiseVolume exec ~/scripts/volume up
+bindsym XF86AudioLowerVolume exec ~/scripts/volume down
+bindsym XF86AudioMute exec ~/scripts/volume mute
 bindsym XF86AudioPlay exec ~/scripts/bb/play_pause.clj
 
-bindsym $mod+$alt+up exec ~/.cargo/bin/tlbx wayland volume up
-bindsym $mod+$alt+down exec ~/.cargo/bin/tlbx wayland volume down
-bindsym $mod+$alt+left exec ~/.cargo/bin/tlbx wayland volume mute
+bindsym $mod+$alt+up exec ~/scripts/volume up
+bindsym $mod+$alt+down exec ~/scripts/volume down
+bindsym $mod+$alt+left exec ~/scripts/volume mute
 bindsym $mod+$alt+right exec ~/scripts/bb/play_pause.clj
 bindsym $mod+$alt+space exec ~/scripts/bb/play_pause.clj
 
