@@ -115,6 +115,8 @@ for_window [app_id="wdisplays"] move position center
 
 for_window [title="^About This System"] floating enable, move position center
 
+for_window [app_id="qalculate-gtk"] floating enable, move position center
+
 assign [app_id="firefox"] $ws2
 assign [app_id="qbittorrent"] $ws7
 assign [app_id="brave-browser"] $ws8
@@ -372,7 +374,7 @@ bindsym $mod+o exec notify-send -t 30000 -u low -i keyboard "$mode_launcher"; mo
 mode "$mode_launcher" {
     bindsym a exec xfce4-appfinder; mode "default"; exec dunstctl close
     bindsym b exec blueman-manager; mode "default"; exec dunstctl close
-    bindsym c exec rofi -show calc -modi calc -no-show-match -no-sort; mode "default"; exec dunstctl close
+    bindsym c exec qalculate-gtk; mode "default"; exec dunstctl close
     bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"; exec dunstctl close
     bindsym f exec thunar; mode "default"; exec dunstctl close
     bindsym k exec keepassxc; mode "default"; exec dunstctl close
