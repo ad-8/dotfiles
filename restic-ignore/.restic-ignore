@@ -8,4 +8,7 @@ qbit
 **/clojure/**/.lsp
 **/clojure/**/node_modules
 **/clojure/**/resources/public/js
+**/rails/**/tmp
 
+**/.calva/
+**/.ruby-lsp
