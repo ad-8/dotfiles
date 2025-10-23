@@ -127,6 +127,8 @@ assign [class="KeePassXC"] $ws9
 assign [app_id="protonvpn-app"] $ws9
 assign [app_id="org.gnome.SystemMonitor"] $ws9
 
+output * bg /home/ax/sync/wallpapers/default.jpg fill
+
 output HDMI-A-2 position 0 0 resolution 2560x1080
 output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 
