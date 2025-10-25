@@ -58,7 +58,7 @@ abbr -a xc 'xclip -selection clipboard'
 abbr -a lt 'll -t'
 #abbr -a nf '~/my/scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
-abbr -a n "VISUAL='emacsclient -t' nnn"
+abbr -a n "VISUAL='nvim' nnn"
 abbr -a o. 'open .'
 abbr -a pn protonvpn-cli
 abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
