@@ -148,7 +148,7 @@ seat * xcursor_theme $cursor_theme $cursor_size
 #seat seat0 xcursor_theme my_cursor_theme my_cursor_size
 
 # Start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+Return exec $term
 
 # Kill focused window
