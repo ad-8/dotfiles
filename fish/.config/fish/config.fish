@@ -136,7 +136,7 @@ abbr -a flac2mp3 'fd -e flac --exec ffmpeg -loglevel error -i {} -codec:a libmp3
 
 abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
 
-abbr -a v vim
+abbr -a v nvim
 abbr -a br bin/rails
 abbr -a bk bin/kamal
 abbr -a ff rfv
