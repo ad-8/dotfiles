@@ -5,6 +5,10 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 * Table of Contents :toc:
 - [[#resources][Resources]]
 - [[#doom-stuff][Doom Stuff]]
+- [[#keybindings][Keybindings]]
+  - [[#ax-1][ax-1]]
+  - [[#ax-custom-prefix-space-j][ax-custom-prefix: SPACE j]]
+  - [[#toggle][toggle]]
 - [[#markdown][Markdown]]
   - [[#headers][Headers]]
   - [[#toggle-markdown-view][Toggle Markdown View]]
@@ -93,6 +97,54 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 #+end_src
+
+* Keybindings
+** ax-1
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "(Un)comment line" "-" #'comment-line)
+
+(map! :leader
+      :prefix "j"
+      :desc "Toggle Dired Preview (global)"
+      "p" #'dired-preview-global-mode)
+
+(map! :leader
+      :prefix "w"
+      :desc "Horizontal split" "z" #'evil-window-split)
+#+end_src
+** ax-custom-prefix: SPACE j
+why =j=? because its a convenient key to type and surprisingly the namespace was completely empty
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix-map ("j" . "ax custom binds")
+       (:prefix ("f" . "fzf")
+        :desc "Starts fzf session in dir" "f" #'fzf-directory)
+       ;; this is nested under spc-j-p-p
+       ;; (:prefix ("p" . "dired-preview")
+       ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
+       (:prefix ("t" . "testing stuff")
+        :desc "hello world" "h" #'my-hello-message
+        :desc "print date" "d" #'my-run-date)))
+#+end_src
+** toggle
+originally taken from DT's config
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("t" . "toggle")
+       :desc "Toggle eshell split"            "e" #'+eshell/toggle
+       :desc "Toggle line highlight in frame" "h" #'hl-line-mode
+       :desc "Toggle line highlight globally" "H" #'global-hl-line-mode
+       :desc "Toggle markdown-view-mode"      "M" #'ax/toggle-markdown-mode
+       :desc "Toggle truncate lines"          "t" #'toggle-truncate-lines
+       :desc "Toggle treemacs"                "T" #'+treemacs/toggle))
+
+;; (map! :leader
+;;       (:prefix ("o" . "open here")
+;;        :desc "Open eshell here"    "e" #'+eshell/here
+;;        :desc "Open vterm here"     "v" #'+vterm/here))
+#+end_src
+
 * Markdown
 
 try ~markdown-view-mode~ for a better reading experience!
@@ -180,40 +232,19 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
   (interactive)
   (message "Hello World from Doom!"))
 
-(defun ax-open-trixie ()
+(defun ax/open-trixie ()
   "Open trixie.org in dired"
   (interactive)
   (dired "~/sync/0-from-MEGAsync/debian-trixie.org"))
 
-(defun ax-open-trixie-x ()
+(defun ax/open-trixie-x ()
   "Open trixie.org in editor"
   (interactive)
   (find-file "~/sync/0-from-MEGAsync/debian-trixie.org"))
 
-(map! :leader
-      (:prefix-map ("j" . "ax custom binds")
-       (:prefix ("f" . "fzf")
-        :desc "Starts fzf session in dir" "f" #'fzf-directory)
-       ;; this is nested under spc-j-p-p
-       ;; (:prefix ("p" . "dired-preview")
-       ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
-       (:prefix ("t" . "testing stuff")
-        :desc "hello world" "h" #'my-hello-message
-        :desc "print date" "d" #'my-run-date)))
 
 
-(map! :leader
-      :prefix "j"
-      :desc "Toggle Dired Preview (global)"
-      "p" #'dired-preview-global-mode)
 
-
-(map! :leader
-      :prefix "w"
-      :desc "Horizontal split" "z" #'evil-window-split)
-
-(map! :leader
-      :desc "(Un)comment line" "-" #'comment-line)
 
 (defun ax/git-count-commits ()
   "Count the number of commits in the current Git repository
