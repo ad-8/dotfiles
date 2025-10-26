@@ -3,12 +3,17 @@
 This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 
 * Table of Contents :toc:
+- [[#resources][Resources]]
 - [[#doom-stuff][Doom Stuff]]
 - [[#markdown][Markdown]]
   - [[#headers][Headers]]
+  - [[#toggle-markdown-view][Toggle Markdown View]]
 - [[#org-stuff][Org Stuff]]
 - [[#misc-stuff][Misc Stuff]]
 
+* Resources
+- https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org
+  
 * Doom Stuff
 #+begin_src emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
@@ -89,7 +94,9 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 ;; they are implemented.
 #+end_src
 * Markdown
-(Thank you DT!)
+
+try ~markdown-view-mode~ for a better reading experience!
+
 ** Headers
 This sets the font size for each markdown header level.  Having variable font sizes in a markdown outline makes it visually appealing and more readable.
 #+begin_src emacs-lisp
@@ -101,6 +108,17 @@ This sets the font size for each markdown header level.  Having variable font si
  '(markdown-header-face-4 ((t (:inherit markdown-header-face :height 1.3))))
  '(markdown-header-face-5 ((t (:inherit markdown-header-face :height 1.2))))
  '(markdown-header-face-6 ((t (:inherit markdown-header-face :height 1.1)))))
+#+end_src
+
+** Toggle Markdown View
+A custom function to toggle between standard ‘markdown-mode’ and ‘markdown-view-mode’.  Custom functions in Emacs should be named as “prefix/name-of-function” to make it clear that the function is custom and not a standard Emacs function.
+#+begin_src emacs-lisp
+(defun ax/toggle-markdown-view-mode ()
+  "Toggle between `markdown-mode' and `markdown-view-mode'."
+  (interactive)
+  (if (eq major-mode 'markdown-view-mode)
+      (markdown-mode)
+    (markdown-view-mode)))
 #+end_src
 * Org Stuff
 #+begin_src emacs-lisp
