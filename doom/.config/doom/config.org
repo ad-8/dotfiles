@@ -111,10 +111,10 @@ This sets the font size for each markdown header level.  Having variable font si
 #+end_src
 
 ** Toggle Markdown View
-A custom function to toggle between standard ‘markdown-mode’ and ‘markdown-view-mode’.  Custom functions in Emacs should be named as “prefix/name-of-function” to make it clear that the function is custom and not a standard Emacs function.
+A custom function to toggle between standard =markdown-mode= and =markdown-view-mode=.
 #+begin_src emacs-lisp
-(defun ax/toggle-markdown-view-mode ()
-  "Toggle between `markdown-mode' and `markdown-view-mode'."
+(defun ax/toggle-markdown-mode ()
+  "Toggle between `markdown-mode` and `markdown-view-mode`."
   (interactive)
   (if (eq major-mode 'markdown-view-mode)
       (markdown-mode)
