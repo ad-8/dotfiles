@@ -5,6 +5,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 * Table of Contents :toc:
 - [[#resources][Resources]]
 - [[#doom-stuff][Doom Stuff]]
+- [[#functions][Functions]]
 - [[#keybindings][Keybindings]]
   - [[#ax-1][ax-1]]
   - [[#ax-custom-prefix-space-j][ax-custom-prefix: SPACE j]]
@@ -98,6 +99,50 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 ;; they are implemented.
 #+end_src
 
+
+* Functions
+my custom functions, prefixed with =ax/= to find them effortlessly using =M-x=
+#+begin_src emacs-lisp
+
+(defun ax/open-trixie ()
+  "Open trixie.org in dired"
+  (interactive)
+  (dired "~/sync/0-from-MEGAsync/debian-trixie.org"))
+
+(defun ax/open-trixie-x ()
+  "Open trixie.org in editor"
+  (interactive)
+  (find-file "~/sync/0-from-MEGAsync/debian-trixie.org"))
+
+
+(defun ax/my-hello-message ()
+  (interactive)
+  (message "Hello World from Doom!"))
+
+
+(defun ax/my-run-date ()
+  (interactive)
+  (message "Date is: %s" (string-trim (shell-command-to-string "date +%F_%T"))))
+
+
+;; TODO doesn't work for nested list items, if those have a second line
+(defun ax/org-fold-all-list-items ()
+  "Fold all multi-line list items in the current Org buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward org-list-full-item-re nil t)
+      (when (org-at-item-p)
+        (org-cycle)))))
+
+(defun ax/git-count-commits ()
+  "Count the number of commits in the current Git repository
+   using \='git log --oneline | wc -l\='."
+  (interactive)
+  (message "Number of commits: %s"
+           (string-trim (shell-command-to-string "git log --oneline | wc -l"))))
+#+end_src
+
 * Keybindings
 ** ax-1
 #+begin_src emacs-lisp
@@ -124,8 +169,8 @@ why =j=? because its a convenient key to type and surprisingly the namespace was
        ;; (:prefix ("p" . "dired-preview")
        ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
        (:prefix ("t" . "testing stuff")
-        :desc "hello world" "h" #'my-hello-message
-        :desc "print date" "d" #'my-run-date)))
+        :desc "hello world" "h" #'ax/my-hello-message
+        :desc "print date" "d" #'ax/my-run-date)))
 #+end_src
 ** toggle
 originally taken from DT's config
@@ -196,7 +241,6 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
 
 #+begin_src emacs-lisp
 ;; AX
-
 ; doom doctor suggestions
 (setq shell-file-name (executable-find "bash"))
 (setq-default vterm-shell "/usr/bin/fish")
@@ -227,54 +271,10 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
         fzf/position-bottom t
         fzf/window-height 35))
 
-
-(defun my-hello-message ()
-  (interactive)
-  (message "Hello World from Doom!"))
-
-(defun ax/open-trixie ()
-  "Open trixie.org in dired"
-  (interactive)
-  (dired "~/sync/0-from-MEGAsync/debian-trixie.org"))
-
-(defun ax/open-trixie-x ()
-  "Open trixie.org in editor"
-  (interactive)
-  (find-file "~/sync/0-from-MEGAsync/debian-trixie.org"))
-
-
-
-
-
-(defun ax/git-count-commits ()
-  "Count the number of commits in the current Git repository
-   using \='git log --oneline | wc -l\='."
-  (interactive)
-  (message "Number of commits: %s"
-           (string-trim (shell-command-to-string "git log --oneline | wc -l"))))
-
-
 ;; Prevent Doom from forcing vterm into a bottom popup window.
 ;; This lets vterm open in the current or split window like any normal buffer.
 (after! vterm
   (set-popup-rule! "^\\*vterm\\*" :ignore t))
-
-
-(defun my-run-date ()
-  (interactive)
-  (message "Date is: %s" (string-trim (shell-command-to-string "date +%F_%T"))))
-
-
-;; TODO doesn't work for nested list items, if those have a second line
-(defun org-fold-all-list-items ()
-  "Fold all multi-line list items in the current Org buffer."
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward org-list-full-item-re nil t)
-      (when (org-at-item-p)
-        (org-cycle)))))
-
 
 (after! org
   (require 'ox-twbs))
@@ -282,8 +282,6 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
 (setq image-dired-thumb-size 128)
 
 (setq image-dired-external-viewer "nsxiv")
-
-
 
 ;; TOOD find a better solution
 ;; ever since rubocop installed via gem, ruby-lsp is gone =lsp-describe-session=
