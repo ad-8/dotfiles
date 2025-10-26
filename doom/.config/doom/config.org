@@ -10,6 +10,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#font][Font]]
   - [[#theme][Theme]]
   - [[#misc][Misc]]
+- [[#emms][EMMS]]
 - [[#functions][Functions]]
 - [[#keybindings][Keybindings]]
   - [[#ax-1][ax-1]]
@@ -123,6 +124,42 @@ Toggle with ~M-x variable-pitch-font~.
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 #+end_src
+
+* EMMS
+Emacs Multimedia System
+https://www.gnu.org/software/emms/
+#+begin_src emacs-lisp
+
+; TODO remove i guess its random
+(setq emms-source-file-default-directory "~/0musiccopy/")
+(setq emms-show-format " %artist - %title ")
+(setq emms-show-album-art t)
+
+
+
+;; https://lucidmanager.org/productivity/configure-emms/
+;; TODO refactor into headin ghere
+;; without this, no cover in browser (should be default !!)
+
+;; Emacs Multimedia System
+(use-package emms
+  :config
+  (require 'emms-setup)
+  (require 'emms-mpris)
+  (emms-all)
+  (emms-default-players)
+  (emms-mpris-enable)
+  :custom
+  (emms-browser-covers #'emms-browser-cache-thumbnail-async)
+  :bind
+  (("C-c w m b" . emms-browser)
+   ("C-c w m e" . emms)
+   ("C-c w m p" . emms-play-playlist )
+   ("<XF86AudioPrev>" . emms-previous)
+   ("<XF86AudioNext>" . emms-next)
+   ("<XF86AudioPlay>" . emms-pause)))
+#+end_src
+
 * Functions
 my custom functions, prefixed with =ax/= to find them effortlessly using =M-x=
 #+begin_src emacs-lisp
