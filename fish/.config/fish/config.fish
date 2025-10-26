@@ -194,9 +194,9 @@ set -x GEM_PATH $GEM_HOME
 alias e "emacsclient -t"
 
 export ALTERNATE_EDITOR=""
-export EDITOR="vim"                               # $EDITOR opens in terminal
+export EDITOR="nvim"                               # $EDITOR opens in terminal
 # export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
-export VISUAL="vim"
+export VISUAL="nvim"
 
 export TERMINAL='alacritty'
 export MAN_POSIXLY_CORRECT 1

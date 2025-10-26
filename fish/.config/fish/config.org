@@ -278,9 +278,9 @@ alias e "emacsclient -t"
 ** EDITOR / VISUAL
 #+begin_src shell
 export ALTERNATE_EDITOR=""
-export EDITOR="vim"                               # $EDITOR opens in terminal
+export EDITOR="nvim"                               # $EDITOR opens in terminal
 # export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
-export VISUAL="vim"
+export VISUAL="nvim"
 #+end_src
 
 ** TERMINAL

@@ -62,8 +62,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-; TODO where else is this set????
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -247,7 +246,6 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
 (setq-default explicit-shell-file-name "/usr/bin/fish")
 
 
-(setq display-line-numbers-type 'relative)
 
 ;; activate rainbow mode for org documents and all programming modes
 ; (add-hook! org-mode 'rainbow-mode)
