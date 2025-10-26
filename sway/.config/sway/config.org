@@ -460,7 +460,7 @@ gpt says resize and move position only work when floating is enabled
 #+begin_src shell
 # the main scratchpad like on dwm; so i don't have to manually move it first and then cycle through the stack if multiple pads
 for_window [title="dwm-scratchpad"] floating enable, move to scratchpad
-exec alacritty --title "dwm-scratchpad"
+exec_always alacritty --title "dwm-scratchpad"
 # Show only that specific scratchpad terminal
 bindsym $mod+d [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 bindsym $mod+u [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
