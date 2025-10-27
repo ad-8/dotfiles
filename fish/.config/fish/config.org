@@ -15,12 +15,11 @@
   - [[#special-use][special use]]
   - [[#update-rsync][update: (r)sync]]
 - [[#add-to-path][add to $PATH]]
-- [[#export-env-vars][export ENV vars]]
 - [[#alias][alias]]
-- [[#export][export]]
+- [[#set-in-nix----export][set in nix? -- export]]
+  - [[#export-env-vars][export ENV vars]]
   - [[#editor--visual][EDITOR / VISUAL]]
   - [[#terminal][TERMINAL]]
-  - [[#other][OTHER]]
 - [[#greeting][greeting]]
 - [[#test-timestamp-and-keybinding][test timestamp and keybinding]]
 - [[#stuff-that-should-be-at-the-end][stuff that should be at the end]]
@@ -173,7 +172,6 @@ abbr -a ff rfv
 abbr -a ffa rfvuuu
 abbr -a rcp 'rclone copy --progress'
 abbr -a rct 'rclone tree --level 2'
-abbr -a v vim
 #+end_src
 ** TODO update: (r)sync
 --inplace is needed with mtp, w/o it we have I/O error when rsync tries renaming the tmp copy foo.mp3.RtlGdU to foo.mp3
@@ -198,22 +196,21 @@ fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/.local/bin
 #+end_src
 
-* export ENV vars
-Dont know the flags, but well..
+* alias
+#+begin_src shell
+alias e "emacsclient -nw" 
+alias v vim
+#+end_src
+
+* TODO set in nix? -- export
+** export ENV vars
 #+begin_src shell
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
 set -g theme_color_scheme "nord"
+set -Ux PAGER less
 #+end_src
 
-* alias
-#+begin_src shell
-# when changing between abbr and alias, remove entry from `fish_variables` accordingly 
-#abbr -a em 'emacsclient -t'
-alias e "emacsclient -t" 
-#+end_src
-
-* export
 ** EDITOR / VISUAL
 #+begin_src shell
 export ALTERNATE_EDITOR=""
@@ -232,19 +229,11 @@ export TERMINAL='alacritty'
 export MAN_POSIXLY_CORRECT 1
 #+end_src
 
-** OTHER
-#+begin_src shell
-export QT_QPA_PLATFORMTHEME="qt5ct"
-#+end_src
-
 
 * greeting
 #+begin_src shell
 set -Ux fish_greeting "" # disable default welcome message
-set -Ux PAGER less
 #+end_src
-
-
 * test timestamp and keybinding
 https://fishshell.com/docs/current/cmds/function.html
 https://fishshell.com/docs/current/cmds/commandline.html

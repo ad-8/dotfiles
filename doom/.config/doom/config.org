@@ -277,7 +277,8 @@ why =j=? because its a convenient key to type and surprisingly the namespace was
        ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
        (:prefix ("t" . "testing stuff")
         :desc "hello world" "h" #'ax/my-hello-message
-        :desc "print date" "d" #'ax/my-run-date)))
+        :desc "print date" "d" #'ax/my-run-date
+        :desc "org-babel-tangle" "t" #'org-babel-tangle)))
 #+end_src
 ** toggle
 originally taken from DT's config
