@@ -23,7 +23,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#headers][Headers]]
   - [[#toggle-markdown-view][Toggle Markdown View]]
 - [[#org-stuff][Org Stuff]]
-- [[#misc-stuff][Misc Stuff]]
+- [[#clean-up----misc-stuff][clean up -- Misc Stuff]]
 
 * Resources
 - https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org
@@ -196,6 +196,7 @@ https://www.gnu.org/software/emms/
     (message "%s: %s" status-text message-text)
     ;; (shell-command (format "notify-send '%s' '%s'" status-text message-text))
     
+    ;; TODO move script
     (shell-command
      (format "nix develop ~/sync/tmp/0lastfm --command python ~/sync/tmp/0lastfm/scrobble.py %s %s %s"
          ;; shell-quote-argument helps when eg title is multiple words, so we only pass exactly 3 args to python
@@ -345,7 +346,7 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
 '(org-level-1 :inherit outline-1 :height 1.6)
 '(org-document-title  :height 1.8 :bold t :underline nil))
 #+end_src
-* Misc Stuff
+* TODO clean up -- Misc Stuff
 
 #+begin_src emacs-lisp
 ;; AX
