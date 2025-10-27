@@ -248,13 +248,9 @@ bind ctrl-t insert_timestamp
 * stuff that should be at the end
 #+begin_src shell
 source ~/.config/fish/nnn.fish
-
-starship init fish | source
-zoxide init fish | source
 #+end_src
 
-
-# Added by `rbenv init` on Thu Jul 31 01:20:12 PM CEST 2025
 #+begin_src shell
-status --is-interactive; and rbenv init - --no-rehash fish | source
+starship init fish | source
+zoxide init fish | source
 #+end_src
