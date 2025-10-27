@@ -145,10 +145,7 @@ abbr -a sync-pixel-pics "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:hos
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
-fish_add_path ~/.gem/ruby/3.4.0/bin
 fish_add_path ~/.local/bin
-fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
-fish_add_path ~/go/bin
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"

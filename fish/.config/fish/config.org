@@ -195,10 +195,7 @@ abbr -a sync-pixel-pics "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:hos
 #+begin_src shell
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
-fish_add_path ~/.gem/ruby/3.4.0/bin
 fish_add_path ~/.local/bin
-fish_add_path ~/.local/share/gem/ruby/3.3.0/bin/
-fish_add_path ~/go/bin
 #+end_src
 
 * export ENV vars
