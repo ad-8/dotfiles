@@ -411,4 +411,21 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
                 "iso\\|"
                 "epub"
                 "\\)"))
+
+
+
+
+; ------------
+;; clojure those seem to work
+(after! lsp-mode
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-show-with-cursor t
+        lsp-ui-doc-position 'top))  ; Position pop-up at top of window
+(after! cider
+  (add-hook 'cider-mode-hook #'lsp)
+  (setq cider-doc-view-function #'cider-docview-inline-symbol))  ; Inline docs with examples
+; ------------
+
+
+;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 #+end_src
