@@ -623,6 +623,7 @@ mode "$mode_launcher" {
     bindsym b exec blueman-manager; mode "default"; exec dunstctl close
     bindsym c exec qalculate-gtk; mode "default"; exec dunstctl close
     bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"; exec dunstctl close
+    bindsym shift+e exec emacs; mode "default"; exec dunstctl close
     bindsym f exec thunar; mode "default"; exec dunstctl close
     bindsym k exec keepassxc; mode "default"; exec dunstctl close
     bindsym m exec strawberry; mode "default"; exec dunstctl close
