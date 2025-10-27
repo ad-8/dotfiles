@@ -11,8 +11,8 @@ abbr -a cd. 'cd ~/.config'
 
 abbr -a ga 'git add'
 abbr -a gb 'git branch'
-abbr -a gca 'git commit --amend --no-edit'
 abbr -a gc 'git commit -m'
+abbr -a gca 'git commit --amend --no-edit'
 abbr -a gcm 'git checkout main'
 abbr -a gco 'git checkout'
 abbr -a gd 'git diff'
@@ -35,44 +35,28 @@ else
 end
 
 abbr -a rg 'rg -i'
-abbr -a rb ruby
 
-abbr -a ebands "e $HOME/.metal/bands.csv"
 abbr -a el 'eza -l --group-directories-first --icons'
-#abbr -a fd fdfind
-abbr -a gi 'grep -i'
 abbr -a hg 'history | grep -i'
-abbr -a i3t i3timer
-abbr -a l "licht"
 
-abbr -a et 'emacsclient -t'
-abbr -a hx helix
 abbr -a t. thunar .
 abbr -a cm chezmoi
 abbr -a db distrobox
 
-abbr -a xc 'xclip -selection clipboard'
-
 abbr -a lt 'll -t'
-#abbr -a nf '~/my/scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='emacsclient -nw' nnn"
-abbr -a o. 'open .'
-abbr -a pn protonvpn-cli
-abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
+abbr -a o. 'xdg-open .'
+abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest" # RIP nice cli 
 abbr -a rc rclone
 abbr -a rd 'rm -rf'
 abbr -a rl 'RUST_LOG=debug'
 abbr -a ssa 'sha256sum'
 abbr -a ssc 'sha256sum --check --ignore-missing'
-abbr -a s "strava-rs"
-abbr -a str "cat ~/my/archive/streams.md"
-abbr -a st "strava-rs tui"
 abbr -a tl 'tree -L'
 abbr -a todo 'rg -i todo --stats'
-abbr -a wt wttr
-abbr -a zy zypper
 abbr -a vd vimdiff
+
 
 if test "$XDG_SESSION_TYPE" = "wayland"
     abbr -a pwdc 'pwd | wl-copy'
@@ -80,12 +64,18 @@ else
     abbr -a pwdc 'pwd | xclip -selection clipboard'
 end
 
+abbr -a cg cargo
+abbr -a cgb 'cargo build'
+abbr -a cgc cargo check
+abbr -a cgi 'cargo install --path .'
+abbr -a cgr 'cargo run'
+abbr -a cgt 'cargo test'
 abbr -a fp flatpak
 abbr -a fpl flatpak list --app
 abbr -a fpu flatpak update
-
 abbr -a pm 'pacman -S'
 abbr -a pmq 'pacman -Q'
+abbr -a zy zypper
 
 # Extract the distro ID from /etc/os-release, removing any quotes
 set distro (grep -oP '^ID=\K.*' /etc/os-release | tr -d '"')
@@ -134,18 +124,14 @@ abbr -a flac2mp3 'fd -e flac --exec ffmpeg -loglevel error -i {} -codec:a libmp3
 
 abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
 
-abbr -a v vim
-abbr -a br bin/rails
 abbr -a bk bin/kamal
+abbr -a br bin/rails
+abbr -a dcc '$HOME/scripts/bb/dict.cc.clj'
 abbr -a ff rfv
 abbr -a ffa rfvuuu
-
-abbr -a cgb 'cargo build'
-abbr -a cg cargo
-abbr -a cgc cargo check
-abbr -a cgi 'cargo install --path .'
-abbr -a cgr 'cargo run'
-abbr -a cgt 'cargo test'
+abbr -a rcp 'rclone copy --progress'
+abbr -a rct 'rclone tree --level 2'
+abbr -a v vim
 
 abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
 abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/sync/Moto/' -n"
@@ -156,13 +142,6 @@ abbr -a sync-pixel-music "rsync -ahvP --stats '/nas/media/mukke/' '/run/user/100
 abbr -a sync-pixel-backup "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/backup' '/nas/data/backup/pixel6a' -n"
 
 abbr -a sync-pixel-pics "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/DCIM' '/nas/data/backup/pixel6a' -n"
-
-abbr -a sup "strava-rs update"
-
-abbr -a rcp 'rclone copy --progress'
-abbr -a rct 'rclone tree --level 2'
-
-abbr -a dcc '$HOME/scripts/bb/dict.cc.clj'
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
