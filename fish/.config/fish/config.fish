@@ -5,11 +5,9 @@ end
 abbr -a cdc 'cd ~/my/code'
 abbr -a cdd 'cd ~/dotfiles'
 abbr -a cdj "cd ~/my/code/clojure"
-abbr -a cdm 'cd /run/media/ax'
-abbr -a cdM 'cd ~/MEGA/MEGAsync/'
 abbr -a cdr 'cd ~/my/code/rust'
 abbr -a dl 'cd ~/Downloads'
-abbr -a dot 'cd ~/.config'
+abbr -a cd. 'cd ~/.config'
 
 abbr -a ga 'git add'
 abbr -a gb 'git branch'
