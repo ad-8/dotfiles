@@ -66,7 +66,7 @@ abbr -a rc rclone
 abbr -a rd 'rm -rf'
 abbr -a rl 'RUST_LOG=debug'
 abbr -a ssa 'sha256sum'
-abbr -a ssc 'sha256sum --check'
+abbr -a ssc 'sha256sum --check --ignore-missing'
 abbr -a s "strava-rs"
 abbr -a str "cat ~/my/archive/streams.md"
 abbr -a st "strava-rs tui"
