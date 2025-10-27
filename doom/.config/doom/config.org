@@ -4,6 +4,9 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 
 * Table of Contents :toc:
 - [[#resources][Resources]]
+- [[#bookmarks][Bookmarks]]
+  - [[#where-to-save][where to save]]
+  - [[#when-to-save][when to save]]
 - [[#doom][Doom]]
   - [[#lexical-binding][lexical-binding]]
   - [[#info-from-the-original-configel][Info from the original config.el]]
@@ -24,7 +27,29 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 
 * Resources
 - https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org
+- https://joshblais.com/blog/living-in-emacs/
   
+* Bookmarks
+** where to save
+The variable ‘bookmark-default-file’ specifies the file in which to
+save bookmarks by default.
+#+begin_src emacs-lisp
+(setq bookmark-default-file
+      (expand-file-name "emacs-bookmark-default-file"
+                        (expand-file-name "~/sync")))
+#+end_src
+
+** when to save
+If you set the variable ‘bookmark-save-flag’ to 1, each command that
+sets a bookmark will also save your bookmarks; this way, you don't lose
+any bookmark values even if Emacs crashes.  The value, if a number, says
+how many bookmark modifications should go by between saving.  If you set
+this variable to ‘nil’, Emacs only saves bookmarks if you explicitly use
+‘M-x bookmark-save’.
+#+begin_src emacs-lisp
+(setq bookmark-save-flag 1)
+#+end_src
+
 * Doom
 ** lexical-binding
 Without this line, we get a "soft" error in ~config.el~.
@@ -92,7 +117,7 @@ Without this line, we get a "soft" error in ~config.el~.
 #+end_src
 
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 15 :weight 'semi-light))
+(setq doom-font (font-spec :family "Hack Nerd Font" :size 14 :weight 'semi-light))
 #+end_src
 
 TODO: the font needs to be installed, else Emacs won't start.
