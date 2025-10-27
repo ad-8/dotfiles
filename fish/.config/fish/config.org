@@ -204,19 +204,6 @@ Dont know the flags, but well..
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
 set -g theme_color_scheme "nord"
-# for "rails new" command:
-# https://stackoverflow.com/questions/75391111/how-to-solve-bundlerpermissionerror-there-was-an-error-while-trying-to-write-t
-
-# before
-#set -Ux GEM_HOME $HOME/.gem
-#
-# 2025-08
-#
-# use gems only from the current rbenv Ruby version to avoid permission issues with system gems
-set ruby_prefix (rbenv prefix)
-set -x GEM_HOME $ruby_prefix/lib/ruby/gems/3.4.0
-set -x GEM_PATH $GEM_HOME
-
 #+end_src
 
 * alias
