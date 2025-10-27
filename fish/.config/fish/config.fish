@@ -58,7 +58,7 @@ abbr -a xc 'xclip -selection clipboard'
 abbr -a lt 'll -t'
 #abbr -a nf '~/my/scripts/nf.sh'
 # by default, when in nnn, `e` opens a file with $VISUAL
-abbr -a n "VISUAL='nvim' nnn"
+abbr -a n "VISUAL='emacsclient -nw' nnn"
 abbr -a o. 'open .'
 abbr -a pn protonvpn-cli
 abbr -a pnc "protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest"
@@ -136,7 +136,7 @@ abbr -a flac2mp3 'fd -e flac --exec ffmpeg -loglevel error -i {} -codec:a libmp3
 
 abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
 
-abbr -a v nvim
+abbr -a v vim
 abbr -a br bin/rails
 abbr -a bk bin/kamal
 abbr -a ff rfv
@@ -194,9 +194,8 @@ set -x GEM_PATH $GEM_HOME
 alias e "emacsclient -t"
 
 export ALTERNATE_EDITOR=""
-export EDITOR="nvim"                               # $EDITOR opens in terminal
-# export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
-export VISUAL="nvim"
+export EDITOR="emacsclient -nw"
+export VISUAL="emacsclient -c"
 
 export TERMINAL='alacritty'
 export MAN_POSIXLY_CORRECT 1
