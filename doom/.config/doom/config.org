@@ -158,6 +158,28 @@ https://www.gnu.org/software/emms/
    ("<XF86AudioPrev>" . emms-previous)
    ("<XF86AudioNext>" . emms-next)
    ("<XF86AudioPlay>" . emms-pause)))
+
+
+(defun ax/trigger-scrobble (status)
+  "Run when a song starts or finishes. STATUS should be either 'started or 'finished."
+  (let* ((track (emms-playlist-current-selected-track))
+         (title (emms-track-get track 'info-title))
+         (artist (emms-track-get track 'info-artist))
+         (album (emms-track-get track 'info-album))
+         (message-text (format "%s — %s" (or artist "Unknown artist") (or title "Unknown title")))
+         (status-text (if (eq status 'started) "Now playing" "Finished playing")))
+    (message "%s: %s" status-text message-text)
+    ;; (shell-command (format "notify-send '%s' '%s'" status-text message-text))
+    
+    (shell-command
+     (format "nix develop ~/sync/tmp/0lastfm --command python ~/sync/tmp/0lastfm/scrobble.py %s %s %s"
+         ;; shell-quote-argument helps when eg title is multiple words, so we only pass exactly 3 args to python
+         (shell-quote-argument (or artist "Unknown artist"))
+         (shell-quote-argument (or album "Unknown album"))
+         (shell-quote-argument (or title "Unknown title"))))))
+
+(add-hook 'emms-player-started-hook
+          (lambda () (ax/trigger-scrobble 'started)))
 #+end_src
 
 * Functions
