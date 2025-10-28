@@ -11,9 +11,10 @@
   - [[#cd][cd]]
   - [[#git][git]]
   - [[#heavy-hitters][heavy hitters]]
+  - [[#nix][nix]]
   - [[#package-managers][package managers]]
-  - [[#special-use][special use]]
   - [[#update-rsync][update: (r)sync]]
+  - [[#special-use][special use]]
 - [[#add-to-path][add to $PATH]]
 - [[#alias][alias]]
 - [[#set-in-nix----export][set in nix? -- export]]
@@ -62,7 +63,7 @@ abbr -a gsw 'git show'
 #+begin_src shell
 abbr -a sc systemctl
 abbr -a t tlbx
-abbr -a r tlbx commandrunner
+abbr -a r '$HOME/scripts/command_runner.clj'
 
 if type -q code
    abbr -a c. 'code .'
@@ -99,6 +100,12 @@ if test "$XDG_SESSION_TYPE" = "wayland"
 else
     abbr -a pwdc 'pwd | xclip -selection clipboard'
 end
+#+end_src
+** nix 
+When using `nix shell`, `nix build`, `nix develop`, etc with a flake, then pass `--impure` in order to allow use of environment variables.
+#+begin_src shell
+abbr -a nxd "nix develop --command fish"
+abbr -a nxdu "NIXPKGS_ALLOW_UNFREE=1 nix develop --impure --command fish"
 #+end_src
 ** package managers
 #+begin_src shell
@@ -157,6 +164,21 @@ switch $distro
          abbr -a cu "(checkupdate) Don't know how to on $distro"
 end
 #+end_src
+** TODO update: (r)sync
+--inplace is needed with mtp, w/o it we have I/O error when rsync tries renaming the tmp copy foo.mp3.RtlGdU to foo.mp3
+#+begin_src shell
+abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
+abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/sync/Moto/' -n"
+abbr -a syncmoto-backup "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/backups' '$HOME/sync/Moto/' -n"
+
+abbr -a sync-pixel-music "rsync -ahvP --stats '/nas/media/mukke/' '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/Music/mukke/' --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
+
+abbr -a sync-pixel-backup "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/backup' '/nas/data/backup/pixel6a' -n"
+
+abbr -a sync-pixel-pics "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/DCIM' '/nas/data/backup/pixel6a' -n"
+#+end_src
+*** TODO try =adb push= rsync is slow
+
 ** special use
 Not used often, but very useful.
 #+begin_src shell
@@ -173,22 +195,6 @@ abbr -a ffa rfvuuu
 abbr -a rcp 'rclone copy --progress'
 abbr -a rct 'rclone tree --level 2'
 #+end_src
-** TODO update: (r)sync
---inplace is needed with mtp, w/o it we have I/O error when rsync tries renaming the tmp copy foo.mp3.RtlGdU to foo.mp3
-#+begin_src shell
-abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/Music/mukke/' --delete --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
-abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/sync/Moto/' -n"
-abbr -a syncmoto-backup "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/backups' '$HOME/sync/Moto/' -n"
-
-abbr -a sync-pixel-music "rsync -ahvP --stats '/nas/media/mukke/' '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/Music/mukke/' --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
-
-abbr -a sync-pixel-backup "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/backup' '/nas/data/backup/pixel6a' -n"
-
-abbr -a sync-pixel-pics "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/DCIM' '/nas/data/backup/pixel6a' -n"
-#+end_src
-*** TODO try =adb push= rsync is slow
-
-
 * add to $PATH
 #+begin_src shell
 fish_add_path ~/.cargo/bin/
