@@ -65,26 +65,12 @@
 (add-hook 'emms-player-started-hook
           (lambda () (ax/trigger-scrobble 'started)))
 
-(defun ax/open-trixie ()
-  "Open trixie.org in dired"
+(defun ax/git-count-commits ()
+  "Count the number of commits in the current Git repository
+   using \='git log --oneline | wc -l\='."
   (interactive)
-  (dired "~/sync/0-from-MEGAsync/debian-trixie.org"))
-
-(defun ax/open-trixie-x ()
-  "Open trixie.org in editor"
-  (interactive)
-  (find-file "~/sync/0-from-MEGAsync/debian-trixie.org"))
-
-
-(defun ax/my-hello-message ()
-  (interactive)
-  (message "Hello World from Doom!"))
-
-
-(defun ax/my-run-date ()
-  (interactive)
-  (message "Date is: %s" (string-trim (shell-command-to-string "date +%F_%T"))))
-
+  (message "Number of commits: %s"
+           (string-trim (shell-command-to-string "git log --oneline | wc -l"))))
 
 ;; TODO doesn't work for nested list items, if those have a second line
 (defun ax/org-fold-all-list-items ()
@@ -96,12 +82,23 @@
       (when (org-at-item-p)
         (org-cycle)))))
 
-(defun ax/git-count-commits ()
-  "Count the number of commits in the current Git repository
-   using \='git log --oneline | wc -l\='."
+(defun ax/open-trixie ()
+  "Open trixie.org in dired"
   (interactive)
-  (message "Number of commits: %s"
-           (string-trim (shell-command-to-string "git log --oneline | wc -l"))))
+  (dired "~/sync/0-from-MEGAsync/debian-trixie.org"))
+
+(defun ax/open-trixie-x ()
+  "Open trixie.org in editor"
+  (interactive)
+  (find-file "~/sync/0-from-MEGAsync/debian-trixie.org"))
+
+(defun ax/my-hello-message ()
+  (interactive)
+  (message "Hello World from Doom!"))
+
+(defun ax/my-run-date ()
+  (interactive)
+  (message "Date is: %s" (string-trim (shell-command-to-string "date +%F_%T"))))
 
 (map! :leader
       :desc "(Un)comment line" "-" #'comment-line)
