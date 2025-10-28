@@ -16,6 +16,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 - [[#emms---emacs-multimedia-system][Emms - Emacs Multimedia System]]
   - [[#basic-setup][basic setup]]
   - [[#format-of-title-in-the-emms-playlist-buffer][format of ~title~ in the /EMMS Playlist/ buffer]]
+  - [[#layout][layout]]
   - [[#scrobble-to-lastfm][scrobble to last.fm]]
 - [[#functions][Functions]]
 - [[#keybindings][Keybindings]]
@@ -184,7 +185,18 @@ https://www.gnu.org/software/emms/
 [...]
 7/8. Verachtung
 8/8. Am Ende stirbst du allein
-
+** layout
+#+begin_src emacs-lisp
+(defun my/open-emms-layout ()
+  "Open EMMS browser on the left and playlist on the right."
+  (interactive)
+  (delete-other-windows)
+  (split-window-right)
+  (other-window 0)
+  (emms-browser)
+  (other-window 1)
+  (emms-playlist-mode-go))
+#+end_src
 ** scrobble to last.fm 
 #+begin_src emacs-lisp
 (defun ax/trigger-scrobble (status)

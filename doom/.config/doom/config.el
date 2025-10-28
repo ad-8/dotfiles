@@ -34,6 +34,16 @@
 
 (setq emms-browser-playlist-info-title-format "%T. %t")
 
+(defun my/open-emms-layout ()
+  "Open EMMS browser on the left and playlist on the right."
+  (interactive)
+  (delete-other-windows)
+  (split-window-right)
+  (other-window 0)
+  (emms-browser)
+  (other-window 1)
+  (emms-playlist-mode-go))
+
 (defun ax/trigger-scrobble (status)
   "Run when a song starts or finishes. STATUS should be either 'started or 'finished."
   (let* ((track (emms-playlist-current-selected-track))
