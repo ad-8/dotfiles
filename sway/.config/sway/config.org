@@ -255,6 +255,8 @@ assign [app_id="firefox"] $ws2
 assign [app_id="qbittorrent"] $ws7
 assign [app_id="brave-browser"] $ws8
 assign [app_id="org.strawberrymusicplayer.strawberry"] $ws8
+
+assign [title="ax-emacs-emms"] $ws8
 assign [class="Brave-browser"] $ws8
 assign [app_id="KeePassXC"] $ws9
 assign [class="KeePassXC"] $ws9
@@ -626,7 +628,7 @@ mode "$mode_launcher" {
     bindsym shift+e exec emacs; mode "default"; exec dunstctl close
     bindsym f exec thunar; mode "default"; exec dunstctl close
     bindsym k exec keepassxc; mode "default"; exec dunstctl close
-    bindsym m exec strawberry; mode "default"; exec dunstctl close
+    bindsym m exec emacs --name ax-emacs-emms --eval '(ax/open-emms-layout)'; mode "default"; exec dunstctl close
     bindsym o exec rofi -show drun; mode "default"; exec dunstctl close
     bindsym p exec pavucontrol; mode "default"; exec dunstctl close
     bindsym q exec qbittorrent; mode "default"; exec dunstctl close

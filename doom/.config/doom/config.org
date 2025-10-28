@@ -187,7 +187,7 @@ https://www.gnu.org/software/emms/
 8/8. Am Ende stirbst du allein
 ** layout
 #+begin_src emacs-lisp
-(defun my/open-emms-layout ()
+(defun ax/open-emms-layout ()
   "Open EMMS browser on the left and playlist on the right."
   (interactive)
   (delete-other-windows)

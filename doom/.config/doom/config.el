@@ -34,7 +34,7 @@
 
 (setq emms-browser-playlist-info-title-format "%T. %t")
 
-(defun my/open-emms-layout ()
+(defun ax/open-emms-layout ()
   "Open EMMS browser on the left and playlist on the right."
   (interactive)
   (delete-other-windows)
