@@ -34,6 +34,7 @@ else
    abbr -a c. 'codium .'
 end
 
+abbr -a gi 'grep -i'
 abbr -a rg 'rg -i'
 
 abbr -a el 'eza -l --group-directories-first --icons'
