@@ -14,18 +14,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
-; TODO remove i guess its random
-(setq emms-source-file-default-directory "~/0musiccopy/")
-(setq emms-show-format " %artist - %title ")
-(setq emms-show-album-art t)
-
-
-
 ;; https://lucidmanager.org/productivity/configure-emms/
-;; TODO refactor into headin ghere
-;; without this, no cover in browser (should be default !!)
-
-;; Emacs Multimedia System
 (use-package emms
   :config
   (require 'emms-setup)
@@ -34,8 +23,8 @@
   (emms-default-players)
   (emms-mpris-enable)
   :custom
-  (emms-browser-covers #'emms-browser-cache-thumbnail-async)
-  :bind
+  (emms-browser-covers #'emms-browser-cache-thumbnail-async) ; without this, no covers in browser
+  :bind ; TODO use evil binds and move to keybindings
   (("C-c w m b" . emms-browser)
    ("C-c w m e" . emms)
    ("C-c w m p" . emms-play-playlist )
@@ -43,6 +32,7 @@
    ("<XF86AudioNext>" . emms-next)
    ("<XF86AudioPlay>" . emms-pause)))
 
+(setq emms-browser-playlist-info-title-format "%T. %t")
 
 (defun ax/trigger-scrobble (status)
   "Run when a song starts or finishes. STATUS should be either 'started or 'finished."
@@ -55,6 +45,7 @@
     (message "%s: %s" status-text message-text)
     ;; (shell-command (format "notify-send '%s' '%s'" status-text message-text))
     
+    ;; TODO move script
     (shell-command
      (format "nix develop ~/sync/tmp/0lastfm --command python ~/sync/tmp/0lastfm/scrobble.py %s %s %s"
          ;; shell-quote-argument helps when eg title is multiple words, so we only pass exactly 3 args to python
@@ -124,7 +115,8 @@
        ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
        (:prefix ("t" . "testing stuff")
         :desc "hello world" "h" #'ax/my-hello-message
-        :desc "print date" "d" #'ax/my-run-date)))
+        :desc "print date" "d" #'ax/my-run-date
+        :desc "org-babel-tangle" "t" #'org-babel-tangle)))
 
 (map! :leader
       (:prefix ("t" . "toggle")
@@ -236,3 +228,20 @@
                 "iso\\|"
                 "epub"
                 "\\)"))
+
+
+
+
+; ------------
+;; clojure those seem to work
+(after! lsp-mode
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-show-with-cursor t
+        lsp-ui-doc-position 'top))  ; Position pop-up at top of window
+(after! cider
+  (add-hook 'cider-mode-hook #'lsp)
+  (setq cider-doc-view-function #'cider-docview-inline-symbol))  ; Inline docs with examples
+; ------------
+
+
+;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)

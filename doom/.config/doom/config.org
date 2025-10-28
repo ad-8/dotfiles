@@ -13,7 +13,10 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#font][Font]]
   - [[#theme][Theme]]
   - [[#misc][Misc]]
-- [[#emms][EMMS]]
+- [[#emms---emacs-multimedia-system][Emms - Emacs Multimedia System]]
+  - [[#basic-setup][basic setup]]
+  - [[#format-of-title-in-the-emms-playlist-buffer][format of ~title~ in the /EMMS Playlist/ buffer]]
+  - [[#scrobble-to-lastfm][scrobble to last.fm]]
 - [[#functions][Functions]]
 - [[#keybindings][Keybindings]]
   - [[#ax-1][ax-1]]
@@ -150,23 +153,11 @@ Toggle with ~M-x variable-pitch-font~.
 (setq display-line-numbers-type 'relative)
 #+end_src
 
-* EMMS
-Emacs Multimedia System
+* Emms - Emacs Multimedia System
 https://www.gnu.org/software/emms/
+** basic setup
 #+begin_src emacs-lisp
-
-; TODO remove i guess its random
-(setq emms-source-file-default-directory "~/0musiccopy/")
-(setq emms-show-format " %artist - %title ")
-(setq emms-show-album-art t)
-
-
-
 ;; https://lucidmanager.org/productivity/configure-emms/
-;; TODO refactor into headin ghere
-;; without this, no cover in browser (should be default !!)
-
-;; Emacs Multimedia System
 (use-package emms
   :config
   (require 'emms-setup)
@@ -175,16 +166,27 @@ https://www.gnu.org/software/emms/
   (emms-default-players)
   (emms-mpris-enable)
   :custom
-  (emms-browser-covers #'emms-browser-cache-thumbnail-async)
-  :bind
+  (emms-browser-covers #'emms-browser-cache-thumbnail-async) ; without this, no covers in browser
+  :bind ; TODO use evil binds and move to keybindings
   (("C-c w m b" . emms-browser)
    ("C-c w m e" . emms)
    ("C-c w m p" . emms-play-playlist )
    ("<XF86AudioPrev>" . emms-previous)
    ("<XF86AudioNext>" . emms-next)
    ("<XF86AudioPlay>" . emms-pause)))
+#+end_src
+** format of ~title~ in the /EMMS Playlist/ buffer
+#+begin_src emacs-lisp
+(setq emms-browser-playlist-info-title-format "%T. %t")
+#+end_src
+1/8. Am Sterbebett der Zeit
+2/8. Ballade auf den Tod
+[...]
+7/8. Verachtung
+8/8. Am Ende stirbst du allein
 
-
+** scrobble to last.fm 
+#+begin_src emacs-lisp
 (defun ax/trigger-scrobble (status)
   "Run when a song starts or finishes. STATUS should be either 'started or 'finished."
   (let* ((track (emms-playlist-current-selected-track))
