@@ -370,7 +370,7 @@ mode "$mode_settings" {
     bindsym Escape mode "default"
 }
 
-set $mode_launcher Open:\n\n[a]i [b]luetooth [B]rowser [c]alc [e]macs [f]ile-manager\n\n[k]eepass [m]usic-player [o]pen [p]avucontrol [s]ystem-monitor\n\n[q]bittorrent bra[v]e [w]ebapp firefo[x]
+set $mode_launcher Open:\n\n[a]i [b]luetooth [c]alc [e]macsclient [E]macs [f]ile-manager\n\n[k]eepass [m]usic-player [p]avucontrol\n\n[q]bittorrent bra[v]e [w]ebapp firefo[x]
 
 bindsym $mod+o exec notify-send -t 30000 -u low -i keyboard "$mode_launcher"; mode "$mode_launcher"
 
@@ -383,13 +383,10 @@ mode "$mode_launcher" {
     bindsym f exec thunar; mode "default"; exec dunstctl close
     bindsym k exec keepassxc; mode "default"; exec dunstctl close
     bindsym m exec emacs --name ax-emacs-emms --eval '(ax/open-emms-layout)'; mode "default"; exec dunstctl close
-    bindsym o exec rofi -show drun; mode "default"; exec dunstctl close
     bindsym p exec pavucontrol; mode "default"; exec dunstctl close
     bindsym q exec qbittorrent; mode "default"; exec dunstctl close
-    bindsym s exec gnome-system-monitor; mode "default"; exec dunstctl close
-    bindsym shift+b exec firefox; mode "default"; exec dunstctl close
-    bindsym v exec $HOME/scripts/brave.sh; mode "default"; exec dunstctl close
     bindsym w mode webapp;
+    bindsym v exec $HOME/scripts/brave.sh; mode "default"; exec dunstctl close
     bindsym x exec firefox; mode "default"; exec dunstctl close
 
     bindsym Escape mode "default"; exec dunstctl close
@@ -401,6 +398,7 @@ mode "webapp" {
     bindsym c exec chromium --app="https://calendar.proton.me"; mode "default"; exec dunstctl close
     bindsym m exec chromium --app="https://mail.proton.me"; mode "default"; exec dunstctl close
     bindsym p exec chromium --app="https://search.nixos.org/packages"; mode "default"; exec dunstctl close
+ 
     bindsym Escape mode "default"; exec dunstctl close
     bindsym Return mode "default"; exec dunstctl close
 }
