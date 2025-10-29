@@ -36,6 +36,7 @@
   - [[#from-i3][from i3]]
 - [[#status-bar][Status Bar]]
   - [[#sway-default][sway default]]
+- [[#transparency][Transparency]]
 - [[#gaps][GAPS]]
   - [[#global][global]]
   - [[#per-workspace][per workspace]]
@@ -665,6 +666,10 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+#+end_src
+* Transparency
+#+begin_src shell
+for_window [class="Emacs"] opacity 0.97
 #+end_src
 
 * GAPS

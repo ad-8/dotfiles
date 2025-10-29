@@ -403,6 +403,8 @@ mode "webapp" {
     bindsym Return mode "default"; exec dunstctl close
 }
 
+for_window [class="Emacs"] opacity 0.97
+
 set $my-inner 10
 gaps inner $my-inner
 
