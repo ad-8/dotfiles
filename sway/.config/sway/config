@@ -50,7 +50,6 @@ workspace_layout default
 exec --no-startup-id waybar
 exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
-exec --no-startup-id "~/scripts/sway-exec-emacs.sh"
 exec --no-startup-id firefox
 #exec --no-startup-id megasync
 exec --no-startup-id nm-applet
