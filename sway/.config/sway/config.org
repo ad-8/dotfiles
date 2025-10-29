@@ -646,7 +646,7 @@ mode "webapp" {
     bindsym a exec chromium --app="https://kagi.com/assistant"; mode "default"; exec dunstctl close
     bindsym c exec chromium --app="https://calendar.proton.me"; mode "default"; exec dunstctl close
     bindsym m exec chromium --app="https://mail.proton.me"; mode "default"; exec dunstctl close
-    bindsym n exec chromium --app="https://search.nixos.org/packages"; mode "default"; exec dunstctl close
+    bindsym p exec chromium --app="https://search.nixos.org/packages"; mode "default"; exec dunstctl close
     bindsym Escape mode "default"; exec dunstctl close
     bindsym Return mode "default"; exec dunstctl close
 }
