@@ -65,6 +65,8 @@ else
     abbr -a pwdc 'pwd | xclip -selection clipboard'
 end
 
+abbr -a nxr nix run #e.g. 'nix run nixpkgs#hello'
+abbr -a nxs nix shell
 abbr -a nxd "nix develop --command fish"
 abbr -a nxdu "NIXPKGS_ALLOW_UNFREE=1 nix develop --impure --command fish"
 
