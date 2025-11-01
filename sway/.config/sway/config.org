@@ -18,6 +18,7 @@
   - [[#font][Font]]
   - [[#changing-colors][Changing Colors]]
   - [[#disable-title-bars][Disable Title Bars]]
+  - [[#mouse-warping][Mouse Warping]]
   - [[#set-border-pixel-0-for-notifications-and-a-few-apps][Set ~border pixel 0~ for notifications (and a few apps)]]
   - [[#float--resize-etc-certain-windows][FLOAT / RESIZE etc. CERTAIN WINDOWS]]
   - [[#window-rules-open-apps-on-specific-workspace][Window Rules: Open apps on specific workspace]]
@@ -181,6 +182,10 @@ Setting border style to pixel eliminates title bars. See https://i3wm.org/docs/u
 # hide title bar for all windows
 for_window [class="^.*"] border pixel 3
 
+#+end_src
+** Mouse Warping
+#+begin_src shell
+mouse_warping container
 #+end_src
 
 ** Set ~border pixel 0~ for notifications (and a few apps)
@@ -463,7 +468,7 @@ gpt says resize and move position only work when floating is enabled
 for_window [title="dwm-scratchpad"] floating enable, move to scratchpad
 exec_always alacritty --title "dwm-scratchpad"
 # Show only that specific scratchpad terminal
-bindsym $mod+d [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
+bindsym $mod+d [title="dwm-scratchpad"] scratchpad show, resize set 1024 768, move position center
 bindsym $mod+u [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
 #+end_src
 *** htop
