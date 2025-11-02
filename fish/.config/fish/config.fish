@@ -142,7 +142,7 @@ abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
 
 abbr -a bk bin/kamal
 abbr -a br bin/rails
-abbr -a dcc '$HOME/scripts/bb/dict.cc.clj'
+abbr -a dcc 'steam-run $HOME/scripts/bb/dict.cc.clj'
 abbr -a ff rfv
 abbr -a ffa rfvuuu
 abbr -a rcp 'rclone copy --progress'
