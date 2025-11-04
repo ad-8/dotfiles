@@ -14,7 +14,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#theme][Theme]]
   - [[#misc][Misc]]
 - [[#elfeed---atom-and-rss-reader][Elfeed - Atom and RSS Reader]]
-  - [[#database][Database]]
+  - [[#database-syncthing-seems-to-corrupt-it][Database (syncthing seems to corrupt it)]]
   - [[#default-search-filter][Default Search Filter]]
   - [[#feeds][Feeds]]
 - [[#emms---emacs-multimedia-system][Emms - Emacs Multimedia System]]
@@ -159,9 +159,9 @@ Toggle with ~M-x variable-pitch-font~.
 #+end_src
 
 * Elfeed - Atom and RSS Reader
-** Database
+** TODO Database (syncthing seems to corrupt it)
 #+begin_src emacs-lisp
-(setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
+;; (setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
 #+end_src
 ** Default Search Filter
 By default elfeed-search-filter is set to @2-weeks-ago and makes the last 2 weeks of entries visible.

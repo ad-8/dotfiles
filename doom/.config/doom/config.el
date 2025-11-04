@@ -13,7 +13,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
-(setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
+;; (setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
 
 (after! elfeed
   (setq elfeed-search-filter "@3-days-ago +unread"))
