@@ -4,12 +4,12 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 
 * Table of Contents :toc:
 - [[#resources][Resources]]
+- [[#lexical-binding][lexical-binding]]
 - [[#bookmarks][Bookmarks]]
   - [[#where-to-save][where to save]]
   - [[#when-to-save][when to save]]
 - [[#consult---live-preview-for-git-grep-and-ripgrep][Consult - Live preview for git-grep and ripgrep]]
 - [[#doom][Doom]]
-  - [[#lexical-binding][lexical-binding]]
   - [[#info-from-the-original-configel][Info from the original config.el]]
   - [[#font][Font]]
   - [[#theme][Theme]]
@@ -39,7 +39,14 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 * Resources
 - https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org
 - https://joshblais.com/blog/living-in-emacs/
-  
+
+
+* lexical-binding
+Without this line, we get a "soft" error in ~config.el~.
+#+begin_src emacs-lisp
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+#+end_src
+
 * Bookmarks
 ** where to save
 The variable ‘bookmark-default-file’ specifies the file in which to save bookmarks by default.
@@ -71,11 +78,6 @@ this variable to ‘nil’, Emacs only saves bookmarks if you explicitly use
 #+end_src
 
 * Doom
-** lexical-binding
-Without this line, we get a "soft" error in ~config.el~.
-#+begin_src emacs-lisp
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-#+end_src
 ** Info from the original config.el
 #+begin_src emacs-lisp :tangle no
 

@@ -1,3 +1,5 @@
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
 (setq bookmark-default-file
       (expand-file-name "~/sync/emacs/bookmark-default-file"))
 
@@ -8,8 +10,6 @@
     consult-git-grep
     consult-ripgrep
     :preview-key '(:debounce 0.2 any)))
-
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (setq doom-font (font-spec :family "Hack Nerd Font" :size 14 :weight 'semi-light))
 
