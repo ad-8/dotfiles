@@ -38,12 +38,10 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   
 * Bookmarks
 ** where to save
-The variable ‘bookmark-default-file’ specifies the file in which to
-save bookmarks by default.
+The variable ‘bookmark-default-file’ specifies the file in which to save bookmarks by default.
 #+begin_src emacs-lisp
 (setq bookmark-default-file
-      (expand-file-name "emacs-bookmark-default-file"
-                        (expand-file-name "~/sync")))
+      (expand-file-name "~/sync/emacs/bookmark-default-file"))
 #+end_src
 
 ** when to save

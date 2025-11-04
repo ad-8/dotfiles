@@ -1,6 +1,5 @@
 (setq bookmark-default-file
-      (expand-file-name "emacs-bookmark-default-file"
-                        (expand-file-name "~/sync")))
+      (expand-file-name "~/sync/emacs/bookmark-default-file"))
 
 (setq bookmark-save-flag 1)
 
