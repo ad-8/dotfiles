@@ -673,7 +673,7 @@ bar {
 }
 #+end_src
 * Transparency
-#+begin_src shell
+#+begin_src shell :tangle no
 for_window [class="Emacs"] opacity 0.97
 #+end_src
 
