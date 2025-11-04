@@ -14,6 +14,9 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#theme][Theme]]
   - [[#misc][Misc]]
 - [[#elfeed---atom-and-rss-reader][Elfeed - Atom and RSS Reader]]
+  - [[#database][Database]]
+  - [[#default-search-filter][Default Search Filter]]
+  - [[#feeds][Feeds]]
 - [[#emms---emacs-multimedia-system][Emms - Emacs Multimedia System]]
   - [[#basic-setup][basic setup]]
   - [[#format-of-title-in-the-emms-playlist-buffer][format of ~title~ in the /EMMS Playlist/ buffer]]
@@ -156,9 +159,18 @@ Toggle with ~M-x variable-pitch-font~.
 #+end_src
 
 * Elfeed - Atom and RSS Reader
+** Database
 #+begin_src emacs-lisp
 (setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
-
+#+end_src
+** Default Search Filter
+By default elfeed-search-filter is set to @2-weeks-ago and makes the last 2 weeks of entries visible.
+#+begin_src emacs-lisp
+(after! elfeed
+  (setq elfeed-search-filter "@3-days-ago +unread"))
+#+end_src
+** Feeds
+#+begin_src emacs-lisp
 (setq elfeed-feeds '(
   ("https://planet.emacslife.com/atom.xml" emacs)
   ("http://nullprogram.com/feed/" blog emacs)

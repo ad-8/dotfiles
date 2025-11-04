@@ -15,6 +15,9 @@
 
 (setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
 
+(after! elfeed
+  (setq elfeed-search-filter "@3-days-ago +unread"))
+
 (setq elfeed-feeds '(
   ("https://planet.emacslife.com/atom.xml" emacs)
   ("http://nullprogram.com/feed/" blog emacs)
