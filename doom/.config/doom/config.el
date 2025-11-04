@@ -29,20 +29,17 @@
   ("https://rss.slashdot.org/Slashdot/slashdotMain" tech)
   ("https://www.theverge.com/rss/index.xml" tech)
 
+  ;; hackernews
   ("https://hnrss.org/bestcomments" hackernews)
   ("https://hnrss.org/frontpage" hackernews)
 
   ;; youtube
-  ;; The Linux Cast
-  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCylGUf9BvQooEFjgdNudoQg" youtube)
-  ;; DistroTube
-  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg" youtube)
-  ;; Chris Titus Tech
-  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ" youtube)
-  ;; Titus Tech Talk
-  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtYg149E_wUGVmjGz-TgyNA" youtube)
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCylGUf9BvQooEFjgdNudoQg" youtube) ; The Linux Cast
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg" youtube) ; DistroTube
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ" youtube) ; Chris Titus Tech
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtYg149E_wUGVmjGz-TgyNA" youtube) ; Titus Tech Talk
 
-;; reddit
+  ;; reddit
   ("https://old.reddit.com/r/linux/top/.rss?t=week" reddit linux)
   ("https://old.reddit.com/r/technology/top/.rss?t=week" reddit tech)
   ("https://old.reddit.com/r/archlinux/top/.rss?t=week" reddit archlinux)
