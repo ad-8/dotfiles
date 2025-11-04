@@ -14,6 +14,8 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+(setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
+
 (setq elfeed-feeds '(
   ("http://nullprogram.com/feed/" blog emacs)
   ("http://nedroid.com/feed/" webcomic)

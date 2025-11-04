@@ -159,6 +159,8 @@ Toggle with ~M-x variable-pitch-font~.
 
 * Elfeed
 #+begin_src emacs-lisp
+(setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
+
 (setq elfeed-feeds '(
   ("http://nullprogram.com/feed/" blog emacs)
   ("http://nedroid.com/feed/" webcomic)
