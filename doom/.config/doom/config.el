@@ -16,16 +16,40 @@
 (setq elfeed-db-directory (expand-file-name "~/sync/emacs/elfeed"))
 
 (setq elfeed-feeds '(
+  ("https://planet.emacslife.com/atom.xml" emacs)
   ("http://nullprogram.com/feed/" blog emacs)
   ("http://nedroid.com/feed/" webcomic)
-  "https://planet.emacslife.com/atom.xml"
   "https://feeds.arstechnica.com/arstechnica/index"
   "https://feeds.arstechnica.com/arstechnica/features"
   "https://www.heise.de/rss/heise-top-atom.xml"
   "https://daringfireball.net/feeds/main"
+
+  ("https://lwn.net/headlines/rss" tech linux)
+  ("https://lwn.net/headlines/Features" tech linux)
+  ("https://rss.slashdot.org/Slashdot/slashdotMain" tech)
+  ("https://www.theverge.com/rss/index.xml" tech)
+
+  ("https://hnrss.org/bestcomments" hackernews)
+  ("https://hnrss.org/frontpage" hackernews)
+
+  ;; youtube
+  ;; The Linux Cast
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCylGUf9BvQooEFjgdNudoQg" youtube)
+  ;; DistroTube
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg" youtube)
+  ;; Chris Titus Tech
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ" youtube)
+  ;; Titus Tech Talk
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtYg149E_wUGVmjGz-TgyNA" youtube)
+
+;; reddit
+  ("https://old.reddit.com/r/linux/top/.rss?t=week" reddit linux)
+  ("https://old.reddit.com/r/technology/top/.rss?t=week" reddit tech)
   ("https://old.reddit.com/r/archlinux/top/.rss?t=week" reddit archlinux)
   ("https://old.reddit.com/r/debian/top/.rss?t=week" reddit debian)
   ("https://old.reddit.com/r/nixos/top/.rss?t=week" reddit nixos) 
+  ("https://old.reddit.com/r/bundesliga/top/.rss?t=week" reddit sports)
+  ("https://old.reddit.com/r/formula1/top/.rss?t=week" reddit sports)
   ))
 
 ;; https://lucidmanager.org/productivity/configure-emms/
