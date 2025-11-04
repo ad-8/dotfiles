@@ -3,6 +3,12 @@
 
 (setq bookmark-save-flag 1)
 
+(after! consult
+  (consult-customize
+    consult-git-grep
+    consult-ripgrep
+    :preview-key '(:debounce 0.2 any)))
+
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (setq doom-font (font-spec :family "Hack Nerd Font" :size 14 :weight 'semi-light))
@@ -153,7 +159,9 @@
 (map! :leader
       (:prefix-map ("j" . "ax custom binds")
        (:prefix ("f" . "fzf")
-        :desc "Starts fzf session in dir" "f" #'fzf-directory)
+        :desc "Starts fzf session in dir" "f" #'fzf-directory
+        :desc "consult-git-grep" "g" #'consult-git-grep
+        :desc "consult-ripgrep" "r" #'consult-ripgrep)
        ;; this is nested under spc-j-p-p
        ;; (:prefix ("p" . "dired-preview")
        ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)

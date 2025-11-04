@@ -7,6 +7,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 - [[#bookmarks][Bookmarks]]
   - [[#where-to-save][where to save]]
   - [[#when-to-save][when to save]]
+- [[#consult---live-preview-for-git-grep-and-ripgrep][Consult - Live preview for git-grep and ripgrep]]
 - [[#doom][Doom]]
   - [[#lexical-binding][lexical-binding]]
   - [[#info-from-the-original-configel][Info from the original config.el]]
@@ -27,7 +28,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#delete-sometime-in-the-future][delete sometime in the future]]
 - [[#keybindings][Keybindings]]
   - [[#ax-1][ax-1]]
-  - [[#ax-custom-prefix-space-j][ax-custom-prefix: SPACE j]]
+  - [[#ax-custom-prefix-spc-j][ax-custom-prefix: SPC j]]
   - [[#toggle][toggle]]
 - [[#markdown][Markdown]]
   - [[#headers][Headers]]
@@ -56,6 +57,17 @@ this variable to ‘nil’, Emacs only saves bookmarks if you explicitly use
 ‘M-x bookmark-save’.
 #+begin_src emacs-lisp
 (setq bookmark-save-flag 1)
+#+end_src
+
+* Consult - Live preview for git-grep and ripgrep
+;; A *0.2-second debounce* prevents excessive re-previewing during rapid typing -
+;; it waits 200ms after you stop typing before updating the preview.
+#+begin_src emacs-lisp
+(after! consult
+  (consult-customize
+    consult-git-grep
+    consult-ripgrep
+    :preview-key '(:debounce 0.2 any))) 
 #+end_src
 
 * Doom
@@ -330,13 +342,15 @@ keeping 'em for now to learn how to do things with elisp
       :prefix "w"
       :desc "Horizontal split" "z" #'evil-window-split)
 #+end_src
-** ax-custom-prefix: SPACE j
+** ax-custom-prefix: SPC j
 why =j=? because its a convenient key to type and surprisingly the namespace was completely empty
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix-map ("j" . "ax custom binds")
        (:prefix ("f" . "fzf")
-        :desc "Starts fzf session in dir" "f" #'fzf-directory)
+        :desc "Starts fzf session in dir" "f" #'fzf-directory
+        :desc "consult-git-grep" "g" #'consult-git-grep
+        :desc "consult-ripgrep" "r" #'consult-ripgrep)
        ;; this is nested under spc-j-p-p
        ;; (:prefix ("p" . "dired-preview")
        ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
