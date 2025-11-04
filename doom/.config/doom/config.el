@@ -14,6 +14,19 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+(setq elfeed-feeds '(
+  ("http://nullprogram.com/feed/" blog emacs)
+  ("http://nedroid.com/feed/" webcomic)
+  "https://planet.emacslife.com/atom.xml"
+  "https://feeds.arstechnica.com/arstechnica/index"
+  "https://feeds.arstechnica.com/arstechnica/features"
+  "https://www.heise.de/rss/heise-top-atom.xml"
+  "https://daringfireball.net/feeds/main"
+  ("https://old.reddit.com/r/archlinux/top/.rss?t=week" reddit archlinux)
+  ("https://old.reddit.com/r/debian/top/.rss?t=week" reddit debian)
+  ("https://old.reddit.com/r/nixos/top/.rss?t=week" reddit nixos) 
+  ))
+
 ;; https://lucidmanager.org/productivity/configure-emms/
 (use-package emms
   :config

@@ -13,6 +13,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#font][Font]]
   - [[#theme][Theme]]
   - [[#misc][Misc]]
+- [[#elfeed][Elfeed]]
 - [[#emms---emacs-multimedia-system][Emms - Emacs Multimedia System]]
   - [[#basic-setup][basic setup]]
   - [[#format-of-title-in-the-emms-playlist-buffer][format of ~title~ in the /EMMS Playlist/ buffer]]
@@ -154,6 +155,22 @@ Toggle with ~M-x variable-pitch-font~.
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
+#+end_src
+
+* Elfeed
+#+begin_src emacs-lisp
+(setq elfeed-feeds '(
+  ("http://nullprogram.com/feed/" blog emacs)
+  ("http://nedroid.com/feed/" webcomic)
+  "https://planet.emacslife.com/atom.xml"
+  "https://feeds.arstechnica.com/arstechnica/index"
+  "https://feeds.arstechnica.com/arstechnica/features"
+  "https://www.heise.de/rss/heise-top-atom.xml"
+  "https://daringfireball.net/feeds/main"
+  ("https://old.reddit.com/r/archlinux/top/.rss?t=week" reddit archlinux)
+  ("https://old.reddit.com/r/debian/top/.rss?t=week" reddit debian)
+  ("https://old.reddit.com/r/nixos/top/.rss?t=week" reddit nixos) 
+  ))
 #+end_src
 
 * Emms - Emacs Multimedia System
