@@ -350,10 +350,10 @@ why =j=? because its a convenient key to type and surprisingly the namespace was
        (:desc "Toggle Dired Preview (global)" "p" #'dired-preview-global-mode)
        ;; nested
        (:prefix ("d" . "dirvish / delete")
-        :desc "delete-pair" "p" #'delete-pair
         :desc "dirvish-fd" "f" #'dirvish-fd
+        :desc "dirvish-move" "m" #'dirvish-move
         :desc "dirvish-narrow" "n" #'dirvish-narrow
-        )
+        :desc "delete-pair" "p" #'delete-pair)
        (:prefix ("e" . "elfeed")
         :desc "elfeed" "e" #'elfeed
         :desc "elfeed update" "u" #'elfeed-update)
