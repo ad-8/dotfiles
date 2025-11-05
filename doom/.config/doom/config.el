@@ -6,10 +6,13 @@
 (setq bookmark-save-flag 1)
 
 (after! consult
-  (consult-customize
-    consult-git-grep
-    consult-ripgrep
-    :preview-key '(:debounce 0.2 any)))
+(consult-customize
+   consult-theme :preview-key '(:debounce 0.2 any)
+   consult-ripgrep consult-git-grep consult-grep consult-man
+   consult-bookmark consult-recent-file consult-xref
+   ;; :preview-key "M-."
+   :preview-key '(:debounce 0.4 any)
+))
 
 (setq doom-font (font-spec :family "Hack Nerd Font" :size 14 :weight 'semi-light))
 

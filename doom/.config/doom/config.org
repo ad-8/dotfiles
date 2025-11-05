@@ -8,7 +8,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
 - [[#bookmarks][Bookmarks]]
   - [[#where-to-save][where to save]]
   - [[#when-to-save][when to save]]
-- [[#consult---live-preview-for-git-grep-and-ripgrep][Consult - Live preview for git-grep and ripgrep]]
+- [[#consult---live-previews][Consult - Live previews]]
 - [[#doom][Doom]]
   - [[#info-from-the-original-configel][Info from the original config.el]]
   - [[#font][Font]]
@@ -66,15 +66,17 @@ this variable to ‘nil’, Emacs only saves bookmarks if you explicitly use
 (setq bookmark-save-flag 1)
 #+end_src
 
-* Consult - Live preview for git-grep and ripgrep
-;; A *0.2-second debounce* prevents excessive re-previewing during rapid typing -
-;; it waits 200ms after you stop typing before updating the preview.
+* Consult - Live previews
+https://github.com/minad/consult?tab=readme-ov-file#use-package-example
 #+begin_src emacs-lisp
 (after! consult
-  (consult-customize
-    consult-git-grep
-    consult-ripgrep
-    :preview-key '(:debounce 0.2 any))) 
+(consult-customize
+   consult-theme :preview-key '(:debounce 0.2 any)
+   consult-ripgrep consult-git-grep consult-grep consult-man
+   consult-bookmark consult-recent-file consult-xref
+   ;; :preview-key "M-."
+   :preview-key '(:debounce 0.4 any)
+))
 #+end_src
 
 * Doom
