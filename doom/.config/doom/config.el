@@ -151,16 +151,15 @@
       :desc "(Un)comment line" "-" #'comment-line)
 
 (map! :leader
-      :prefix "j"
-      :desc "Toggle Dired Preview (global)"
-      "p" #'dired-preview-global-mode)
-
-(map! :leader
       :prefix "w"
       :desc "Horizontal split" "z" #'evil-window-split)
 
 (map! :leader
       (:prefix-map ("j" . "ax custom binds")
+       ;; non-nested
+       (:desc "delete-pair" "d" #'delete-pair)
+       (:desc "Toggle Dired Preview (global)" "p" #'dired-preview-global-mode)
+       ;; nested
        (:prefix ("f" . "fzf")
         :desc "Starts fzf session in dir" "f" #'fzf-directory
         :desc "consult-git-grep" "g" #'consult-git-grep
@@ -300,3 +299,6 @@
 
 
 ;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
+;; get rid of the delay after executing delete-pair
+(setq delete-pair-blink-delay 0.1)
