@@ -372,7 +372,10 @@ mode "$mode_settings" {
     bindsym Escape mode "default"
 }
 
-set $mode_launcher Open:\n\n[a]i [b]luetooth [c]alc [e]macsclient [E]macs [f]ile-manager\n\n[k]eepass [m]usic-player [p]avucontrol\n\n[q]bittorrent bra[v]e [w]ebapp firefo[x]
+set $mode_launcher Open:\n\n[a]i [b]luetooth [c]alc [e]macsclient [E]macs [f]ile-manager\n\n[k]eepass [m]usic-player [p]avucontrol\n\n[q]bittorrent [s]creenshot bra[v]e [w]ebapp firefo[x]
+# set $mode_launcher Open: a b c e E f k m p q s v w x
+
+set $mode_screenshot Screenshot: [a]ll outputs [s]elect region
 
 bindsym $mod+o exec notify-send -t 30000 -u low -i keyboard "$mode_launcher"; mode "$mode_launcher"
 
@@ -387,10 +390,23 @@ mode "$mode_launcher" {
     bindsym m exec emacs --name ax-emacs-emms --eval '(ax/open-emms-layout)'; mode "default"; exec dunstctl close
     bindsym p exec pavucontrol; mode "default"; exec dunstctl close
     bindsym q exec qbittorrent; mode "default"; exec dunstctl close
-    bindsym w mode webapp;
+    bindsym s exec dunstctl close; mode "$mode_screenshot";
     bindsym v exec $HOME/scripts/brave.sh; mode "default"; exec dunstctl close
+    bindsym w mode webapp;
     bindsym x exec firefox; mode "default"; exec dunstctl close
 
+    bindsym Escape mode "default"; exec dunstctl close
+    bindsym Return mode "default"; exec dunstctl close
+}
+
+
+mode "$mode_screenshot" {
+    # mode default first, because swappy (the screenshot gui) might be open for a while,
+    # and we don't want to be stuck in a non-default meanwhile
+    bindsym s mode default; exec grim -g "$(slurp)" - | swappy -f -; 
+    # TODO until we get rid of the dunst notifs, we need to sleep here, else the notif is in the screenshot
+    bindsym a mode default; exec sleep 1; exec grim - | swappy -f -; 
+    
     bindsym Escape mode "default"; exec dunstctl close
     bindsym Return mode "default"; exec dunstctl close
 }
