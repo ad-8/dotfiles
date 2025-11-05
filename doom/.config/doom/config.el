@@ -160,13 +160,13 @@
        (:desc "delete-pair" "d" #'delete-pair)
        (:desc "Toggle Dired Preview (global)" "p" #'dired-preview-global-mode)
        ;; nested
+       (:prefix ("e" . "elfeed")
+        :desc "elfeed" "e" #'elfeed
+        :desc "elfeed update" "u" #'elfeed-update)
        (:prefix ("f" . "fzf")
         :desc "Starts fzf session in dir" "f" #'fzf-directory
         :desc "consult-git-grep" "g" #'consult-git-grep
         :desc "consult-ripgrep" "r" #'consult-ripgrep)
-       ;; this is nested under spc-j-p-p
-       ;; (:prefix ("p" . "dired-preview")
-       ;;  :desc "Toggle dired-preview" "p" #'dired-preview-mode)
        (:prefix ("t" . "testing stuff")
         :desc "hello world" "h" #'ax/my-hello-message
         :desc "print date" "d" #'ax/my-run-date
