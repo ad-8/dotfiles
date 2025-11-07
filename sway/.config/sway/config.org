@@ -235,6 +235,8 @@ for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="blueman-manager"] resize set 640 480
 for_window [app_id="blueman-manager"] move position center
 
+for_window [title="bluetui"] floating enable, resize set 1024 768, move position center
+
 for_window [title="About Mozilla Firefox"] floating enable
 
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
@@ -629,7 +631,7 @@ bindsym $mod+o exec notify-send -t 30000 -u low -i keyboard "$mode_launcher"; mo
 
 mode "$mode_launcher" {
     bindsym a exec chromium --app="https://kagi.com/assistant"; mode "default"; exec dunstctl close
-    bindsym b exec blueman-manager; mode "default"; exec dunstctl close
+    bindsym b exec alacritty --title bluetui --command bluetui; mode "default"; exec dunstctl close
     bindsym c exec qalculate-gtk; mode "default"; exec dunstctl close
     bindsym e exec emacsclient --create-frame --alternate-editor="vim"; mode "default"; exec dunstctl close
     bindsym shift+e exec emacs; mode "default"; exec dunstctl close
