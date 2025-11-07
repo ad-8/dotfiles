@@ -104,7 +104,7 @@ for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="blueman-manager"] resize set 640 480
 for_window [app_id="blueman-manager"] move position center
 
-for_window [title="bluetui"] floating enable, resize set 1024 768, move position center
+for_window [app_id="Alacritty" title="bluetui"] floating enable, resize set 1024 768, move position center
 
 for_window [title="About Mozilla Firefox"] floating enable
 
