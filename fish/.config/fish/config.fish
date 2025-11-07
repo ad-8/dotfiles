@@ -26,7 +26,9 @@ abbr -a gsw 'git show'
 
 abbr -a sc systemctl
 abbr -a t tlbx
-abbr -a r '$HOME/scripts/command_runner.clj'
+abbr -a r 'clear && $HOME/scripts/command_runner.clj'
+# TODO is this used?...
+abbr -a r2 '$HOME/scripts/command_runner.clj'
 
 if type -q code
    abbr -a c. 'code .'
