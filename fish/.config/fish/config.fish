@@ -72,7 +72,8 @@ abbr -a nxs nix shell
 abbr -a nxd "nix develop --command fish"
 abbr -a nxdu "NIXPKGS_ALLOW_UNFREE=1 nix develop --impure --command fish"
 
-abbr -a up2 "NH_OS_FLAKE=~/dotfiles-nixos nh os switch --ask -H $hostname"
+abbr -a up2 "NH_OS_FLAKE=~/dotfiles-nixos nh os switch --ask --hostname $hostname"
+abbr -a nxup "NH_OS_FLAKE=~/dotfiles-nixos nh os switch --ask --hostname $hostname"
 abbr -a nxclean 'nh clean all --keep 3 --nogcroots -n'
 
 abbr -a cg cargo
