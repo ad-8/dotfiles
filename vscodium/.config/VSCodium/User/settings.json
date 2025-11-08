@@ -8,5 +8,5 @@
     "editor.minimap.enabled": false,
     "files.autoSave": "afterDelay",
     // theme
-    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.colorTheme": "Nord",
 }
