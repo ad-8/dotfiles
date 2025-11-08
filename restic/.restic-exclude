@@ -3,12 +3,14 @@ venv
 qbit
 *.dmg
 **/rust/**/target
+**/code-v2/**/target
 **/clojure/**/.clj-kondo
 **/clojure/**/.shadow-cljs
 **/clojure/**/.lsp
 **/clojure/**/node_modules
 **/clojure/**/resources/public/js
 **/rails/**/tmp
+**/rails/store/vendor
 
 **/.calva/
 **/.ruby-lsp
