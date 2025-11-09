@@ -258,11 +258,16 @@ for_window [title="dwm-scratchpad"] floating enable, move to scratchpad
 exec_always alacritty --title "dwm-scratchpad"
 # Show only that specific scratchpad terminal
 bindsym $mod+d [title="dwm-scratchpad"] scratchpad show, resize set 1024 768, move position center
-bindsym $mod+u [title="dwm-scratchpad"] scratchpad show, resize set 800 600, move position center
+
+# the main scratchpad like on dwm; so i don't have to manually move it first and then cycle through the stack if multiple pads
+for_window [title="ax-org-capture"] floating enable, move to scratchpad
+exec_always alacritty --title "ax-org-capture" --command emacs --no-window-system
+# Show only that specific scratchpad terminal
+bindsym $mod+u [title="ax-org-capture"] scratchpad show, resize set 1024 768, move position center
 
 for_window [title="htop-scratchpad"] floating enable, move to scratchpad
 exec alacritty --title "htop-scratchpad" -e htop
-bindsym $mod+F12 [title="htop-scratchpad"] scratchpad show, resize set 800 600, move position top-left
+bindsym $mod+F12 [title="htop-scratchpad"] scratchpad show, resize set 1024 768, move position top-left
 
 # Move Emacs with title "emacs-scratchpad" to scratchpad automatically
 for_window [title="emacs-scratchpad-todo"] floating enable, move to scratchpad
