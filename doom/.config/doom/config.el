@@ -157,6 +157,7 @@
 (map! :leader
       (:prefix-map ("j" . "ax custom binds")
        ;; non-nested
+       (:desc "org-capture" "j" #'org-capture)
        (:desc "Toggle Dired Preview (global)" "p" #'dired-preview-global-mode)
        ;; nested
        (:prefix ("d" . "dirvish / delete")
