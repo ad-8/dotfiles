@@ -34,6 +34,7 @@ This ~config.org~ gets tangled automatically into a ~config.el~ by Doom.
   - [[#headers][Headers]]
   - [[#toggle-markdown-view][Toggle Markdown View]]
 - [[#org-stuff][Org Stuff]]
+- [[#org-capture-loop-for-scratchpad][org-capture loop for scratchpad]]
 - [[#clean-up----misc-stuff][clean up -- Misc Stuff]]
 
 * Resources
@@ -432,6 +433,27 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
 '(org-level-1 :inherit outline-1 :height 1.6)
 '(org-document-title  :height 1.8 :bold t :underline nil))
 #+end_src
+* org-capture loop for scratchpad
+#+begin_src emacs-lisp
+(defun ax/org-capture-loop ()
+  "Continuously open `org-capture` after each capture is finalized.
+Runs indefinitely until the user aborts with `C-g` or similar."
+  (interactive)
+  (add-hook 'org-capture-after-finalize-hook #'ax/org-capture--restart)
+  (org-capture))
+
+(defun ax/org-capture--restart ()
+  "Restart `org-capture` automatically after finalizing a capture."
+  ;; Temporarily remove the hook to prevent nested recursion.
+  (remove-hook 'org-capture-after-finalize-hook #'ax/org-capture--restart)
+  ;; Delay restart slightly so Org finishes cleanup first.
+  (run-at-time
+   0.1 nil
+   (lambda ()
+     (add-hook 'org-capture-after-finalize-hook #'ax/org-capture--restart)
+     (org-capture))))
+#+end_src
+
 * TODO clean up -- Misc Stuff
 
 #+begin_src emacs-lisp

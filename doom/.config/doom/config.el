@@ -225,6 +225,24 @@
 '(org-level-1 :inherit outline-1 :height 1.6)
 '(org-document-title  :height 1.8 :bold t :underline nil))
 
+(defun ax/org-capture-loop ()
+  "Continuously open `org-capture` after each capture is finalized.
+Runs indefinitely until the user aborts with `C-g` or similar."
+  (interactive)
+  (add-hook 'org-capture-after-finalize-hook #'ax/org-capture--restart)
+  (org-capture))
+
+(defun ax/org-capture--restart ()
+  "Restart `org-capture` automatically after finalizing a capture."
+  ;; Temporarily remove the hook to prevent nested recursion.
+  (remove-hook 'org-capture-after-finalize-hook #'ax/org-capture--restart)
+  ;; Delay restart slightly so Org finishes cleanup first.
+  (run-at-time
+   0.1 nil
+   (lambda ()
+     (add-hook 'org-capture-after-finalize-hook #'ax/org-capture--restart)
+     (org-capture))))
+
 ;; AX
 ; doom doctor suggestions
 (setq shell-file-name (executable-find "bash"))
