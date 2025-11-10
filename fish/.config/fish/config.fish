@@ -162,7 +162,7 @@ fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/.local/bin
 
-alias e "emacsclient -nw" 
+alias e "emacs -nw"
 alias v vim
 
 # --export -x is the same

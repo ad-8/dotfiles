@@ -220,7 +220,7 @@ fish_add_path ~/.local/bin
 
 * alias
 #+begin_src shell
-alias e "emacsclient -nw" 
+alias e "emacs -nw"
 alias v vim
 #+end_src
 
