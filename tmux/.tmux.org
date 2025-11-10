@@ -1,3 +1,9 @@
+#+title:  Tmux
+#+PROPERTY: header-args:shell :tangle .tmux.conf
+
+* Settings
+** General
+#+begin_src shell
 # Enable mouse control (clickable windows, panes, resizable panes)
 set -g mouse on
 
@@ -17,7 +23,9 @@ set -g pane-border-lines single
 # messages
 set -g display-time 2000
 set -g message-style 'fg=yellow bg=red bold'
-
+#+end_src
+** Statusbar
+#+begin_src shell
 set -g status-position bottom
 set -g status-justify left
 set -g status-style 'fg=red'
@@ -36,11 +44,27 @@ setw -g window-status-style 'fg=red bg=black'
 setw -g window-status-format ' #I #[fg=white]#W #[fg=yellow]#F '
 
 setw -g window-status-bell-style 'fg=yellow bg=red bold'
-
+#+end_src
+** TODO evaluate -- Disable bell
+don't do anything when a 'bell' rings
+#+begin_src shell :tangle no
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
+setw -g monitor-activity off
+set -g bell-action none
+#+end_src
+* Keybindings
+~bind~ = needs prefix; ~bind -n~ = no prefix
+** Remap Prefix Key
+TODO testing ö - next alternative would be C-a (best with capslock remapped to ctrl)
+#+begin_src shell 
 unbind C-b
 set -g prefix ö
 bind ö send-prefix
-
+#+end_src
+** Quality of Life
+#+begin_src shell
 # reload config file -- \; is just escape ;
 bind r source-file ~/.tmux.conf \; display "Config reloaded!"
 
@@ -67,5 +91,9 @@ bind - split-window -v
 # move window and focus it
 bind-key < swap-window -t -1 \; select-window -t -1
 bind-key > swap-window -t +1 \; select-window -t +1
-
+#+end_src
+** Testing
+#+begin_src shell
 bind ä display "keira"
+#+end_src
+
