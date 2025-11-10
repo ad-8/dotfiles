@@ -25,7 +25,6 @@ abbr -a gs 'git status'
 abbr -a gsw 'git show'
 
 abbr -a sc systemctl
-abbr -a t tlbx
 abbr -a r 'clear && $HOME/scripts/command_runner.clj'
 # TODO is this used?...
 abbr -a r2 '$HOME/scripts/command_runner.clj'
@@ -66,6 +65,11 @@ if test "$XDG_SESSION_TYPE" = "wayland"
 else
     abbr -a pwdc 'pwd | xclip -selection clipboard'
 end
+
+abbr -a t tmux
+abbr -a tn 'tmux new-session -s'
+abbr -a tl 'tmux list-sessions'
+abbr -a ta 'tmux attach-session'
 
 abbr -a nxr nix run #e.g. 'nix run nixpkgs#hello'
 abbr -a nxs nix shell
