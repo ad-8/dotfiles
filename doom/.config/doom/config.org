@@ -166,7 +166,7 @@ Toggle with ~M-x variable-pitch-font~.
 #+end_src
 
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'gotham)
 #+end_src
 ** Misc
 #+begin_src emacs-lisp

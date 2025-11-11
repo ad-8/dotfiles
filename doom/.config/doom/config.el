@@ -16,7 +16,7 @@
 
 (setq doom-font (font-spec :family "Hack Nerd Font" :size 14 :weight 'semi-light))
 
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'gotham)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.

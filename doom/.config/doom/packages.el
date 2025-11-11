@@ -55,3 +55,5 @@
 (package! ox-twbs) ;; export your Org files to Bootstrap-styled HTML
 (package! tldr)
 (package! rainbow-delimiters)
+(package! gotham-theme)
+
