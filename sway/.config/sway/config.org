@@ -305,7 +305,7 @@ output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
 #+end_src
 
 #+begin_src shell
-output DP-1 position 0 0 resolution 3840x2160 scale 1.75
+output DP-1 position 0 0 resolution 3840x2160 scale 1.5
 output HDMI-A-1 position 2560,360 resolution 1920x1080
 
 
@@ -536,8 +536,8 @@ bindsym $mod+$alt+h exec dunstctl history-pop
 bindsym $mod+$alt+k exec dunstctl close-all
 bindsym $mod+$alt+w exec ~/scripts/bb/weather.clj dunst
 
-# todo mod shift m for specialiezd bookmark stuff, maybe special mode?
-bindsym $mod+m exec bb ~/x/ax_bookmarks.clj 
+bindsym $mod+m exec bb ~/x/ax_bookmarks.clj std
+bindsym $mod+shift+m exec bb ~/x/ax_bookmarks.clj archived
 bindsym $mod+shift+s exec bb ~/scripts/bb/search.clj --select-provider
 #+end_src
 
