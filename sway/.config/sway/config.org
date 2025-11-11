@@ -299,9 +299,24 @@ your coordinates will be (100, 80)
 get display names and available resolutions: =swaymsg -t get_outputs=
 also checkin =wdisplays= gui app to test/get position and scale values easily,
 sadly doesnt allow to save the settings like =arandr=
-#+begin_src shell
+#+begin_src shell :tangle no
 output HDMI-A-2 position 0 0 resolution 2560x1080
 output eDP-1 position 426 1080 resolution 2560x1600 scale 1.5
+#+end_src
+
+#+begin_src shell
+output DP-1 position 0 0 resolution 3840x2160 scale 1.75
+output HDMI-A-1 position 2560,360 resolution 1920x1080
+
+
+workspace 1 output DP-1
+workspace 2 output DP-1
+workspace 3 output DP-1
+workspace 4 output DP-1
+workspace 5 output DP-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
 #+end_src
 
 * swayidle
@@ -599,7 +614,10 @@ workspace_auto_back_and_forth yes
 bindsym $mod+Tab workspace back_and_forth
 # bindsym $mod+Shift+b move container to workspace back_and_forth
 
-bindsym $mod+period move workspace to output down
+bindsym $mod+shift+period move window to output left
+bindsym $mod+shift+comma move workspace to output left
+bindsym $mod+period focus output left
+#bindsym $mod+Shift+Tab focus output prev
 #+end_src
 
 *** TODO Interactive mode: scripts using dmenu for user interaction
