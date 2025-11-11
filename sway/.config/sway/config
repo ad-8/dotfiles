@@ -297,6 +297,10 @@ bindsym $mod+$alt+h exec dunstctl history-pop
 bindsym $mod+$alt+k exec dunstctl close-all
 bindsym $mod+$alt+w exec ~/scripts/bb/weather.clj dunst
 
+# todo mod shift m for specialiezd bookmark stuff, maybe special mode?
+bindsym $mod+m exec bb ~/x/ax_bookmarks.clj 
+bindsym $mod+shift+s exec bb ~/scripts/bb/search.clj --select-provider
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width

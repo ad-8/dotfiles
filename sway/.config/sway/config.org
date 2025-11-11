@@ -520,6 +520,10 @@ bindsym $mod+shift+b exec ~/scripts/waybar.clj toggle-min
 bindsym $mod+$alt+h exec dunstctl history-pop
 bindsym $mod+$alt+k exec dunstctl close-all
 bindsym $mod+$alt+w exec ~/scripts/bb/weather.clj dunst
+
+# todo mod shift m for specialiezd bookmark stuff, maybe special mode?
+bindsym $mod+m exec bb ~/x/ax_bookmarks.clj 
+bindsym $mod+shift+s exec bb ~/scripts/bb/search.clj --select-provider
 #+end_src
 
 ** Resizing containers
