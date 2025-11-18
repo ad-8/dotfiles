@@ -416,14 +416,13 @@ A custom function to toggle between standard =markdown-mode= and =markdown-view-
     (markdown-view-mode)))
 #+end_src
 * Org Stuff
-#+begin_src emacs-lisp
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-;; TODO
 ** org-directory
+#+begin_src emacs-lisp
 (setq org-directory "~/org/")
+#+end_src
 
 ** set different heading sizes
+#+begin_src emacs-lisp
 (custom-theme-set-faces!
 'doom-nord
 '(org-level-8 :inherit outline-3 :height 1.0)
