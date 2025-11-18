@@ -14,7 +14,7 @@
    :preview-key '(:debounce 0.4 any)
 ))
 
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 14 :weight 'semi-light))
+(setq doom-font (font-spec :family "Hack Nerd Font" :size 16 :weight 'semi-light))
 
 (setq doom-theme 'gotham)
 
@@ -207,14 +207,8 @@
       (markdown-mode)
     (markdown-view-mode)))
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-;; TODO
-(setq org-directory "~/org/")
-
-;; org-mode: set different heading sizes
 (custom-theme-set-faces!
-'doom-nord
+'gotham
 '(org-level-8 :inherit outline-3 :height 1.0)
 '(org-level-7 :inherit outline-3 :height 1.0)
 '(org-level-6 :inherit outline-3 :height 1.1)
