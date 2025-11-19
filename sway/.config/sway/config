@@ -35,6 +35,25 @@ set $yellow #ebcb8b
 set $green  #a3be8c
 set $lila   #b48ead
 
+# Gotham Theme Colors for Sway
+set $gotham_black "#0c1014"
+set $gotham_brightblack "#11151c"
+set $gotham_brightgreen "#091f2e"
+set $gotham_brightblue "#0a3749"
+set $gotham_brightyellow "#245361"
+set $gotham_brightcyan "#599cab"
+set $gotham_white "#99d1ce"
+set $gotham_brightwhite "#d3ebe9"
+
+set $gotham_red "#c23127"
+set $gotham_brightred "#d26937"
+set $gotham_yellow "#edb443"
+set $gotham_brightmagenta "#888ca6"
+set $gotham_magenta "#4e5166"
+set $gotham_blue "#195466"
+set $gotham_cyan "#33859e"
+set $gotham_green "#2aa889"
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
