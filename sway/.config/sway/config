@@ -35,7 +35,6 @@ set $yellow #ebcb8b
 set $green  #a3be8c
 set $lila   #b48ead
 
-# Gotham Theme Colors for Sway
 set $gotham_black "#0c1014"
 set $gotham_brightblack "#11151c"
 set $gotham_brightgreen "#091f2e"
@@ -78,8 +77,8 @@ exec --no-startup-id "~/scripts/bb/licht.clj hi"
 
 font pango:HackNerdFont 9.0
 
-# class                 border  backgr. text    indicator child_border
-client.focused          $frost4 $frost4 $snow2  $frost4   $frost4
+# class                 border               backgr.              text            indicator            child_border
+client.focused          $gotham_brightblue   $gotham_brightblue   $gotham_white   $gotham_brightblue   $gotham_brightblue
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
