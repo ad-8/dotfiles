@@ -54,6 +54,8 @@
   ;; reddit
   ("https://old.reddit.com/r/linux/top/.rss?t=week" reddit linux)
   ("https://old.reddit.com/r/technology/top/.rss?t=week" reddit tech)
+  ("https://old.reddit.com/r/homelab/top/.rss?t=week" reddit tech)
+  ("https://old.reddit.com/r/selfhosted/top/.rss?t=week" reddit tech)
   ("https://old.reddit.com/r/archlinux/top/.rss?t=week" reddit archlinux)
   ("https://old.reddit.com/r/debian/top/.rss?t=week" reddit debian)
   ("https://old.reddit.com/r/nixos/top/.rss?t=week" reddit nixos) 
