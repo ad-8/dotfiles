@@ -2,13 +2,14 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+abbr -a cd. 'cd ~/.config'
 abbr -a cdc 'cd ~/my/code'
 abbr -a cdd 'cd ~/dotfiles'
 abbr -a cdj "cd ~/my/code/clojure"
 abbr -a cdr 'cd ~/my/code/rust'
-abbr -a dl 'cd ~/Downloads'
-abbr -a cd. 'cd ~/.config'
+abbr -a cds 'cd ~/sync'
 abbr -a cdx 'cd ~/x'
+abbr -a dl 'cd ~/Downloads'
 
 abbr -a ga 'git add'
 abbr -a gb 'git branch'
