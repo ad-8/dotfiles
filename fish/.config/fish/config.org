@@ -141,7 +141,8 @@ abbr -a pmq 'pacman -Q'
 abbr -a zy zypper
 
 # Extract the distro ID from /etc/os-release, removing any quotes
-set distro (grep -oP '^ID=\K.*' /etc/os-release | tr -d '"')
+#set distro (grep -oP '^ID=\K.*' /etc/os-release | tr -d '"')
+set distro (awk -F= '/^ID=/ { gsub(/["\047]/, "", $2); print $2 }' /etc/os-release)
 
 switch $distro
     case debian ubuntu linuxmint
