@@ -1,0 +1,152 @@
+# grouping is nice for readability in this rc file
+# but missing the "mode" display like in i3
+#
+# --------------------------------------------------------------
+#                       MODE OPEN
+#
+# apps: [a]ppfinder, [f]ile-manager
+super + o ; {a,f}
+      {xfce4-appfinder,thunar}
+
+# apps: [q]utebrowser, bra[v]e, libre[w]olf, firefo[x]
+super + o ; {q,v,w,x}
+      {qbittorrent,~/scripts/brave.sh,flatpak run io.gitlab.librewolf-community,firefox}
+
+# blueman, keepass, pavuctl, system-monitor
+super + o ; {b,k,p,s}
+      {blueman-manager,keepassxc,pavucontrol,mate-system-monitor}
+
+# calc
+super + o ; c
+      rofi -show calc -modi calc -no-show-match -no-sort
+
+# emacs
+super + o; e
+      emacsclient --create-frame --alternate-editor="vim"
+
+# --------------------------------------------------------------
+
+# rofi-open, rofi-windows
+super + shift + {o, w}
+      {rofi -show drun, rofi -show window}
+
+# show THIS help menu
+alt + space ; h
+     ~/scripts/sxhkd-show-help.sh
+
+# --------------------------------------------------------------
+#                       MODE CHANGE
+# lulz nice, this just works
+# TODO use prefix for all my wm scripts
+# should be easier to manage and find
+
+# CHANGE [l]icht, [s]creen, [w]allpaper
+alt + space ; c ; {l, s, w}
+     {~/scripts/bb/licht.clj, ~/scripts/bb/screen_config.clj, $HOME/scripts/bb/set_random_wallpaper.clj}
+# --------------------------------------------------------------
+
+# SEARCH all, ddg
+alt + space ; s ; {a,g}
+     {~/scripts/bb/search.clj --select-provider,~/scripts/bb/search.clj}
+
+# RUN emoji, run_script
+alt + space ; r ; {e,r}
+     {~/scripts/dmenuunicode,~/scripts/bb/run_script.clj}
+
+# --------------------------------------------------------------
+#                       TOGGLE
+# toggle notifications on/off
+alt + space; t; n
+     ~/scripts/dwm_toggle_notifications.clj
+
+# --------------------------------------------------------------
+#                       VOLUME
+XF86AudioRaiseVolume
+     ~/scripts/volume up
+XF86AudioLowerVolume
+     ~/scripts/volume down
+XF86AudioMute
+     ~/scripts/volume mute
+XF86AudioPlay
+    ~/scripts/bb/play_pause.clj
+
+super + mod1 + Up
+     ~/scripts/volume up
+super + mod1 + Down
+     ~/scripts/volume down
+super + mod1 + Left
+     ~/scripts/volume mute
+super + mod1 + Right
+    ~/scripts/bb/play_pause.clj
+super + mod1 + space
+    ~/scripts/bb/play_pause.clj
+
+# --------------------------------------------------------------
+#                       NOTIFICATIONS
+# kill all notifications
+super + mod1 + k
+      dunstctl close-all
+
+# pop last notification from history
+super + mod1 + h
+      dunstctl history-pop
+
+# get weather info (test)
+super + mod1 + w
+      ~/scripts/bb/weather.clj dunst
+
+# display departures
+super + mod1 + t
+      ~/my/code/scripts/mvg.clj
+# --------------------------------------------------------------
+
+# lock screen
+super + mod1 + l
+     ~/scripts/lockscreen.sh
+
+# restart sxhkd
+super + Escape
+      pkill --exact sxhkd && notify-send "sxhkd" "restarting sxhkd" && sleep 1 && sxhkd &
+
+# powermenu
+alt + space; p
+      ~/scripts/bb/powermenu.clj
+
+# --------------------------------------------------------------
+#                       SCREENSHOTS
+
+# screenshot - everything (on all monitors)
+alt + space; s; e
+     ax-screenshot
+# screenshot - everything (on all monitors) + copy to clipboard
+alt + space; s; E
+     ax-screenshot --clipboard
+# screenshot - select (window or rectangle)
+alt + space; s; s
+     ax-screenshot --select
+# screenshot - select (window or rectangle) + copy to clipboard
+alt + space; s; S
+     ax-screenshot --clipboard --select
+
+# --------------------------------------------------------------
+#                       MacBook Light Keys
+XF86MonBrightnessUp
+    ~/scripts/brightness screen inc
+XF86MonBrightnessDown
+    ~/scripts/brightness screen dec
+XF86KbdBrightnessUp
+    ~/scripts/brightness keyboard inc
+XF86KbdBrightnessDown
+    ~/scripts/brightness keyboard dec
+
+# --------------------------------------------------------------
+#                       MacBook / Media keys
+XF86LaunchA
+    rofi -show window
+XF86LaunchB
+    xfce4-appfinder
+
+XF86AudioPrev
+    playerctl previous
+XF86AudioNext
+    playerctl next
