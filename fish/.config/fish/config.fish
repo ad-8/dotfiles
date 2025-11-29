@@ -120,6 +120,8 @@ switch $distro
     case fedora
         abbr -a up 'sudo dnf upgrade --refresh'
         abbr -a nf "clear && fastfetch"
+    case freebsd
+        abbr -a nf "clear && fastfetch --logo bsd"
     case '*'
         abbr -a up 'Unknown distribution. KEKW'
         abbr -a nf "clear && fastfetch"
@@ -167,6 +169,7 @@ fish_add_path ~/.local/bin
 
 alias e "emacs -nw"
 alias v vim
+alias l 'eza -al --group-directories-first --icons'
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"

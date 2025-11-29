@@ -165,6 +165,8 @@ switch $distro
     case fedora
         abbr -a up 'sudo dnf upgrade --refresh'
         abbr -a nf "clear && fastfetch"
+    case freebsd
+        abbr -a nf "clear && fastfetch --logo bsd"
     case '*'
         abbr -a up 'Unknown distribution. KEKW'
         abbr -a nf "clear && fastfetch"
@@ -225,6 +227,7 @@ fish_add_path ~/.local/bin
 #+begin_src shell
 alias e "emacs -nw"
 alias v vim
+alias l 'eza -al --group-directories-first --icons'
 #+end_src
 
 * TODO set in nix? -- export
