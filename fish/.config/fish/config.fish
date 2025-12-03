@@ -77,6 +77,7 @@ abbr -a nxr nix run #e.g. 'nix run nixpkgs#hello'
 abbr -a nxs nix shell
 abbr -a nxd "nix develop --command fish"
 abbr -a nxdu "NIXPKGS_ALLOW_UNFREE=1 nix develop --impure --command fish"
+abbr -a nxfu nix flake update
 
 abbr -a nxclean 'nh clean all --keep 3 --nogcroots -n'
 
