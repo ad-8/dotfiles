@@ -18,14 +18,21 @@ xset s 5400 0
 xset dpms 0 0 5400
 xss-lock $HOME/.local/share/dwm/lock.sh &
 
+####################################################
+# 2025-12 NEW
+
+xautolock -time 30 -locker slock &
+####################################################
+
 # TODO disable on macbook
-setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
+setxkbmap de -option altwin:swap_lalt_lwin -option caps:escape
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 sleep 2
 xfce4-power-manager &
-feh --bg-scale --randomize ~/sync/wallpapers/wallpapers-ax-fav &
+#feh --bg-scale --randomize ~/sync/wallpapers/wallpapers-ax-fav &
+feh --bg-scale ~/Downloads/freebsd-blue-wallpaper.jpg &
 emacs --daemon &
 sxhkd -t 3 &
 #picom &
