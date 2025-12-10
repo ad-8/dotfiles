@@ -466,7 +466,7 @@ bindsym $mod+z splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+bindsym $mod+d layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -508,7 +508,7 @@ gpt says resize and move position only work when floating is enabled
 for_window [title="dwm-scratchpad"] floating enable, move to scratchpad
 exec_always alacritty --title "dwm-scratchpad"
 # Show only that specific scratchpad terminal
-bindsym $mod+d [title="dwm-scratchpad"] scratchpad show, resize set 1024 768, move position center
+bindsym $mod+s [title="dwm-scratchpad"] scratchpad show, resize set 1024 768, move position center
 #+end_src
 *** org-capture
 #+begin_src shell
