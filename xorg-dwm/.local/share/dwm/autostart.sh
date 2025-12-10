@@ -29,6 +29,6 @@ feh --bg-scale ~/Downloads/freebsd-blue-wallpaper.jpg &
 emacs --daemon &
 sxhkd -t 3 &
 #picom &
-syncthing -no-browser &
+syncthing serve --no-browser &
 
 
