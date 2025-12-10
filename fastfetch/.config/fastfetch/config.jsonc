@@ -6,7 +6,7 @@
         "height": 15,
         "width": 15,
         "padding": {
-            "top": 5,
+            "top": 3,
             "left": 3
         }
     },
@@ -80,11 +80,11 @@
             "key": "  ├",
             "keyColor": "green"
         },
-//        {
-//            "type": "packages",
-//            "key": "  ├󰏖",
-//            "keyColor": "green"
-//        },
+        {
+            "type": "packages",
+            "key": "  ├󰏖",
+            "keyColor": "green"
+        },
         {
             "type": "shell",
             "key": "  ├",
