@@ -39,7 +39,6 @@
   ("https://lwn.net/headlines/rss" tech linux)
   ("https://lwn.net/headlines/Features" tech linux)
   ("https://rss.slashdot.org/Slashdot/slashdotMain" tech)
-  ("https://www.theverge.com/rss/index.xml" tech)
 
   ;; hackernews
   ("https://hnrss.org/bestcomments" hackernews)
@@ -52,15 +51,15 @@
   ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtYg149E_wUGVmjGz-TgyNA" youtube) ; Titus Tech Talk
 
   ;; reddit
-  ("https://old.reddit.com/r/linux/top/.rss?t=week" reddit linux)
-  ("https://old.reddit.com/r/technology/top/.rss?t=week" reddit tech)
-  ("https://old.reddit.com/r/homelab/top/.rss?t=week" reddit tech)
-  ("https://old.reddit.com/r/selfhosted/top/.rss?t=week" reddit tech)
-  ("https://old.reddit.com/r/archlinux/top/.rss?t=week" reddit archlinux)
-  ("https://old.reddit.com/r/debian/top/.rss?t=week" reddit debian)
-  ("https://old.reddit.com/r/nixos/top/.rss?t=week" reddit nixos) 
-  ("https://old.reddit.com/r/bundesliga/top/.rss?t=week" reddit sports)
-  ("https://old.reddit.com/r/formula1/top/.rss?t=week" reddit sports)
+  ("https://old.reddit.com/r/linux/top/.rss?t=week" reddit r/linux)
+  ("https://old.reddit.com/r/technology/top/.rss?t=week" reddit r/technology)
+  ("https://old.reddit.com/r/homelab/top/.rss?t=week" reddit r/homelab)
+  ("https://old.reddit.com/r/selfhosted/top/.rss?t=week" reddit r/selfhosted)
+  ("https://old.reddit.com/r/archlinux/top/.rss?t=week" reddit r/archlinux)
+  ("https://old.reddit.com/r/debian/top/.rss?t=week" reddit r/debian)
+  ("https://old.reddit.com/r/nixos/top/.rss?t=week" reddit r/nixos) 
+  ("https://old.reddit.com/r/bundesliga/top/.rss?t=week" reddit r/bundesliga)
+  ("https://old.reddit.com/r/formula1/top/.rss?t=week" reddit r/formula1)
   ))
 
 ;; https://lucidmanager.org/productivity/configure-emms/
