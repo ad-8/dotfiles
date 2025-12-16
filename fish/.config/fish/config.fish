@@ -81,6 +81,9 @@ abbr -a nxfu nix flake update
 
 abbr -a nxclean 'nh clean all --keep 3 --nogcroots -n'
 
+abbr -a nxgc1 'sudo nix-collect-garbage -d'
+abbr -a nxgc2 'sudo nix-collect-garbage --delete-older-than 10d'
+
 abbr -a cg cargo
 abbr -a cgb 'cargo build'
 abbr -a cgc cargo check
@@ -113,6 +116,7 @@ switch $distro
     case nixos
          abbr -a up "sudo nixos-rebuild switch --flake ~/dotfiles-nixos#$hostname"
          abbr -a upb "sudo nixos-rebuild boot --flake ~/dotfiles-nixos#$hostname"
+         abbr -a upd "nixos-rebuild dry-run --flake ~/dotfiles-nixos#$hostname"
          abbr -a up2 "NH_OS_FLAKE=~/dotfiles-nixos nh os switch --ask --hostname $hostname"
          abbr -a nxup "NH_OS_FLAKE=~/dotfiles-nixos nh os switch --ask --hostname $hostname"
          abbr -a nf "clear && fastfetch"
