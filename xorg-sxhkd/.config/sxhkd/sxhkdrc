@@ -71,9 +71,9 @@ XF86AudioPlay
     ~/scripts/bb/play_pause.clj
 
 super + mod1 + Up
-     ~/scripts/volume up
+     mixer vol=+5%
 super + mod1 + Down
-     ~/scripts/volume down
+     mixer vol=-5%
 super + mod1 + Left
      ~/scripts/volume mute
 super + mod1 + Right
