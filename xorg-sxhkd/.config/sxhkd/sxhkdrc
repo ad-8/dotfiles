@@ -75,7 +75,7 @@ super + mod1 + Up
 super + mod1 + Down
      mixer vol=-5%
 super + mod1 + Left
-     ~/scripts/volume mute
+     mixer vol.mute=toggle
 super + mod1 + Right
     ~/scripts/bb/play_pause.clj
 super + mod1 + space
