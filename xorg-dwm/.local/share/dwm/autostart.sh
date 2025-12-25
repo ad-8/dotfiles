@@ -11,6 +11,9 @@ xset b off
 xset s 5400 0
 xset dpms 0 0 5400
 
+# TODO test keyboard repeat rate
+xset r rate 200 35 &
+
 xautolock -time 30 -locker slock &
 
 # setxkbmap de -option altwin:swap_lalt_lwin -option caps:escape
