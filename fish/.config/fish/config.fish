@@ -43,7 +43,7 @@ abbr -a rg 'rg -i'
 abbr -a el 'eza -l --group-directories-first --icons'
 abbr -a hg 'history | grep -i'
 
-abbr -a t. thunar .
+abbr -a t. 'thunar . & disown'
 abbr -a cm chezmoi
 abbr -a db distrobox
 
