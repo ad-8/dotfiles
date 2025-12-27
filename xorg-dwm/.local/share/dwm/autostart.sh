@@ -23,7 +23,7 @@ setxkbmap de -option caps:escape
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 sleep 2
-~/foo.sh &
+~/open-stats.sh &
 firefox &
 emacs --daemon &
 sxhkd -t 3 &
