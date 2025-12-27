@@ -23,10 +23,14 @@ setxkbmap de -option caps:escape
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 sleep 2
-feh --bg-scale ~/Downloads/freebsd-blue-wallpaper.jpg &
+~/foo.sh &
+firefox &
 emacs --daemon &
 sxhkd -t 3 &
 #picom &
 syncthing serve --no-browser &
 
+sleep 1
+backlight 80 &
+feh --bg-scale ~/Downloads/freebsd-blue-wallpaper.jpg &
 
