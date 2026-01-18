@@ -83,6 +83,7 @@ abbr -a nxclean 'nh clean all --keep 3 --nogcroots -n'
 
 abbr -a nxgc1 'sudo nix-collect-garbage -d'
 abbr -a nxgc2 'sudo nix-collect-garbage --delete-older-than 10d'
+abbr -a nxgc3 'nix-store --optimise -vv'
 
 abbr -a cg cargo
 abbr -a cgb 'cargo build'
