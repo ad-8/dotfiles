@@ -176,7 +176,8 @@ fish_add_path ~/.local/bin
 
 alias e "emacs -nw"
 alias v vim
-alias l 'eza -al --group-directories-first --icons'
+alias l 'eza -l --group-directories-first --icons'
+alias lll 'eza -al --group-directories-first --icons'
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
