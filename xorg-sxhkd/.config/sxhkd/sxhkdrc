@@ -14,7 +14,7 @@ super + o ; {q,v,w,x}
 
 # blueman, keepass, pavuctl, system-monitor
 super + o ; {b,k,p,s}
-      {blueman-manager,keepassxc,pavucontrol,mate-system-monitor}
+      {alacritty --title bluetui --command bluetui,keepassxc,pavucontrol,mate-system-monitor}
 
 # calc
 super + o ; c
