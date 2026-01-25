@@ -16,7 +16,7 @@ xset b off
 
 xset s 5400 0
 xset dpms 0 0 5400
-xss-lock $HOME/.local/share/dwm/lock.sh &
+xautolock -time 10 -locker slock &
 
 # TODO disable on macbook
 # setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
