@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # why nm doesnt work when started here
-#nm-applet &
+nm-applet &
 blueman-applet &
 
 dunst &
@@ -29,12 +29,6 @@ xfce4-power-manager &
 feh --bg-scale --randomize ~/sync/wallpapers/wallpapers-ax-fav &
 emacs --daemon &
 sxhkd -t 3 &
-#picom &
-#$HOME/scripts/dwm-simple-status.sh &
 syncthing -no-browser &
 megasync &
 
-#sleep 1
-#protonvpn-cli ks --off && protonvpn-cli ks --permanent && protonvpn-cli c --protocol tcp --fastest &
-
-firewall-applet &
