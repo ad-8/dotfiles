@@ -41,7 +41,7 @@
   ("https://rss.slashdot.org/Slashdot/slashdotMain" tech)
 
   ;; hackernews
-  ("https://hnrss.org/bestcomments" hackernews)
+  ;; ("https://hnrss.org/bestcomments" hackernews)
   ("https://hnrss.org/frontpage" hackernews)
 
   ;; youtube

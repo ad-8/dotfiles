@@ -204,7 +204,7 @@ By default elfeed-search-filter is set to @2-weeks-ago and makes the last 2 week
   ("https://rss.slashdot.org/Slashdot/slashdotMain" tech)
 
   ;; hackernews
-  ("https://hnrss.org/bestcomments" hackernews)
+  ;; ("https://hnrss.org/bestcomments" hackernews)
   ("https://hnrss.org/frontpage" hackernews)
 
   ;; youtube
