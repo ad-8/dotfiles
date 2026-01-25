@@ -19,7 +19,8 @@ xset dpms 0 0 5400
 xss-lock $HOME/.local/share/dwm/lock.sh &
 
 # TODO disable on macbook
-setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
+# setxkbmap -option altwin:swap_lalt_lwin -option caps:escape
+setxkbmap -option caps:escape
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 

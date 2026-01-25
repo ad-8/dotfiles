@@ -62,20 +62,20 @@ alt + space; t; n
 # --------------------------------------------------------------
 #                       VOLUME
 XF86AudioRaiseVolume
-     ~/scripts/volume up
+     ~/scripts/legacy-xorg-dwm/volume up
 XF86AudioLowerVolume
-     ~/scripts/volume down
+     ~/scripts/legacy-xorg-dwm/volume down
 XF86AudioMute
-     ~/scripts/volume mute
+     ~/scripts/legacy-xorg-dwm/volume mute
 XF86AudioPlay
     ~/scripts/bb/play_pause.clj
 
 super + mod1 + Up
-     ~/scripts/volume up
+     ~/scripts/legacy-xorg-dwm/volume up
 super + mod1 + Down
-     ~/scripts/volume down
+     ~/scripts/legacy-xorg-dwm/volume down
 super + mod1 + Left
-     ~/scripts/volume mute
+     ~/scripts/legacy-xorg-dwm/volume mute
 super + mod1 + Right
     ~/scripts/bb/play_pause.clj
 super + mod1 + space
