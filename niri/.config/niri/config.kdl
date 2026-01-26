@@ -8,6 +8,10 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
+
+        repeat-rate 35
+        repeat-delay 200
+
         xkb {
             // You can set rules, model, layout, variant and options.
             // For more information, see xkeyboard-config(7).
@@ -49,7 +53,7 @@ input {
     trackpoint {
         // off
         // natural-scroll
-        // accel-speed 0.2
+        accel-speed 1.0
         // accel-profile "flat"
         // scroll-method "on-button-down"
         // scroll-button 273
