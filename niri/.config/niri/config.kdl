@@ -259,6 +259,9 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "emacs" "--daemon"
 spawn-at-startup "syncthing" "--no-browser"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
