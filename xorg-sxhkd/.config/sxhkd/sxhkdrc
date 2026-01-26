@@ -102,7 +102,7 @@ super + mod1 + t
 
 # lock screen
 super + mod1 + l
-     ~/scripts/lockscreen.sh
+      slock
 
 # restart sxhkd
 super + Escape
