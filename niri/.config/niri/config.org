@@ -5,6 +5,10 @@
 - [[#input][Input]]
 - [[#output][Output]]
 - [[#layout][Layout]]
+- [[#autostart][Autostart]]
+- [[#binds][Binds]]
+- [[#window-rules][Window Rules]]
+- [[#screenshot-settings][Screenshot settings]]
 - [[#misc][Misc]]
 
 * Input
@@ -288,9 +292,8 @@ layout {
 }
 #+end_src
 
-* Misc
+* Autostart 
 #+begin_src shell
-
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -302,108 +305,9 @@ spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "emacs" "--daemon"
 spawn-at-startup "syncthing" "--no-browser"
-
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-// This option will also fix border/focus ring drawing behind some semitransparent windows.
-// After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
-
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
-
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
-animations {
-    // Uncomment to turn off all animations.
-    off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
-}
-
-
-// NAMED WORKSPACES
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Named-Workspaces
-//workspace ""
-//workspace ""
-//workspace "3"
-//workspace "4"
-//workspace "5"
-//workspace "6"
-//workspace "7"
-//workspace ""
-//workspace " "
-
-
-//workspace "" {
- //   open-on-output "DP-1"
-//}
-
-//workspace "" {
- //   open-on-output "HDMI-A-1"
-//}
-
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"Alacritty$"# title="^ax-bluetui$" // this is most specific
-//    match title="ax-bluetui" // this alone works
-//    match app-id="Alacritty" // TODO this matches other Alacritty windows as well!
-    open-floating true
-    min-width 1024
-    max-width 1024
-    min-height 768  
-    max-height 768  
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
+#+end_src
+* Binds
+#+begin_src shell
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -707,16 +611,116 @@ binds {
 //bind = $mainMod SHIFT, M, exec, bb ~/x/ax_bookmarks.clj archived
 
 }
+#+end_src
+* Window Rules
+#+begin_src shell
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"Alacritty$"# title="^ax-bluetui$" // this is most specific
+//    match title="ax-bluetui" // this alone works
+//    match app-id="Alacritty" // TODO this matches other Alacritty windows as well!
+    open-floating true
+    min-width 1024
+    max-width 1024
+    min-height 768  
+    max-height 768  
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+#+end_src
+* Screenshot settings
+#+begin_src shell
+// You can change the path where screenshots are saved.
+// A ~ at the front will be expanded to the home directory.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+#+end_src
+* Misc
+#+begin_src shell
+// Uncomment this line to ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
+// This option will also fix border/focus ring drawing behind some semitransparent windows.
+// After enabling or disabling this, you need to restart the apps for this to take effect.
+prefer-no-csd
 
 
-// -----------------------
-// ax additions down below
-// -----------------------
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+animations {
+    // Uncomment to turn off all animations.
+    off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+}
+
+
+// NAMED WORKSPACES
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Named-Workspaces
+//workspace ""
+//workspace ""
+//workspace "3"
+//workspace "4"
+//workspace "5"
+//workspace "6"
+//workspace "7"
+//workspace ""
+//workspace " "
+
+//workspace "" {
+ //   open-on-output "DP-1"
+//}
+
+//workspace "" {
+ //   open-on-output "HDMI-A-1"
+//}
+
 
 hotkey-overlay {
     skip-at-startup
 }
-
-// no window decorations
-prefer-no-csd
 #+end_src
