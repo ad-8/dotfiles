@@ -14,7 +14,7 @@
    :preview-key '(:debounce 0.4 any)
 ))
 
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 16 :weight 'semi-light))
+(setq doom-font (font-spec :family "Hack Nerd Font" :size 20 :weight 'semi-light))
 
 (setq doom-theme 'gotham)
 

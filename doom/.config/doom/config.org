@@ -144,7 +144,7 @@ https://github.com/minad/consult?tab=readme-ov-file#use-package-example
 #+end_src
 
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 16 :weight 'semi-light))
+(setq doom-font (font-spec :family "Hack Nerd Font" :size 20 :weight 'semi-light))
 #+end_src
 
 TODO: the font needs to be installed, else Emacs won't start.
