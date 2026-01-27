@@ -472,6 +472,7 @@ binds {
     // ax: All we need for a two monitor setup
     Mod+Period { focus-monitor-next; }
     Mod+Shift+Period { move-column-to-monitor-next; }
+    Mod+Shift+Comma { move-workspace-to-monitor-next; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -657,11 +658,32 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
 
-    // keybinds ax
-     Super+Alt+Space  { spawn "~/scripts/bb/play_pause.clj" ; }
-     Super+Alt+W      { spawn "~/scripts/bb/weather.clj" "dunst" ; }
-    //Super+Shift+O hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
+    // ax: dwm-like keybinds
+    // general
     Mod+P { spawn-sh "wmenu-run -i -l 25"; }
+    Mod+O { spawn-sh "ruby ~/sync/tmp/nirix/main.rb select_global";}
+
+    // toggle waybar
+    Mod+B { spawn-sh "~/scripts/waybar.clj toggle";}
+    Mod+Shift+B { spawn-sh "~/scripts/waybar.clj toggle-min";}
+
+    // notifications
+    Mod+Alt+H { spawn-sh "dunstctl history-pop"; }
+    Mod+Alt+K { spawn-sh "dunstctl close-all"; }
+    Mod+Alt+W { spawn "~/scripts/bb/weather.clj" "dunst" ; }
+
+    // volume
+    Mod+Alt+Left  { spawn-sh "~/scripts/wayland.clj volume-mute" ; }
+    Mod+Alt+Up    { spawn-sh "~/scripts/wayland.clj volume-up" ; }
+    Mod+Alt+Down  { spawn-sh "~/scripts/wayland.clj volume-down" ; }
+    Mod+Alt+Space { spawn-sh "~/scripts/bb/play_pause.clj" ; }
+    Mod+Alt+Right { spawn-sh "~/scripts/bb/play_pause.clj" ; }
+
+    // TODO - need keychords ...
+    //Mod+B { spawn-sh "alacritty -T ax-bluetui -e bluetui";}
+//# linkding (bookmarks)
+//bind = $mainMod, M, exec, bb ~/x/ax_bookmarks.clj std
+//bind = $mainMod SHIFT, M, exec, bb ~/x/ax_bookmarks.clj archived
 
 }
 
