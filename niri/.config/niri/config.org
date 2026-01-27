@@ -307,7 +307,14 @@ spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "emacs" "--daemon"
 spawn-at-startup "syncthing" "--no-browser"
+spawn-at-startup "syncthing" "--no-browser"
 #+end_src
+
+Somehow, could not get =swaybg= to work with =spawn-at-startup= directly ...
+#+begin_src shell
+spawn-at-startup "~/scripts/niri-set-wallpaper.sh"
+#+end_src
+
 * Binds
 #+begin_src shell
 binds {
