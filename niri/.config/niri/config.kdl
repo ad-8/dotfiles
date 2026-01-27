@@ -108,7 +108,10 @@ output "eDP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=0 y=0
+
+    // visible between workspaces or in the overview
+    backdrop-color "#0c1014" 
 }
 // LG 
 output "DP-1" {
@@ -184,7 +187,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#d08770"
+        active-color "#d26937"
 
         // Color of the ring on inactive monitors.
         inactive-color "#505050"
@@ -270,7 +273,7 @@ layout {
         // top 64
         // bottom 64
     }
-    background-color "#000000"
+    background-color "#0c1014" 
 }
 
 // Add lines like this to spawn processes at startup.
