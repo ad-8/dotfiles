@@ -287,7 +287,6 @@ spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "emacs" "--daemon"
 spawn-at-startup "syncthing" "--no-browser"
-spawn-at-startup "syncthing" "--no-browser"
 
 spawn-at-startup "~/scripts/niri-set-wallpaper.sh"
 
