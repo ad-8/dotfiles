@@ -74,6 +74,8 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
+
+// ThinkPad
 output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
@@ -105,6 +107,18 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=1280 y=0
+}
+// LG 
+output "DP-1" {
+       mode "3840x2160"
+       scale 1.25
+       position x=0 y=0
+}
+// Acer
+output "HDMI-A-1" {
+       mode "1920x1080"
+       scale 1
+       position x=3072 y=648
 }
 
 // Settings that influence how windows are positioned and sized.
