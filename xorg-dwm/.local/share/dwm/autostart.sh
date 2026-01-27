@@ -24,9 +24,11 @@ setxkbmap -option caps:escape
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-sleep 1
+sleep 0.3
 firefox &
-sleep 1
+sleep 0.3
+alacritty -T ax-btop -e btop &
+sleep 0.5
 xfce4-power-manager &
 feh --bg-scale --randomize ~/sync/wallpapers/wallpapers-ax-fav &
 emacs --daemon &
