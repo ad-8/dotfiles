@@ -270,6 +270,7 @@ layout {
         // top 64
         // bottom 64
     }
+    background-color "#000000"
 }
 
 // Add lines like this to spawn processes at startup.

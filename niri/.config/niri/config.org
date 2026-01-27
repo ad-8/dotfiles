@@ -291,6 +291,7 @@ layout {
         // top 64
         // bottom 64
     }
+    background-color "#000000"
 }
 #+end_src
 
