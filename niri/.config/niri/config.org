@@ -8,8 +8,10 @@
 - [[#autostart][Autostart]]
 - [[#binds][Binds]]
 - [[#window-rules][Window Rules]]
+  - [[#open-specific-windows-maximized-full-width][open specific windows maximized (full width)]]
+  - [[#misc][misc]]
 - [[#screenshot-settings][Screenshot settings]]
-- [[#misc][Misc]]
+- [[#misc-1][Misc]]
 
 * Input
 #+begin_src shell
@@ -630,6 +632,15 @@ binds {
 #+RESULTS:
 
 * Window Rules
+** open specific windows maximized (full width)
+#+begin_src shell
+window-rule {
+    match app-id="firefox"
+    match app-id="brave-browser"
+    open-maximized true
+}
+#+end_src
+** misc
 #+begin_src shell
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
@@ -653,6 +664,7 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
+
 
 window-rule {
     match app-id=r#"Alacritty$"# title="^ax-bluetui$" // this is most specific
