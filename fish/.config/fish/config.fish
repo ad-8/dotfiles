@@ -151,7 +151,7 @@ abbr -a syncmoto-music "rsync -ahvP --stats '$HOME/mukke/' '/run/user/1000/gvfs/
 abbr -a syncmoto-pics "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/DCIM' '$HOME/sync/Moto/' -n"
 abbr -a syncmoto-backup "rsync -ahvP --stats '/run/user/1000/gvfs/mtp:host=motorola_moto_g54_5G_ZY22HWD8XQ/Internal shared storage/backups' '$HOME/sync/Moto/' -n"
 
-abbr -a sync-pixel-music "rsync -ahvP --stats '/nas/media/mukke/' '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/Music/mukke/' --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
+abbr -a sync-pixel-music "rsync -ahvP --stats ~/mukke/ /run/user/1000/gvfs/mtp:host=Google_Pixel_7a_37211JEHN10476/Internal\ shared\ storage/mukke/ --omit-dir-times --no-perms --inplace --size-only --ignore-existing -n"
 
 abbr -a sync-pixel-backup "rsync -ahvP --stats --no-g '/run/user/1000/gvfs/mtp:host=Google_Pixel_6a_25281JEGR07582/Internal shared storage/backup' '/nas/data/backup/pixel6a' -n"
 
