@@ -602,7 +602,7 @@ binds {
     // general
     Mod+E { spawn-sh "emacsclient -c"; }
     Mod+P { spawn-sh "wmenu-run -i -l 25"; }
-    Mod+O { spawn-sh "ruby ~/sync/tmp/nirix/main.rb select_global";}
+    Mod+SHIFT+W { spawn-sh "ruby ~/sync/tmp/nirix/main.rb select_global";}
 
     // toggle waybar
     Mod+B { spawn-sh "~/scripts/waybar.clj toggle";}
