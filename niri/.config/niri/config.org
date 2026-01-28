@@ -316,6 +316,7 @@ spawn-at-startup "syncthing" "--no-browser"
 Somehow, could not get =swaybg= to work with =spawn-at-startup= directly ...
 #+begin_src shell
 spawn-at-startup "~/scripts/niri-set-wallpaper.sh"
+spawn-sh-at-startup "swayidle -w timeout 590 'notify-send locking-screen in-10-seconds' timeout 600 'swaylock -f -c 000000 -F' timeout 666 'niri msg action power-off-monitors' before-sleep 'swaylock -f -c 000000 -F'"
 #+end_src
 
 * Binds
@@ -597,6 +598,7 @@ binds {
 
     // ax: dwm-like keybinds
     // general
+    Mod+E { spawn-sh "emacsclient -c"; }
     Mod+P { spawn-sh "wmenu-run -i -l 25"; }
     Mod+O { spawn-sh "ruby ~/sync/tmp/nirix/main.rb select_global";}
 
