@@ -559,12 +559,12 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Plus { set-column-width "+10%"; }
+    Mod+Minus { set-column-width "-3%"; }
+    Mod+Plus { set-column-width "+3%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Plus { set-window-height "+10%"; }
+    Mod+Shift+Minus { set-window-height "-3%"; }
+    Mod+Shift+Plus { set-window-height "+3%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
