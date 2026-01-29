@@ -591,10 +591,11 @@ binds {
     Mod+Alt+Right { spawn-sh "~/scripts/bb/play_pause.clj" ; }
 
     // TODO - need keychords ...
-    //Mod+B { spawn-sh "alacritty -T ax-bluetui -e bluetui";}
-//# linkding (bookmarks)
-//bind = $mainMod, M, exec, bb ~/x/ax_bookmarks.clj std
-//bind = $mainMod SHIFT, M, exec, bb ~/x/ax_bookmarks.clj archived
+    Mod+Ctrl+B { spawn-sh "alacritty -T ax-bluetui -e bluetui";}
+    // linkding (bookmarks)
+    Mod+Alt+B { spawn-sh "bb ~/x/ax_bookmarks.clj std"; }
+    Mod+Alt+N { spawn-sh "bb ~/x/ax_bookmarks.clj archived"; }
+    Mod+Alt+F { spawn-sh "rofi -show recursivebrowser"; }
 
 }
 
