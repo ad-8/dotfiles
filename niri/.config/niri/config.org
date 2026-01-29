@@ -138,12 +138,14 @@ output "DP-1" {
        mode "3840x2160"
        scale 1.25
        position x=0 y=0
+       backdrop-color "#0c1014"
 }
 // Acer
 output "HDMI-A-1" {
        mode "1920x1080"
        scale 1
        position x=3072 y=648
+       backdrop-color "#0c1014"
 }
 #+end_src
 
