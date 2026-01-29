@@ -735,7 +735,7 @@ prefer-no-csd
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    off
+    on
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
