@@ -216,7 +216,7 @@ layout {
 
         width 2
         active-color "#d26937"
-        inactive-color "#505050"
+        inactive-color "#4e5166" 
 
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"
@@ -274,6 +274,14 @@ layout {
         // bottom 64
     }
     background-color "#0c1014" 
+
+    tab-indicator {
+        on
+        position "left"
+        width 8
+        active-color "#2aa889"
+        place-within-column // avoid overlaying adjacent columns
+    }
 }
 
 // Add lines like this to spawn processes at startup.
