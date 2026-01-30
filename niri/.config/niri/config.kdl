@@ -151,7 +151,7 @@ layout {
 
     tab-indicator {
         on
-        position "left"
+        position "top"
         width 8
         active-color "#2aa889"
         place-within-column // avoid overlaying adjacent columns
