@@ -497,6 +497,12 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+
+window-rule {
+    match app-id="thunar"
+    match title="File Operation Progress"
+    open-floating true
+}
 #+end_src
 * Screenshot settings
 #+begin_src shell

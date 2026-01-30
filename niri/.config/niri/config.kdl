@@ -443,6 +443,12 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match app-id="thunar"
+    match title="File Operation Progress"
+    open-floating true
+}
+
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
