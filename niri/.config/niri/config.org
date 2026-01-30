@@ -2,6 +2,7 @@
 #+PROPERTY: header-args:shell :tangle config.kdl
 
 * ToC :toc:
+- [[#about-this-config][About this config]]
 - [[#input][Input]]
 - [[#output][Output]]
 - [[#layout][Layout]]
@@ -13,16 +14,14 @@
 - [[#screenshot-settings][Screenshot settings]]
 - [[#misc-1][Misc]]
 
+* About this config
+This config is in the KDL format: https://kdl.dev
+=/-= comments out the following node.
+Check the wiki for a full description of the configuration:
+https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+
 * Input
 #+begin_src shell
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
-
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
 
@@ -92,10 +91,6 @@ input {
 #+begin_src shell
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
-// The built-in laptop monitor is usually called "eDP-1".
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
 
 // ThinkPad
 output "eDP-1" {
@@ -151,9 +146,6 @@ output "HDMI-A-1" {
 
 * Layout
 #+begin_src shell
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
     gaps 8
@@ -312,17 +304,13 @@ layout {
 
 * Autostart 
 #+begin_src shell
-// Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-// See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "emacs" "--daemon"
-spawn-at-startup "syncthing" "--no-browser"
 #+end_src
 
 Somehow, could not get =swaybg= to work with =spawn-at-startup= directly ...
@@ -656,10 +644,6 @@ window-rule {
 #+end_src
 ** misc
 #+begin_src shell
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
