@@ -132,7 +132,7 @@ layout {
         width 2
         active-color "#d26937"
         inactive-color "#4e5166" 
-        urgent-color "#9b0000" // for windows that request your attention.
+        urgent-color "#c23127" // for windows that request your attention.
     }
 
     shadow {
