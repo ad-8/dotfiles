@@ -69,6 +69,9 @@
   ("https://old.reddit.com/r/formula1/top/.rss?t=week" reddit r/formula1)
   ))
 
+  ;; blogs
+  ("https://mtwb.blog//index.xml" personal)
+
 ;; https://lucidmanager.org/productivity/configure-emms/
 (use-package emms
   :config
