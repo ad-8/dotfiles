@@ -14,7 +14,7 @@
    :preview-key '(:debounce 0.4 any)
 ))
 
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 20 :weight 'semi-light))
+(setq doom-font (font-spec :family "Hack Nerd Font" :size 16 :weight 'semi-light))
 
 (setq doom-theme 'gotham)
 
@@ -49,6 +49,13 @@
   ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg" youtube) ; DistroTube
   ("https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ" youtube) ; Chris Titus Tech
   ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtYg149E_wUGVmjGz-TgyNA" youtube) ; Titus Tech Talk
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw" youtube) ; LTT
+  ;; ("https://www.youtube.com/feeds/videos.xml?channel_id=" youtube) ; 
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCR-DXc1voovS8nhAvccRZhg" youtube) ; Jeff Geerling
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCbiGcwDWZjz05njNPrJU7jA" youtube) ; EC 
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UC65_CVnMw6hvPET_DRDg3GA" youtube) ; tony-btw
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA" youtube) ; Brodie Robertson
+
 
   ;; reddit
   ("https://old.reddit.com/r/linux/top/.rss?t=week" reddit r/linux)
