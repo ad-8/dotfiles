@@ -473,6 +473,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"Alacritty$"# title="^ax-bluetui$" // this is most specific
+    match app-id=r#"Alacritty$"# title="^ax-wiremix$"
 //    match title="ax-bluetui" // this alone works
 //    match app-id="Alacritty" // TODO this matches other Alacritty windows as well!
     open-floating true
