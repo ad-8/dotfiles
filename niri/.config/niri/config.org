@@ -448,6 +448,9 @@ binds {
     Mod+Alt+B { spawn-sh "bb ~/x/ax_bookmarks.clj std"; }
     Mod+Alt+N { spawn-sh "bb ~/x/ax_bookmarks.clj archived"; }
     Mod+Alt+F { spawn-sh "rofi -show recursivebrowser"; }
+    Mod+D { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/scripts/command_runner.clj'"; }
+
+
 }
 #+end_src
 
@@ -474,6 +477,7 @@ window-rule {
 window-rule {
     match app-id=r#"Alacritty$"# title="^ax-bluetui$" // this is most specific
     match app-id=r#"Alacritty$"# title="^ax-wiremix$"
+    match app-id=r#"Alacritty$"# title="^ax-command-runner$"
     match app-id=r#"org.pulseaudio.pavucontrol$"# title="^Volume Control$"
     match app-id=r#"qalculate-gtk$"# title="^Qalculate!$"
 //    match title="ax-bluetui" // this alone works
