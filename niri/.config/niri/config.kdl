@@ -401,14 +401,12 @@ binds {
     // from sway/hyprland
     Mod+Ctrl+A { spawn-sh "grim - | swappy -f -"; }
     Mod+Ctrl+S { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
-   // Mod+Ctrl+W { spawn-sh ""; }
+    // Mod+Ctrl+W { spawn-sh "TODO"; }
 
     // niri native
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-
-
 }
 
 window-rule {
@@ -458,8 +456,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="thunar"
-    match title="File Operation Progress"
+    match app-id=r#"thunar$"# title="^File Operation Progress$"
     open-floating true
 }
 
