@@ -415,13 +415,14 @@ binds {
 
     
     Mod+Shift+P { power-off-monitors; }
-    Mod+Shift+E { quit; }
+    Mod+Shift+Q { quit; }
 
 
     // ax: dwm-like keybinds
     // general
     Mod+Y { spawn-sh "~/scripts/bb/licht.clj"; }
     Mod+E { spawn-sh "emacsclient -c"; }
+    Mod+Shift+E { spawn-sh "emacs"; }
     Mod+O { spawn-sh "bb ~/scripts/launcher.clj main"; } // TODO hopefully replace w// niri keychords someday
     Mod+P { spawn-sh "wmenu-run -i -l 25"; }
     Mod+SHIFT+W { spawn-sh "ruby ~/sync/tmp/nirix/main.rb select_global";}
