@@ -398,11 +398,6 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    // TODO rebind or double bind (hopefully with keychords some day)
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
-
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
     // so they may, for example, forward the key presses as-is to a remote machine.
@@ -450,6 +445,17 @@ binds {
     Mod+Alt+N { spawn-sh "bb ~/x/ax_bookmarks.clj archived"; }
     Mod+Alt+F { spawn-sh "rofi -show recursivebrowser"; }
     Mod+A { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/scripts/command_runner.clj'"; }
+
+    // Screenshots
+    // from sway/hyprland
+    Mod+Ctrl+A { spawn-sh "grim - | swappy -f -"; }
+    Mod+Ctrl+S { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
+   // Mod+Ctrl+W { spawn-sh ""; }
+
+    // niri native
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
 
 
 }
@@ -517,7 +523,7 @@ window-rule {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/sync/screenshots/2026/Screenshot_from_%Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
