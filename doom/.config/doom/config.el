@@ -192,8 +192,8 @@
        :desc "Toggle line highlight in frame" "h" #'hl-line-mode
        :desc "Toggle line highlight globally" "H" #'global-hl-line-mode
        :desc "Toggle markdown-view-mode"      "M" #'ax/toggle-markdown-mode
-       :desc "Toggle truncate lines"          "t" #'toggle-truncate-lines
-       :desc "Toggle treemacs"                "T" #'+treemacs/toggle))
+       :desc "Toggle truncate lines"          "T" #'toggle-truncate-lines
+       :desc "Toggle treemacs"                "t" #'+treemacs/toggle))
 
 ;; (map! :leader
 ;;       (:prefix ("o" . "open here")
