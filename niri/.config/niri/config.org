@@ -216,7 +216,7 @@ Most actions that you can bind here can also be invoked programmatically with
 
 #+begin_src shell
 binds {
-    Mod+Shift+Y { show-hotkey-overlay; }
+    Mod+Shift+X { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Super+Shift+O hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
@@ -416,7 +416,7 @@ binds {
 
     // ax: dwm-like keybinds
     // general
-    Mod+Y { spawn-sh "~/scripts/bb/licht.clj"; }
+    Mod+Shift+Y { spawn-sh "~/scripts/bb/licht.clj"; }
     Mod+E { spawn-sh "emacsclient -c"; }
     Mod+Shift+E { spawn-sh "emacs"; }
     Mod+O { spawn-sh "bb ~/scripts/launcher.clj main"; } // TODO hopefully replace w// niri keychords someday
@@ -445,7 +445,7 @@ binds {
     Mod+Alt+B { spawn-sh "bb ~/x/ax_bookmarks.clj std"; }
     Mod+Alt+N { spawn-sh "bb ~/x/ax_bookmarks.clj archived"; }
     Mod+Alt+F { spawn-sh "rofi -show recursivebrowser"; }
-    Mod+D { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/scripts/command_runner.clj'"; }
+    Mod+Y { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/scripts/command_runner.clj'"; }
 
     // Screenshots
     // from sway/hyprland
