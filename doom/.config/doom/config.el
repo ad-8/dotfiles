@@ -68,6 +68,7 @@
 
   ;; blogs
   ("https://mtwb.blog//index.xml" personal)
+  ("https://joshblais.com/index.xml" personal)
   ))
 
 ;; https://lucidmanager.org/productivity/configure-emms/

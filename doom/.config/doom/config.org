@@ -231,6 +231,7 @@ By default elfeed-search-filter is set to @2-weeks-ago and makes the last 2 week
 
   ;; blogs
   ("https://mtwb.blog//index.xml" personal)
+  ("https://joshblais.com/index.xml" personal)
   ))
 
 #+end_src
