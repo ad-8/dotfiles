@@ -39,6 +39,7 @@
   ("https://lwn.net/headlines/rss" tech linux)
   ("https://lwn.net/headlines/Features" tech linux)
   ("https://rss.slashdot.org/Slashdot/slashdotMain" tech)
+  ("https://www.whompcomic.com/comic/rss" webcomic)
 
   ;; hackernews
   ("https://hnrss.org/frontpage" hackernews)
