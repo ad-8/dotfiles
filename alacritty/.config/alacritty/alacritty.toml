@@ -41,3 +41,8 @@ y = 10
 [window.dimensions]
 columns = 125
 lines = 40
+
+[cursor.style]
+shape = "Underline" # "Block" | "Underline" | "Beam"
+blinking = "Always" # "Never" | "Off" | "On" | "Always"
+
