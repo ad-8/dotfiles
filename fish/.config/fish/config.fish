@@ -119,6 +119,7 @@ switch $distro
          abbr -a upb "sudo nixos-rebuild boot --flake ~/dotfiles-nixos#$hostname"
          abbr -a upd "nixos-rebuild dry-run --flake ~/dotfiles-nixos#$hostname"
          abbr -a up2 "NH_OS_FLAKE=~/dotfiles-nixos nh os switch --ask --hostname $hostname"
+         abbr -a up2b "NH_OS_FLAKE=~/dotfiles-nixos nh os boot --ask --hostname $hostname"
          abbr -a nxup "NH_OS_FLAKE=~/dotfiles-nixos nh os switch --ask --hostname $hostname"
          abbr -a nf "clear && fastfetch"
     case void
