@@ -46,3 +46,6 @@ lines = 40
 shape = "Underline" # "Block" | "Underline" | "Beam"
 blinking = "Always" # "Never" | "Off" | "On" | "Always"
 
+[cursor]
+thickness = 0.2
+
