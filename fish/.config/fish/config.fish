@@ -181,6 +181,7 @@ alias e "emacs -nw"
 alias v vim
 alias l 'eza -l --group-directories-first --icons'
 alias lll 'eza -al --group-directories-first --icons'
+alias x '/usr/bin/env bb ~/sync/xbb/x.clj'
 
 # --export -x is the same
 set -Ux RESTIC_PASSWORD_FILE "/home/ax/.restic-std"
