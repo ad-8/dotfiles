@@ -35,12 +35,21 @@
   (let [licht-val (slurp "/tmp/licht-curr-val")]
     (printf " %s" licht-val)))
 
+
 (defn waybar-load []
-  (let [loadavg (-> (shell {:out :string} "sh -c 'cat /proc/loadavg'")
+  (let [num-cores (.availableProcessors (Runtime/getRuntime))
+        loadavg (-> (shell {:out :string} "sh -c 'cat /proc/loadavg'")
                     :out
                     str/trim)
-        load-one-min (-> loadavg (str/split #"\s") first)]
-    (printf " %s" load-one-min)))
+        load-one-min (-> loadavg (str/split #"\s") first)
+        loadf (parse-double load-one-min)
+        class (cond
+                (>= loadf num-cores) :crit
+                (>= loadf (* 0.5 num-cores)) :warn
+                :else :ok)]
+    (println (json/encode {:text (format " %s" load-one-min)
+                           :class class}))))
+
 
 (defn determine-memory
   "returns total and used memory [GiB] as reported by `free -h`"
