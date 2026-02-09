@@ -521,6 +521,12 @@ window-rule {
     match app-id=r#"thunar$"# title="^File Operation Progress$"
     open-floating true
 }
+window-rule {
+    match app-id="anki"
+    open-floating true
+    min-width 1250
+    min-height 900  
+}
 #+end_src
 * Screenshot settings
 #+begin_src shell
