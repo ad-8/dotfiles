@@ -26,13 +26,11 @@
       fzf
       gh
       htop
-      ncdu
       nnn
       ripgrep
       starship
       stow
       tokei
-      wget
       zoxide
 
       # backup
