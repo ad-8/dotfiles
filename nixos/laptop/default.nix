@@ -9,6 +9,7 @@
   ];
 
   configExtra.enable = true;
+  configClamav.enable = true;
   configPrinting.enable = true;
   configVirtman.enable = false;
 

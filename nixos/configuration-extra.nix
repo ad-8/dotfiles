@@ -83,16 +83,12 @@
     };
 
     environment.systemPackages = with pkgs; [
-      clamav
       ffmpeg-full
       restic
       rclone
       libsecret
       xwayland-satellite # xwayland support for niri
     ];
-
-    services.clamav.daemon.enable = true;
-    services.clamav.updater.enable = true;
 
     # The firewall is enabled by default on NixOS. Still, explicitly ensure it is enabled
     networking.firewall.enable = true;
