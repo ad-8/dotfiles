@@ -344,3 +344,8 @@ Runs indefinitely until the user aborts with `C-g` or similar."
 
 ;; get rid of the delay after executing delete-pair
 (setq delete-pair-blink-delay 0.1)
+
+;; TODO: wip - ispell aspell hunspell
+(setq ispell-program-name "hunspell")
+(setq ispell-local-dictionary "en_US,de_DE")
+(setq ispell-local-dictionary-alist '(("en_US,de_DE" "[[:alpha:]]" "[^[:alpha:]]" "'" nil ("-d" "en_US,de_DE") nil utf-8)))
