@@ -20,6 +20,11 @@
       rubyPackages_3_4.solargraph
       semgrep # needed for clojure lsp and others in emacs
       vscodium
+
+      # nix formatters
+      # usage: <name-of-formatter> <file-to-format>
+      nixfmt
+      alejandra
     ];
   };
 }
