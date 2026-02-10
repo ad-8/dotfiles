@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options = {
@@ -26,8 +31,8 @@
           diffFilter = "delta --color-only";
         };
         delta = {
-          navigate = true;    # use n and N to move between diff sections
-          light = false;      # set to true if you're in a terminal w/ a light background color 
+          navigate = true; # use n and N to move between diff sections
+          light = false; # set to true if you're in a terminal w/ a light background color
           line-numbers = true;
           side-by-side = true;
         };
@@ -41,7 +46,6 @@
         credential."https://github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
         credential."https://gist.github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
       };
-    }; 
+    };
   };
 }
-

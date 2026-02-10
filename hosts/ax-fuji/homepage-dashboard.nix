@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   services.homepage-dashboard = {
@@ -26,7 +31,7 @@
           text_size = "xl";
           format = {
             hourCycle = "h23";
-            dateStyle= "full";
+            dateStyle = "full";
             timeStyle = "medium";
           };
         };

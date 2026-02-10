@@ -28,11 +28,10 @@
   ];
 
   programs.bash = {
-	  enable = true;
+    enable = true;
     shellAliases = {
       btw = "echo 'home-manager seems to be working :)'";
     };
   };
   programs.mangohud.enable = true;
 }
-

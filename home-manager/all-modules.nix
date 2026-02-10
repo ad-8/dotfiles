@@ -19,4 +19,3 @@
 
   pkgsCore.enable = lib.mkDefault true;
 }
-

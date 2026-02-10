@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options = {
@@ -32,7 +37,6 @@
       };
     };
 
-
     # TODO put settings in the following sections in config-<category>.nix files
     # -------------------------------------
     services.xserver = {
@@ -65,7 +69,6 @@
     ];
     # -------------------------------------
 
-
     hardware.bluetooth.enable = true;
     services.blueman.enable = true; # provides blueman-applet and blueman-manager
 
@@ -79,7 +82,6 @@
       pulse.enable = true;
     };
 
-
     environment.systemPackages = with pkgs; [
       clamav
       ffmpeg-full
@@ -89,10 +91,8 @@
       xwayland-satellite # xwayland support for niri
     ];
 
-
     services.clamav.daemon.enable = true;
     services.clamav.updater.enable = true;
-
 
     # The firewall is enabled by default on NixOS. Still, explicitly ensure it is enabled
     networking.firewall.enable = true;
@@ -101,4 +101,3 @@
     # networking.firewall.allowedUDPPorts = [ ... ];
   };
 }
-

@@ -1,16 +1,21 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
-
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   time.timeZone = "Europe/Berlin";
-
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -25,13 +30,11 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-
   console.keyMap = "de";
   services.xserver.xkb = {
     layout = "de";
     variant = "";
   };
-
 
   environment.systemPackages = with pkgs; [
     vim
@@ -40,20 +43,24 @@
     tmux
   ];
 
-
   users.users.ax = {
     shell = pkgs.fish;
     isNormalUser = true;
     description = "ax";
-    extraGroups = [ "i2c" "libvirtd" "networkmanager" "podman" "video" "wheel" ];
+    extraGroups = [
+      "i2c"
+      "libvirtd"
+      "networkmanager"
+      "podman"
+      "video"
+      "wheel"
+    ];
     packages = with pkgs; [
       git
     ];
   };
 
-
   programs.fish.enable = true;
-
 
   security.sudo.extraConfig = ''
     Defaults timestamp_timeout=30

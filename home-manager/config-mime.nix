@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 # https://wiki.nixos.org/wiki/Default_applications
-# 
+#
 # To list all .desktop-files, run
 # ls /run/current-system/sw/share/applications # for global packages
 # ls /etc/profiles/per-user/$(id -n -u)/share/applications # for user packages
@@ -45,24 +45,24 @@ in
         "text/org" = emacs;
         "text/*" = simpleTextEditor;
         # Audio
-        "audio/mpeg"         = audioPlayer; # .mp3
-        "audio/ogg"          = audioPlayer;
-        "audio/flac"         = audioPlayer;
-        "audio/wav"          = audioPlayer;
-        "audio/x-wav"        = audioPlayer;
-        "audio/aac"          = audioPlayer;
-        "audio/mp4"          = audioPlayer; # .m4a
-        "audio/x-m4a"        = audioPlayer;
-        "audio/*"            = audioPlayer;
+        "audio/mpeg" = audioPlayer; # .mp3
+        "audio/ogg" = audioPlayer;
+        "audio/flac" = audioPlayer;
+        "audio/wav" = audioPlayer;
+        "audio/x-wav" = audioPlayer;
+        "audio/aac" = audioPlayer;
+        "audio/mp4" = audioPlayer; # .m4a
+        "audio/x-m4a" = audioPlayer;
+        "audio/*" = audioPlayer;
         # Video
-        "video/mp4"          = videoPlayer;
-        "video/webm"         = videoPlayer;
-        "video/x-matroska"   = videoPlayer; # .mkv
-        "video/quicktime"    = videoPlayer; # .mov
-        "video/x-msvideo"    = videoPlayer; # .avi
-        "video/x-ms-wmv"     = videoPlayer; # .wmv
-        "video/ogg"          = videoPlayer; # .ogv (Ogg video)
-        "video/*"            = videoPlayer;
+        "video/mp4" = videoPlayer;
+        "video/webm" = videoPlayer;
+        "video/x-matroska" = videoPlayer; # .mkv
+        "video/quicktime" = videoPlayer; # .mov
+        "video/x-msvideo" = videoPlayer; # .avi
+        "video/x-ms-wmv" = videoPlayer; # .wmv
+        "video/ogg" = videoPlayer; # .ogv (Ogg video)
+        "video/*" = videoPlayer;
       };
     };
   };

@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   options = {
@@ -35,7 +40,6 @@
       hunspellDicts.de_DE
       hunspellDicts.en_US
 
-
       # screenshot setup
       grim
       slurp
@@ -43,4 +47,3 @@
     ];
   };
 }
-
