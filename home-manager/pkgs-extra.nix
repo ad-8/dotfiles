@@ -28,6 +28,10 @@
       mediainfo
       poppler-utils # contains pdftoppm, needed by emacs dirvish
       vips
+      # emacs ispell (which uses aspell)
+      aspell
+      aspellDicts.en
+      aspellDicts.de
 
       # screenshot setup
       grim
