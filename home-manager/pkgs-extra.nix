@@ -28,8 +28,13 @@
       mediainfo
       poppler-utils # contains pdftoppm, needed by emacs dirvish
       vips
-      # emacs ispell (which uses aspell)
-      (aspellWithDicts (dicts: with dicts; [ en de en-computers en-science ]))
+
+      # emacs ispell (which can use aspell or hunspell)
+      # (aspellWithDicts (dicts: with dicts; [ en de en-computers en-science ]))
+      hunspell
+      hunspellDicts.de_DE
+      hunspellDicts.en_US
+
 
       # screenshot setup
       grim
