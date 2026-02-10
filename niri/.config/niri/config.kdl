@@ -308,26 +308,26 @@ binds {
 
     Mod+Tab { focus-workspace-previous; }
 
-    Mod+N  { consume-or-expel-window-left; }
-    Mod+M { consume-or-expel-window-right; }
-    Mod+Shift+N  { consume-window-into-column; }
+    Mod+N       { consume-or-expel-window-left; }
+    Mod+M       { consume-or-expel-window-right; }
+    Mod+Shift+N { consume-window-into-column; }
     Mod+Shift+M { expel-window-from-column; }
 
-    Mod+R { switch-preset-column-width; }
+    Mod+R       { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Ctrl+R  { reset-window-height; }
+    Mod+F       { maximize-column; }
+    Mod+Ctrl+F  { expand-column-to-available-width; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 
-    Mod+C { center-column; }
+    Mod+C       { center-column; }
     Mod+Shift+C { center-visible-columns; }
 
-    Mod+Minus { set-column-width "-3%"; }
-    Mod+Plus { set-column-width "+3%"; }
+    Mod+Minus       { set-column-width "-3%"; }
+    Mod+Plus        { set-column-width "+3%"; }
     Mod+Shift+Minus { set-window-height "-3%"; }
-    Mod+Shift+Plus { set-window-height "+3%"; }
+    Mod+Shift+Plus  { set-window-height "+3%"; }
 
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
@@ -389,7 +389,7 @@ binds {
     Mod+Alt+B { spawn-sh "bb ~/x/ax_bookmarks.clj std"; }
     Mod+Alt+N { spawn-sh "bb ~/x/ax_bookmarks.clj archived"; }
     Mod+Alt+F { spawn-sh "rofi -show recursivebrowser"; }
-    Mod+Y { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/scripts/command_runner.clj'"; }
+    Mod+Y     { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/scripts/command_runner.clj'"; }
 
     // Screenshots
     // put into swappy for annotations
@@ -398,13 +398,13 @@ binds {
     // Mod+Ctrl+Shift+W { spawn-sh "TODO"; }
 
     // niri native
-    Print { screenshot; }
+    Print      { screenshot; }
     Mod+Ctrl+S { screenshot; }
     
     Ctrl+Print { screenshot-screen; }
     Mod+Ctrl+A { screenshot-screen; }
     
-    Alt+Print { screenshot-window; }
+    Alt+Print  { screenshot-window; }
     Mod+Ctrl+W { screenshot-window; }
 }
 
