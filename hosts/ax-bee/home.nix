@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -24,8 +24,7 @@
   home.stateVersion = "25.05";
   home.username = "ax";
   home.homeDirectory = "/home/ax";
-  home.packages = with pkgs; [
-  ];
+  home.packages = [];
 
   programs.bash = {
     enable = true;
