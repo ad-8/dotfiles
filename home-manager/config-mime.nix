@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 # https://wiki.nixos.org/wiki/Default_applications
 # 
