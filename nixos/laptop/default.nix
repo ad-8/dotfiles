@@ -5,7 +5,7 @@
 {
   imports = [
     ../../hosts/configuration-core.nix
-    ../../hosts/ax-configs.nix
+    ../ax-configs.nix
   ];
 
   configExtra.enable = true;

@@ -9,7 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ../configuration-core.nix
-    ../ax-configs.nix
+    ../../nixos/ax-configs.nix
   ];
 
   configExtra.enable = false;
