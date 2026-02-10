@@ -55,6 +55,7 @@
   ("https://www.youtube.com/feeds/videos.xml?channel_id=UCbiGcwDWZjz05njNPrJU7jA" youtube) ; EC 
   ("https://www.youtube.com/feeds/videos.xml?channel_id=UC65_CVnMw6hvPET_DRDg3GA" youtube) ; tony-btw
   ("https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA" youtube) ; Brodie Robertson
+  ("https://www.youtube.com/feeds/videos.xml?channel_id=UC_zBdZ0_H_jn41FDRG7q4Tw" youtube) ; vimjoyer 
 
   ;; reddit
   ("https://old.reddit.com/r/linux/top/.rss?t=week" reddit r/linux)
