@@ -42,6 +42,7 @@
 
 
   users.users.ax = {
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "ax";
     extraGroups = [ "i2c" "libvirtd" "networkmanager" "podman" "video" "wheel" ];
@@ -52,7 +53,6 @@
 
 
   programs.fish.enable = true;
-  users.users.ax.shell = pkgs.fish;
 
 
   security.sudo.extraConfig = ''
