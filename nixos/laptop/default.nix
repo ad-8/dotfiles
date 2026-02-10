@@ -4,7 +4,7 @@
 
 {
   imports = [
-    ../../hosts/configuration-core.nix
+    ../configuration-core.nix
     ../ax-configs.nix
   ];
 

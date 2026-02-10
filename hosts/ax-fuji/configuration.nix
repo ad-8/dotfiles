@@ -8,7 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../configuration-core.nix
+    ../../nixos/configuration-core.nix
     ./homepage-dashboard.nix
   ];
 

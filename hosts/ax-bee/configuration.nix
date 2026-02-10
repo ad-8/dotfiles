@@ -6,7 +6,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../configuration-core.nix
+    ../../nixos/configuration-core.nix
     ../../nixos/ax-configs.nix
   ];
 
