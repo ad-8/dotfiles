@@ -1,5 +1,5 @@
-# dots
-all in one dotfiles repo, now also includes my nixos config in `nixos`, thanks to this beautiful command:  
+# dotfiles
+One big beautiful repository, now also including my NixOS config in `nixos`, thanks to this command:  
 `git subtree add --prefix=nixos https://github.com/ad-8/dotfiles-nixos master.`
 
 ## symlink with GNU Stow
