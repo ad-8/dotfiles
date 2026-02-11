@@ -9,7 +9,7 @@ Second time's the charm?
 
 
 ## Installation with LUKS -> convert to flake-based config
-Choose `GNOME` when booting the /Graphical ISO image/ (uses the Calamares installer) *and* choose `GNOME` instead of `No desktop` in the installer for an easy initial WiFi setup.
+Choose `GNOME` when booting the `Graphical ISO image` (uses the Calamares installer) *and* choose `GNOME` instead of `No desktop` in the installer for an easy initial WiFi setup.
 
 Post-install steps:  
 1. Add this line to `/etc/nixos/configuration.nix`:
