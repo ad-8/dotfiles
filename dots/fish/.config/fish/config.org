@@ -38,7 +38,7 @@ end
 #+begin_src shell
 abbr -a cd. 'cd ~/.config'
 abbr -a cdc 'cd ~/my/code'
-abbr -a cdd 'cd ~/dotfiles'
+abbr -a cdd 'cd ~/syscfg'
 abbr -a cdj "cd ~/my/code/clojure"
 abbr -a cdr 'cd ~/my/code/rust'
 abbr -a cds 'cd ~/sync'
@@ -65,9 +65,9 @@ abbr -a gsw 'git show'
 ** heavy hitters
 #+begin_src shell
 abbr -a sc systemctl
-abbr -a r 'clear && $HOME/dotfiles/scripts/command_runner.clj'
+abbr -a r 'clear && $HOME/syscfg/scripts/command_runner.clj'
 # TODO is this used?...
-abbr -a r2 '$HOME/dotfiles/scripts/command_runner.clj'
+abbr -a r2 '$HOME/syscfg/scripts/command_runner.clj'
 
 if type -q code
    abbr -a c. 'code .'
@@ -162,12 +162,12 @@ switch $distro
         abbr -a up 'sudo zypper ref && sudo zypper dup'
         abbr -a nf "clear && fastfetch --logo opensuse"
     case nixos
-         abbr -a up "sudo nixos-rebuild switch --flake ~/dotfiles/nixos#$hostname"
-         abbr -a upb "sudo nixos-rebuild boot --flake ~/dotfiles/nixos#$hostname"
-         abbr -a upd "nixos-rebuild dry-run --flake ~/dotfiles/nixos#$hostname"
-         abbr -a up2 "NH_OS_FLAKE=~/dotfiles/nixos nh os switch --ask --hostname $hostname"
-         abbr -a up2b "NH_OS_FLAKE=~/dotfiles/nixos nh os boot --ask --hostname $hostname"
-         abbr -a nxup "NH_OS_FLAKE=~/dotfiles/nixos nh os switch --ask --hostname $hostname"
+         abbr -a up "sudo nixos-rebuild switch --flake ~/syscfg/nixos#$hostname"
+         abbr -a upb "sudo nixos-rebuild boot --flake ~/syscfg/nixos#$hostname"
+         abbr -a upd "nixos-rebuild dry-run --flake ~/syscfg/nixos#$hostname"
+         abbr -a up2 "NH_OS_FLAKE=~/syscfg/nixos nh os switch --ask --hostname $hostname"
+         abbr -a up2b "NH_OS_FLAKE=~/syscfg/nixos nh os boot --ask --hostname $hostname"
+         abbr -a nxup "NH_OS_FLAKE=~/syscfg/nixos nh os switch --ask --hostname $hostname"
          abbr -a nf "clear && fastfetch"
     case void
         abbr -a up 'sudo xbps-install -Su'
@@ -185,11 +185,11 @@ end
 switch $distro
     case arch
          #abbr -a cu "checkupdates | sed 's/->//g' | column -t"
-         abbr -a cu $HOME/dotfiles/scripts/bb/checkupdates.clj
+         abbr -a cu $HOME/syscfg/scripts/bb/checkupdates.clj
     case fedora
          abbr -a cu "dnf check-update --refresh | wc -l"
     case nixos
-         abbr -a cu "cd ~/dotfiles/nixos/ && nix flake update && git status && printf '\n----------\n\n' && nixos-rebuild dry-run --flake ~/dotfiles/nixos#$hostname"
+         abbr -a cu "cd ~/syscfg/nixos/ && nix flake update && git status && printf '\n----------\n\n' && nixos-rebuild dry-run --flake ~/syscfg/nixos#$hostname"
          abbr -a lg 'nixos-rebuild list-generations | head'
     case '*'
          abbr -a cu "(checkupdate) Don't know how to on $distro"
@@ -220,7 +220,7 @@ abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
 
 abbr -a bk bin/kamal
 abbr -a br bin/rails
-abbr -a dcc 'steam-run $HOME/dotfiles/scripts/bb/dict.cc.clj'
+abbr -a dcc 'steam-run $HOME/syscfg/scripts/bb/dict.cc.clj'
 abbr -a ff rfv
 abbr -a ffa rfvuuu
 abbr -a rcp 'rclone copy --progress'
