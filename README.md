@@ -7,7 +7,10 @@ From the root dotfiles folder:
 To remove all:  
 `stow -D */`
 
-## NixOS
+## scripts
+Collection of maintained and long-forgotten scripts.
+
+## nixos
 Second time's the charm?
 
 
@@ -25,16 +28,16 @@ Also add `git` and `vim` to `environment.systemPackages` for the next steps.
 
 2. `sudo nixos-rebuild switch`
 
-3. `git clone https://github.com/ad-8/dotfiles` and `git clone https://github.com/ad-8/scripts`
+3. `git clone https://github.com/ad-8/syscfg`
 
-4. `cp /etc/nixos/hardware-configuration.nix ~/dotfiles/nixos/hosts/<host>/` 
+4. `cp /etc/nixos/hardware-configuration.nix ~/syscfg/nixos/hosts/<host>/` 
 
 5. if *not* using LUKS, skip this step  
-   add this line from `/etc/nixos/configuration.nix` to `~/dotfiles/nixos/hosts/<host>/configuration.nix`  
+   add this line from `/etc/nixos/configuration.nix` to `~/syscfg/nixos/hosts/<host>/configuration.nix`  
    (or replace existing equivalent)
 ```nix
    boot.initrd.luks.devices... = "/dev/disk/by-uuid/..."
 ```
 
-6. `sudo nixos-rebuild boot --flake ~/dotfiles/nixos#<host>`, finally reboot and enjoy
+6. `sudo nixos-rebuild boot --flake ~/syscfg/nixos#<host>`, finally reboot and enjoy
 
