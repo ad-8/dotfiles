@@ -29,7 +29,7 @@ Also add `git` and `vim` to `environment.systemPackages` for the next steps.
    add this line from `/etc/nixos/configuration.nix` to `~/dotfiles/nixos/hosts/<host>/configuration.nix`  
    (or replace existing equivalent)
 ```nix
-   `boot.initrd.luks.devices... = "/dev/disk/by-uuid/..."`
+   boot.initrd.luks.devices... = "/dev/disk/by-uuid/..."
 ```
 
 6. `sudo nixos-rebuild boot --flake ~/dotfiles/nixos#<host>`, finally reboot and enjoy
