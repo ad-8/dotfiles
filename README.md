@@ -1,6 +1,5 @@
 # dotfiles
-One big beautiful repository, now also including my NixOS config in `nixos`, thanks to this command:  
-`git subtree add --prefix=nixos https://github.com/ad-8/dotfiles-nixos master.`
+One big beautiful repository, which now also includes my NixOS config in `nixos`.
 
 ## symlink with GNU Stow
 `stow -vR --target=$HOME *` or  
@@ -13,7 +12,7 @@ Second time's the charm?
 ## Installation with LUKS -> convert to flake-based config
 Choose `GNOME` when booting the /Graphical ISO image/ (uses the Calamares installer) *and* choose `GNOME` instead of `No desktop` in the installer for an easy initial WiFi setup.
 
-Then follow these simple steps:  
+Post-install steps:  
 1. Add line to `/etc/nixos/configuration.nix`:
 ```nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -32,4 +31,6 @@ Also add `git` and `vim` to `environment.systemPackages` for the next steps.
     `boot.initrd.luks.devices... = "/dev/disk/by-uuid/..."`
 
 5. `sudo nixos-rebuild boot --flake ~/dotfiles/nixos#<host>` 
+
+6. reboot and enjoy
 
