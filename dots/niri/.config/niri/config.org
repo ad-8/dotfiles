@@ -204,7 +204,7 @@ spawn-sh-at-startup "alacritty -e btop"
 
 Somehow, could not get =swaybg= to work with =spawn-at-startup= directly ...
 #+begin_src shell
-spawn-at-startup "~/dotfiles/scripts/niri-set-wallpaper.sh"
+spawn-at-startup "~/syscfg/scripts/niri-set-wallpaper.sh"
 spawn-sh-at-startup "swayidle -w timeout 590 'notify-send locking-screen in-10-seconds' timeout 600 'swaylock -f -c 000000 -F' timeout 666 'niri msg action power-off-monitors' before-sleep 'swaylock -f -c 000000 -F'"
 #+end_src
 
@@ -408,29 +408,29 @@ binds {
 
     // ax: dwm-like keybinds
     // general
-    Mod+Shift+Y { spawn-sh "~/dotfiles/scripts/bb/licht.clj"; }
+    Mod+Shift+Y { spawn-sh "~/syscfg/scripts/bb/licht.clj"; }
     Mod+E { spawn-sh "emacsclient -c"; }
     Mod+Shift+E { spawn-sh "emacs"; }
-    Mod+O { spawn-sh "bb ~/dotfiles/scripts/launcher.clj main"; } // TODO hopefully replace w// niri keychords someday
+    Mod+O { spawn-sh "bb ~/syscfg/scripts/launcher.clj main"; } // TODO hopefully replace w// niri keychords someday
     Mod+P { spawn-sh "wmenu-run -i -l 25"; }
     Mod+S { spawn-sh "kitten quick-access-terminal"; }
-    Mod+W { spawn-sh "bb ~/dotfiles/scripts/niri.clj select-window-from-all";}
+    Mod+W { spawn-sh "bb ~/syscfg/scripts/niri.clj select-window-from-all";}
 
     // toggle waybar
-    Mod+B { spawn-sh "~/dotfiles/scripts/waybar.clj toggle";}
-    Mod+Shift+B { spawn-sh "~/dotfiles/scripts/waybar.clj toggle-min";}
+    Mod+B { spawn-sh "~/syscfg/scripts/waybar.clj toggle";}
+    Mod+Shift+B { spawn-sh "~/syscfg/scripts/waybar.clj toggle-min";}
 
     // notifications
     Mod+Alt+H { spawn-sh "dunstctl history-pop"; }
     Mod+Alt+K { spawn-sh "dunstctl close-all"; }
-    Mod+Alt+W { spawn "~/dotfiles/scripts/bb/weather.clj" "dunst" ; }
+    Mod+Alt+W { spawn "~/syscfg/scripts/bb/weather.clj" "dunst" ; }
 
     // volume
-    Mod+Alt+Left  { spawn-sh "~/dotfiles/scripts/wayland.clj volume-mute" ; }
-    Mod+Alt+Up    { spawn-sh "~/dotfiles/scripts/wayland.clj volume-up" ; }
-    Mod+Alt+Down  { spawn-sh "~/dotfiles/scripts/wayland.clj volume-down" ; }
-    Mod+Alt+Space { spawn-sh "~/dotfiles/scripts/bb/play_pause.clj" ; }
-    Mod+Alt+Right { spawn-sh "~/dotfiles/scripts/bb/play_pause.clj" ; }
+    Mod+Alt+Left  { spawn-sh "~/syscfg/scripts/wayland.clj volume-mute" ; }
+    Mod+Alt+Up    { spawn-sh "~/syscfg/scripts/wayland.clj volume-up" ; }
+    Mod+Alt+Down  { spawn-sh "~/syscfg/scripts/wayland.clj volume-down" ; }
+    Mod+Alt+Space { spawn-sh "~/syscfg/scripts/bb/play_pause.clj" ; }
+    Mod+Alt+Right { spawn-sh "~/syscfg/scripts/bb/play_pause.clj" ; }
 
     // TODO - need keychords ...
     Mod+Ctrl+B { spawn-sh "alacritty -T ax-bluetui -e bluetui";}
@@ -438,7 +438,7 @@ binds {
     Mod+Alt+B { spawn-sh "bb ~/x/ax_bookmarks.clj std"; }
     Mod+Alt+N { spawn-sh "bb ~/x/ax_bookmarks.clj archived"; }
     Mod+Alt+F { spawn-sh "rofi -show recursivebrowser"; }
-    Mod+Y     { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/dotfiles/scripts/command_runner.clj'"; }
+    Mod+Y     { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/syscfg/scripts/command_runner.clj'"; }
 
     // Screenshots
     // put into swappy for annotations
