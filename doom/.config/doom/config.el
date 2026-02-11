@@ -263,6 +263,28 @@ Runs indefinitely until the user aborts with `C-g` or similar."
      (add-hook 'org-capture-after-finalize-hook #'ax/org-capture--restart)
      (org-capture))))
 
+(after! eat
+  (setq shell-file-name "/run/current-system/sw/bin/fish"
+        explicit-shell-file-name "/run/current-system/sw/bin/fish"
+        eat-shell "/run/current-system/sw/bin/fish"
+        eat-term-name "xterm-256color")
+  (set-face-foreground 'eat-term-color-0   "#0c1014")
+  (set-face-foreground 'eat-term-color-1   "#c23127")
+  (set-face-foreground 'eat-term-color-2   "#2aa889")
+  (set-face-foreground 'eat-term-color-3   "#edb443")
+  (set-face-foreground 'eat-term-color-4   "#195466")
+  (set-face-foreground 'eat-term-color-5   "#4e5166")
+  (set-face-foreground 'eat-term-color-6   "#33859e")
+  (set-face-foreground 'eat-term-color-7   "#99d1ce")
+  (set-face-foreground 'eat-term-color-8   "#11151c")
+  (set-face-foreground 'eat-term-color-9   "#d26937")
+  (set-face-foreground 'eat-term-color-10  "#091f2e")
+  (set-face-foreground 'eat-term-color-11  "#245361")
+  (set-face-foreground 'eat-term-color-12  "#0a3749")
+  (set-face-foreground 'eat-term-color-13  "#888ca6")
+  (set-face-foreground 'eat-term-color-14  "#599cab")
+  (set-face-foreground 'eat-term-color-15  "#d3ebe9"))
+
 ;; AX
 ; doom doctor suggestions
 (setq shell-file-name (executable-find "bash"))
@@ -350,10 +372,3 @@ Runs indefinitely until the user aborts with `C-g` or similar."
 (setq ispell-program-name "hunspell")
 (setq ispell-local-dictionary "en_US,de_DE")
 (setq ispell-local-dictionary-alist '(("en_US,de_DE" "[[:alpha:]]" "[^[:alpha:]]" "'" nil ("-d" "en_US,de_DE") nil utf-8)))
-
-
-(after! eat
-  (setq shell-file-name "/run/current-system/sw/bin/fish"
-        explicit-shell-file-name "/run/current-system/sw/bin/fish"
-        eat-shell "/run/current-system/sw/bin/fish"
-        eat-term-name "xterm-256color"))
