@@ -2,9 +2,9 @@
 One big beautiful repository, which now also includes my NixOS config in `nixos`.
 
 ## dotfiles
-From the root dotfiles folder:
-`stow -vR --target=$HOME *` or `stow -vR --target=$HOME niri/`
-To remove all: 
+From the root dotfiles folder:  
+`stow -vR --target=$HOME *` or `stow -vR --target=$HOME niri/`  
+To remove all:  
 `stow -D */`
 
 ## NixOS
