@@ -5,8 +5,8 @@
 
 
 (defn get-state []
-  (let [is-paused (-> (shell {:out :string} "dunstctl is-paused") :out str/trim)]
-    (if (= "true" is-paused)
+  (let [paused? (-> (shell {:out :string} "dunstctl is-paused") :out str/trim)]
+    (if (= "true" paused?)
       :paused
       :active)))
 
