@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -53,8 +51,7 @@
 
   # TODO why bother with separating pkgs?
   users.users.ax = {
-    packages = with pkgs; [
-    ];
+    packages = [];
   };
 
   networking.firewall.enable = true; # enabled by default, still enable explicitly
