@@ -574,4 +574,13 @@ Runs indefinitely until the user aborts with `C-g` or similar."
 (setq ispell-program-name "hunspell")
 (setq ispell-local-dictionary "en_US,de_DE")
 (setq ispell-local-dictionary-alist '(("en_US,de_DE" "[[:alpha:]]" "[^[:alpha:]]" "'" nil ("-d" "en_US,de_DE") nil utf-8)))
+
+
+(after! eat
+  (setq shell-file-name "/run/current-system/sw/bin/fish"
+        explicit-shell-file-name "/run/current-system/sw/bin/fish"
+        eat-shell "/run/current-system/sw/bin/fish"
+        eat-term-name "xterm-256color"))
+
 #+end_src
+
