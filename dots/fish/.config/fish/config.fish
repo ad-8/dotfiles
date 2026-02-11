@@ -27,9 +27,9 @@ abbr -a gs 'git status'
 abbr -a gsw 'git show'
 
 abbr -a sc systemctl
-abbr -a r 'clear && $HOME/scripts/command_runner.clj'
+abbr -a r 'clear && $HOME/dotfiles/scripts/command_runner.clj'
 # TODO is this used?...
-abbr -a r2 '$HOME/scripts/command_runner.clj'
+abbr -a r2 '$HOME/dotfiles/scripts/command_runner.clj'
 
 if type -q code
    abbr -a c. 'code .'
@@ -140,7 +140,7 @@ end
 switch $distro
     case arch
          #abbr -a cu "checkupdates | sed 's/->//g' | column -t"
-         abbr -a cu $HOME/scripts/bb/checkupdates.clj
+         abbr -a cu $HOME/dotfiles/scripts/bb/checkupdates.clj
     case fedora
          abbr -a cu "dnf check-update --refresh | wc -l"
     case nixos
@@ -167,7 +167,7 @@ abbr -a ytdlp-split-audio "yt-dlp --format ba[ext=m4a] --split-chapters URL"
 
 abbr -a bk bin/kamal
 abbr -a br bin/rails
-abbr -a dcc 'steam-run $HOME/scripts/bb/dict.cc.clj'
+abbr -a dcc 'steam-run $HOME/dotfiles/scripts/bb/dict.cc.clj'
 abbr -a ff rfv
 abbr -a ffa rfvuuu
 abbr -a rcp 'rclone copy --progress'
