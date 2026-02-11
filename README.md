@@ -1,8 +1,12 @@
-# NixOS
+# dots
+all in one dotfiles repo, now also includes my nixos config in `nixos`,  
+thanks to this `git subtree add --prefix=nixos https://github.com/ad-8/dotfiles-nixos master.`
+
+## NixOS
 Second time's the charm?
 
 
-## GUI Installation with LUKS -> convert to this flake-based config
+### GUI Installation with LUKS -> convert to this flake-based config
 Install via Graphical ISO Image, which has a fast and easy Calamares installer 
 with optional LUKS setup.
 
