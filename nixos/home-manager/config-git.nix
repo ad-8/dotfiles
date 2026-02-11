@@ -19,7 +19,7 @@
           email = "arthurfleck8@proton.me";
         };
         init = {
-          defaultBranch = "main";
+          defaultBranch = "master";
         };
         # -------------------------------------------------------------------------------------------------------------------------
         # settings for [delta](https://github.com/dandavison/delta)
