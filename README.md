@@ -1,14 +1,18 @@
-# dotfiles
+# One Big Beautiful Repository
 One big beautiful repository, which now also includes my NixOS config in `nixos`.
 
-## symlink with GNU Stow
+## dotfiles
+From the root dotfiles folder:
 `stow -vR --target=$HOME *` or `stow -vR --target=$HOME niri/`
+To remove all: 
+`stow -D */`
 
-# NixOS
+## NixOS
 Second time's the charm?
 
 
-## Installation with LUKS -> convert to flake-based config
+### Installation with LUKS -> convert to flake-based config
+
 Choose `GNOME` when booting the `Graphical ISO image` (uses the Calamares installer) *and* choose `GNOME` instead of `No desktop` in the installer for an easy initial WiFi setup.
 
 Post-install steps:  
