@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if pgrep waybar >/dev/null; then
+    pkill -f waybar
+else
+    # https://github.com/basecamp/omarchy/blob/master/bin/omarchy-restart-app
+    setsid waybar >/dev/null 2>&1 &
+fi
+
