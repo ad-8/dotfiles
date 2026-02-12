@@ -5,7 +5,7 @@
    [clojure.string :as str]))
 
 
-(defn list-windows []
+(defn- list-windows []
   (sort-by :id (-> (shell {:out :string} "niri msg --json windows")
                    :out
                    str/split-lines
@@ -13,16 +13,16 @@
                    (json/parse-string true))))
 
 
-(defn format-window [{:keys [id title app_id]}]
+(defn- format-window [{:keys [id title app_id]}]
   (format "%3d   %s (%s)" id title app_id))
 
 
-(defn selected-window-id [s]
+(defn- selected-window-id [s]
   (let [[_ id] (re-find #"\s?(\d+)\s{3}.*" s)]
     id))
 
 
-(defn niri-switch-to-window [id]
+(defn- niri-switch-to-window [id]
   (shell {:out :string} (format "niri msg action focus-window --id %s" id)))
 
 
