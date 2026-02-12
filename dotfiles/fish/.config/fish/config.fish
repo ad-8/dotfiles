@@ -27,9 +27,7 @@ abbr -a gs 'git status'
 abbr -a gsw 'git show'
 
 abbr -a sc systemctl
-abbr -a r 'clear && $HOME/syscfg/scripts/command_runner.clj'
-# TODO is this used?...
-abbr -a r2 '$HOME/syscfg/scripts/command_runner.clj'
+abbr -a r 'clear && /usr/bin/env bb --config $HOME/syscfg/bb.edn $HOME/syscfg/scripts/command_runner.clj'
 
 if type -q code
    abbr -a c. 'code .'

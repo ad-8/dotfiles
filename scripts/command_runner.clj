@@ -7,7 +7,7 @@
             [clj-yaml.core :as yaml]))
 
 
-(defn flatten-commands [commands-data]
+(defn- flatten-commands [commands-data]
   (mapcat (fn [category-data]
             (map #(assoc % :category (:category category-data))
                  (get category-data :commands [])))
@@ -15,15 +15,16 @@
 
 
 ;;  ((juxt a b c) x) => [(a x) (b x) (c x)]
-(defn extract-cmd-names [all-commands]
+(defn- extract-cmd-names [all-commands]
   (->> all-commands
+       ;; sort by :category, and where it is equal, sort by :name
        (sort-by (juxt (comp str/lower-case :category)
                       (comp str/lower-case :name)))
        reverse
        (map #(str (:category %) ": " (:name %)))))
 
 
-(defn get-user-selection
+(defn- get-user-selection
   "Uses `fzf` to present a list of commands to the user and return the users choice."
   [command-names]
   (try (str/trim (:out (shell {:in (str/join "\n" command-names) :out :string} "fzf")))
