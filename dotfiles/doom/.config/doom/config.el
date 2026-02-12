@@ -171,6 +171,7 @@
        ;; non-nested
        (:desc "org-capture" "j" #'org-capture)
        (:desc "Toggle Dired Preview (global)" "p" #'dired-preview-global-mode)
+       (:desc "visually select a window" "w" #'ace-window)
        (:desc "open terminal (eat)" "RET" #'eat)
        ;; nested
        (:prefix ("d" . "dirvish / delete")
