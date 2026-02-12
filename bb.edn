@@ -1,4 +1,4 @@
-{:paths ["."] ;; needed to require relative files/namespaces
+{:paths ["scripts"] ;; needed to require relative files/namespaces
  :deps {;org.clojure/tools.logging    {:mvn/version "1.2.4"}
         org.clj-commons/pretty {:mvn/version "3.6.7"}
         io.github.paintparty/bling {:mvn/version "0.8.8"}
