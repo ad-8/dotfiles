@@ -1,5 +1,4 @@
-alacritty/.config/alacritty/themes/
-fish/.config/fish/fish_variables
 /clojure/.clojure/.cpcache/
 /clojure/.clojure/tools/
-/dots/alacritty/.config/alacritty/themes/
+/dotfiles/alacritty/.config/alacritty/themes/
+fish/.config/fish/fish_variables
