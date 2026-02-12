@@ -48,11 +48,7 @@ tooltip label {
 }
 
 #clock {
-    color: {{- if eq .chezmoi.hostname "ax-mac" -}} #b48ead
-           {{- else if eq .chezmoi.hostname "ax-bee" -}} #d08770
-           {{- else if eq .chezmoi.hostname "ax-fuji" -}} #ebcb8b
-           {{- else -}} #edb443
-           {{- end }};
+    color:  #edb443
 }
 
 #battery {

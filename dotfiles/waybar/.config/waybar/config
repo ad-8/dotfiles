@@ -163,23 +163,13 @@
         "on-click": "pavucontrol"
     },
     // https://git.sr.ht/%7Ekrathalan/waybar-modules
- // TODO
- //   "custom/vpn": {
- //       "interval": 10,
- //       "tooltip": false,
- //       "format": "{}",
- //       "return-type":
- //          {{- if eq .chezmoi.hostname "ax-fuji" -}} "json"
- //          {{- else -}} "json"
- //          {{- end }},
- //       "exec":
- //          {{- if eq .chezmoi.hostname "ax-mac" -}} "$HOME/syscfg/scripts/waybar.clj vpn"
- //          {{- else if eq .chezmoi.hostname "ax-bee" -}} "$HOME/syscfg/scripts/waybar.clj vpn"
- //          {{- else if eq .chezmoi.hostname "ax-fuji" -}} "$HOME/syscfg/scripts/legacy-xorg-dwm/i3vpn.clj"
- //          {{- else if eq .chezmoi.hostname "ax-x1c" -}} "$HOME/syscfg/scripts/waybar.clj vpn"
- //          {{- else -}} "echo 'TODO config custom/vpn'"
- //          {{- end }}
- //   },
+   "custom/vpn": {
+       "interval": 10,
+       "tooltip": false,
+       "format": "{}",
+       "return-type": "json",
+       "exec": "$HOME/syscfg/scripts/waybar.clj vpn",
+   },
     "custom/licht": {
         "interval": 10,
         "tooltip": false,
