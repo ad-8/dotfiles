@@ -1,168 +1,101 @@
 // -*- mode: jsonc -*-
+
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 10, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "spacing": 10, // Gaps between modules [px]
+
+// TODO 
+//    {{- if eq .chezmoi.hostname "ax-mac" -}} "output": "DP-1",
+//    {{- else if eq .chezmoi.hostname "ax-bee" -}} "output": "DP-1",
+//    {{- else -}} "output": "HDMI-A-1",
+//    {{- end }}
+
+
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-//        "sway/scratchpad",
-        "custom/media",
-        "custom/sep2",
-        "sway/window"
+        "custom/snowflake",
+        "niri/workspaces",
+//        "niri/windowcount",
+//       "niri/mode",
+        "niri/window",
     ],
     "modules-center": [
+        "custom/date",
         "clock",
+        "custom/weather",
     ],
     "modules-right": [
-        //        "mpd",
-        //        "idle_inhibitor",
-        "custom/weather",
-        "custom/sep2",
+        "custom/music-info",
         "pulseaudio",
+        "custom/sep2",
+        "custom/notification-status",
         "custom/sep2",
         "custom/licht",
         "custom/sep2",
+        "custom/cpu",
         "custom/disk",
-        //        "network",
-        //        "power-profiles-daemon",
-        //        "cpu",
-        //        "memory",
-        //        "temperature",
-        //        "backlight",
-        //        "keyboard-state",
-        //        "hyprland/language",
+        "custom/memory",
         "battery",
         "battery#bat2",
         "custom/sep2",
         "custom/vpn",
         "custom/sep2",
-        "tray"
-        //        "custom/power"
+        "tray",
+        "custom/sepempty"
     ],
+
+//    "niri/workspaces": {
+//        "format": "{icon}",
+//        "format-icons": {
+//            "active": "●",
+//            "default": "○",
+//        }
+//    },
+
     // Modules configuration
-    // "hyprland/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "hyprland/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": [
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        //"format": "{name}: {icon}",
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "1": "  ",
+            "2": "  ",
+            "3": " 3 ",
+            "4": " 4 ",
+            "5": " 5 ",
+            "6": " 6 ",
+            "7": " 7 ",
+            "8": "  ",
+            "9": "  ",
+            "urgent": "!   !",
+         //   "focused": "",
+         //   "default": ""
         }
     },
     "tray": {
         "icon-size": 15,
         "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+    },
+    "custom/date": {
+        "interval": 30,
+        "tooltip": false,
+        "format": "{}",
+        "return-type": "text",
+        "exec": "$HOME/syscfg/scripts/waybar.clj date"
     },
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " {:%a %d.%m.   %H:%M:%S}",
-        "format-alt": "{:%Y-%m-%d}",
+        "tooltip": false,
+        // "format": " {:%a %d.%m.   %H:%M:%S}",
+        // "format": " {:%H:%M:%S}",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%H:%M:%S}",
         "interval": 1
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
     },
     "battery": {
         "states": {
@@ -199,28 +132,25 @@
             "power-saver": ""
         }
     },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         //"format": "{volume}% {icon} {format_source}",
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+
+        // "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon}",
+
+        // "format-bluetooth-muted": " {icon} {format_source}",
+        "format-bluetooth-muted": "MUTED {icon}",
+
+        "format-muted": "MUTED {format_source}",
+        "format-source": "{volume}% ",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "󰋎 ",
+            "headset": " ",
             "phone": "",
             "portable": "",
             "car": "",
@@ -232,58 +162,90 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "custom/power": {
-        "format": "⏻ ",
-        "tooltip": false,
-        "menu": "on-click",
-        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-        "menu-actions": {
-            "shutdown": "shutdown",
-            "reboot": "reboot",
-            "suspend": "systemctl suspend",
-            "hibernate": "systemctl hibernate"
-        }
-    },
     // https://git.sr.ht/%7Ekrathalan/waybar-modules
-    "custom/vpn": {
-        "interval": 10,
-        "tooltip": false,
-        "format": "{}",
-        "return-type": "json",
-        "exec": "$HOME/scripts/bb/i3vpn.clj"
-    },
+ // TODO
+ //   "custom/vpn": {
+ //       "interval": 10,
+ //       "tooltip": false,
+ //       "format": "{}",
+ //       "return-type":
+ //          {{- if eq .chezmoi.hostname "ax-fuji" -}} "json"
+ //          {{- else -}} "json"
+ //          {{- end }},
+ //       "exec":
+ //          {{- if eq .chezmoi.hostname "ax-mac" -}} "$HOME/syscfg/scripts/waybar.clj vpn"
+ //          {{- else if eq .chezmoi.hostname "ax-bee" -}} "$HOME/syscfg/scripts/waybar.clj vpn"
+ //          {{- else if eq .chezmoi.hostname "ax-fuji" -}} "$HOME/syscfg/scripts/legacy-xorg-dwm/i3vpn.clj"
+ //          {{- else if eq .chezmoi.hostname "ax-x1c" -}} "$HOME/syscfg/scripts/waybar.clj vpn"
+ //          {{- else -}} "echo 'TODO config custom/vpn'"
+ //          {{- end }}
+ //   },
     "custom/licht": {
         "interval": 10,
         "tooltip": false,
         "format": "{}",
         "return-type": "text",
-        "exec": "$HOME/scripts/dwm-licht.sh"
+        "exec": "$HOME/syscfg/scripts/waybar.clj licht"
+    },
+    "custom/cpu": {
+        "interval": 5,
+        "tooltip": false,
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/syscfg/scripts/waybar.clj load"
     },
     "custom/disk": {
         "interval": 10,
         "tooltip": false,
         "format": "{}",
         "return-type": "json",
-        "exec": "$HOME/scripts/bb/dwm_disk_space.clj json"
+        "exec": "$HOME/syscfg/scripts/waybar.clj disk"
+    },
+    "custom/memory": {
+        "interval": 10,
+        "tooltip": false,
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/syscfg/scripts/waybar.clj memory"
     },
     "custom/weather": {
         "interval": 600,
         "tooltip": false,
+        "on-click": "~/syscfg/scripts/bb/weather.clj dunst",
+        "on-click-right": "~/syscfg/scripts/bb/weather.clj plot",
         "format": "{}",
         "return-type": "text",
-        "exec": "$HOME/scripts/bb/weather.clj dwm"
+        "exec": "$HOME/syscfg/scripts/bb/weather.clj dwm"
+    },
+    "custom/music-info": {
+        "interval": 1,
+        "tooltip": false,
+        "on-click": "playerctl play-pause",
+        "format": "{}",
+        "return-type": "text",
+        "exec": "$HOME/syscfg/scripts/waybar.clj music"
+    },
+    "custom/notification-status": {
+        "interval": 5,
+        "tooltip": false,
+        "on-click": "$HOME/syscfg/scripts/dunst_toggle_and_notify.clj",
+        "format": "{}",
+        "return-type": "text",
+        "exec": "$HOME/syscfg/scripts/waybar.clj notification-status"
+    },
+    // https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Menu
+    "custom/snowflake": {
+//        "format": "   ",
+        "format": "  λ",
+        "tooltip-format": "Menu\n\nClick to open the SnowflakeMenu",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/snowflake.xml",
+        "menu-actions": {
+            "About": "setsid $HOME/.cargo/bin/snowflake > /dev/null 2>&1 &",
+            "reboot": "notify-send reboot 'TODO: this is a work in progress ...'",
+            "shutdown": "notify-send shutdown 'TODO: this is a work in progress ...'",
+        },
     },
     "custom/sep1": {
         "format": " | ",
@@ -292,5 +254,37 @@
     "custom/sep2": {
         "format": "•",
         "tooltip": false
+    },
+    "custom/sep2b": {
+        "format": "•",
+        "tooltip": false
+    },
+    "custom/sepempty": {
+        "format": " ",
+        "tooltip": false
+    },
+        "sway/mode": {
+        "format": "{}",
+        "max-length": 100
+    },
+    "niri/windowcount": {
+        "format": "[{}]",
+        "format-empty": "[]=",
+        "format-windowed": "[]=",
+        // "format-fullscreen": "[{}]",
+        "separate-outputs": true
+    },
+    "niri/window": {
+        "format": "{title}",
+        "icon": false,
+        "icon-size": 20,
+//        "max-length": 50,
+             "rewrite": {
+                   "(.*) - Mozilla Firefox": "$1",
+                   "(.*) — Mozilla Firefox": "$1",
+                   "(.*) - Brave": "$1",
+            }
     }
+
+
 }
