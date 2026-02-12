@@ -389,7 +389,7 @@ binds {
     Mod+Alt+B { spawn-sh "bb ~/x/ax_bookmarks.clj std"; }
     Mod+Alt+N { spawn-sh "bb ~/x/ax_bookmarks.clj archived"; }
     Mod+Alt+F { spawn-sh "rofi -show recursivebrowser"; }
-    Mod+Y     { spawn-sh "alacritty -T ax-command-runner -e fish -C '$HOME/syscfg/scripts/command_runner.clj'"; }
+    Mod+Y     { spawn-sh "alacritty -T ax-command-runner -e fish -C '/usr/bin/env bb --config $HOME/syscfg/bb.edn $HOME/syscfg/scripts/command_runner.clj'"; }
 
     // Screenshots
     // put into swappy for annotations
