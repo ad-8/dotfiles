@@ -2,3 +2,5 @@
 /clojure/.clojure/tools/
 /dotfiles/alacritty/.config/alacritty/themes/
 fish/.config/fish/fish_variables
+/.clj-kondo/
+/.lsp/
