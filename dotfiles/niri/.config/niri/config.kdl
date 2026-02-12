@@ -366,6 +366,7 @@ binds {
     Mod+P { spawn-sh "wmenu-run -i -l 25"; }
     Mod+S { spawn-sh "kitten quick-access-terminal"; }
     Mod+W { spawn-sh "bb ~/syscfg/scripts/niri.clj select-window-from-all";}
+    Mod+X { spawn-sh "emacsclient --eval '(thanos/type)'"; }
 
     // toggle waybar
     Mod+B { spawn-sh "~/syscfg/scripts/waybar.clj toggle";}
@@ -456,6 +457,11 @@ window-rule {
 
 window-rule {
     match app-id=r#"thunar$"# title="^File Operation Progress$"
+    open-floating true
+}
+window-rule {
+    // thanos/type (emacs everywhere for wayland)
+    match app-id=r#"Emacs$"# title="^emacs-float$"
     open-floating true
 }
 window-rule {

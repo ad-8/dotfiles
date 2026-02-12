@@ -44,6 +44,9 @@
       grim
       slurp
       swappy
+
+      # required for the emacs everywhere for wayland script by Thanos Apollo
+      wtype
     ];
   };
 }

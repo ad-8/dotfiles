@@ -7,7 +7,7 @@
 - [[#output][Output]]
 - [[#layout][Layout]]
 - [[#autostart][Autostart]]
-- [[#binds][Binds]]
+- [[#keybindings][Keybindings]]
 - [[#window-rules][Window Rules]]
   - [[#open-specific-windows-maximized-full-width][open specific windows maximized (full width)]]
   - [[#misc][misc]]
@@ -208,7 +208,7 @@ spawn-at-startup "~/syscfg/scripts/niri-set-wallpaper.sh"
 spawn-sh-at-startup "swayidle -w timeout 590 'notify-send locking-screen in-10-seconds' timeout 600 'swaylock -f -c 000000 -F' timeout 666 'niri msg action power-off-monitors' before-sleep 'swaylock -f -c 000000 -F'"
 #+end_src
 
-* Binds
+* Keybindings
 Keys consist of modifiers separated by + signs, followed by an XKB key name
 in the end. To find an XKB name for a particular key, you may use a program
 like wev.
@@ -415,6 +415,7 @@ binds {
     Mod+P { spawn-sh "wmenu-run -i -l 25"; }
     Mod+S { spawn-sh "kitten quick-access-terminal"; }
     Mod+W { spawn-sh "bb ~/syscfg/scripts/niri.clj select-window-from-all";}
+    Mod+X { spawn-sh "emacsclient --eval '(thanos/type)'"; }
 
     // toggle waybar
     Mod+B { spawn-sh "~/syscfg/scripts/waybar.clj toggle";}
@@ -511,6 +512,11 @@ window-rule {
 
 window-rule {
     match app-id=r#"thunar$"# title="^File Operation Progress$"
+    open-floating true
+}
+window-rule {
+    // thanos/type (emacs everywhere for wayland)
+    match app-id=r#"Emacs$"# title="^emacs-float$"
     open-floating true
 }
 window-rule {
