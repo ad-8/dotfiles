@@ -8,10 +8,12 @@
 
 
 (defn- flatten-commands [commands-data]
-  (mapcat (fn [category-data]
-            (map #(assoc % :category (:category category-data))
-                 (get category-data :commands [])))
-          commands-data))
+  (mapcat
+   (fn [command-data]
+     (map
+      #(assoc % :category (:category command-data))
+      (get command-data :commands [])))
+   commands-data))
 
 
 ;;  ((juxt a b c) x) => [(a x) (b x) (c x)]
