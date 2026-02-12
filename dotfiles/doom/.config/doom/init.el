@@ -16,17 +16,11 @@
 
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
-       ;;chinese
-       ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       ;;company           ; the ultimate code completion backend
-       (corfu +dabbrev +icons +orderless)  ; complete with cap(f), cape and a flying feather!
-       ;;helm              ; the *other* search engine for love and life
-       ;;ido               ; the other *other* search engine...
-       ;;ivy               ; a search engine for love and life
-       (vertico +icons)           ; the search engine of the future
+       (corfu +dabbrev +icons +orderless) ; complete with cap(f), cape and a flying feather!
+       (vertico +icons)                   ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
