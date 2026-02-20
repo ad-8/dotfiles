@@ -25,6 +25,7 @@
       nixfmt
       rubyPackages_3_4.solargraph
       semgrep # needed for clojure lsp and others in emacs
+      sqlitebrowser
       vscodium
       youplot # cli plots
     ];
