@@ -83,7 +83,7 @@ abbr -a t. 'thunar . & disown'
 abbr -a cm chezmoi
 abbr -a db distrobox
 
-abbr -a lt 'll -t'
+abbr -a lt 'll -th'
 # by default, when in nnn, `e` opens a file with $VISUAL
 abbr -a n "VISUAL='emacsclient -nw' nnn"
 abbr -a o. 'xdg-open .'
