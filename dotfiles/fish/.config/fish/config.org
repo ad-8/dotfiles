@@ -16,7 +16,7 @@
   - [[#package-managers][package managers]]
   - [[#update-rsync][update: (r)sync]]
   - [[#special-use][special use]]
-  - [[#freebsd][FreeBSD]]
+  - [[#freebsd-and-openbsd-abbrs][FreeBSD and OpenBSD abbrs]]
 - [[#add-to-path][add to $PATH]]
 - [[#alias][alias]]
 - [[#set-in-nix----export][set in nix? -- export]]
@@ -225,9 +225,17 @@ abbr -a ffa rfvuuu
 abbr -a rcp 'rclone copy --progress'
 abbr -a rct 'rclone tree --level 2'
 #+end_src
-** FreeBSD
+** FreeBSD and OpenBSD abbrs
 #+begin_src shell
-abbr -a ifc ifconfig
+switch (uname)
+    case FreeBSD
+        abbr -a ifc ifconfig
+        abbr -a nf 'clear && fastfetch --config neofetch && echo'
+    case OpenBSD
+        abbr -a nf 'clear && fastfetch --config neofetch && echo'
+    case Linux
+    case '*'
+end
 #+end_src
 * add to $PATH
 #+begin_src shell

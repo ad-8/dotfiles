@@ -171,7 +171,15 @@ abbr -a ffa rfvuuu
 abbr -a rcp 'rclone copy --progress'
 abbr -a rct 'rclone tree --level 2'
 
-abbr -a ifc ifconfig
+switch (uname)
+    case FreeBSD
+        abbr -a ifc ifconfig
+        abbr -a nf 'clear && fastfetch --config neofetch && echo'
+    case OpenBSD
+        abbr -a nf 'clear && fastfetch --config neofetch && echo'
+    case Linux
+    case '*'
+end
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
