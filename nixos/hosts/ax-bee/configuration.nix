@@ -74,7 +74,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "5 */2 * * *     ax     . /etc/profile; ruby $HOME/x/backup/ax_bee_restic_b2.rb >> ~/restic.log 2>&1"
+      "5 */2 * * *     ax     . /etc/profile; /usr/bin/env bb $HOME/x/backup/ax_bee_restic_b2.clj >> ~/restic.log 2>&1"
     ];
   };
 
