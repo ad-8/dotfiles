@@ -109,7 +109,13 @@
 
   # android adb setup
   programs.adb.enable = true;
-  users.users.ax.extraGroups = [ "adbusers" ];
+
+  users.users.ax.extraGroups = [
+    "adbusers"
+    "i2c"
+    "libvirtd"
+    "podman"
+  ];
 
   # LocalSend
   networking.firewall.allowedTCPPorts = [ 53317 ];

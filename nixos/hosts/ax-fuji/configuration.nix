@@ -49,9 +49,9 @@
     jellyfin-ffmpeg
   ];
 
-  # TODO why bother with separating pkgs?
   users.users.ax = {
     packages = [];
+    extraGroups = [ "podman" ];
   };
 
   networking.firewall.enable = true; # enabled by default, still enable explicitly
@@ -66,6 +66,7 @@
     cron = {
       enable = true;
       systemCronJobs = [
+        # run backup scripts
         "10 3 * * *     ax     . /etc/profile; /usr/bin/env bb $HOME/x/backup/ax_srv_radicale.clj >> ~/cron-radicale.log 2>&1"
         "12 3 * * *     ax     . /etc/profile; /usr/bin/env bb $HOME/x/backup/ax_srv_linkding.clj >> ~/cron-linkding.log 2>&1"
         "15 3 * * *     ax     . /etc/profile; /usr/bin/env bb $HOME/x/backup/ax_srv_immich.clj >> ~/cron-immich.log 2>&1"
@@ -107,7 +108,7 @@
     containers.enable = true;
     podman = {
       enable = true;
-      dockerCompat = true;
+      dockerCompat = true; # Create an alias mapping docker to podman.
       defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
     };
   };

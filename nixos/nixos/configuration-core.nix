@@ -46,10 +46,7 @@
     isNormalUser = true;
     description = "ax";
     extraGroups = [
-      "i2c"
-      "libvirtd"
       "networkmanager"
-      "podman"
       "video"
       "wheel"
     ];
