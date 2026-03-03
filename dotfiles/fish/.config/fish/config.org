@@ -83,6 +83,7 @@ abbr -a hg 'history | grep -i'
 abbr -a t. 'thunar . & disown'
 abbr -a cm chezmoi
 abbr -a db distrobox
+abbr -a df 'df -h'
 
 abbr -a lt 'll -th'
 # by default, when in nnn, `e` opens a file with $VISUAL
