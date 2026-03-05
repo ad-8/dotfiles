@@ -16,10 +16,10 @@
 
     "modules-left": [
         "custom/snowflake",
-        "niri/workspaces",
-//        "niri/windowcount",
-//       "niri/mode",
-        "niri/window",
+        "hyprland/workspaces",
+//        "hyprland/windowcount",
+//       "hyprland/mode",
+        "hyprland/window",
     ],
     "modules-center": [
         "custom/date",
@@ -257,14 +257,14 @@
         "format": "{}",
         "max-length": 100
     },
-    "niri/windowcount": {
+    "hyprland/windowcount": {
         "format": "[{}]",
         "format-empty": "[]=",
         "format-windowed": "[]=",
         // "format-fullscreen": "[{}]",
         "separate-outputs": true
     },
-    "niri/window": {
+    "hyprland/window": {
         "format": "{title}",
         "icon": false,
         "icon-size": 20,
