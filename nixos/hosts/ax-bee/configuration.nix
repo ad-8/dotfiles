@@ -117,6 +117,17 @@
     "podman"
   ];
 
+  services.openssh = {
+    enable = true;
+    # ports = [ 5432 ];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      # AllowUsers = [ "myUser" ];
+    };
+  };
+
   # LocalSend
   networking.firewall.allowedTCPPorts = [ 53317 ];
   networking.firewall.allowedUDPPorts = [ 53317 ];
