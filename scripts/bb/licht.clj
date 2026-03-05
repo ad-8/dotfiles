@@ -128,11 +128,10 @@
   [n]
   (if (= "x11" (get-session-type))
     (shell (format "/usr/bin/env sct %s" (str n)))
-    ;; w/o try/catch, this doesn't work if gammastep was never set or was killed manually
-    (do (try (shell "pkill -f gammastep")
-             (catch Exception _e (println "error killing gammastep")))
+    (do (try (shell "pkill -f hyprsunset")
+             (catch Exception _e (println "error killing hyprsunset")))
         (Thread/sleep 500)
-        (babashka.process/process "gammastep -O" (str n)))))
+        (babashka.process/process "hyprsunset -t" (str n)))))
 
 
 
@@ -165,7 +164,7 @@
                "hi"   {:name "High"
                        :vals [80 0 80 80 6000]}
                "hi2"  {:name "High2"
-                       :vals [67 67 67 67 6000]}
+                       :vals [67 67 67 67 5500]}
                "hi3"  {:name "High3"
                        :vals [59 59 59 59 4900]}
                "lo"   {:name "Low"

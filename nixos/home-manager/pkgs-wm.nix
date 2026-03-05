@@ -16,22 +16,18 @@
       bluetui
       ddcutil
       dunst
-      gammastep
+      hypridle
+      hyprsunset
       libnotify
       networkmanagerapplet
       playerctl
       rofi
       swaybg
-      swayidle
       swaylock
       waybar
       wiremix
       wl-clipboard
       wmenu
-
-      hypridle
-      hyprsunset
-
     ];
   };
 }
