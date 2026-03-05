@@ -55,6 +55,13 @@
       wlr.enable = true;
     };
 
+    programs.hyprland = {
+      enable = true;
+      withUWSM = false;
+      xwayland.enable = true;
+    };
+
+
     # -------------------------------------
     programs.firefox.enable = true;
     programs.java.enable = true;

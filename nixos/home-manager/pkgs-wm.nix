@@ -28,6 +28,10 @@
       wiremix
       wl-clipboard
       wmenu
+
+      hypridle
+      hyprsunset
+
     ];
   };
 }
