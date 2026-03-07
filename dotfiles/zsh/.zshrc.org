@@ -1,0 +1,119 @@
+#+title: .zshrc
+#+PROPERTY: header-args:sh :tangle .zshrc
+
+2026-03-07: since =fish= has issues with with its history ("corrupted history") on =OpenBSD=,
+we get to to =zsh= for a change.
+Lets try to keep this "minimal" LOL.
+
+* ToC :toc:
+- [[#useful-info-links-etc][useful info, links, etc]]
+- [[#welcome-fn][welcome fn]]
+- [[#history][history]]
+- [[#keybinds][keybinds]]
+- [[#add-to-path][add to path]]
+  - [[#doom-emacs][doom emacs]]
+- [[#misc][misc]]
+- [[#alias][alias]]
+- [[#hold-abbr][HOLD abbr]]
+- [[#prompt][prompt]]
+  - [[#1-add-to-fpath][1. add to fpath]]
+  - [[#2-set-opts][2. set opts]]
+  - [[#3-init][3. init]]
+- [[#fzf-for-searching-history-ctrl-r][fzf for searching history (=ctrl-r=)]]
+- [[#stuff-to-load-at-the-end-eg-plugins][stuff to load at the end, e.g. plugins]]
+  - [[#autosuggestions][autosuggestions]]
+  - [[#syntax-highlighting][syntax highlighting]]
+
+* useful info, links, etc 
+list availabe options: =set -o=
+list available keybinds: =zle -al=
+
+* welcome fn
+#+begin_src sh
+# Lines configured by zsh-newuser-install
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/ax/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+#+end_src
+
+* history
+#+begin_src sh
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+#+end_src
+
+* TODO keybinds
+
+* add to path
+** doom emacs
+#+begin_src sh
+export PATH="$HOME/.config/emacs/bin:$PATH"
+#+end_src
+
+* misc
+#+begin_src sh
+setopt autocd
+
+# fixes missing nerd icons in nnn
+export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+
+#+end_src
+* alias
+#+begin_src sh
+alias e='emacs -nw'
+alias n="VISUAL='emacsclient -nw' nnn"
+alias nf='clear && fastfetch --config neofetch && echo'
+alias l='eza -l --group-directories-first --icons'
+alias lll='eza -al --group-directories-first --icons'
+#+end_src
+
+* HOLD abbr
+https://github.com/olets/zsh-abbr does run on OpenBSD, but throws errors,
+e.g. =head: unknown option -- c=
+
+Don't wanna bother with errors, else could just continue using fish, so we uninstalled it...
+
+
+* prompt
+testing https://github.com/sindresorhus/pure
+
+** 1. add to fpath
+#+begin_src sh
+fpath+=($HOME/.zsh/pure)
+#+end_src
+
+** 2. set opts
+#+begin_src sh
+export PURE_PROMPT_SYMBOL='λ'
+export PURE_CMD_MAX_EXEC_TIME=2
+#+end_src
+   
+** 3. init
+Initialize the prompt system and choose pure:
+#+begin_src sh
+autoload -U promptinit; promptinit
+prompt pure
+#+end_src
+
+* fzf for searching history (=ctrl-r=)
+#+begin_src sh
+source <(fzf --zsh)
+#+end_src
+
+* stuff to load at the end, e.g. plugins
+** TODO autosuggestions
+** syntax highlighting
+OpenBSD: =zsh-syntax-highlighting= 
+
+#+begin_src sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#+end_src
+
