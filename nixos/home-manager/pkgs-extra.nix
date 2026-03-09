@@ -13,6 +13,7 @@
   config = lib.mkIf config.pkgsExtra.enable {
     home.packages = with pkgs; [
       btop
+      chafa
       chezmoi
       gum
       imagemagick
