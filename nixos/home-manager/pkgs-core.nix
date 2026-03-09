@@ -21,6 +21,7 @@
       fastfetch
       fd
       file
+      foot
       fzf
       htop
       nh
