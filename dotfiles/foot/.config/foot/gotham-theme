@@ -1,0 +1,29 @@
+# -*- conf -*-
+#
+# Gotham v0.1
+# my own implementation of https://github.com/whatyouhide/vim-gotham for foot
+
+[colors]
+cursor= 091f2e 99d1ce
+
+background=0c1014
+foreground=99d1ce
+
+regular0=0c1014
+regular1=c23127
+regular2=2aa889
+regular3=edb443
+regular4=195466
+regular5=4e5166
+regular6=33859e
+regular7=99d1ce
+
+bright0=0a3749
+bright1=d26937
+bright2=091f2e
+bright3=245361
+bright4=0a3749
+bright5=888ca6
+bright6=599cab
+bright7=d3ebe9
+
