@@ -322,16 +322,16 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     #background = "#222222"
-    background = "#3b4252"
-    foreground = "#888888"
+    background = "#11151c"
+    foreground = "#99d1ce"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
-    default_icon = bell
+    # default_icon = bell
 
 [urgency_normal]
     #background = "#285577"
-    background = "#5e81ac"
-    foreground = "#ffffff"
+    background = "#091f2e"
+    foreground = "#99d1ce"
     timeout = 10
     override_pause_level = 30
     # Icon for notifications with normal urgency, uncomment to enable
@@ -339,17 +339,17 @@
     #
     # Icons installed on arch-ax: /usr/share/icons/
     # Icon name should match a name from the icon_theme chosen above
-    default_icon = bell
+    # default_icon = bell
 
 [urgency_critical]
     #background = "#900000"
-    background = "#bf616a"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
+    background = "#c23127"
+    foreground = "#99d1ce"
+    # frame_color = "#ff0000"
     timeout = 0
     override_pause_level = 60
     # Icon for notifications with critical urgency, uncomment to enable
-    default_icon = bell
+    # default_icon = bell
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
