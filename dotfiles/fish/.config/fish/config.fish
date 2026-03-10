@@ -58,7 +58,7 @@ abbr -a ssa 'sha256sum'
 abbr -a ssc 'sha256sum --check --ignore-missing'
 abbr -a tl 'tree -L'
 abbr -a todo 'rg -i todo --stats'
-abbr -a vd vimdiff
+abbr -a vd nvim -d
 
 
 if test "$XDG_SESSION_TYPE" = "wayland"
@@ -187,7 +187,7 @@ fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/.local/bin
 
 alias e "emacs -nw"
-alias v vim
+alias v nvim
 alias l 'eza -l --group-directories-first --icons'
 alias lll 'eza -al --group-directories-first --icons'
 alias x '/usr/bin/env bb ~/x/x.clj'
