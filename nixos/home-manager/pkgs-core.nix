@@ -12,7 +12,6 @@
 
   config = lib.mkIf config.pkgsCore.enable {
     home.packages = with pkgs; [
-      alacritty
       babashka
       bat
       delta
@@ -28,7 +27,6 @@
       (nnn.override { withNerdIcons = true; })
       psmisc # provides killall
       ripgrep
-      ruby_3_4
       starship
       stow
       tealdeer

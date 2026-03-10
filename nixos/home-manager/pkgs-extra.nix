@@ -14,7 +14,6 @@
     home.packages = with pkgs; [
       btop
       chafa
-      chezmoi
       gum
       imagemagick
       inxi # Full featured CLI system information tool
@@ -25,7 +24,7 @@
       pdftk
       smartmontools
       steam-run
-      unzip # no zip, use tar xD
+      unzip
       usbutils # lsusb and more
       wireguard-tools
 

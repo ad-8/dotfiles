@@ -16,10 +16,8 @@
       anki
       brave
       gimp3
-      gnome-disk-utility
       kdePackages.okular
       keepassxc
-      kitty
       libreoffice-still
       localsend
       mpv
@@ -32,7 +30,6 @@
       signal-desktop
       strawberry
       thunderbird
-      ungoogled-chromium
       vlc
       xfce.mousepad
       xfce.ristretto
