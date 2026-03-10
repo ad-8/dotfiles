@@ -186,7 +186,7 @@ fish_add_path ~/.cargo/bin/
 fish_add_path ~/.config/emacs/bin/
 fish_add_path ~/.local/bin
 
-alias e "emacs -nw"
+alias e "emacsclient -nw"
 alias v nvim
 alias l 'eza -l --group-directories-first --icons'
 alias lll 'eza -al --group-directories-first --icons'
