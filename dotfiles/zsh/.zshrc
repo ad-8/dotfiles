@@ -1,13 +1,9 @@
-# Lines configured by zsh-newuser-install
 unsetopt beep
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/ax/.zshrc'
 
+zstyle :compinstall filename '/home/ax/.zshrc'
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 HISTFILE=~/.histfile
 HISTSIZE=100000

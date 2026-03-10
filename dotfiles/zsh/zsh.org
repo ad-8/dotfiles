@@ -1,15 +1,15 @@
-#+title: .zshrc
+#+title: My Zsh Configuration
 #+PROPERTY: header-args:sh :tangle .zshrc
 
-2026-03-07: since =fish= has issues with with its history ("corrupted history") on =OpenBSD=,
-we get to to =zsh= for a change.
-Lets try to keep this "minimal" LOL.
+2026-03-07: since =fish= has issues with its history ("corrupted history") on =OpenBSD=,
+we get to =zsh= for a change.
+Lets try to keep this "minimal".
 
-* ToC :toc:
+* Table of Contents :toc:
 - [[#useful-info-links-etc][useful info, links, etc]]
-- [[#welcome-fn][welcome fn]]
+- [[#options-set-by-the-welcome-functionality][Options set by the welcome functionality]]
 - [[#history][history]]
-- [[#keybinds][keybinds]]
+- [[#hold-keybinds][HOLD keybinds]]
 - [[#add-to-path][add to path]]
   - [[#doom-emacs][doom emacs]]
 - [[#misc][misc]]
@@ -21,26 +21,28 @@ Lets try to keep this "minimal" LOL.
   - [[#3-init][3. init]]
 - [[#fzf-for-searching-history-ctrl-r][fzf for searching history (=ctrl-r=)]]
 - [[#stuff-to-load-at-the-end-eg-plugins][stuff to load at the end, e.g. plugins]]
-  - [[#autosuggestions][autosuggestions]]
+  - [[#hold-autosuggestions][HOLD autosuggestions]]
   - [[#syntax-highlighting][syntax highlighting]]
 
 * useful info, links, etc 
-list availabe options: =set -o=
+list available options: =set -o=
 list available keybinds: =zle -al=
 
-* welcome fn
+* Options set by the welcome functionality
+Lines configured by zsh-newuser-install
 #+begin_src sh
-# Lines configured by zsh-newuser-install
 unsetopt beep
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/ax/.zshrc'
+#+end_src
+End of lines configured by zsh-newuser-install
 
+The following lines were added by compinstall
+#+begin_src sh
+zstyle :compinstall filename '/home/ax/.zshrc'
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 #+end_src
+End of lines added by compinstall
 
 * history
 #+begin_src sh
@@ -49,7 +51,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 #+end_src
 
-* TODO keybinds
+* HOLD keybinds
 
 * add to path
 ** doom emacs
@@ -81,21 +83,17 @@ e.g. =head: unknown option -- c=
 
 Don't wanna bother with errors, else could just continue using fish, so we uninstalled it...
 
-
 * prompt
 testing https://github.com/sindresorhus/pure
-
 ** 1. add to fpath
 #+begin_src sh
 fpath+=($HOME/.zsh/pure)
 #+end_src
-
 ** 2. set opts
 #+begin_src sh
 export PURE_PROMPT_SYMBOL='λ'
 export PURE_CMD_MAX_EXEC_TIME=2
 #+end_src
-   
 ** 3. init
 Initialize the prompt system and choose pure:
 #+begin_src sh
@@ -109,9 +107,10 @@ source <(fzf --zsh)
 #+end_src
 
 * stuff to load at the end, e.g. plugins
-** TODO autosuggestions
+** HOLD autosuggestions
+managing fine w/o so far
 ** syntax highlighting
-OpenBSD: =zsh-syntax-highlighting= 
+OpenBSD pkg: =zsh-syntax-highlighting= 
 
 #+begin_src sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
