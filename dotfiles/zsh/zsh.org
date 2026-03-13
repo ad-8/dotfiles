@@ -75,6 +75,8 @@ alias n="VISUAL='emacsclient -nw' nnn"
 alias nf='clear && fastfetch --config neofetch && echo'
 alias l='eza -l --group-directories-first --icons'
 alias lll='eza -al --group-directories-first --icons'
+alias v=nvim
+alias vim=nvim
 #+end_src
 
 * HOLD abbr
