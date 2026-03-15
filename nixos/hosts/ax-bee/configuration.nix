@@ -14,6 +14,7 @@
   configClamav.enable = true;
   configPrinting.enable = true;
   configVirtman.enable = true;
+  configDistrobox.enable = true;
 
   boot.initrd.luks.devices."luks-1101d87b-2380-4455-a516-1dda026f32e3".device =
     "/dev/disk/by-uuid/1101d87b-2380-4455-a516-1dda026f32e3";
@@ -91,13 +92,7 @@
   services.resolved.enable = true;
 
   # -----------------------------------------------------------------------------------------------
-  # distrobox
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
   environment.systemPackages = with pkgs; [
-    distrobox
     (heroic.override {
       extraPkgs = pkgs: [
         pkgs.gamescope
