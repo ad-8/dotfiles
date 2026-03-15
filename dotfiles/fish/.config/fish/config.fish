@@ -116,12 +116,12 @@ switch $distro
         abbr -a up 'sudo zypper ref && sudo zypper dup'
         abbr -a nf "clear && fastfetch --logo opensuse"
     case nixos
-         abbr -a up "sudo nixos-rebuild switch --flake ~/syscfg/nixos#$hostname"
-         abbr -a upb "sudo nixos-rebuild boot --flake ~/syscfg/nixos#$hostname"
-         abbr -a upd "nixos-rebuild dry-run --flake ~/syscfg/nixos#$hostname"
-         abbr -a up2 "NH_OS_FLAKE=~/syscfg/nixos nh os switch --ask --hostname $hostname"
-         abbr -a up2b "NH_OS_FLAKE=~/syscfg/nixos nh os boot --ask --hostname $hostname"
-         abbr -a nxup "NH_OS_FLAKE=~/syscfg/nixos nh os switch --ask --hostname $hostname"
+         abbr -a up "sudo nixos-rebuild switch --flake ~/syscfg/nixos-config#$hostname"
+         abbr -a upb "sudo nixos-rebuild boot --flake ~/syscfg/nixos-config#$hostname"
+         abbr -a upd "nixos-rebuild dry-run --flake ~/syscfg/nixos-config#$hostname"
+         abbr -a up2 "NH_OS_FLAKE=~/syscfg/nixos-config nh os switch --ask --hostname $hostname"
+         abbr -a up2b "NH_OS_FLAKE=~/syscfg/nixos-config nh os boot --ask --hostname $hostname"
+         abbr -a nxup "NH_OS_FLAKE=~/syscfg/nixos-config nh os switch --ask --hostname $hostname"
          abbr -a nf "clear && fastfetch"
     case void
         abbr -a up 'sudo xbps-install -Su'
@@ -143,7 +143,7 @@ switch $distro
     case fedora
          abbr -a cu "dnf check-update --refresh | wc -l"
     case nixos
-         abbr -a cu "cd ~/syscfg/nixos/ && nix flake update && git status && printf '\n----------\n\n' && nixos-rebuild dry-run --flake ~/syscfg/nixos#$hostname"
+         abbr -a cu "cd ~/syscfg/nixos-config/ && nix flake update && git status && printf '\n----------\n\n' && nixos-rebuild dry-run --flake ~/syscfg/nixos-config#$hostname"
          abbr -a lg 'nixos-rebuild list-generations | head'
     case '*'
          abbr -a cu "(checkupdate) Don't know how to on $distro"
