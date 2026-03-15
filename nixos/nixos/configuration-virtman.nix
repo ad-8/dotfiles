@@ -15,5 +15,9 @@
     # - start network for current boot: `sudo virsh net-start default`
     virtualisation.libvirtd.enable = true;
     programs.virt-manager.enable = true;
+
+    users.users.ax.extraGroups = [
+      "libvirtd"
+    ];
   };
 }

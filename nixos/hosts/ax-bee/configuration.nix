@@ -113,7 +113,6 @@
   users.users.ax.extraGroups = [
     "adbusers"
     "i2c"
-    "libvirtd"
     "podman"
   ];
 
